@@ -2427,7 +2427,7 @@ aside.newslatter {
   right: 0;
   width: 48px;
   height: 38px;
-  background: #ff5100;
+  background: #518249;
   border: 1px solid transparent;
   outline: unset;
   text-align: center;
@@ -3555,7 +3555,7 @@ ul.social_item li a:hover {
   line-height: 1;
   color: #fff;
   font-weight: 400;
-  color: #ff5100;
+  color: #8f652f;
   font-family: var(--secondary-font);
   text-align: right;
   position: absolute;
