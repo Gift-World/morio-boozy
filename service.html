@@ -117,7 +117,14 @@
 
       <!-- BEGIN: Banner Section  -->
       <section class="aboutBanner">
-        <div class="container">
+        
+        <div class="banner-slider">
+          <div class="slide active" style="background-image: url('assets/images/projects/morio4.jpg');"></div>
+          <div class="slide" style="background-image: url('assets/images/projects/morio2.jpg');"></div>
+          <div class="slide" style="background-image: url('assets/images/projects/morio3.jpg');"></div>
+        </div>
+
+        <div class="container relative-content">
           <div class="row">
             <div class="col-lg-12 col-xl-8 offset-xl-2">
               <div class="pageBannerContent text-center">
@@ -633,6 +640,23 @@
 
     <script src="assets/js/common.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const slides = document.querySelectorAll(".banner-slider .slide");
+    let currentSlide = 0;
+
+    setInterval(() => {
+      // Remove active class from the current slide
+      slides[currentSlide].classList.remove("active");
+      
+      // Move to the next slide, loop back to 0 if at the end
+      currentSlide = (currentSlide + 1) % slides.length;
+      
+      // Add active class to the new slide
+      slides[currentSlide].classList.add("active");
+    }, 5000); // 5000 milliseconds = 5 seconds. Change this number to adjust speed!
+  });
+</script>
     <!-- END: JS -->
   </body>
 </html>
