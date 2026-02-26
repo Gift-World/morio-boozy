@@ -116,11 +116,25 @@
 
       <!-- BEGIN: Banner Section  -->
       <section class="aboutBanner">
-        
         <div class="banner-slider">
-          <div class="slide active" style="background-image: url('assets/images/projects/morio4.jpg');"></div>
-          <div class="slide" style="background-image: url('assets/images/projects/morio2.jpg');"></div>
-          <div class="slide" style="background-image: url('assets/images/projects/morio3.jpg');"></div>
+          <div
+            class="slide active"
+            style="
+              background-image: url(&quot;assets/images/projects/morio4.jpg&quot;);
+            "
+          ></div>
+          <div
+            class="slide"
+            style="
+              background-image: url(&quot;assets/images/projects/morio2.jpg&quot;);
+            "
+          ></div>
+          <div
+            class="slide"
+            style="
+              background-image: url(&quot;assets/images/projects/morio3.jpg&quot;);
+            "
+          ></div>
         </div>
 
         <div class="container relative-content">
@@ -153,10 +167,7 @@
               >
                 <div class="teamItemInner">
                   <div class="team_thumbnail">
-                    <img
-                      src="assets/images/team/Images-02.png"
-                      alt="team"
-                    />
+                    <img src="assets/images/team/Images-02.webp" alt="team" />
                     <div class="tm01Social">
                       <a
                         href="https://www.behance.net/videopicha"
@@ -208,10 +219,7 @@
               <div class="team_Item">
                 <div class="teamItemInner">
                   <div class="team_thumbnail">
-                    <img
-                      src="assets/images/team/Images-01.png"
-                      alt="team"
-                    />
+                    <img src="assets/images/team/Images-01.webp" alt="team" />
                     <div class="tm01Social">
                       <a
                         href="https://www.behance.net/brayanmacharia"
@@ -237,7 +245,7 @@
               >
                 <div class="teamItemInner">
                   <div class="team_thumbnail">
-                    <img src="assets/images/team/Vincent.png" alt="team" />
+                    <img src="assets/images/team/Vincent.webp" alt="team" />
                     <div class="tm01Social">
                       <a href="javascript:void(0);">
                         <i class="fab fa-behance"></i>
@@ -456,6 +464,23 @@
 
     <script src="assets/js/common.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const slides = document.querySelectorAll(".banner-slider .slide");
+    let currentSlide = 0;
+
+    setInterval(() => {
+      // Remove active class from the current slide
+      slides[currentSlide].classList.remove("active");
+      
+      // Move to the next slide, loop back to 0 if at the end
+      currentSlide = (currentSlide + 1) % slides.length;
+      
+      // Add active class to the new slide
+      slides[currentSlide].classList.add("active");
+    }, 5000); // 5000 milliseconds = 5 seconds. Change this number to adjust speed!
+  });
+</script>
     <!-- END: JS -->
   </body>
 </html>
