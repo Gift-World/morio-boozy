@@ -1,9 +1,9 @@
 /*
-Theme Name: Boozy
+Theme Name: Morio
 Theme URI: https://themewar.com/html/boozy
 Author: Themewar
 Author URI: https://themeforest.net/user/themewar
-Description: Boozy - Creative Agency Responsive HTML5 Template
+Description: Morio - Creative Agency Responsive HTML5 Template
 Version: 1.0.0
 License:
 License URI:
