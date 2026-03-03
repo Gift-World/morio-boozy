@@ -882,8 +882,8 @@ License URI:
   align-items: flex-start;
 }
 .serviceBrand_hading h2 {
-  font-size: 150px;
-  line-height: 164px;
+  font-size: 90px;
+  line-height: 144px;
   text-transform: uppercase;
   margin-top: -22px;
 }
@@ -913,7 +913,7 @@ License URI:
 }
 .serviceBrand_list ul li {
   list-style: none;
-  padding: 29px 0 30px;
+  padding: 20px 0 30px;
   border-bottom: 1px solid #414141;
 }
 .serviceBrand_list ul li:first-child {
@@ -923,9 +923,9 @@ License URI:
   display: block;
   padding: 0 0 0 125px;
   position: relative;
-  min-height: 100px;
-  line-height: 96px;
-  font-size: 30px;
+  min-height: 40px;
+  line-height: 86px;
+  font-size: 20px;
   font-family: var(--secondary-font);
   text-transform: uppercase;
   color: #fff;
@@ -945,7 +945,7 @@ License URI:
 }
 .serviceBrand_list ul li a i {
   -webkit-text-stroke-color: var(--primary-color);
-  font-size: 48px;
+  font-size: 28px;
   position: relative;
   display: inline-block;
   -webkit-transform: rotate(-131.37deg);
@@ -964,7 +964,7 @@ License URI:
   -moz-transition: ease all 350ms;
 }
 .serviceBrand_list .service_arrowLi {
-  width: 40px;
+  width: 20px;
   height: auto;
   position: relative;
   top: -2px;
@@ -1068,10 +1068,13 @@ License URI:
   margin-bottom: 30px;
 }
 .project_item_thumb {
-  position: relative;
+  /* position: relative; */
+   height: 420px;      /* pick the height you want */
+  overflow: hidden;
 }
 .project_item_thumb img {
   max-width: 100%;
+   object-fit: cover; 
   width: 100%;
   height: auto;
   filter: grayscale(100%);
