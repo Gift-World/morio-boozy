@@ -962,6 +962,10 @@ License URI:
   transition: ease all 350ms;
   -webkit-transition: ease all 350ms;
   -moz-transition: ease all 350ms;
+   width: 80px;
+  height: 80px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
 }
 .serviceBrand_list .service_arrowLi {
   width: 20px;
@@ -972,6 +976,7 @@ License URI:
 .serviceBrand_list ul li a:hover .serviceList_lsIcon {
   opacity: 1;
 }
+
 
 /*------------------------------------------------------
 /  Project Section STyle
@@ -1662,6 +1667,7 @@ h2.oni-counter span {
   width: 100%;
   height: 100%;
   background: url(../images/shape/shape1.png) no-repeat scroll;
+   /* background: #264437; */
   background-size: cover;
   background-position: left bottom;
   opacity: 0;
@@ -2327,19 +2333,283 @@ p.blogDesc {
 .about_widgetContent > a:hover {
   color: var(--primary-color);
 }
-.footer_section {
-  background: #070707;
-  padding: 105px 0px 85px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+ .footer_section {
+            background: #070707;
+            padding: 80px 0px 60px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+        }
+
+        /* Column styles */
+        .col-sm-6, .col-md-6, .col-lg-3, .col-lg-2 {
+            padding: 0 15px;
+            box-sizing: border-box;
+            margin-bottom: 30px;
+        }
+
+        .col-sm-6 {
+            width: 50%;
+        }
+
+        .col-lg-3 {
+            width: 25%;
+        }
+
+        .col-lg-2 {
+            width: 18%;
+        }
+
+        
+        .offset-lg-1 {
+            margin-left: 5%;
+        }
+
+        /* Widget styles */
+        .widget {
+            color: var(--text-color);
+        }
+
+        .footer_logo {
+            margin-bottom: 5px;
+        }
+
+        .footer_logo a {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .footer_logo a:hover {
+            transform: scale(1.05);
+        }
+
+        .footer_logo img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(228, 177, 171, 0.3);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer_logo img:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 6px 20px rgba(228, 177, 171, 0.2);
+        }
+
+        /* Mantra text styles */
+       .mantra_text {
+    color: var(--primary-color);
+    font-size: 18px;
+    font-weight: 600;
+    font-style: italic;
+    letter-spacing: 1px;
+    margin-top: 0; /* Added to ensure no top margin */
+    margin-bottom: 15px; /* Reduced from 25px to 15px */
+    position: relative;
+    padding-bottom: 10px; /* Reduced from 15px to 10px */
+    border-bottom: 1px solid rgba(228, 177, 171, 0.2);
 }
-footer .widgetTitle {
-  font-size: 20px;
-  line-height: 1;
-  font-weight: 700;
-  color: var(--heading-color);
-  text-transform: capitalize;
-  margin-bottom: 37px;
-}
+
+        .widgetTitle {
+            font-size: 20px;
+            line-height: 1.3;
+            font-weight: 700;
+            color: var(--heading-color);
+            text-transform: capitalize;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .widgetTitle::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary-color);
+        }
+
+        /* Talk to a Morio widget styles */
+        .talkToMorio {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .talkToMorio h4 {
+            color: var(--primary-color);
+            font-size: 16px;
+            margin: 0 0 5px 0;
+            font-weight: 600;
+        }
+
+        .talkToMorio a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+            width: fit-content;
+        }
+
+        .talkToMorio a:hover {
+            color: var(--primary-color);
+            transform: translateX(5px);
+        }
+
+        /* Footer navigation */
+        .aboutFooterNav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .aboutFooterNav ul li {
+            margin-bottom: 12px;
+        }
+
+        .aboutFooterNav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-left: 0;
+        }
+
+        .aboutFooterNav ul li a:hover {
+            color: var(--primary-color);
+            padding-left: 8px;
+        }
+
+        /* Contact info */
+        .fContact_info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .fContact_info p {
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .fContact_info a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s ease;
+            width: fit-content;
+        }
+
+        .fContact_info a:hover {
+            color: var(--primary-color);
+        }
+
+        .dfCursor {
+            cursor: default;
+            text-decoration: none;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .col-lg-3, .col-lg-2 {
+                width: 50%;
+            }
+            
+            .offset-lg-1 {
+                margin-left: 0;
+            }
+            
+            .footer_section {
+                padding: 60px 0px 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .col-sm-6 {
+                width: 100%;
+            }
+            
+            .col-lg-3, .col-lg-2 {
+                width: 100%;
+            }
+            
+            .widgetTitle {
+                margin-bottom: 20px;
+            }
+            
+            .footer_logo {
+                text-align: center;
+            }
+            
+            .mantra_text {
+                text-align: center;
+            }
+            
+            .talkToMorio {
+                align-items: center;
+                text-align: center;
+            }
+            
+            .talkToMorio a {
+                width: auto;
+            }
+            
+            .fContact_info {
+                align-items: center;
+                text-align: center;
+            }
+            
+            .fContact_info a {
+                width: auto;
+            }
+            
+            .aboutFooterNav ul {
+                text-align: center;
+            }
+            
+            .aboutFooterNav ul li a:hover {
+                padding-left: 0;
+            }
+            
+            .widgetTitle::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Small phones */
+        @media (max-width: 480px) {
+            .footer_logo img {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .widgetTitle {
+                font-size: 18px;
+            }
+            
+            .mantra_text {
+                font-size: 16px;
+            }
+        }
 .aboutBoozy {
   position: relative;
 }
