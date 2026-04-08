@@ -614,9 +614,18 @@ License URI:
                 flex: 0 100%;
     }
     .serviceBrand_hading h2 {
-        font-size: 130px;
-        line-height: 144px;
-        margin-bottom: 79px;
+        font-size: 72px;
+        line-height: 84px;
+        margin-bottom: 40px;
+    }
+    .team_Item {
+        margin-bottom: 30px;
+    }
+    .team_desc h2 {
+        font-size: 20px;
+    }
+    .team_desc a {
+        font-size: 13px;
     }
     .col-md-6:nth-child(3) .oniCounterWrap .oniCounerDot:before{
         display: none;
@@ -1080,6 +1089,13 @@ License URI:
         height: 460px;
         background-size: cover;
     }
+    .srvDetailsAbThumb:after {
+        width: 100%;
+        height: 100%;
+        max-width: 500px;
+        max-height: 500px;
+        background-size: cover;
+    }
     .serviceItem03 {
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
@@ -1302,17 +1318,27 @@ License URI:
         height: 880px;
     }
     .serviceBrand_hading h2 {
-        font-size: 86px;
-        line-height: 100px;
-    }
-    .serviceBrand_list .serviceList_lsIcon {
-        width: 80px;
+        font-size: 48px;
+        line-height: 58px;
+        margin-bottom: 30px;
     }
     .serviceBrand_list ul li a {
-        padding: 0 0 0 105px;
-        min-height: 80px;
-        line-height: 80px;
-        font-size: 24px;
+        padding: 0 0 0 65px;
+        min-height: 60px;
+        line-height: 60px;
+        font-size: 18px;
+    }
+    .serviceBrand_list .serviceList_lsIcon {
+        width: 50px;
+    }
+    .team_Item {
+        margin-bottom: 30px;
+    }
+    .team_desc h2 {
+        font-size: 18px;
+    }
+    .team_desc a {
+        font-size: 12px;
     }
     .serviceBrand_list .service_arrowLi {
         width: 34px;
@@ -1330,17 +1356,62 @@ License URI:
     .oniCounerDot:before{
         display: none;
     }
-    .counterSection {
-        padding: 95px 0;
+    .serviceSection,
+    .projectSection,
+    .teamSection,
+    .testimonial01_section {
+        padding: 60px 0;
     }
-    .hdOniSocial {
-        display:none;
+    .secHeading {
+        padding-bottom: 30px;
     }
-    .oniSearch{
-        margin-left:0;
+    .footer_section {
+        padding: 60px 0 30px;
+    }
+    .siteInfoSection {
+        padding: 20px 0;
+    }
+    .testimonial_items h2 {
+        font-size: 36px;
+        line-height: 46px;
+    }
+    .testimonial01Wrapper {
+        padding: 0;
     }
     .secHeading h3 {
-        font-size: 26px;
+        font-size: 24px;
+    }
+    .testimonialAuthor h3 {
+        font-size: 16px;
+    }
+    .testimonialQuoat1 i {
+        font-size: 50px;
+    }
+    .project_item_thumb {
+        height: 300px;
+    }
+    .serviceBrand_list ul li a {
+        padding: 0 0 0 70px;
+        min-height: 70px;
+        line-height: 70px;
+        font-size: 20px;
+    }
+    .serviceBrand_list .serviceList_lsIcon {
+        width: 60px;
+    }
+    .tp-caption.boozyBH1 {
+        font-size: 32px !important;
+        line-height: 44px !important;
+    }
+    .tp-caption.textPLayer {
+        font-size: 14px !important;
+        line-height: 24px !important;
+    }
+    .boozyBH1.textLayer span {
+        padding-left: 0 !important;
+    }
+    .boozyBH1.textLayer {
+        line-height: 44px !important;
     }
     .hdSupportBtn{
         display: none;
@@ -1450,8 +1521,8 @@ License URI:
         margin-top: 0px;
     }
     .pageBannerContent h2 {
-        font-size: 60px;
-        letter-spacing: -0.6px;
+        font-size: 42px;
+        letter-spacing: -0.42px;
     }
     .foferrorContent h2 {
         font-size: 250px;
@@ -1481,10 +1552,27 @@ License URI:
         letter-spacing: -0.2px;
     }
     .srvDetailsAbContent h2 {
-        font-size: 45px;
-        letter-spacing: -0.45px;
-        line-height: 57px;
-        margin: 0px 0 45px;
+        font-size: 32px;
+        letter-spacing: -0.32px;
+        line-height: 42px;
+        margin: 0px 0 30px;
+    }
+    .srvDetailsAbContent p {
+        font-size: 16px;
+        line-height: 28px;
+    }
+    .srvDetailsAbSingleItem {
+        margin-bottom: 50px;
+        padding: 0;
+    }
+    .srvDetailsAbSingleItem h3 {
+        font-size: 22px;
+        line-height: 30px;
+        margin-bottom: 15px;
+    }
+    .srvDetailsAbSingleItem p {
+        font-size: 16px;
+        line-height: 26px;
     }
     .serviceCat {
         margin: 0 0 20px;
@@ -1493,9 +1581,33 @@ License URI:
         display: none;
     }
     .srvDetailsAbThumb:after {
-        width: 490px;
-        height: 490px;
+        width: 100%;
+        height: 100%;
+        max-width: 490px;
+        max-height: 490px;
         background-size: cover;
+    }
+    .aboutSection02 .boozyabHd .aboutLead {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+    .aboutSection02 .boozyabHd .aboutTagline {
+        font-size: 15px;
+    }
+    .teamName {
+        font-size: 28px !important;
+        line-height: 1.2 !important;
+    }
+    .teamRole {
+        font-size: 12px !important;
+        letter-spacing: 1px !important;
+    }
+    .teamBio {
+        font-size: 14px !important;
+        line-height: 1.7 !important;
+    }
+    .teamSplit {
+        padding: 40px 0 !important;
     }
     .elementor .comment-body img, .comment-body img {
         width: 80px;
@@ -1654,19 +1766,25 @@ License URI:
     .menu_btn {
         margin-right: 20px;
     }
-    .serviceBrand_list .serviceList_lsIcon {
-        width: 65px;
+    .serviceBrand_hading h2 {
+        font-size: 38px;
+        line-height: 48px;
+        margin-bottom: 25px;
     }
     .serviceBrand_list ul li a {
-        padding: 0 0 0 80px;
+        padding: 0 0 0 70px;
+        font-size: 16px;
+        min-height: 50px;
+        line-height: 50px;
     }
-    .serviceBrand_list ul li a i {
-        -webkit-text-stroke-color: var(--primary-color);
-        font-size: 35px;
+    .serviceBrand_list .serviceList_lsIcon {
+        width: 45px;
     }
-    .serviceBrand_list ul li a > span {
-        margin-right: 11px;
-        font-size: 18px;
+    .team_desc h2 {
+        font-size: 16px;
+    }
+    .team_desc a {
+        font-size: 11px;
     }
     .secHeading h3 {
         font-size: 20px;

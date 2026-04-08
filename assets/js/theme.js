@@ -715,7 +715,9 @@ License URI:
     /  15. Aos Animation 
     /------------------------------------------------------*/
     // aos animation 
-    AOS.init();
+    AOS.init({
+        disable: 'mobile'
+    });
     
     /*------------------------------------------------------
     /  16. Js Typewriter 
