@@ -26,3 +26,9 @@ We specialize in five core disciplines designed to move people and shift mindset
 - **Changes**: Redefined the agency's core disciplines in `service.html` with updated copy and IDs. Centered the hero section text in `index.html` and updated service navigation links to use fragment anchors for direct section access. Updated team member imagery and commented out the testimonial section.
 - **Rationale**: The update transitions the site from generic "Web Design" messaging to a more specialized "Small Agency. Big, Bold Ideas" positioning. Fragment navigation was added to improve the UX when navigating from the home page to specific service details.
 - **Impact**: Provides a clearer, more professional articulation of the studio's value proposition. The visual hierarchy on the landing page is more balanced due to centered text alignment, and the navigation is more functional for users seeking specific services.
+
+### April 8, 2026 - Responsive UI Enhancements and Mobile Optimization
+
+- **Changes:** Refined CSS media queries to scale down oversized typography and section spacing, updated hero slider positioning for mobile viewports, and implemented conditional text visibility for long descriptions. Additionally, disabled AOS animations on mobile devices via the theme's JavaScript initialization.
+- **Rationale:** These updates were introduced to correct layout overflows and improve readability on smaller screens where desktop-scale headings and complex animations were hindering the user experience.
+- **Impact:** Significantly improves mobile usability and performance, ensuring a consistent visual hierarchy and a more accessible interface across all device types.
