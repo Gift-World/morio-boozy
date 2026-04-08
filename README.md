@@ -38,3 +38,9 @@ We specialize in five core disciplines designed to move people and shift mindset
 - **Changes:** Wrapped the primary mission statement paragraph in `service.html` with `<i>` tags.
 - **Rationale:** To provide visual emphasis to the brand's core "Five disciplines" philosophy, making the statement stand out from surrounding body text.
 - **Impact:** Enhances the typographic hierarchy and aesthetic appeal of the services page, ensuring key brand values are more prominent to the reader.
+
+### April 8, 2026 - Copy refinement on the Service page
+
+- **Changes:** Updated the primary heading in `service.html` by removing the adjective "Bold" from the phrase "Big, Bold Ideas."
+- **Rationale:** The modification simplifies the brand messaging, likely to achieve a more concise and direct communication of the agency's creative scope.
+- **Impact:** Refines the visual hierarchy and tone of the service page's hero section, focusing the user's attention on the core concept of "Big Ideas."
