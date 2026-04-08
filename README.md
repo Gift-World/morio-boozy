@@ -32,3 +32,9 @@ We specialize in five core disciplines designed to move people and shift mindset
 - **Changes:** Refined CSS media queries to scale down oversized typography and section spacing, updated hero slider positioning for mobile viewports, and implemented conditional text visibility for long descriptions. Additionally, disabled AOS animations on mobile devices via the theme's JavaScript initialization.
 - **Rationale:** These updates were introduced to correct layout overflows and improve readability on smaller screens where desktop-scale headings and complex animations were hindering the user experience.
 - **Impact:** Significantly improves mobile usability and performance, ensuring a consistent visual hierarchy and a more accessible interface across all device types.
+
+### April 8, 2026 - Stylistic Emphasis on Service Page Content
+
+- **Changes:** Wrapped the primary mission statement paragraph in `service.html` with `<i>` tags.
+- **Rationale:** To provide visual emphasis to the brand's core "Five disciplines" philosophy, making the statement stand out from surrounding body text.
+- **Impact:** Enhances the typographic hierarchy and aesthetic appeal of the services page, ensuring key brand values are more prominent to the reader.
