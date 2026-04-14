@@ -4653,6 +4653,7 @@ ul.srServiceList li span {
   text-align: left;
   position: relative;
   z-index: 1;
+
 }
 .srvDetailsAbThumb:after {
   position: absolute;
@@ -4668,6 +4669,7 @@ ul.srServiceList li span {
   z-index: -1;
   -webkit-animation: myZoomIn 10s infinite both;
   animation: myZoomIn 10s infinite both;
+  
 }
 @-webkit-keyframes myZoomIn {
   0% {
