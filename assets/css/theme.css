@@ -4649,11 +4649,36 @@ ul.srServiceList li span {
   color: #d0d0d0;
 }
 .srvDetailsAbThumb {
+  margin-top: 0; /* remove the top margin */
   padding-left: 32px;
   text-align: left;
   position: relative;
   z-index: 1;
+}
+.serviceDetailsAB .row {
+  align-items: center;
+}
 
+.srv-slideshow {
+  position: relative;
+  width: 100%;
+   aspect-ratio: 3 / 2;
+}
+
+.srv-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.srv-slide.active {
+  /* position: relative; */
+  opacity: 1;
 }
 .srvDetailsAbThumb:after {
   position: absolute;

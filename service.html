@@ -181,16 +181,21 @@
                 </p>
               </div>
             </div>
-            <div class="col-lg-6">
-              <div
-                class="srvDetailsAbThumb bzImageFlash"
-                data-aos="fade-up"
-                data-aos-easing="ease-in-sine"
-                data-aos-duration="1000"
-              >
-                <img src="assets/images/service/3.jpg" alt="service-image" />
-              </div>
-            </div>
+           <div class="col-lg-6">
+  <div
+    class="srvDetailsAbThumb bzImageFlash"
+    data-aos="fade-up"
+    data-aos-easing="ease-in-sine"
+    data-aos-duration="5000"
+    style="position: relative; overflow: hidden;"
+  >
+    <div class="srv-slideshow">
+      <img src="assets/images/service/m1.jpeg" alt="service-image" class="srv-slide active" />
+      <img src="assets/images/service/m2.jpeg" alt="service-image" class="srv-slide" />
+      <img src="assets/images/service/m3.jpeg" alt="service-image" class="srv-slide" />
+    </div>
+  </div>
+</div>
           </div>
         </div>
       </section>
@@ -683,6 +688,19 @@
       // Add active class to the new slide
       slides[currentSlide].classList.add("active");
     }, 5000); // 5000 milliseconds = 5 seconds. Change this number to adjust speed!
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const srvSlides = document.querySelectorAll(".srv-slide");
+    let currentSrv = 0;
+
+    setInterval(() => {
+      srvSlides[currentSrv].classList.remove("active");
+      currentSrv = (currentSrv + 1) % srvSlides.length;
+      srvSlides[currentSrv].classList.add("active");
+    }, 4000); // changes every 4 seconds
   });
 </script>
     <!-- END: JS -->
