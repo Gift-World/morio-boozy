@@ -8,11 +8,11 @@ const nav = [
   ["Hola", "/contact"],
 ] as const;
 const craft = [
-  ["Creative direction & art direction", "pyramid", "creative-direction"],
-  ["Graphic design & branding", "cube", "graphic-design"],
-  ["Films & documentaries", "3dAnimation", "films-docs"],
-  ["Photography & illustration", "3dAnimation2", "photography"],
-  ["Animation & AI-mation", "3dAnimation3", "animation"],
+  ["Creative direction & art direction", "icon_creative", "creative-direction"],
+  ["Graphic design & branding", "icon_graphic", "graphic-design"],
+  ["Films & documentaries", "icon_film", "films-docs"],
+  ["Photography & illustration", "icon_photo", "photography"],
+  ["Animation & AI-mation", "icon_anim", "animation"],
 ] as const;
 const serviceIds = [
   "creative-direction",
@@ -302,30 +302,29 @@ function Home() {
               </Link>
             }
           />
-          <h2 className="max-w-4xl font-display text-5xl uppercase leading-[1.1] tracking-tight md:text-[88px] md:leading-[144px]">
-            If the big idea is good, execution is academic.
-          </h2>
-          <div className="mt-16 grid gap-x-10 border-t border-white/25 md:grid-cols-2">
-            {craft.map(([name, icon, anchor], index) => (
+          <div className="grid gap-12 lg:grid-cols-[1fr_520px] lg:gap-14">
+            <h2 className="max-w-4xl font-display text-5xl uppercase leading-[1.1] tracking-tight md:text-[88px] md:leading-[144px]">
+              If the big idea is good, execution is academic.
+            </h2>
+            <div>
+            {craft.map(([name, icon, anchor]) => (
               <Link
                 key={name}
                 to={`/services#${anchor}`}
-                className="group flex items-center gap-5 border-b border-white/25 py-6 text-lg font-medium uppercase md:text-2xl"
+                className="group relative flex min-h-[86px] items-center border-b border-white/25 py-5 pl-24 text-lg font-bold uppercase md:text-xl"
               >
-                <span className="w-8 text-sm text-morio-orange">
-                  0{index + 1}
-                </span>
                 <img
                   src={`/images/icon/${icon}.png`}
                   alt=""
-                  className="h-10 w-10 object-contain"
+                  className="absolute left-0 top-1/2 h-16 w-16 -translate-y-1/2 object-contain opacity-35 brightness-0 invert transition-opacity group-hover:opacity-100 md:h-20 md:w-20"
                 />
                 <span>{name}</span>
-                <span className="ml-auto opacity-0 group-hover:opacity-100">
+                <span className="ml-auto text-2xl opacity-0 transition-opacity group-hover:opacity-100">
                   ↗
                 </span>
               </Link>
             ))}
+            </div>
           </div>
         </div>
       </section>
@@ -364,15 +363,15 @@ function Home() {
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {people.map(([name, role, image]) => (
               <article key={name}>
-                <div className="aspect-[3/4] overflow-hidden bg-black">
+                <div className="h-[310px] overflow-hidden bg-[#4c4c4e]">
                   <img
                     src={image}
                     alt={name}
-                    className="h-full w-full object-cover grayscale transition hover:grayscale-0"
+                    className="h-full w-[calc(100%+8px)] -translate-x-2 object-cover grayscale transition duration-500 hover:scale-105 hover:grayscale-0"
                   />
                 </div>
-                <h3 className="mt-5 font-display text-3xl uppercase">{name}</h3>
-                <p className="mt-1 text-sm text-white/70">{role}</p>
+                <h3 className="mt-9 font-display text-2xl uppercase">{name}</h3>
+                <p className="mt-1 text-sm text-white/60">{role}</p>
               </article>
             ))}
           </div>
