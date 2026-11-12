@@ -858,9 +858,16 @@ type LegacyDocument = keyof typeof legacyDocuments;
  */
 function LegacyPage({ page }: { page: LegacyDocument }) {
   const source = legacyDocuments[page];
+  // Vite serves the contents of ../assets at /, whereas the original pages
+  // reference them through /assets. Translate those authored paths once while
+  // retaining the original DOM and styles exactly.
+  const localSource = source.replace(/(["'(])assets\//g, "$1/");
 
   useEffect(() => {
-    const documentSource = new DOMParser().parseFromString(source, "text/html");
+    const documentSource = new DOMParser().parseFromString(
+      localSource,
+      "text/html",
+    );
     document.title = documentSource.title;
     document.body.className = documentSource.body.className;
     document.body.id = documentSource.body.id;
@@ -914,9 +921,9 @@ function LegacyPage({ page }: { page: LegacyDocument }) {
       document.body.className = "";
       document.body.id = "";
     };
-  }, [source]);
+  }, [localSource]);
 
-  const parsed = new DOMParser().parseFromString(source, "text/html");
+  const parsed = new DOMParser().parseFromString(localSource, "text/html");
   return <div dangerouslySetInnerHTML={{ __html: parsed.body.innerHTML }} />;
 }
 
