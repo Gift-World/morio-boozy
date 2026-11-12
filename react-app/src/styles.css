@@ -1,19 +1,16 @@
-@import "tailwindcss/utilities";
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@300;400;500;600;700&family=Jost:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
 
-/* The current production styles are retained during the parity pass. */
-@import "../../assets/css/bootstrap.css";
-@import "../../assets/css/animate.css";
-@import "../../assets/css/fontawesome-all.css";
-@import "../../assets/css/boozy-icons.css";
-@import "../../assets/css/owl.theme.default.min.css";
-@import "../../assets/css/owl.carousel.min.css";
-@import "../../assets/css/lightslider.css";
-@import "../../assets/css/lightcase.css";
-@import "../../assets/css/nice-select.css";
-@import "../../assets/css/settings.css";
-@import "../../assets/css/slick.css";
-@import "../../assets/css/aos.css";
-@import "../../assets/css/ignore_for_wp.css";
-@import "../../assets/css/preset.css";
-@import "../../assets/css/theme.css";
-@import "../../assets/css/responsive.css";
+@theme {
+  --font-display: "Antonio", sans-serif;
+  --font-body: "Jost", sans-serif;
+  --color-morio-ink: #101010;
+  --color-morio-green: #264437;
+  --color-morio-orange: #ff5100;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply m-0 bg-morio-ink font-body text-white antialiased; }
+  * { @apply box-border; }
+}

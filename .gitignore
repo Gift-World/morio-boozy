@@ -1,3 +1,4 @@
 /dist/
+/.vite/
 react-app/node_modules/
 react-app/*.tsbuildinfo
