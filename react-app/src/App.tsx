@@ -203,16 +203,16 @@ function Hero({ title, images }: { title: ReactNode; images: string[] }) {
   }, [images]);
 
   return (
-    <section className="relative grid min-h-[440px] place-items-center overflow-hidden bg-morio-green md:min-h-[650px]">
+    <section className="relative grid min-h-[440px] place-items-center overflow-hidden bg-[#111] md:min-h-[650px]">
       {images.map((image, index) => (
         <img
           key={image}
           src={image}
           alt=""
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${index === activeImage ? "opacity-45" : "opacity-0"}`}
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${index === activeImage ? "opacity-100" : "opacity-0"}`}
         />
       ))}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-morio-ink/70" />
+      <div className="absolute inset-0 bg-black/60" />
       <div className="relative z-10 mx-auto max-w-5xl px-5 text-center">
         <h1 className="font-display text-5xl uppercase leading-none tracking-[-.04em] md:text-[72px]">
           {title}
@@ -574,8 +574,8 @@ function About() {
         "/images/projects/ab3.jpeg",
       ]}
     >
-      <section className="px-5 py-20 md:px-10 md:py-32">
-        <div className="mx-auto max-w-4xl text-center text-lg leading-8 text-white/80 md:text-xl">
+      <section className="px-5 py-20 md:px-10 md:pb-[120px] md:pt-[150px]">
+        <div className="mx-auto max-w-[860px] text-center text-[15px] leading-[1.95] text-white/80">
           <p>
             <strong>Morio</strong> is Kiswahili slang for a friend — someone you
             can count on.
@@ -595,7 +595,7 @@ function About() {
             conceptualization and visualization, giving us the edge to deliver
             high-quality creativity in record time.
           </p>
-          <p className="mt-10 font-display text-4xl uppercase text-white">
+          <p className="mt-10 font-display text-4xl uppercase leading-none text-white">
             Where vision meets innovation, Morio creates.
           </p>
         </div>
@@ -656,28 +656,28 @@ function People({ detailed = false }: { detailed?: boolean }) {
     ],
   ] as const;
   return (
-    <div className="mx-auto mt-28 max-w-[1280px]">
+    <div className="mx-auto mt-[150px] max-w-[1280px]">
       <SectionHeading label="Our experienced team" />
       {team.map(([name, role, image], index) => (
         <article
           key={name}
-          className="grid gap-10 border-b border-white/25 py-12 md:grid-cols-2 md:items-center"
+          className="grid gap-10 border-b border-white/[.08] py-[70px] md:grid-cols-[1.1fr_.9fr] md:items-center md:gap-[60px]"
         >
           <div className={index % 2 ? "md:order-2" : ""}>
-            <h2 className="font-display text-5xl uppercase leading-none">
+            <h2 className="font-display text-5xl uppercase leading-none md:text-[44px]">
               {name}
             </h2>
-            <p className="mt-3 text-sm uppercase tracking-[.16em] text-morio-orange">
+            <p className="mt-4 text-sm uppercase tracking-[.14em] text-[#2df300]">
               {role}
             </p>
-            <p className="mt-8 max-w-xl leading-7 text-white/70">
+            <p className="mt-7 max-w-xl text-[15px] leading-[1.9] text-white/70">
               {bios[index]}
             </p>
             <a
               href={portfolios[index]}
               target="_blank"
               rel="noreferrer"
-              className="mt-8 inline-block border-b border-morio-orange pb-1 text-sm font-bold uppercase tracking-wide text-morio-orange"
+              className="mt-8 inline-block rounded-full bg-[#2df300] px-5 py-3 text-xs font-bold uppercase tracking-wide text-black"
             >
               Portfolio &gt;&gt;
             </a>
@@ -685,7 +685,7 @@ function People({ detailed = false }: { detailed?: boolean }) {
           <img
             src={image}
             alt={name}
-            className="aspect-[4/3] w-full object-cover grayscale"
+            className="aspect-[4/3] w-full max-w-[520px] rounded-xl object-cover grayscale"
           />
         </article>
       ))}
