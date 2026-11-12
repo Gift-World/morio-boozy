@@ -226,7 +226,7 @@ function Hero({ title, images }: { title: ReactNode; images: string[] }) {
     </section>
   );
 }
-function ImageRotator({ images, alt }: { images: string[]; alt: string }) {
+function ImageRotator({ images, alt, className = "" }: { images: string[]; alt: string; className?: string }) {
   const [activeImage, setActiveImage] = useState(0);
   useEffect(() => {
     const timer = window.setInterval(
@@ -236,13 +236,13 @@ function ImageRotator({ images, alt }: { images: string[]; alt: string }) {
     return () => window.clearInterval(timer);
   }, [images]);
   return (
-    <div className="relative min-h-80 overflow-hidden">
+    <div className={`relative min-h-80 overflow-hidden ${className}`}>
       {images.map((image, index) => (
         <img
           key={image}
           src={image}
           alt={alt}
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${index === activeImage ? "opacity-100" : "opacity-0"}`}
+          className={`absolute inset-0 h-full w-full object-cover grayscale transition-opacity duration-700 hover:grayscale-0 ${index === activeImage ? "opacity-100" : "opacity-0"}`}
         />
       ))}
     </div>
@@ -453,18 +453,18 @@ function Services() {
         "/images/projects/ab6.jpeg",
       ]}
     >
-      <section className="px-5 py-20 md:px-10 md:py-32">
-        <div className="mx-auto grid max-w-[1280px] gap-14 lg:grid-cols-2">
+      <section className="px-5 py-20 md:px-10 md:pb-[100px] md:pt-[190px]">
+        <div className="mx-auto grid max-w-[1140px] items-center gap-14 lg:grid-cols-2">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[.18em] text-morio-orange">
+            <p className="text-2xl font-bold uppercase leading-9 text-morio-orange">
               Our craft
             </p>
-            <h2 className="mt-5 font-display text-6xl uppercase leading-[.85] md:text-8xl">
+            <h2 className="mt-[49px] font-display text-5xl uppercase leading-none md:text-[60px] md:leading-[72px]">
               Small agency.
               <br />
               Big ideas.
             </h2>
-            <p className="mt-10 max-w-xl leading-8 text-white/75">
+            <p className="mt-[54px] max-w-xl text-lg leading-10 text-[#d0d0d0]">
               Great work rarely happens in isolation. Morio Studio exists at the
               intersection of strategy, creativity, and craft — embedding
               ourselves in your world as a thinking partner, a creative
@@ -475,7 +475,7 @@ function Services() {
               the strategic rigour and creative agility to make it count.
               Because small doesn&apos;t mean limited. It means focused.
             </p>
-            <p className="mt-6 max-w-xl italic leading-8 text-white/75">
+            <p className="mt-6 max-w-xl text-lg italic leading-10 text-[#d0d0d0]">
               Five disciplines. One shared obsession — turning a brief into
               something that moves people, changes behaviour and shifts
               mindsets.
@@ -483,6 +483,7 @@ function Services() {
           </div>
           <ImageRotator
             alt="Morio creative work"
+            className="aspect-[3/2] min-h-0 lg:ml-8"
             images={[
               "/images/service/m1.jpeg",
               "/images/service/m2.jpeg",
