@@ -1,11 +1,5 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { Link, Navigate, Route, Routes, useLocation } from "react-router-dom";
-import homeDocument from "../../index.html?raw";
-import serviceDocument from "../../service.html?raw";
-import aboutDocument from "../../about.html?raw";
-import teamDocument from "../../team.html?raw";
-import contactDocument from "../../contact.html?raw";
-import notFoundDocument from "../../404.html?raw";
 
 const nav = [
   ["Home", "/"],
@@ -32,29 +26,25 @@ const people = [
   [
     "Sydney Ang’ila",
     "Director of Film and Photography",
-    "/images/team/SYD2.jpeg",
+    "/images/team/Images-02.webp",
   ],
   [
-    "Feysal Anthony Nair",
+    "Feysal Anthony",
     "Director Creative and Strategy",
-    "/images/team/FEY2.jpeg",
+    "/images/team/feysal3.jpeg",
   ],
-  ["Brian Macharia", "Director Art and UX", "/images/team/BRI-2.jpeg"],
+  ["Brian Macharia", "Director Art and UX", "/images/team/Images-01.webp"],
   [
     "Vincent Karani",
     "Director of Content and Animation",
-    "/images/team/VIN2.jpeg",
+    "/images/team/Vincent.webp",
   ],
 ] as const;
 const projects = [
-  ["Morio Studios", "Creative direction", "/images/projects/morio2.jpg"],
-  [
-    "Cafe Identity",
-    "Brand identity",
-    "/images/projects/Cafe Identity Branding.jpg",
-  ],
-  ["Maize Flour", "Packaging design", "/images/projects/maizeflour.jpg"],
-  ["Photography", "Visual storytelling", "/images/projects/045A4377.jpg"],
+  ["Maize Flour", "", "/images/projects/maizeflour.jpg"],
+  ["LT", "", "/images/projects/lt2.jpeg"],
+  ["Branding", "", "/images/projects/branding.jpg"],
+  ["Morio", "", "/images/projects/morio4.jpg"],
 ] as const;
 
 function ScrollTop() {
@@ -74,7 +64,7 @@ function Header() {
   const [open, setOpen] = useState(false);
   return (
     <header className="absolute inset-x-0 top-0 z-30 border-b border-white/15">
-      <div className="mx-auto flex h-24 max-w-[1440px] items-center justify-between px-5 md:px-10 lg:h-[168px]">
+      <div className="mx-auto flex h-24 max-w-[1140px] items-center justify-between px-5 lg:h-[168px]">
         <Link to="/" aria-label="Morio home">
           <img
             src="/images/mr-logo2.png"
@@ -82,7 +72,7 @@ function Header() {
             className="h-11 w-11 rounded-full object-contain md:h-16 md:w-16"
           />
         </Link>
-        <nav className="hidden items-center gap-10 text-xs font-bold uppercase tracking-wide lg:flex">
+        <nav className="hidden items-center gap-10 pt-[30px] text-xs font-bold uppercase tracking-wide lg:flex">
           {nav.map(([label, href]) => (
             <Link key={href} to={href} className="hover:text-morio-orange">
               {label}
@@ -194,8 +184,8 @@ function SectionHeading({
   action?: ReactNode;
 }) {
   return (
-    <div className="mb-10 flex items-end justify-between border-b border-current/35 pb-5 md:mb-16">
-      <h2 className="font-display text-3xl uppercase md:text-5xl">{label}</h2>
+    <div className="mb-10 flex items-end justify-between border-b border-current/35 pb-5 md:mb-[73px] md:pb-[37px]">
+      <h2 className="font-display text-3xl uppercase md:text-[30px]">{label}</h2>
       {action}
     </div>
   );
@@ -241,7 +231,7 @@ function Home() {
   ];
   return (
     <main>
-      <section className="relative grid min-h-[min(900px,100svh)] place-items-center overflow-hidden bg-morio-green pt-24">
+      <section className="relative min-h-[min(900px,100svh)] overflow-hidden bg-morio-green pt-24">
         <video
           autoPlay
           muted
@@ -256,13 +246,13 @@ function Home() {
           />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-morio-ink/70" />
-        <div className="relative z-10 mx-auto max-w-5xl px-5 text-center">
-          <h1 className="font-display text-[clamp(2rem,9vw,4.5rem)] uppercase leading-none tracking-[-.04em] md:text-[clamp(4rem,9.5vw,7.5rem)]">
+        <div className="relative z-10 mx-auto flex min-h-[min(900px,100svh)] max-w-5xl -translate-y-4 flex-col items-center justify-center px-5 text-center md:-translate-y-12">
+          <h1 className="font-display text-[clamp(2rem,9vw,4.5rem)] uppercase leading-none tracking-[-.04em] md:text-[120px] md:leading-[120px]">
             <span>Small agency,</span>
             <br />
-            <span>big ideas.</span>
+            <span className="md:pl-[103px]">big ideas.</span>
           </h1>
-          <p className="mx-auto mt-8 max-w-[650px] text-sm leading-6 text-white/90 md:text-lg md:leading-8">
+          <p className="mx-auto mt-12 max-w-[650px] text-sm leading-6 text-white/90 md:text-lg md:leading-[30px]">
             Built on passion and love for creativity and storytelling. Morio
             Studio’s is the brain child of 4 Kenyan friends who had a common
             goal, to craft an agency that would be nimble, versatile and smart.
@@ -277,8 +267,8 @@ function Home() {
           </p>
         </div>
       </section>
-      <section className="bg-morio-ink px-5 py-20 md:px-10 md:py-32">
-        <div className="mx-auto max-w-[1280px]">
+      <section className="bg-morio-ink px-5 py-20 md:py-[125px]">
+        <div className="mx-auto max-w-[1140px]">
           <SectionHeading
             label="Our craft"
             action={
@@ -290,7 +280,7 @@ function Home() {
               </Link>
             }
           />
-          <h2 className="max-w-4xl font-display text-5xl uppercase leading-[.88] tracking-tight md:text-8xl">
+          <h2 className="max-w-4xl font-display text-5xl uppercase leading-[1.1] tracking-tight md:text-[88px] md:leading-[144px]">
             If the big idea is good, execution is academic.
           </h2>
           <div className="mt-16 grid gap-x-10 border-t border-white/25 md:grid-cols-2">
@@ -317,35 +307,27 @@ function Home() {
           </div>
         </div>
       </section>
-      <section className="bg-[#f0eee8] px-5 py-20 text-morio-ink md:px-10 md:py-32">
-        <div className="mx-auto max-w-[1280px]">
+      <section className="bg-[#f0eee8] px-5 py-20 text-morio-ink md:py-[125px]">
+        <div className="mx-auto max-w-[1140px]">
           <SectionHeading label="Latest projects" />
-          <div className="-mx-5 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 md:-mx-10 md:px-10">
-            {projects.map(([title, category, image]) => (
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {projects.map(([title, , image]) => (
               <article
                 key={title}
-                className="group relative aspect-[4/5] min-w-[78%] snap-start overflow-hidden bg-black sm:min-w-[45%] lg:min-w-[30%]"
+                className="group h-[300px] overflow-hidden bg-black md:h-[420px]"
               >
                 <img
                   src={image}
                   alt={title}
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                  className="h-full w-full object-cover grayscale transition duration-300 group-hover:scale-105 group-hover:grayscale-0"
                 />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white">
-                  <p className="text-xs uppercase tracking-[.2em] text-white/70">
-                    {category}
-                  </p>
-                  <h3 className="mt-1 font-display text-3xl uppercase">
-                    {title}
-                  </h3>
-                </div>
               </article>
             ))}
           </div>
         </div>
       </section>
-      <section className="bg-morio-green px-5 py-20 md:px-10 md:py-32">
-        <div className="mx-auto max-w-[1280px]">
+      <section className="bg-morio-green px-5 py-20 md:py-[125px]">
+        <div className="mx-auto max-w-[1140px]">
           <SectionHeading
             label="Meet the Morios"
             action={
@@ -840,113 +822,26 @@ function Frame({ children }: { children: ReactNode }) {
     </>
   );
 }
-const legacyDocuments = {
-  home: homeDocument,
-  services: serviceDocument,
-  about: aboutDocument,
-  team: teamDocument,
-  contact: contactDocument,
-  notFound: notFoundDocument,
-} as const;
-
-type LegacyDocument = keyof typeof legacyDocuments;
-
-/**
- * The original site is rendered as React-owned markup.  Keeping its authored
- * DOM, asset paths, and animation scripts intact is what lets this Vite app
- * reproduce every existing page rather than approximate it with a new design.
- */
-function LegacyPage({ page }: { page: LegacyDocument }) {
-  const source = legacyDocuments[page];
-  // Vite serves the contents of ../assets at /, whereas the original pages
-  // reference them through /assets. Translate those authored paths once while
-  // retaining the original DOM and styles exactly.
-  const localSource = source.replace(/(["'(])assets\//g, "$1/");
-
-  useEffect(() => {
-    const documentSource = new DOMParser().parseFromString(
-      localSource,
-      "text/html",
-    );
-    document.title = documentSource.title;
-    document.body.className = documentSource.body.className;
-    document.body.id = documentSource.body.id;
-
-    const stylesheetNodes = Array.from(
-      documentSource.querySelectorAll<HTMLLinkElement>('link[rel="stylesheet"]'),
-    );
-    const addedStyles = stylesheetNodes.map((link) => {
-      const stylesheet = document.createElement("link");
-      stylesheet.rel = "stylesheet";
-      stylesheet.href = link.href;
-      stylesheet.dataset.morioLegacy = "true";
-      document.head.appendChild(stylesheet);
-      return stylesheet;
-    });
-
-    let cancelled = false;
-    const scripts = Array.from(
-      documentSource.querySelectorAll<HTMLScriptElement>("script[src]"),
-    );
-    const loadScripts = async () => {
-      for (const original of scripts) {
-        if (cancelled) return;
-        const script = document.createElement("script");
-        script.src = original.src;
-        script.async = false;
-        script.dataset.morioLegacy = "true";
-        document.body.appendChild(script);
-        await new Promise<void>((resolve) => {
-          script.addEventListener("load", () => resolve(), { once: true });
-          script.addEventListener("error", () => resolve(), { once: true });
-        });
-      }
-
-      if (cancelled) return;
-      documentSource.querySelectorAll("script:not([src])").forEach((original) => {
-        const script = document.createElement("script");
-        script.dataset.morioLegacy = "true";
-        script.text = original.textContent ?? "";
-        document.body.appendChild(script);
-      });
-      document.dispatchEvent(new Event("DOMContentLoaded"));
-    };
-    void loadScripts();
-
-    return () => {
-      cancelled = true;
-      document.querySelectorAll('[data-morio-legacy="true"]').forEach((node) =>
-        node.remove(),
-      );
-      document.body.className = "";
-      document.body.id = "";
-    };
-  }, [localSource]);
-
-  const parsed = new DOMParser().parseFromString(localSource, "text/html");
-  return <div dangerouslySetInnerHTML={{ __html: parsed.body.innerHTML }} />;
-}
-
 export function App() {
   return (
     <Routes>
-      <Route path="/" element={<LegacyPage page="home" />} />
+      <Route path="/" element={<Frame><Home /></Frame>} />
       <Route path="/index.html" element={<Navigate to="/" replace />} />
-      <Route path="/services" element={<LegacyPage page="services" />} />
+      <Route path="/services" element={<Frame><Services /></Frame>} />
       <Route
         path="/service.html"
         element={<Navigate to="/services" replace />}
       />
-      <Route path="/about" element={<LegacyPage page="about" />} />
+      <Route path="/about" element={<Frame><About /></Frame>} />
       <Route path="/about.html" element={<Navigate to="/about" replace />} />
-      <Route path="/team" element={<LegacyPage page="team" />} />
+      <Route path="/team" element={<Frame><Team /></Frame>} />
       <Route path="/team.html" element={<Navigate to="/team" replace />} />
-      <Route path="/contact" element={<LegacyPage page="contact" />} />
+      <Route path="/contact" element={<Frame><Contact /></Frame>} />
       <Route
         path="/contact.html"
         element={<Navigate to="/contact" replace />}
       />
-      <Route path="/404" element={<LegacyPage page="notFound" />} />
+      <Route path="/404" element={<NotFound />} />
       <Route path="/404.html" element={<Navigate to="/404" replace />} />
       <Route path="*" element={<Navigate to="/404" replace />} />
     </Routes>

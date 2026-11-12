@@ -8,7 +8,6 @@
   --color-morio-green: #264437;
   --color-morio-orange: #ff5100;
 }
-
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -18,26 +17,5 @@
   }
   * {
     @apply box-border;
-  }
-}
-
-@layer components {
-  @media (min-width: 1024px) {
-    header > div:first-child {
-      height: 168px !important;
-    }
-  }
-
-  @media (min-width: 768px) {
-    main > section:first-child:has(video) > div:last-child {
-      transform: translateY(50px);
-    }
-  }
-
-  @media (max-width: 767px) {
-    main > section:first-child h1 + p::before {
-      font-size: 13px;
-      line-height: 20px;
-    }
   }
 }
