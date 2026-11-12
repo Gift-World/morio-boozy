@@ -894,13 +894,13 @@ function NotFound() {
     </main>
   );
 }
-function Frame({ children }: { children: ReactNode }) {
+function Frame({ children, footer = true }: { children: ReactNode; footer?: boolean }) {
   return (
     <>
       <ScrollTop />
       <Header />
       {children}
-      <Footer />
+      {footer && <Footer />}
       <BackToTop />
     </>
   );
@@ -924,7 +924,7 @@ export function App() {
         path="/contact.html"
         element={<Navigate to="/contact" replace />}
       />
-      <Route path="/404" element={<NotFound />} />
+      <Route path="/404" element={<Frame footer={false}><NotFound /></Frame>} />
       <Route path="/404.html" element={<Navigate to="/404" replace />} />
       <Route path="*" element={<Navigate to="/404" replace />} />
     </Routes>
