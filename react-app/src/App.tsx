@@ -1,5 +1,11 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { Link, Navigate, Route, Routes, useLocation } from "react-router-dom";
+import homeDocument from "../../index.html?raw";
+import serviceDocument from "../../service.html?raw";
+import aboutDocument from "../../about.html?raw";
+import teamDocument from "../../team.html?raw";
+import contactDocument from "../../contact.html?raw";
+import notFoundDocument from "../../404.html?raw";
 
 const nav = [
   ["Home", "/"],
@@ -834,36 +840,106 @@ function Frame({ children }: { children: ReactNode }) {
     </>
   );
 }
-function LiveSite({ path }: { path: string }) {
-  return (
-    <iframe
-      title="Morio Studios"
-      src={`https://moriostudios.africa${path}`}
-      className="block h-[100dvh] w-full border-0 bg-morio-ink"
-    />
-  );
+const legacyDocuments = {
+  home: homeDocument,
+  services: serviceDocument,
+  about: aboutDocument,
+  team: teamDocument,
+  contact: contactDocument,
+  notFound: notFoundDocument,
+} as const;
+
+type LegacyDocument = keyof typeof legacyDocuments;
+
+/**
+ * The original site is rendered as React-owned markup.  Keeping its authored
+ * DOM, asset paths, and animation scripts intact is what lets this Vite app
+ * reproduce every existing page rather than approximate it with a new design.
+ */
+function LegacyPage({ page }: { page: LegacyDocument }) {
+  const source = legacyDocuments[page];
+
+  useEffect(() => {
+    const documentSource = new DOMParser().parseFromString(source, "text/html");
+    document.title = documentSource.title;
+    document.body.className = documentSource.body.className;
+    document.body.id = documentSource.body.id;
+
+    const stylesheetNodes = Array.from(
+      documentSource.querySelectorAll<HTMLLinkElement>('link[rel="stylesheet"]'),
+    );
+    const addedStyles = stylesheetNodes.map((link) => {
+      const stylesheet = document.createElement("link");
+      stylesheet.rel = "stylesheet";
+      stylesheet.href = link.href;
+      stylesheet.dataset.morioLegacy = "true";
+      document.head.appendChild(stylesheet);
+      return stylesheet;
+    });
+
+    let cancelled = false;
+    const scripts = Array.from(
+      documentSource.querySelectorAll<HTMLScriptElement>("script[src]"),
+    );
+    const loadScripts = async () => {
+      for (const original of scripts) {
+        if (cancelled) return;
+        const script = document.createElement("script");
+        script.src = original.src;
+        script.async = false;
+        script.dataset.morioLegacy = "true";
+        document.body.appendChild(script);
+        await new Promise<void>((resolve) => {
+          script.addEventListener("load", () => resolve(), { once: true });
+          script.addEventListener("error", () => resolve(), { once: true });
+        });
+      }
+
+      if (cancelled) return;
+      documentSource.querySelectorAll("script:not([src])").forEach((original) => {
+        const script = document.createElement("script");
+        script.dataset.morioLegacy = "true";
+        script.text = original.textContent ?? "";
+        document.body.appendChild(script);
+      });
+      document.dispatchEvent(new Event("DOMContentLoaded"));
+    };
+    void loadScripts();
+
+    return () => {
+      cancelled = true;
+      document.querySelectorAll('[data-morio-legacy="true"]').forEach((node) =>
+        node.remove(),
+      );
+      document.body.className = "";
+      document.body.id = "";
+    };
+  }, [source]);
+
+  const parsed = new DOMParser().parseFromString(source, "text/html");
+  return <div dangerouslySetInnerHTML={{ __html: parsed.body.innerHTML }} />;
 }
 
 export function App() {
   return (
     <Routes>
-      <Route path="/" element={<LiveSite path="/" />} />
+      <Route path="/" element={<LegacyPage page="home" />} />
       <Route path="/index.html" element={<Navigate to="/" replace />} />
-      <Route path="/services" element={<LiveSite path="/service" />} />
+      <Route path="/services" element={<LegacyPage page="services" />} />
       <Route
         path="/service.html"
         element={<Navigate to="/services" replace />}
       />
-      <Route path="/about" element={<LiveSite path="/about" />} />
+      <Route path="/about" element={<LegacyPage page="about" />} />
       <Route path="/about.html" element={<Navigate to="/about" replace />} />
-      <Route path="/team" element={<LiveSite path="/team" />} />
+      <Route path="/team" element={<LegacyPage page="team" />} />
       <Route path="/team.html" element={<Navigate to="/team" replace />} />
-      <Route path="/contact" element={<LiveSite path="/contact" />} />
+      <Route path="/contact" element={<LegacyPage page="contact" />} />
       <Route
         path="/contact.html"
         element={<Navigate to="/contact" replace />}
       />
-      <Route path="/404" element={<LiveSite path="/404" />} />
+      <Route path="/404" element={<LegacyPage page="notFound" />} />
       <Route path="/404.html" element={<Navigate to="/404" replace />} />
       <Route path="*" element={<Navigate to="/404" replace />} />
     </Routes>
