@@ -834,68 +834,36 @@ function Frame({ children }: { children: ReactNode }) {
     </>
   );
 }
+function LiveSite({ path }: { path: string }) {
+  return (
+    <iframe
+      title="Morio Studios"
+      src={`https://moriostudios.africa${path}`}
+      className="block h-[100dvh] w-full border-0 bg-morio-ink"
+    />
+  );
+}
+
 export function App() {
   return (
     <Routes>
-      <Route
-        path="/"
-        element={
-          <Frame>
-            <Home />
-          </Frame>
-        }
-      />
+      <Route path="/" element={<LiveSite path="/" />} />
       <Route path="/index.html" element={<Navigate to="/" replace />} />
-      <Route
-        path="/services"
-        element={
-          <Frame>
-            <Services />
-          </Frame>
-        }
-      />
+      <Route path="/services" element={<LiveSite path="/service" />} />
       <Route
         path="/service.html"
         element={<Navigate to="/services" replace />}
       />
-      <Route
-        path="/about"
-        element={
-          <Frame>
-            <About />
-          </Frame>
-        }
-      />
+      <Route path="/about" element={<LiveSite path="/about" />} />
       <Route path="/about.html" element={<Navigate to="/about" replace />} />
-      <Route
-        path="/team"
-        element={
-          <Frame>
-            <Team />
-          </Frame>
-        }
-      />
+      <Route path="/team" element={<LiveSite path="/team" />} />
       <Route path="/team.html" element={<Navigate to="/team" replace />} />
-      <Route
-        path="/contact"
-        element={
-          <Frame>
-            <Contact />
-          </Frame>
-        }
-      />
+      <Route path="/contact" element={<LiveSite path="/contact" />} />
       <Route
         path="/contact.html"
         element={<Navigate to="/contact" replace />}
       />
-      <Route
-        path="/404"
-        element={
-          <Frame>
-            <NotFound />
-          </Frame>
-        }
-      />
+      <Route path="/404" element={<LiveSite path="/404" />} />
       <Route path="/404.html" element={<Navigate to="/404" replace />} />
       <Route path="*" element={<Navigate to="/404" replace />} />
     </Routes>
