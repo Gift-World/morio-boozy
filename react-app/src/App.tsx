@@ -221,6 +221,28 @@ function Hero({ title, images }: { title: ReactNode; images: string[] }) {
     </section>
   );
 }
+function ImageRotator({ images, alt }: { images: string[]; alt: string }) {
+  const [activeImage, setActiveImage] = useState(0);
+  useEffect(() => {
+    const timer = window.setInterval(
+      () => setActiveImage((index) => (index + 1) % images.length),
+      4000,
+    );
+    return () => window.clearInterval(timer);
+  }, [images]);
+  return (
+    <div className="relative min-h-80 overflow-hidden">
+      {images.map((image, index) => (
+        <img
+          key={image}
+          src={image}
+          alt={alt}
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${index === activeImage ? "opacity-100" : "opacity-0"}`}
+        />
+      ))}
+    </div>
+  );
+}
 function Home() {
   const greetings = [
     ["Ume, choma!", "A Morio telling you that you messed up."],
@@ -465,10 +487,13 @@ function Services() {
               mindsets.
             </p>
           </div>
-          <img
-            src="/images/service/m1.jpeg"
+          <ImageRotator
             alt="Morio creative work"
-            className="h-full min-h-80 w-full object-cover"
+            images={[
+              "/images/service/m1.jpeg",
+              "/images/service/m2.jpeg",
+              "/images/service/m3.jpeg",
+            ]}
           />
         </div>
         <div className="mx-auto mt-24 grid max-w-[1280px] gap-x-12 gap-y-0 md:grid-cols-2 lg:grid-cols-3">
@@ -609,7 +634,28 @@ function People({ detailed = false }: { detailed?: boolean }) {
         ))}
       </div>
     );
-  const team = [people[1], people[0], people[2], people[3]];
+  const team = [
+    [
+      "Feysal Anthony Nair",
+      "Creative Director",
+      "/images/team/FEY2.jpeg",
+    ],
+    [
+      "Sydney Ang’ila",
+      "Film and Production Director",
+      "/images/team/SYD2.jpeg",
+    ],
+    [
+      "Brian Macharia",
+      "Art Director and Graphic Designer",
+      "/images/team/BRI-2.jpeg",
+    ],
+    [
+      "Vincent Karani",
+      "Animation and Post Production Director",
+      "/images/team/VIN2.jpeg",
+    ],
+  ] as const;
   return (
     <div className="mx-auto mt-28 max-w-[1280px]">
       <SectionHeading label="Our experienced team" />
