@@ -30,7 +30,7 @@
 
   @media (min-width: 768px) {
     main > section:first-child:has(video) > div:last-child {
-      transform: translateY(90px);
+      transform: translateY(50px);
     }
   }
 
