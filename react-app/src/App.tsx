@@ -62,9 +62,18 @@ function ScrollTop() {
 }
 function Header() {
   const [open, setOpen] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
+  const { pathname } = useLocation();
+  useEffect(() => {
+    const updateStickyState = () => setIsSticky(window.scrollY > 30);
+    updateStickyState();
+    window.addEventListener("scroll", updateStickyState, { passive: true });
+    return () => window.removeEventListener("scroll", updateStickyState);
+  }, []);
+  const stickyBackground = pathname === "/team" ? "bg-[#070707]" : pathname === "/" ? "bg-morio-green" : "bg-[#111]";
   return (
-    <header className="absolute inset-x-0 top-0 z-30 border-b border-white/15">
-      <div className="mx-auto flex h-24 max-w-[1140px] items-center justify-between px-5 lg:h-[168px]">
+    <header className={`${isSticky ? `fixed ${stickyBackground} border-transparent` : "absolute border-white/60"} inset-x-0 top-0 z-30 border-b transition-colors duration-300`}>
+      <div className="mx-auto flex h-24 max-w-[1200px] items-center justify-between px-5 lg:h-[149px]">
         <Link to="/" aria-label="Morio home">
           <img
             src="/images/mr-logo2.png"
@@ -72,7 +81,7 @@ function Header() {
             className="h-12 w-12 rounded-full object-contain md:h-20 md:w-20"
           />
         </Link>
-        <nav className="hidden items-center gap-10 pt-[30px] text-xs font-bold uppercase tracking-wide lg:flex">
+        <nav className="hidden items-center gap-[49px] pt-[38px] text-[14px] font-bold uppercase lg:flex">
           {nav.map(([label, href]) => (
             <Link key={href} to={href} className="hover:text-morio-orange">
               {label}
@@ -117,24 +126,44 @@ function Header() {
     </header>
   );
 }
+function BackToTop() {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const updateVisibility = () => setVisible(window.scrollY > 400);
+    updateVisibility();
+    window.addEventListener("scroll", updateVisibility, { passive: true });
+    return () => window.removeEventListener("scroll", updateVisibility);
+  }, []);
+  if (!visible) return null;
+  return (
+    <button
+      type="button"
+      aria-label="Back to top"
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      className="fixed bottom-6 right-6 z-40 grid h-12 w-12 place-items-center rounded-full bg-morio-green text-2xl shadow-lg transition hover:bg-morio-orange"
+    >
+      ↑
+    </button>
+  );
+}
 function Footer() {
   return (
     <>
-      <footer className="border-t border-white/20 bg-morio-ink px-5 py-16 md:px-10 md:py-24">
-        <div className="mx-auto grid max-w-[1280px] gap-12 md:grid-cols-2 lg:grid-cols-4">
+      <footer className="border-b border-white/[.05] bg-[#070707] px-5 pb-[60px] pt-20 md:px-10">
+        <div className="mx-auto grid max-w-[1200px] gap-y-[30px] sm:grid-cols-2 lg:grid-cols-[25fr_18fr_18fr_18fr] lg:gap-x-[5%]">
           <div>
             <img
               src="/images/moriologo.jpeg"
               alt="Morio Studios"
-              className="h-14 w-14 rounded-full object-cover"
+              className="h-20 w-20 rounded-full border-2 border-white/20 object-cover"
             />
-            <p className="mt-6 max-w-52 text-sm leading-6 text-white/70">
+            <p className="mt-[5px] max-w-52 border-b border-white/20 pb-[10px] text-lg font-semibold italic tracking-[1px] text-morio-orange">
               “small agency, big ideas”
             </p>
           </div>
-          <div>
-            <h2 className="font-display text-2xl uppercase">The Morios</h2>
-            <div className="mt-5 grid gap-2 text-sm text-white/70">
+          <div className="lg:pl-[5px]">
+            <h2 className="pb-[10px] font-body text-xl font-bold capitalize after:block after:h-[2px] after:w-10 after:translate-y-[12px] after:bg-morio-orange">The Morios</h2>
+            <div className="mt-[25px] grid gap-5 text-[13px] leading-none text-white/80">
               {nav.slice(0, 3).map(([label, href]) => (
                 <Link key={href} to={href}>
                   {label}
@@ -143,8 +172,8 @@ function Footer() {
             </div>
           </div>
           <div>
-            <h2 className="font-display text-2xl uppercase">Talk to a Morio</h2>
-            <div className="mt-5 grid gap-2 text-sm text-white/70">
+            <h2 className="pb-[10px] font-body text-xl font-bold capitalize after:block after:h-[2px] after:w-10 after:translate-y-[12px] after:bg-morio-orange">Talk to a Morio</h2>
+            <div className="mt-[25px] grid gap-[10px] text-sm text-white/80">
               {[
                 "feysal@moriostudios.africa",
                 "sydney@moriostudios.africa",
@@ -157,9 +186,9 @@ function Footer() {
               ))}
             </div>
           </div>
-          <div>
-            <h2 className="font-display text-2xl uppercase">Contact us</h2>
-            <p className="mt-5 text-sm leading-7 text-white/70">
+          <div className="lg:pl-[5px]">
+            <h2 className="pb-[10px] font-body text-xl font-bold capitalize after:block after:h-[2px] after:w-10 after:translate-y-[12px] after:bg-morio-orange">Contact us</h2>
+            <p className="mt-[25px] text-[13px] leading-[18px] text-white/80">
               Kenyatta Avenue
               <br />
               Nairobi, Kenya
@@ -171,11 +200,13 @@ function Footer() {
           </div>
         </div>
       </footer>
-      <div className="flex flex-col justify-between gap-3 border-t border-white/15 bg-morio-ink px-5 py-5 text-xs text-white/60 md:flex-row md:px-10">
-        <span>© Copyrights 2026 Morio Studios. All rights reserved.</span>
-        <div className="flex gap-6">
-          <a href="https://www.instagram.com/moriostudios/">Instagram</a>
-          <a href="#top">Twitter</a>
+      <div className="bg-[#070707] px-5 pb-[41px] pt-[34px] text-sm leading-[18px] tracking-[-.35px] text-[#c4c5c7] md:px-10">
+        <div className="mx-auto flex max-w-[1200px] flex-col justify-between gap-5 md:flex-row">
+          <span>© Copyrights 2026 Morio Studios. All rights reserved.</span>
+          <div className="flex gap-[46px] md:justify-end">
+            <a href="https://www.instagram.com/moriostudios/">Instagram</a>
+            <a href="#top">Twitter</a>
+          </div>
         </div>
       </div>
     </>
@@ -870,6 +901,7 @@ function Frame({ children }: { children: ReactNode }) {
       <Header />
       {children}
       <Footer />
+      <BackToTop />
     </>
   );
 }
