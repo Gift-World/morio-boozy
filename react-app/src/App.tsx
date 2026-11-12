@@ -875,18 +875,18 @@ function Contact() {
 }
 function NotFound() {
   return (
-    <main className="grid min-h-screen place-items-center px-5 text-center">
-      <div>
-        <p className="font-display text-[10rem] leading-none text-morio-orange">
+    <main className="relative grid min-h-screen place-items-center overflow-hidden bg-[#070707] bg-cover bg-center px-5 py-[282px] text-center before:absolute before:inset-0 before:bg-black/90 md:pb-[327px]" style={{ backgroundImage: "url('/images/fofbg.jpg')" }}>
+      <div className="relative z-10">
+        <h1 className="bg-[url('/images/foftextbg.jpg')] bg-[position:26%_61%] bg-clip-text bg-no-repeat text-[clamp(10rem,28vw,350px)] font-bold leading-[1.1] tracking-[-.01em] text-transparent">
           404
-        </p>
-        <p className="mx-auto mt-6 max-w-md text-lg leading-8 text-white/70">
+        </h1>
+        <p className="mx-auto mt-6 max-w-2xl font-display text-2xl font-normal leading-[42px] tracking-[-.24px] text-white">
           The page you are looking for doesn’t exist. It may have been moved or
           removed altogether.
         </p>
         <Link
           to="/"
-          className="mt-8 inline-block border border-white px-6 py-3 text-sm font-bold uppercase hover:bg-white hover:text-morio-ink"
+          className="mt-[55px] inline-block border border-white px-9 py-5 text-lg font-bold uppercase transition hover:bg-white hover:text-black"
         >
           Back to home
         </Link>
