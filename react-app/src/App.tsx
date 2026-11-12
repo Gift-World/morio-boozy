@@ -203,7 +203,7 @@ function Hero({ title, images }: { title: ReactNode; images: string[] }) {
   }, [images]);
 
   return (
-    <section className="relative grid min-h-[min(900px,100svh)] place-items-center overflow-hidden bg-morio-green pt-24">
+    <section className="relative grid min-h-[440px] place-items-center overflow-hidden bg-morio-green md:min-h-[650px]">
       {images.map((image, index) => (
         <img
           key={image}
@@ -214,7 +214,7 @@ function Hero({ title, images }: { title: ReactNode; images: string[] }) {
       ))}
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-morio-ink/70" />
       <div className="relative z-10 mx-auto max-w-5xl px-5 text-center">
-        <h1 className="font-display text-[clamp(2rem,9vw,4.5rem)] uppercase leading-none tracking-[-.04em] md:text-[clamp(4rem,9.5vw,7.5rem)]">
+        <h1 className="font-display text-5xl uppercase leading-none tracking-[-.04em] md:text-[72px]">
           {title}
         </h1>
       </div>
