@@ -251,11 +251,11 @@ function ImageRotator({ images, alt, className = "" }: { images: string[]; alt: 
 function Home() {
   const [activeGreeting, setActiveGreeting] = useState(0);
   const greetings = [
+    ["Iz how?", "A standard Morio greeting."],
+    ["Weh, checki!", "A Morio making a point."],
     ["Ume, choma!", "A Morio telling you that you messed up."],
     ["Noma, sana!", "A Morio telling you something is good."],
     ["Hiyo, haiwez make!", "A Morio telling you something doesn’t work."],
-    ["Iz how?", "A standard Morio greeting."],
-    ["Weh, checki!", "A Morio making a point."],
   ];
   return (
     <main>
@@ -416,6 +416,15 @@ function ContentPage({
   );
 }
 function Services() {
+  const serviceProjects = [
+    ["Creative brochure", "/images/projects/ps-1.jpg"],
+    ["Photography camera", "/images/projects/ps-2.jpg"],
+    ["Brand identity", "/images/projects/ps-3.jpg"],
+    ["Apps development", "/images/projects/ps-4.jpg"],
+    ["Creative brochure", "/images/projects/ps-5.jpg"],
+    ["Brand identity", "/images/projects/ps-6.jpg"],
+    ["Creative brochure", "/images/projects/ps-7.jpg"],
+  ] as const;
   const disciplines = [
     [
       "Creative & art direction",
@@ -538,28 +547,20 @@ function Services() {
       <section className="px-5 py-20 md:px-10 md:pb-[120px] md:pt-[152px]">
         <div className="mx-auto max-w-[1140px]">
           <SectionHeading label="Latest projects" />
-          <div className="-mx-5 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 md:-mx-10 md:px-10">
-            {projects.map(([title, category, image]) => (
+        </div>
+        <div className="-mx-5 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 md:-mx-10 md:px-[max(40px,calc((100vw-1140px)/2))]">
+            {serviceProjects.map(([title, image], index) => (
               <article
-                key={title}
-                className="relative aspect-[4/5] min-w-[78%] snap-start overflow-hidden bg-black sm:min-w-[45%] lg:min-w-[30%]"
+                key={`${title}-${index}`}
+                className="group h-[320px] min-w-[78%] snap-start overflow-hidden bg-black sm:min-w-[45%] lg:h-[420px] lg:min-w-[360px]"
               >
                 <img
                   src={image}
                   alt={title}
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover grayscale transition duration-300 group-hover:scale-[1.06] group-hover:grayscale-0"
                 />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent p-6">
-                  <p className="text-xs uppercase tracking-[.18em] text-white/70">
-                    {category}
-                  </p>
-                  <h3 className="mt-2 font-display text-3xl uppercase">
-                    {title}
-                  </h3>
-                </div>
               </article>
             ))}
-          </div>
         </div>
       </section>
     </ContentPage>
