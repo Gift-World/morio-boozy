@@ -249,6 +249,7 @@ function ImageRotator({ images, alt }: { images: string[]; alt: string }) {
   );
 }
 function Home() {
+  const [activeGreeting, setActiveGreeting] = useState(0);
   const greetings = [
     ["Ume, choma!", "A Morio telling you that you messed up."],
     ["Noma, sana!", "A Morio telling you something is good."],
@@ -330,14 +331,15 @@ function Home() {
           </div>
         </div>
       </section>
-      <section className="bg-[#f0eee8] px-5 py-20 text-morio-ink md:py-[125px]">
+      <section className="bg-morio-ink pt-[154px]">
         <div className="mx-auto max-w-[1140px]">
-          <SectionHeading label="Latest projects" />
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="px-5 md:px-0"><SectionHeading label="Latest projects" /></div>
+        </div>
+        <div className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-8 pl-5 md:pl-[max(20px,calc((100vw-1140px)/2))]">
             {projects.map(([title, , image]) => (
               <article
                 key={title}
-                className="group h-[300px] overflow-hidden bg-black md:h-[420px]"
+                className="group h-[300px] min-w-[78vw] snap-start overflow-hidden bg-black sm:min-w-[45vw] lg:h-[420px] lg:min-w-[360px]"
               >
                 <img
                   src={image}
@@ -346,7 +348,6 @@ function Home() {
                 />
               </article>
             ))}
-          </div>
         </div>
       </section>
       <section className="bg-morio-green px-5 py-20 md:py-[125px]">
@@ -379,24 +380,16 @@ function Home() {
           </div>
         </div>
       </section>
-      <section className="overflow-hidden bg-[#f3f0e8] py-20 text-morio-ink md:py-28">
-        <div className="mx-auto max-w-[1280px] px-5 md:px-10">
-          <SectionHeading label="Morio speak" />
-          <div className="grid gap-4 md:grid-cols-5">
-            {greetings.map(([phrase, meaning]) => (
-              <article
-                key={phrase}
-                className="min-h-64 border border-morio-ink/20 p-5"
-              >
-                <span className="text-morio-orange">✦</span>
-                <h3 className="mt-12 font-display text-4xl uppercase leading-none">
-                  {phrase}
-                </h3>
-                <p className="mt-5 text-sm leading-6 text-morio-ink/70">
-                  {meaning}
-                </p>
-              </article>
-            ))}
+      <section className="bg-morio-ink px-5 py-[141px] text-center md:py-[145px]">
+        <div className="mx-auto max-w-5xl">
+          <p className="text-5xl leading-none text-morio-orange">“</p>
+          <h2 className="mt-7 font-display text-5xl uppercase leading-none md:text-[60px] md:leading-[72px]">
+            {greetings[activeGreeting][0]}
+          </h2>
+          <p className="mt-12 font-display text-lg uppercase">{greetings[activeGreeting][1]}</p>
+          <div className="mt-10 flex justify-center gap-3">
+            <button aria-label="Previous phrase" onClick={() => setActiveGreeting((activeGreeting + greetings.length - 1) % greetings.length)} className="text-4xl text-white/30 hover:text-white">‹</button>
+            <button aria-label="Next phrase" onClick={() => setActiveGreeting((activeGreeting + 1) % greetings.length)} className="text-4xl text-white/30 hover:text-white">›</button>
           </div>
         </div>
       </section>
