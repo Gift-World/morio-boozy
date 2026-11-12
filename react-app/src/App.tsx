@@ -204,7 +204,7 @@ function Hero({ title, images }: { title: ReactNode; images: string[] }) {
       ))}
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-morio-ink/70" />
       <div className="relative z-10 mx-auto max-w-5xl px-5 text-center">
-        <h1 className="font-display text-[clamp(4rem,9.5vw,7.5rem)] uppercase leading-none tracking-[-.04em]">
+        <h1 className="font-display text-[clamp(2rem,9vw,4.5rem)] uppercase leading-none tracking-[-.04em] md:text-[clamp(4rem,9.5vw,7.5rem)]">
           {title}
         </h1>
       </div>
@@ -237,7 +237,7 @@ function Home() {
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-morio-ink/70" />
         <div className="relative z-10 mx-auto max-w-5xl px-5 text-center">
-          <h1 className="font-display text-[clamp(4rem,9.5vw,7.5rem)] uppercase leading-none tracking-[-.04em]">
+          <h1 className="font-display text-[clamp(2rem,9vw,4.5rem)] uppercase leading-none tracking-[-.04em] md:text-[clamp(4rem,9.5vw,7.5rem)]">
             <span>Small agency,</span>
             <br />
             <span>big ideas.</span>
@@ -246,11 +246,14 @@ function Home() {
             Built on passion and love for creativity and storytelling. Morio
             Studio’s is the brain child of 4 Kenyan friends who had a common
             goal, to craft an agency that would be nimble, versatile and smart.
-            With each morio possessing a unique skill set that complimented the
-            whole. We believe in smart, innovative solutions to problem solving
-            and meeting the clients goals. We put human thinking and
-            technological efficiency together to create workflows that solve any
-            brief from concept to execution.
+            <span className="hidden md:inline">
+              {" "}
+              With each morio possessing a unique skill set that complimented
+              the whole. We believe in smart, innovative solutions to problem
+              solving and meeting the clients goals. We put human thinking and
+              technological efficiency together to create workflows that solve
+              any brief from concept to execution.
+            </span>
           </p>
         </div>
       </section>
