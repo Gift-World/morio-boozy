@@ -306,7 +306,7 @@ function Home() {
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-morio-ink/70" />
         <div className="relative z-10 mx-auto flex min-h-[min(900px,100svh)] max-w-5xl -translate-y-4 flex-col items-center justify-center px-5 text-center md:-translate-y-12">
-          <h1 className="font-display text-[clamp(2rem,9vw,4.5rem)] uppercase leading-none tracking-[-.04em] md:text-[120px] md:leading-[120px]">
+          <h1 className="font-display text-[clamp(2rem,9vw,4.5rem)] font-normal uppercase leading-none tracking-[-.04em] md:text-[120px] md:leading-[120px]">
             <span>Small agency,</span>
             <br />
             <span className="md:pl-[103px]">big ideas.</span>
@@ -414,7 +414,7 @@ function Home() {
       <section className="bg-morio-ink px-5 py-[141px] text-center md:py-[145px]">
         <div className="mx-auto max-w-5xl">
           <p className="text-5xl leading-none text-morio-orange">“</p>
-          <h2 className="mt-7 font-display text-5xl uppercase leading-none md:text-[60px] md:leading-[72px]">
+          <h2 className="mt-7 font-display text-5xl font-normal uppercase leading-none md:text-[60px] md:leading-[72px]">
             {greetings[activeGreeting][0]}
           </h2>
           <p className="mt-12 font-display text-lg uppercase">{greetings[activeGreeting][1]}</p>
@@ -499,7 +499,7 @@ function Services() {
             <p className="text-2xl font-bold uppercase leading-9 text-morio-orange">
               Our craft
             </p>
-            <h2 className="mt-[49px] font-display text-5xl uppercase leading-none md:text-[60px] md:leading-[72px]">
+            <h2 className="mt-[49px] font-display text-5xl font-normal uppercase leading-none md:text-[60px] md:leading-[72px]">
               Small agency.
               <br />
               Big ideas.
@@ -550,7 +550,7 @@ function Services() {
       </section>
       <section className="bg-[#070707] px-5 py-20 md:px-10 md:pb-[161px] md:pt-[127px]">
         <div className="mx-auto grid max-w-[1140px] gap-12 lg:grid-cols-[7fr_5fr] lg:gap-20">
-          <h2 className="font-display text-5xl uppercase leading-[.95] md:text-[60px] md:leading-[72px]">
+          <h2 className="font-display text-5xl font-normal uppercase leading-[.95] md:text-[60px] md:leading-[72px]">
             Our team have 20+ years delivering projects on a global stage. Because of that experience, the world&apos;s most exciting and progressive.
           </h2>
           <div className="space-y-[56px] pt-[19px]">

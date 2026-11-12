@@ -6,7 +6,7 @@
   --font-body: "Jost", sans-serif;
   --color-morio-ink: #101010;
   --color-morio-green: #264437;
-  --color-morio-orange: #ff5100;
+  --color-morio-orange: #264437;
 }
 @layer base {
   html {
@@ -17,5 +17,13 @@
   }
   * {
     @apply box-border;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display font-bold;
   }
 }
