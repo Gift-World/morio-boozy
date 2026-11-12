@@ -69,7 +69,7 @@ function Header() {
           <img
             src="/images/mr-logo2.png"
             alt="Morio"
-            className="h-11 w-11 rounded-full object-contain md:h-16 md:w-16"
+            className="h-12 w-12 rounded-full object-contain md:h-20 md:w-20"
           />
         </Link>
         <nav className="hidden items-center gap-10 pt-[30px] text-xs font-bold uppercase tracking-wide lg:flex">
@@ -85,9 +85,11 @@ function Header() {
             target="_blank"
             rel="noreferrer"
             aria-label="Instagram"
-            className="text-lg"
+            className="grid h-5 w-5 place-items-center"
           >
-            ◎
+            <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4 fill-current">
+              <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm9.75 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" />
+            </svg>
           </a>
           <button
             aria-label="Open menu"
@@ -171,7 +173,10 @@ function Footer() {
       </footer>
       <div className="flex flex-col justify-between gap-3 border-t border-white/15 bg-morio-ink px-5 py-5 text-xs text-white/60 md:flex-row md:px-10">
         <span>© Copyrights 2026 Morio Studios. All rights reserved.</span>
-        <a href="https://www.instagram.com/moriostudios/">Instagram</a>
+        <div className="flex gap-6">
+          <a href="https://www.instagram.com/moriostudios/">Instagram</a>
+          <a href="#top">Twitter</a>
+        </div>
       </div>
     </>
   );
@@ -278,14 +283,11 @@ function Home() {
             Built on passion and love for creativity and storytelling. Morio
             Studio’s is the brain child of 4 Kenyan friends who had a common
             goal, to craft an agency that would be nimble, versatile and smart.
-            <span className="hidden md:inline">
-              {" "}
-              With each morio possessing a unique skill set that complimented
-              the whole. We believe in smart, innovative solutions to problem
-              solving and meeting the clients goals. We put human thinking and
-              technological efficiency together to create workflows that solve
-              any brief from concept to execution.
-            </span>
+            {" "}With each morio possessing a unique skill set that complimented
+            the whole. We believe in smart, innovative solutions to problem
+            solving and meeting the clients goals. We put human thinking and
+            technological efficiency together to create workflows that solve
+            any brief from concept to execution.
           </p>
         </div>
       </section>
@@ -663,13 +665,14 @@ function People({ detailed = false }: { detailed?: boolean }) {
           key={name}
           className="grid gap-10 border-b border-white/[.08] py-[70px] md:grid-cols-[1.1fr_.9fr] md:items-center md:gap-[60px]"
         >
-          <div className={index % 2 ? "md:order-2" : ""}>
+          <div>
             <h2 className="font-display text-5xl uppercase leading-none md:text-[44px]">
               {name}
             </h2>
             <p className="mt-4 text-sm uppercase tracking-[.14em] text-[#2df300]">
               {role}
             </p>
+            <div className="mt-7 h-px w-full bg-white/[.12]" />
             <p className="mt-7 max-w-xl text-[15px] leading-[1.9] text-white/70">
               {bios[index]}
             </p>
