@@ -782,7 +782,7 @@ function Contact() {
         "/images/projects/ab1.jpeg",
       ]}
     >
-      <section className="px-5 py-20 md:px-10 md:py-32">
+      <section className="px-5 py-20 md:px-10 md:pb-[138px] md:pt-[126px]">
         <div className="mx-auto grid max-w-[1280px] gap-10 md:grid-cols-3">
           <article>
             <h2 className="font-display text-4xl uppercase">For inquiries</h2>
@@ -820,10 +820,10 @@ function Contact() {
             </p>
           </article>
         </div>
-        <div className="mx-auto mt-20 max-w-[1280px] overflow-hidden border border-white/15">
+        <div className="-mx-5 mt-[138px] overflow-hidden md:-mx-10">
           <iframe
             title="Morio Studios location"
-            className="h-[460px] w-full grayscale"
+            className="h-[420px] w-full grayscale md:h-[558px]"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7908569907054!2d36.777850373500655!3d-1.3003299356385623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1b264fa4327b%3A0x4a4fd87e6260dbe!2sAdams%20Arcade!5e0!3m2!1sen!2ske!4v1776766655424!5m2!1sen!2ske"
             loading="lazy"
           />
