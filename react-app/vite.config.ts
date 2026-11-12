@@ -7,8 +7,8 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   publicDir: fileURLToPath(new URL('../assets', import.meta.url)),
   server: {
-    host: '127.0.0.1',
-    port: 4173,
+    host: '0.0.0.0',
+    port: 5175,
     strictPort: true,
     fs: {
       allow: [fileURLToPath(new URL('..', import.meta.url))],
