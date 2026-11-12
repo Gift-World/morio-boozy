@@ -725,15 +725,15 @@ function Team() {
         "/images/projects/morio3.jpg",
       ]}
     >
-      <section className="px-5 py-20 md:px-10 md:py-32">
-        <div className="mx-auto grid max-w-[1280px] gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="bg-[#070707] px-5 py-20 md:px-10 md:py-[142px]">
+        <div className="mx-auto grid max-w-[1140px] gap-x-[30px] gap-y-[30px] sm:grid-cols-2 lg:grid-cols-3">
           {team.map(([name, role, image, portfolio]) => (
             <article key={name} className="group">
-              <div className="relative aspect-[4/5] overflow-hidden bg-black">
+              <div className="relative h-[310px] overflow-hidden bg-[#4c4c4e]">
                 <img
                   src={image}
                   alt={name}
-                  className="h-full w-full object-cover grayscale transition duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                  className="h-full w-[calc(100%+8px)] -translate-x-2 object-cover grayscale transition duration-500 group-hover:translate-x-0 group-hover:grayscale-0"
                 />
                 <a
                   href={portfolio}
@@ -745,20 +745,20 @@ function Team() {
                   ↗
                 </a>
               </div>
-              <h2 className="mt-5 font-display text-4xl uppercase">{name}</h2>
-              <p className="mt-1 text-sm text-white/65">{role}</p>
+              <h2 className="mt-[35px] font-display text-2xl uppercase leading-none">{name}</h2>
+              <p className="mt-1 text-sm leading-6 text-[#9a9a9a]">{role}</p>
             </article>
           ))}
         </div>
-        <div className="mx-auto mt-28 max-w-[1280px] border-t border-white/25 pt-16">
-          <h2 className="font-display text-5xl uppercase leading-none">
+        <div className="mx-auto mt-[148px] max-w-[1140px]">
+          <h2 className="mb-[72px] font-display text-5xl uppercase leading-none">
             We worked with global largest brands
           </h2>
-          <div className="mt-12 grid grid-cols-3 gap-8 md:grid-cols-5 lg:grid-cols-9">
+          <div className="flex gap-8 overflow-x-auto pb-2">
             {[7, 1, 2, 3, 4, 5, 6, 8, 5].map((logo, index) => (
               <div
                 key={`${logo}-${index}`}
-                className="grid aspect-[3/2] place-items-center border border-white/15 p-5"
+                className="grid h-20 min-w-32 place-items-center p-2"
               >
                 <img
                   src={`/images/clientLogo/${logo}.png`}
