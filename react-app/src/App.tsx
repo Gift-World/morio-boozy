@@ -122,9 +122,9 @@ function Footer() {
         <div className="mx-auto grid max-w-[1280px] gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <img
-              src="/images/logo2.png"
+              src="/images/moriologo.jpeg"
               alt="Morio Studios"
-              className="h-14 w-auto"
+              className="h-14 w-14 rounded-full object-cover"
             />
             <p className="mt-6 max-w-52 text-sm leading-6 text-white/70">
               “small agency, big ideas”
