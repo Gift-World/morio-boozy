@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@300;400;500;600;700&family=Jost:wght@400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@300;400;500;600;700&family=Jost:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -10,40 +10,34 @@
 }
 
 @layer base {
-  html { scroll-behavior: smooth; }
-  body { @apply m-0 bg-morio-ink font-body text-white antialiased; }
-  * { @apply box-border; }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply m-0 bg-morio-ink font-body text-white antialiased;
+  }
+  * {
+    @apply box-border;
+  }
 }
 
 @layer components {
   @media (min-width: 1024px) {
-    header > div:first-child { height: 168px !important; }
-  }
-
-  main > section:first-child h1 {
-    font-size: clamp(4rem, 9.5vw, 7.5rem);
-    line-height: 1;
-    letter-spacing: -0.04em;
-  }
-
-  main > section:first-child h1 span:last-child { color: white !important; }
-
-  main > section:first-child h1 + p {
-    max-width: 650px !important;
-    font-size: 0 !important;
-  }
-
-  main > section:first-child h1 + p::before {
-    content: "Built on passion and love for creativity and storytelling. Morio Studio’s is the brain child of 4 Kenyan friends who had a common goal, to craft an agency that would be nimble, versatile and smart. With each morio possessing a unique skill set that complimented the whole. We believe in smart, innovative solutions to problem solving and meeting the clients goals. We put human thinking and technological efficiency together to create workflows that solve any brief from concept to execution.";
-    font-size: 18px;
-    line-height: 30px;
+    header > div:first-child {
+      height: 168px !important;
+    }
   }
 
   @media (min-width: 768px) {
-    main > section:first-child:has(video) > div:last-child { transform: translateY(90px); }
+    main > section:first-child:has(video) > div:last-child {
+      transform: translateY(90px);
+    }
   }
 
   @media (max-width: 767px) {
-    main > section:first-child h1 + p::before { font-size: 13px; line-height: 20px; }
+    main > section:first-child h1 + p::before {
+      font-size: 13px;
+      line-height: 20px;
+    }
   }
 }
