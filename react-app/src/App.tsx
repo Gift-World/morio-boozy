@@ -404,7 +404,7 @@ function Home() {
                     className="h-full w-[calc(100%+8px)] -translate-x-2 object-cover grayscale transition duration-500 hover:scale-105 hover:grayscale-0"
                   />
                 </div>
-                <h3 className="mt-9 font-display text-2xl uppercase">{name}</h3>
+                <h3 className="mt-9 font-display text-2xl font-medium uppercase">{name}</h3>
                 <p className="mt-1 text-sm text-white/60">{role}</p>
               </article>
             ))}
@@ -785,7 +785,7 @@ function Team() {
                   ↗
                 </a>
               </div>
-              <h2 className="mt-[35px] font-display text-2xl uppercase leading-none">{name}</h2>
+              <h2 className="mt-[35px] font-display text-2xl font-medium uppercase leading-none">{name}</h2>
               <p className="mt-1 text-sm leading-6 text-[#9a9a9a]">{role}</p>
             </article>
           ))}
@@ -824,10 +824,10 @@ function Contact() {
       ]}
     >
       <section className="px-5 py-20 md:px-10 md:pb-[138px] md:pt-[126px]">
-        <div className="mx-auto grid max-w-[1280px] gap-10 md:grid-cols-3">
+        <div className="mx-auto grid max-w-[1200px] gap-10 md:grid-cols-3">
           <article>
-            <h2 className="font-display text-4xl uppercase">For inquiries</h2>
-            <div className="mt-6 grid gap-2 leading-7 text-white/70">
+            <h2 className="font-display text-lg uppercase leading-[1.1] tracking-[-.18px]">For inquiries</h2>
+            <div className="mt-[19px] grid text-lg leading-[30px] tracking-[-.18px] text-[#d0d0d0]">
               <a href="tel:254718704926">+254 718 704 926</a>
               {[
                 "feysal@moriostudios.africa",
@@ -842,15 +842,15 @@ function Contact() {
             </div>
           </article>
           <article>
-            <h2 className="font-display text-4xl uppercase">Office hours</h2>
-            <p className="mt-6 leading-7 text-white/70">
+            <h2 className="font-display text-lg uppercase leading-[1.1] tracking-[-.18px]">Office hours</h2>
+            <p className="mt-[19px] text-lg leading-[30px] tracking-[-.18px] text-[#d0d0d0]">
               Monday - Friday
               <br />6 am to 8 pm EAT
             </p>
           </article>
           <article>
-            <h2 className="font-display text-4xl uppercase">Post address</h2>
-            <p className="mt-6 leading-7 text-white/70">
+            <h2 className="font-display text-lg uppercase leading-[1.1] tracking-[-.18px]">Post address</h2>
+            <p className="mt-[19px] text-lg leading-[30px] tracking-[-.18px] text-[#d0d0d0]">
               Morio Studios
               <br />
               22707-00505
