@@ -491,26 +491,29 @@ function Services() {
             ]}
           />
         </div>
-        <div className="mx-auto mt-24 grid max-w-[1280px] gap-x-12 gap-y-0 md:grid-cols-2 lg:grid-cols-3">
+      </section>
+      <section className="px-5 pb-[146px] pt-[50px] md:px-10">
+        <div className="mx-auto grid max-w-[1140px] gap-x-0 gap-y-[50px] md:grid-cols-2 lg:grid-cols-3">
           {disciplines.map(([title, copy], index) => (
             <article
               id={serviceIds[index]}
               key={title}
-              className="border-t border-white/25 py-8"
+              className="pr-0 md:pr-10"
             >
-              <span className="text-sm text-morio-orange">0{index + 1}</span>
-              <h2 className="mt-4 font-display text-4xl uppercase leading-none">
-                {title}
+              <h2 className="font-display text-[30px] font-bold uppercase leading-[48px] tracking-[-.3px]">
+                {index + 1}. {title}
               </h2>
-              <p className="mt-5 text-sm leading-7 text-white/70">{copy}</p>
+              <p className="mt-[25px] text-lg leading-10 tracking-[-.18px] text-[#d0d0d0]">{copy}</p>
             </article>
           ))}
         </div>
-        <div className="mx-auto mt-20 grid max-w-[1280px] gap-12 border-t border-white/25 pt-16 lg:grid-cols-2">
-          <h2 className="font-display text-5xl uppercase leading-[.9]">
-            Our team have 20+ years delivering projects on a global stage.
+      </section>
+      <section className="bg-[#070707] px-5 py-20 md:px-10 md:pb-[161px] md:pt-[127px]">
+        <div className="mx-auto grid max-w-[1140px] gap-12 lg:grid-cols-[7fr_5fr] lg:gap-20">
+          <h2 className="font-display text-5xl uppercase leading-[.95] md:text-[60px] md:leading-[72px]">
+            Our team have 20+ years delivering projects on a global stage. Because of that experience, the world&apos;s most exciting and progressive.
           </h2>
-          <div className="space-y-7">
+          <div className="space-y-[56px] pt-[19px]">
             {[
               ["Idea", "60%"],
               ["Design", "80%"],
@@ -531,7 +534,9 @@ function Services() {
             ))}
           </div>
         </div>
-        <div className="mx-auto mt-28 max-w-[1280px]">
+      </section>
+      <section className="px-5 py-20 md:px-10 md:pb-[120px] md:pt-[152px]">
+        <div className="mx-auto max-w-[1140px]">
           <SectionHeading label="Latest projects" />
           <div className="-mx-5 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 md:-mx-10 md:px-10">
             {projects.map(([title, category, image]) => (
@@ -570,7 +575,7 @@ function About() {
         "/images/projects/ab3.jpeg",
       ]}
     >
-      <section className="px-5 py-20 md:px-10 md:pb-[120px] md:pt-[150px]">
+      <section className="bg-[#111] px-5 py-20 md:px-10 md:pb-[221px] md:pt-[150px]">
         <div className="mx-auto max-w-[860px] text-center text-[15px] leading-[1.95] text-white/80">
           <p>
             <strong>Morio</strong> is Kiswahili slang for a friend — someone you
@@ -591,12 +596,13 @@ function About() {
             conceptualization and visualization, giving us the edge to deliver
             high-quality creativity in record time.
           </p>
-          <p className="mt-10 font-display text-4xl uppercase leading-none text-white">
+          <p className="mt-8 text-[16px] font-semibold leading-8 tracking-[.4px] text-white">
             Where vision meets innovation, Morio creates.
           </p>
+          <div className="mx-auto mt-[30px] h-[2px] w-[110px] bg-white/[.12]" />
         </div>
-        <People detailed />
       </section>
+      <People detailed />
     </ContentPage>
   );
 }
@@ -652,29 +658,30 @@ function People({ detailed = false }: { detailed?: boolean }) {
     ],
   ] as const;
   return (
-    <div className="mx-auto mt-[150px] max-w-[1280px]">
+    <section className="bg-[#070707] px-5 py-20 md:px-10 md:pb-[120px] md:pt-[150px]">
+    <div className="mx-auto max-w-[1140px]">
       <SectionHeading label="Our experienced team" />
       {team.map(([name, role, image], index) => (
         <article
           key={name}
-          className="grid gap-10 border-b border-white/[.08] py-[70px] md:grid-cols-[1.1fr_.9fr] md:items-center md:gap-[60px]"
+          className={`grid gap-10 border-t border-white/[.08] py-[70px] md:grid-cols-[1.1fr_.9fr] md:items-center md:gap-[60px] ${index === 0 ? "border-t-0 pt-10" : ""}`}
         >
           <div>
             <h2 className="font-display text-5xl uppercase leading-none md:text-[44px]">
               {name}
             </h2>
-            <p className="mt-4 text-sm uppercase tracking-[.14em] text-[#2df300]">
+            <p className="mt-0 text-sm uppercase tracking-[2px] text-white/75">
               {role}
             </p>
-            <div className="mt-7 h-px w-full bg-white/[.12]" />
-            <p className="mt-7 max-w-xl text-[15px] leading-[1.9] text-white/70">
+            <div className="mt-[18px] h-[2px] w-[120px] bg-white/[.18]" />
+            <p className="mt-[22px] max-w-[560px] text-[15px] leading-[1.9] text-white/[.72]">
               {bios[index]}
             </p>
             <a
               href={portfolios[index]}
               target="_blank"
               rel="noreferrer"
-              className="mt-8 inline-block rounded-full bg-[#2df300] px-5 py-3 text-xs font-bold uppercase tracking-wide text-black"
+              className="mt-[26px] inline-flex items-center rounded-full bg-[#2df300] px-4 py-[10px] text-sm font-semibold text-[#071007]"
             >
               Portfolio &gt;&gt;
             </a>
@@ -682,11 +689,12 @@ function People({ detailed = false }: { detailed?: boolean }) {
           <img
             src={image}
             alt={name}
-            className="aspect-[4/3] w-full max-w-[520px] rounded-xl object-cover grayscale"
+            className="w-full max-w-[520px] rounded-xl object-contain grayscale"
           />
         </article>
       ))}
     </div>
+    </section>
   );
 }
 function Team() {
