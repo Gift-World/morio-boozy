@@ -8,11 +8,19 @@ const nav = [
   ["Hola", "/contact"],
 ] as const;
 const craft = [
-  ["Creative direction & art direction", "pyramid"],
-  ["Graphic design & branding", "cube"],
-  ["Films & documentaries", "3dAnimation"],
-  ["Photography & illustration", "3dAnimation2"],
-  ["Animation & AI-mation", "3dAnimation3"],
+  ["Creative direction & art direction", "pyramid", "creative-direction"],
+  ["Graphic design & branding", "cube", "graphic-design"],
+  ["Films & documentaries", "3dAnimation", "films-docs"],
+  ["Photography & illustration", "3dAnimation2", "photography"],
+  ["Animation & AI-mation", "3dAnimation3", "animation"],
+] as const;
+const serviceIds = [
+  "creative-direction",
+  "graphic-design",
+  "films-docs",
+  "photography",
+  "animation",
+  "livestreaming",
 ] as const;
 const people = [
   [
@@ -44,10 +52,16 @@ const projects = [
 ] as const;
 
 function ScrollTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   useEffect(() => {
+    if (hash) {
+      const frame = window.requestAnimationFrame(() =>
+        document.getElementById(hash.slice(1))?.scrollIntoView(),
+      );
+      return () => window.cancelAnimationFrame(frame);
+    }
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [pathname, hash]);
   return null;
 }
 function Header() {
@@ -274,10 +288,10 @@ function Home() {
             If the big idea is good, execution is academic.
           </h2>
           <div className="mt-16 grid gap-x-10 border-t border-white/25 md:grid-cols-2">
-            {craft.map(([name, icon], index) => (
+            {craft.map(([name, icon, anchor], index) => (
               <Link
                 key={name}
-                to="/services"
+                to={`/services#${anchor}`}
                 className="group flex items-center gap-5 border-b border-white/25 py-6 text-lg font-medium uppercase md:text-2xl"
               >
                 <span className="w-8 text-sm text-morio-orange">
@@ -405,23 +419,23 @@ function Services() {
     ],
     [
       "Graphic design & branding",
-      "A brand is more than a logo — it is the feeling someone gets before they read a single word. We build visual identities that are bold enough to stand out and coherent enough to last. From brand systems and typography to packaging and print, our design work is rooted in human behaviour and built for real-world application.",
+      "A brand is more than a logo — it’s the feeling someone gets before they read a single word. We build visual identities that are bold enough to stand out and coherent enough to last. From brand systems and typography to packaging and print, our design work is rooted in human behaviour and built for real-world application. We make sure your brand means something, wherever it shows up.",
     ],
     [
       "Films & documentaries",
-      "We believe the most powerful tool for change is a story told well. Whether it is a brand film, a short documentary, or a campaign video, we approach every production with the same rigour — research, craft, and a deep respect for the people on screen.",
+      "We believe the most powerful tool for change is a story told well. Whether it’s a brand film, a short documentary, or a campaign video, we approach every production with the same rigour — research, craft, and a deep respect for the people on screen. Kenyan stories told authentically with a global eye. We handle everything from concept and scripting through to shoot and post, so the only thing you need to bring is the brief.",
     ],
     [
       "Photography & illustration",
-      "Still images carry worlds. Our photography captures people, products, and places with honesty and intention — no over-styled artifice, just the real thing made beautiful. Paired with our illustration work, we give clients a visual vocabulary that is entirely their own.",
+      "Still images carry worlds. Our photography captures people, products, and places with honesty and intention — no over-styled artifice, just the real thing made beautiful. Paired with our illustration work, which ranges from editorial and character design to custom brand assets, we give clients a visual vocabulary that’s entirely their own. Every image we make is designed to get the job done and leave a lasting impression.",
     ],
     [
       "Animation & AI-mation",
-      "Motion is where ideas truly come alive. We craft animations that range from sleek motion graphics and 2D character work to cutting-edge AI-assisted visuals that push the boundaries of what is possible on any budget.",
+      "Motion is where ideas truly come alive. We craft animations that range from sleek motion graphics and 2D character work to cutting-edge AI-assisted visuals that push the boundaries of what’s possible on any budget. This is where Morio’s love for technology meets our love for storytelling — using every tool available, new and old, to create work that is Relevant, Original and Impactful. Fast, inventive, and built for the scroll-speed world we all live in.",
     ],
     [
       "Livestreaming & broadcast",
-      "We deliver seamless livestreaming experiences that bring events, launches, and stories to audiences in real time. From setup to direction, we handle everything needed to produce smooth, high-quality broadcasts that feel professional and engaging.",
+      "We deliver seamless livestreaming experiences that bring events, launches, and stories to audiences in real time. From setup to direction, we handle everything needed to produce smooth, high-quality broadcasts that feel professional and engaging. This is where Morio’s technical precision meets our love for storytelling — using modern tools to make live content feel cinematic, reliable, and impactful for today’s fast-moving digital world.",
     ],
   ] as const;
   return (
@@ -471,7 +485,11 @@ function Services() {
         </div>
         <div className="mx-auto mt-24 grid max-w-[1280px] gap-x-12 gap-y-0 md:grid-cols-2 lg:grid-cols-3">
           {disciplines.map(([title, copy], index) => (
-            <article key={title} className="border-t border-white/25 py-8">
+            <article
+              id={serviceIds[index]}
+              key={title}
+              className="border-t border-white/25 py-8"
+            >
               <span className="text-sm text-morio-orange">0{index + 1}</span>
               <h2 className="mt-4 font-display text-4xl uppercase leading-none">
                 {title}
