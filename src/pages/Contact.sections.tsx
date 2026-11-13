@@ -11,7 +11,7 @@ export function AboutBanner() {
         <div className="row">
           <div className="col-lg-12 col-xl-8 offset-xl-2">
             <div className="pageBannerContent text-center">
-              <h2>Contact Us</h2>
+              <h1 className="pageTitle">Contact Us</h1>
               {" "}
               <div className="pageBannerPath">
                 <Link to="/">Home</Link>

@@ -1,3 +1,5 @@
+import { Icon } from "../Icon";
+import { Photo } from "../Photo";
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { noop } from "../../lib/device";
@@ -12,7 +14,7 @@ export interface NavItem {
 export interface HeaderConfig {
   logo: { src: string; className: string };
   nav: NavItem[];
-  social: { href?: string; icon: string };
+  social: { href?: string; icon: "instagram" | "twitter" };
   /** The about page still carries the template's hidden cart widget. */
   cartWidget?: boolean;
 }
@@ -28,7 +30,7 @@ export const brandHeader: HeaderConfig = {
     { title: "About Us", to: "/about", label: "The Morios" },
     { title: "Contact", to: "/contact", label: "Hola" },
   ],
-  social: { href: "https://www.instagram.com/moriostudios/", icon: "fab fa-instagram" },
+  social: { href: "https://www.instagram.com/moriostudios/", icon: "instagram" },
 };
 
 const legacyLogo = { src: "/assets/images/moriologo.jpeg", className: "rounded-full size-12 md:size-16" };
@@ -42,7 +44,7 @@ export const contactHeader: HeaderConfig = {
     { title: "About Us", to: "/about", label: "About Us" },
     { title: "Contact", to: "/contact", label: "Contact" },
   ],
-  social: { href: "https://www.instagram.com/moriostudios/", icon: "fab fa-instagram" },
+  social: { href: "https://www.instagram.com/moriostudios/", icon: "instagram" },
 };
 
 export const teamHeader: HeaderConfig = {
@@ -54,7 +56,7 @@ export const teamHeader: HeaderConfig = {
     { title: "Contact", to: "/contact", label: "Contact" },
     { title: "Team", to: "/team", label: "Team" },
   ],
-  social: { icon: "fab fa-twitter" },
+  social: { icon: "twitter" },
 };
 
 export const notFoundHeader: HeaderConfig = {
@@ -96,7 +98,7 @@ export function Header({ config }: { config: HeaderConfig }) {
               <div className="logo">
                 <Link className="dfCursor" to="/">
                   {" "}
-                  <img src={logo.src} className={logo.className} alt="Morio" />{" "}
+                  <Photo src={logo.src} className={logo.className} alt="Morio Studios home" sizes="80px" priority />{" "}
                 </Link>
               </div>{" "}
               <nav className="mainMenu" ref={menuRef}>
@@ -107,19 +109,19 @@ export function Header({ config }: { config: HeaderConfig }) {
                 </ul>
               </nav>{" "}
               <div className="headerOniAccess">
-                <a href="#" onClick={toggleMenu} className="menu_btn" ref={btnRef}>
-                  <i className="fa-solid fa-bars" />
+                <a href="#" onClick={toggleMenu} className="menu_btn" ref={btnRef} aria-label="Menu">
+                  <Icon name="bars" className="fa-solid fa-bars" />
                 </a>{" "}
                 <div className="hdOniSocial">
                   <ul>
                     <li>
                       {social.href ? (
-                        <a href={social.href} target="_blank">
-                          <i className={social.icon} />
+                        <a href={social.href} target="_blank" rel="noopener" aria-label={social.icon === "instagram" ? "Instagram" : "Twitter"}>
+                          <Icon name={social.icon} className={`fab fa-${social.icon}`} />
                         </a>
                       ) : (
-                        <a href="#" onClick={noop}>
-                          <i className={social.icon} />
+                        <a href="#" onClick={noop} aria-label="Twitter">
+                          <Icon name={social.icon} className={`fab fa-${social.icon}`} />
                         </a>
                       )}
                     </li>

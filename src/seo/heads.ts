@@ -1,33 +1,99 @@
-// Per-route <head> content, copied verbatim from the original static pages.
-// Injected at build time by scripts/prerender.mjs and kept in sync on client-side navigation.
+// Per-route <head> content. Injected at build time by scripts/prerender.mjs
+// and kept in sync on client-side navigation (seo/applyHead.ts).
+
+export const SITE = "https://moriostudios.africa";
+const OG_IMAGE = `${SITE}/assets/images/moriologo.jpeg`;
+const GA_ID = "G-TK8NVW26K5";
+
 export interface RouteHead {
   title: string;
   head: string;
 }
 
-export const heads: Record<string, RouteHead> = {
+interface PageSeo {
+  title: string;
+  description: string;
+  /** Keep out of search results (and the sitemap). */
+  noindex?: boolean;
+  /** Extra tags for this page only. */
+  extra?: string;
+}
+
+/** Search-facing copy for each route. */
+export const pages: Record<string, PageSeo> = {
   "/": {
-    "title": "Morio Studios | Creative Agency in Nairobi ,Kenya– Branding, Film & Design",
-    "head": "<meta name=\"author\" content=\"Morio Studios\">\n<meta name=\"description\" content=\"Morio Studios is a Nairobi-based creative agency specializing in branding, graphic design, film production, photography, and animation. Small agency, big ideas.\">\n<meta name=\"keywords\" content=\"Morio Studios, Morio Studios Kenya, creative agency Kenya, creative agency Nairobi, small creative agency Kenya, boutique creative agency Kenya, Morio Studios branding, Morio Studios animation, Morio Studios UI/UX, Morio Studios copywriting, branding agency Kenya, branding agency Nairobi, brand design Kenya, logo design Kenya, brand identity design Kenya, brand strategy Kenya, brand development Nairobi, rebranding services Kenya, creative direction Kenya, creative direction agency, concept development Kenya, creative concepts Nairobi, art direction Kenya, creative strategy Kenya, campaign concept development, copywriting agency Kenya, copywriting services Nairobi, ad copywriting Kenya, creative copywriting, brand messaging Kenya, content writing agency Kenya, marketing copy Kenya, animation agency Kenya, animation services Nairobi, motion graphics Kenya, 2D animation Kenya, 3D animation Kenya, explainer video animation, animated content creation, motion design Kenya, UI/UX design agency Kenya, UI design services Nairobi, UX design Kenya, user interface design Kenya, user experience design Kenya, app UI design Kenya, web UI/UX Kenya, digital design agency Kenya, photography agency Kenya, professional photography Nairobi, commercial photography Kenya, product photography Kenya, corporate photography Kenya, videography services Kenya, video production Kenya, corporate video production Nairobi, commercial video production Kenya, brand photography Kenya, graphic design agency Kenya, graphic design services Nairobi, print design Kenya, packaging design Kenya, collateral design Kenya, marketing design Kenya, visual design Kenya, illustration services Kenya, custom illustration Kenya, brand illustration, digital illustration Kenya, commercial illustration Kenya, character illustration, documentary filming Kenya, documentary production Kenya, commercial filming Kenya, corporate video filming, brand film production, documentary filmmaker Kenya, video production company Kenya, film production Kenya, 360 campaign Kenya, integrated campaigns Kenya, tactical marketing campaigns, campaign strategy Kenya, marketing campaign development, thematic campaign design, brand campaign Kenya, digital campaign agency, creative workflow solutions, creative process management, workflow optimization Kenya, creative project management, creative agency for tech companies Kenya, creative agency for startups Kenya, creative agency for FMCG Kenya, creative agency for finance Kenya, creative agency for NGOs Kenya, creative agency for hospitality Kenya, creative agency for e-commerce Kenya, creative agency for real estate Kenya, creative agency for healthcare Kenya, creative agency for automotive Kenya, creative agency Westlands, creative agency Karen, creative agency Riverside, creative agency Parklands, creative agency CBD Nairobi, creative services East Africa, creative agency East Africa, design agency Kenya Nairobi, full-service creative agency Kenya, independent creative agency Kenya, agile creative agency, collaborative creative agency, results-driven creative agency Kenya, award-winning creative agency Kenya, innovative design agency Kenya, creative excellence Kenya, brand refresh Kenya, digital transformation agency Kenya, visual identity design Kenya, marketing assets creation, content production agency Kenya, creative solutions Kenya, design thinking agency, branding and animation services Kenya, UI/UX and graphic design agency, video production and copywriting, photography and graphic design Kenya, animation and explainer video Kenya, brand design and photography Kenya, creative direction and copywriting, need creative direction for my brand, looking for animation agency Kenya, best UI/UX designer Nairobi, documentary filmmaker East Africa, brand campaign designer Kenya, where to find copywriter Kenya, professional photography for business Kenya, how to develop a brand Kenya, what does a creative director do, best practices for UI/UX design, how much does animation cost Kenya, why hire a creative agency, what is brand strategy, how to plan a marketing campaign, sustainable branding Kenya, inclusive design Kenya, authentic brand storytelling, purpose-driven marketing Kenya, cultural insight design, local brand strategy Kenya, African design aesthetic, culturally relevant campaigns Kenya, digital-first creative agency, social media content creation Kenya, short-form video production Kenya, TikTok content creator Kenya, Instagram content agency Kenya, influencer collaboration Kenya, UGC content creation, hire creative agency Kenya, creative agency quote Kenya, best creative agency Nairobi, top creative agencies Kenya, creative agency portfolio Kenya, creative agency contact Nairobi, how to choose a creative agency, creative agency services explained, what does a creative agency do, branding process Kenya, animation production process, creative agency trends 2025, branding best practices, UI/UX design principles, copywriting tips for brands, Morio Studios Nairobi, creative agency near me Kenya, design services Nairobi, photography studio Kenya, animation studio Nairobi, creative services Nairobi, design agency Nairobi contact, local creative talent Kenya, Kenyan design agency, support local creative Kenya,Agency, creative agency, kenyan agency, kenyan creative agency, small agency, speciality agency, advertising Agency, strategy agency,Small agency big ideas,creative agency Nairobi, branding Kenya, graphic design Nairobi, film production Kenya, photography Nairobi, animation studio Kenya\">\n<meta property=\"og:title\" content=\"Morio Studios - Creative Agency\">\n<meta property=\"og:description\" content=\"Small agency, big ideas. Branding, film, design &amp; storytelling from Nairobi.\">\n<meta property=\"og:image\" content=\"https://moriostudios.africa/assets/images/moriologo.jpeg\">\n<meta property=\"og:url\" content=\"https://moriostudios.africa\">\n<meta property=\"og:type\" content=\"website\">\n<meta name=\"google-site-verification\" content=\"jpTZ4wZbu8ALP-KbwI-2h_ZAu84MXVdyNiK4Dbs_Cvs\">\n<link rel=\"icon\" type=\"image/png\" href=\"/assets/images/moriologo.jpeg\">\n<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Organization\",\n  \"name\": \"Morio Studios\",\n  \"url\": \"https://moriostudios.africa\",\n  \"logo\": \"https://moriostudios.africa/assets/images/moriologo.jpeg\",\n  \"sameAs\": [\n    \"https://www.instagram.com/moriostudios/\"\n  ]\n}\n</script>\n<script async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-TK8NVW26K5\"></script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag('js', new Date());\n\n  gtag('config', 'G-TK8NVW26K5');\n</script>"
+    title: "Morio Studios | Creative Agency in Nairobi, Kenya – Branding, Film & Design",
+    description:
+      "Morio Studios is a Nairobi creative agency for branding, graphic design, film and documentaries, photography and animation. Small agency, big ideas.",
+    extra:
+      `<meta name="google-site-verification" content="jpTZ4wZbu8ALP-KbwI-2h_ZAu84MXVdyNiK4Dbs_Cvs">\n` +
+      `<script type="application/ld+json">${JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: "Morio Studios",
+        url: SITE,
+        logo: OG_IMAGE,
+        sameAs: ["https://www.instagram.com/moriostudios/"],
+      })}</script>`,
   },
   "/service": {
-    "title": "About Morio Studios | Creative Agency in Nairobi, Kenya",
-    "head": "<meta name=\"author\" content=\"Themewar\">\n<meta name=\"description\" content=\"Learn about Morio Studios, a Nairobi-based creative agency founded by four creatives specializing in branding, film, design, animation, and storytelling.\">\n<meta name=\"keywords\" content=\"about Morio Studios, creative agency Nairobi, branding Kenya, film production Nairobi, design agency Kenya\">\n<link rel=\"icon\" type=\"image/png\" href=\"/assets/images/moriologo.jpeg\">\n<script async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-TK8NVW26K5\"></script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag('js', new Date());\n\n  gtag('config', 'G-TK8NVW26K5');\n</script>"
+    title: "Our Craft – Branding, Film, Photography & Animation | Morio Studios",
+    description:
+      "Creative and art direction, graphic design and branding, films and documentaries, photography and illustration, animation and livestreaming from Morio Studios in Nairobi.",
   },
   "/about": {
-    "title": "About Morio Studios | Creative Agency in Nairobi, Kenya",
-    "head": "<meta name=\"author\" content=\"Themewar\">\n<meta name=\"description\" content=\"Learn about Morio Studios, a Nairobi-based creative agency founded by four creatives specializing in branding, film, design, animation, and storytelling.\">\n<meta name=\"keywords\" content=\"about Morio Studios, creative agency Nairobi, branding Kenya, film production Nairobi, design agency Kenya\">\n<link rel=\"icon\" type=\"image/png\" href=\"/assets/images/moriologo.jpeg\">\n<script async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-TK8NVW26K5\"></script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag('js', new Date());\n\n  gtag('config', 'G-TK8NVW26K5');\n</script>"
+    title: "About the Morios – Creative Agency in Nairobi | Morio Studios",
+    description:
+      "Meet the four Morios behind Morio Studios: a Nairobi creative collective blending ideation, creative direction, design, animation, photography and film.",
   },
   "/team": {
-    "title": "Morio Studios - Creative Agency",
-    "head": "<meta name=\"description\" content=\"Creative Agency Responsive HTML5 Template. Built with Bootstrap, HTML5, CSS3 and jQuery.\">\n<meta name=\"keywords\" content=\"HTML, CSS, JavaScript, jQuery, Animation, Bootstrap, Font Awesome, Revolution Slider, Agengy, Portfolio\">\n<meta name=\"author\" content=\"Themewar\">\n<link rel=\"icon\" type=\"image/png\" href=\"/assets/images/favicon.png\">"
+    title: "Team | Morio Studios",
+    description: "The team behind Morio Studios, a creative agency in Nairobi, Kenya.",
+    // Still template content (placeholder roles and client logos).
+    noindex: true,
   },
   "/contact": {
-    "title": "Morio Studios - Creative Agency",
-    "head": "<meta name=\"author\" content=\"Themewar\">\n<meta name=\"description\" content=\"Learn about Morio Studios, a Nairobi-based creative agency founded by four creatives specializing in branding, film, design, animation, and storytelling.\">\n<meta name=\"keywords\" content=\"about Morio Studios, creative agency Nairobi, branding Kenya, film production Nairobi, design agency Kenya\">\n<link rel=\"icon\" type=\"image/png\" href=\"/assets/images/moriologo.jpeg\">\n<script async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-TK8NVW26K5\"></script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag('js', new Date());\n\n  gtag('config', 'G-TK8NVW26K5');\n</script>"
+    title: "Contact Morio Studios – Creative Agency in Nairobi, Kenya",
+    description:
+      "Talk to a Morio. Call +254 718 704 926 or email the team to start your next branding, film, photography or animation project in Nairobi.",
   },
   "/404": {
-    "title": "Morio Studios - Creative Agency",
-    "head": "<meta name=\"description\" content=\"Creative Agency Responsive HTML5 Template. Built with Bootstrap, HTML5, CSS3 and jQuery.\">\n<meta name=\"keywords\" content=\"HTML, CSS, JavaScript, jQuery, Animation, Bootstrap, Font Awesome, Revolution Slider, Agengy, Portfolio\">\n<meta name=\"author\" content=\"Themewar\">\n<link rel=\"icon\" type=\"image/png\" href=\"/assets/images/favicon.png\">"
-  }
+    title: "Page not found | Morio Studios",
+    description: "The page you are looking for doesn't exist. It may have been moved or removed.",
+    noindex: true,
+  },
 };
+
+const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+
+function build(path: string, p: PageSeo): RouteHead {
+  const url = path === "/" ? `${SITE}/` : `${SITE}${path}`;
+  const tags = [
+    `<meta name="description" content="${esc(p.description)}">`,
+    `<meta name="author" content="Morio Studios">`,
+    p.noindex ? `<meta name="robots" content="noindex, follow">` : `<link rel="canonical" href="${url}">`,
+    `<meta property="og:type" content="website">`,
+    `<meta property="og:site_name" content="Morio Studios">`,
+    `<meta property="og:locale" content="en_KE">`,
+    `<meta property="og:title" content="${esc(p.title)}">`,
+    `<meta property="og:description" content="${esc(p.description)}">`,
+    `<meta property="og:url" content="${url}">`,
+    `<meta property="og:image" content="${OG_IMAGE}">`,
+    `<meta name="twitter:card" content="summary">`,
+    `<meta name="twitter:title" content="${esc(p.title)}">`,
+    `<meta name="twitter:description" content="${esc(p.description)}">`,
+    `<meta name="twitter:image" content="${OG_IMAGE}">`,
+    `<link rel="icon" type="image/jpeg" href="/assets/images/moriologo.jpeg">`,
+    p.extra ?? "",
+    `<script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script>`,
+    `<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}');</script>`,
+  ];
+  return { title: p.title, head: tags.filter(Boolean).join("\n") };
+}
+
+export const heads: Record<string, RouteHead> = Object.fromEntries(Object.entries(pages).map(([path, p]) => [path, build(path, p)]));
+
+/** Routes that belong in sitemap.xml. */
+export const indexable = Object.entries(pages)
+  .filter(([, p]) => !p.noindex)
+  .map(([path]) => path);

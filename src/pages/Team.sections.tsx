@@ -1,4 +1,6 @@
 // Sections of the Team page, ported 1:1 from team.html.
+import { Icon } from "../components/Icon";
+import { Photo } from "../components/Photo";
 import { BannerSlider } from "../components/widgets/Rotators";
 import { OwlCarousel } from "../components/widgets/OwlCarousel";
 import { clientLogoOptions } from "../components/widgets/carouselOptions";
@@ -14,7 +16,7 @@ export function AboutBanner() {
         <div className="row">
           <div className="col-lg-12 col-xl-8 offset-xl-2">
             <div className="pageBannerContent text-center">
-              <h2>Team</h2>
+              <h1 className="pageTitle">Team</h1>
               {" "}
               <div className="pageBannerPath">
                 <Link to="/">Home</Link>
@@ -40,12 +42,12 @@ export function TeamSection02() {
             <div className="team_Item" data-aos="fade-up" data-aos-duration="1000" data-aos-dela="200">
               <div className="teamItemInner">
                 <div className="team_thumbnail">
-                  <img src="/assets/images/team/Images-02.webp" alt="team" />
+                  <Photo src="/assets/images/team/Images-02.webp" alt="Sydney Ang'ila, Director of Film and Photography at Morio Studios" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw" />
                   {" "}
                   <div className="tm01Social">
-                    <a href="https://www.behance.net/videopicha" target="_blank">
+                    <a href="https://www.behance.net/videopicha" target="_blank" rel="noopener" aria-label="Behance portfolio">
                       {" "}
-                      <i className="fab fa-behance" />
+                      <Icon name="behance" className="fab fa-behance" />
                       {" "}
                     </a>
                   </div>
@@ -64,12 +66,12 @@ export function TeamSection02() {
             <div className="team_Item" data-aos="fade-up" data-aos-duration="1300" data-aos-dela="250">
               <div className="teamItemInner">
                 <div className="team_thumbnail">
-                  <img src="/assets/images/team/feysal3.jpeg" alt="team" />
+                  <Photo src="/assets/images/team/feysal3.jpeg" alt="Feysal Anthony, Director of Creative and Strategy at Morio Studios" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw" />
                   {" "}
                   <div className="tm01Social">
-                    <a href="https://www.behance.net/feysless" target="_blank">
+                    <a href="https://www.behance.net/feysless" target="_blank" rel="noopener" aria-label="Behance portfolio">
                       {" "}
-                      <i className="fab fa-behance" />
+                      <Icon name="behance" className="fab fa-behance" />
                       {" "}
                     </a>
                   </div>
@@ -88,12 +90,12 @@ export function TeamSection02() {
             <div className="team_Item">
               <div className="teamItemInner">
                 <div className="team_thumbnail">
-                  <img src="/assets/images/team/Images-01.webp" alt="team" />
+                  <Photo src="/assets/images/team/Images-01.webp" alt="Brian Macharia, Director of Art and UX at Morio Studios" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw" />
                   {" "}
                   <div className="tm01Social">
-                    <a href="https://www.behance.net/brayanmacharia" target="_blank">
+                    <a href="https://www.behance.net/brayanmacharia" target="_blank" rel="noopener" aria-label="Behance portfolio">
                       {" "}
-                      <i className="fab fa-behance" />
+                      <Icon name="behance" className="fab fa-behance" />
                       {" "}
                     </a>
                   </div>
@@ -112,12 +114,12 @@ export function TeamSection02() {
             <div className="team_Item" data-aos="fade-up" data-aos-duration="1000" data-aos-dela="200">
               <div className="teamItemInner">
                 <div className="team_thumbnail">
-                  <img src="/assets/images/team/Vincent.webp" alt="team" />
+                  <Photo src="/assets/images/team/Vincent.webp" alt="Vincent Karani, Director of Content and Animation at Morio Studios" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw" />
                   {" "}
                   <div className="tm01Social">
-                    <a href="#" onClick={noop}>
+                    <a href="#" onClick={noop} aria-label="Behance portfolio">
                       {" "}
-                      <i className="fab fa-behance" />
+                      <Icon name="behance" className="fab fa-behance" />
                       {" "}
                     </a>
                   </div>
@@ -151,55 +153,55 @@ export function ClientTestimonilaSec02() {
               <OwlCarousel className="clientTestimonial02 owl-carousel" options={clientLogoOptions}>
                 <a className="cleintLogo">
                   {" "}
-                  <img src="/assets/images/clientLogo/7.png" alt="clogo" />
+                  <Photo src="/assets/images/clientLogo/7.png" alt="Client logo" sizes="intrinsic" />
                   {" "}
                 </a>
                 {" "}
                 <a className="cleintLogo">
                   {" "}
-                  <img src="/assets/images/clientLogo/1.png" alt="clogo" />
+                  <Photo src="/assets/images/clientLogo/1.png" alt="Client logo" sizes="intrinsic" />
                   {" "}
                 </a>
                 {" "}
                 <a className="cleintLogo">
                   {" "}
-                  <img src="/assets/images/clientLogo/2.png" alt="clogo" />
+                  <Photo src="/assets/images/clientLogo/2.png" alt="Client logo" sizes="intrinsic" />
                   {" "}
                 </a>
                 {" "}
                 <a className="cleintLogo">
                   {" "}
-                  <img src="/assets/images/clientLogo/3.png" alt="clogo" />
+                  <Photo src="/assets/images/clientLogo/3.png" alt="Client logo" sizes="intrinsic" />
                   {" "}
                 </a>
                 {" "}
                 <a className="cleintLogo">
                   {" "}
-                  <img src="/assets/images/clientLogo/4.png" alt="clogo" />
+                  <Photo src="/assets/images/clientLogo/4.png" alt="Client logo" sizes="intrinsic" />
                   {" "}
                 </a>
                 {" "}
                 <a className="cleintLogo">
                   {" "}
-                  <img src="/assets/images/clientLogo/5.png" alt="clogo" />
+                  <Photo src="/assets/images/clientLogo/5.png" alt="Client logo" sizes="intrinsic" />
                   {" "}
                 </a>
                 {" "}
                 <a className="cleintLogo">
                   {" "}
-                  <img src="/assets/images/clientLogo/6.png" alt="clogo" />
+                  <Photo src="/assets/images/clientLogo/6.png" alt="Client logo" sizes="intrinsic" />
                   {" "}
                 </a>
                 {" "}
                 <a className="cleintLogo">
                   {" "}
-                  <img src="/assets/images/clientLogo/8.png" alt="clogo" />
+                  <Photo src="/assets/images/clientLogo/8.png" alt="Client logo" sizes="intrinsic" />
                   {" "}
                 </a>
                 {" "}
                 <a className="cleintLogo">
                   {" "}
-                  <img src="/assets/images/clientLogo/5.png" alt="clogo" />
+                  <Photo src="/assets/images/clientLogo/5.png" alt="Client logo" sizes="intrinsic" />
                   {" "}
                 </a>
               </OwlCarousel>

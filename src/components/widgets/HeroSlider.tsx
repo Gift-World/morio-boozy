@@ -81,7 +81,7 @@ export function HeroSlider() {
   const sliderRef = useRef<HTMLDivElement>(null);
   const forcerRef = useRef<HTMLDivElement>(null);
   const layerRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const capRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const capRefs = useRef<(HTMLElement | null)[]>([]);
 
   useLayoutEffect(() => {
     const wrapper = wrapperRef.current!;
@@ -167,7 +167,7 @@ export function HeroSlider() {
             id="rev_slider_1"
             className="rev_slider fullwidthabanner revslider-initialised tp-simpleresponsive"
             ref={sliderRef}
-            style={{ display: "none", marginTop: "0px", marginBottom: "0px" }}
+            style={{ marginTop: "0px", marginBottom: "0px" }}
             data-version="5.4.1"
             data-slideactive="rs-3048"
           >
@@ -185,6 +185,7 @@ export function HeroSlider() {
                   muted
                   loop
                   preload="auto"
+                  poster="/assets/images/slider/hero-poster.webp"
                   ref={(v) => {
                     // React doesn't serialise `muted` to HTML; make sure the
                     // autoplaying background video starts after hydration.
@@ -196,7 +197,10 @@ export function HeroSlider() {
                 >
                   <source src="/assets/images/slider/Black-And-White-Video.mp4" type="video/mp4" />
                 </video>
-                {LAYERS.map((layer, i) => (
+                {LAYERS.map((layer, i) => {
+                  // the headline is the home page's <h1>
+                  const Caption = layer.heading ? "h1" : "div";
+                  return (
                   <div
                     key={i}
                     className="tp-parallax-wrap"
@@ -207,7 +211,7 @@ export function HeroSlider() {
                   >
                     <div className="tp-loop-wrap" style={{ position: "absolute", display: "block" }}>
                       <div className="tp-mask-wrap" style={{ position: "absolute", display: "block", overflow: "visible" }}>
-                        <div
+                        <Caption
                           className={layer.className}
                           ref={(el) => {
                             capRefs.current[i] = el;
@@ -228,11 +232,12 @@ export function HeroSlider() {
                           }}
                         >
                           {layer.content}
-                        </div>
+                        </Caption>
                       </div>
                     </div>
                   </div>
-                ))}
+                  );
+                })}
               </li>
             </ul>
             <div className="tp-loader " style={{ display: "none" }}>

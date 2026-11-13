@@ -8,7 +8,8 @@
     "build": "tsc --noEmit && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs",
     "preview": "vite preview",
     "serve": "node scripts/serve.mjs",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
     "aos": "2.3.4",
@@ -18,12 +19,18 @@
     "react-router-dom": "6.30.1"
   },
   "devDependencies": {
+    "@fontsource-variable/antonio": "5.0.20",
+    "@fontsource-variable/jost": "5.0.20",
+    "@fortawesome/free-brands-svg-icons": "6.5.2",
+    "@fortawesome/free-solid-svg-icons": "6.5.2",
     "@tailwindcss/vite": "4.1.11",
     "@types/aos": "3.0.7",
     "@types/node": "22.15.30",
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",
     "@vitejs/plugin-react": "4.5.2",
+    "purgecss": "6.0.0",
+    "sharp": "0.33.5",
     "tailwindcss": "4.1.11",
     "typescript": "5.8.3",
     "vite": "6.3.5"

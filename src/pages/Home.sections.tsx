@@ -1,4 +1,6 @@
 // Sections of the Home page, ported 1:1 from index.html.
+import { Icon } from "../components/Icon";
+import { Photo } from "../components/Photo";
 import { HeroSlider } from "../components/widgets/HeroSlider";
 import { OwlCarousel } from "../components/widgets/OwlCarousel";
 import { projectCarouselOptions, testimonialOptions } from "../components/widgets/carouselOptions";
@@ -50,7 +52,7 @@ export function ServiceSection() {
                   <li data-aos="fade-up" data-aos-duration="8800">
                     <Link className="no-cursor" to="/service#creative-direction">
                       {" "}
-                      <img className="serviceList_lsIcon" src="/assets/images/icon/icon_creative.png" alt="pyramid" />
+                      <Photo src="/assets/images/icon/icon_creative.png" alt="" sizes="intrinsic" className="serviceList_lsIcon" />
                       {" "}
                       <span>{"Creative direction and Art direction "}</span>
                       {" "}
@@ -62,7 +64,7 @@ export function ServiceSection() {
                   <li data-aos="fade-up" data-aos-duration="1800">
                     <Link className="no-cursor" to="/service#graphic-design">
                       {" "}
-                      <img className="serviceList_lsIcon" src="/assets/images/icon/icon_graphic.png" alt="cube" />
+                      <Photo src="/assets/images/icon/icon_graphic.png" alt="" sizes="intrinsic" className="serviceList_lsIcon" />
                       {" "}
                       <span>{"Graphic Design and Branding "}</span>
                       {" "}
@@ -74,7 +76,7 @@ export function ServiceSection() {
                   <li data-aos="fade-up" data-aos-duration="2100">
                     <Link className="no-cursor" to="/service#films-docs">
                       {" "}
-                      <img className="serviceList_lsIcon" src="/assets/images/icon/icon_film.png" alt="3dAnimation" />
+                      <Photo src="/assets/images/icon/icon_film.png" alt="" sizes="intrinsic" className="serviceList_lsIcon" />
                       {" "}
                       <span>{"Films and Documentaries "}</span>
                       {" "}
@@ -86,7 +88,7 @@ export function ServiceSection() {
                   <li data-aos="fade-up" data-aos-duration="2100">
                     <Link className="no-cursor" to="/service#photography">
                       {" "}
-                      <img className="serviceList_lsIcon" src="/assets/images/icon/icon_photo.png" alt="3dAnimation" />
+                      <Photo src="/assets/images/icon/icon_photo.png" alt="" sizes="intrinsic" className="serviceList_lsIcon" />
                       {" "}
                       <span>{"Photography and Illustration "}</span>
                       {" "}
@@ -98,7 +100,7 @@ export function ServiceSection() {
                   <li data-aos="fade-up" data-aos-duration="2100">
                     <Link className="no-cursor" to="/service#animation">
                       {" "}
-                      <img className="serviceList_lsIcon" src="/assets/images/icon/icon_anim.png" alt="3dAnimation" />
+                      <Photo src="/assets/images/icon/icon_anim.png" alt="" sizes="intrinsic" className="serviceList_lsIcon" />
                       {" "}
                       <span>{"Animation and AI-mation "}</span>
                       {" "}
@@ -138,24 +140,24 @@ export function ProjectSectionSlider() {
       <OwlCarousel className="projectCarousel owl-carousel owl-theme" options={projectCarouselOptions}>
         <div className="project_item webDesign brand development">
           <div className="project_item_thumb">
-            <img src="/assets/images/projects/maizeflour.jpg" alt="project" />
+            <Photo src="/assets/images/projects/maizeflour.jpg" alt="Maize flour packaging design by Morio Studios" sizes="(min-width: 1200px) 33vw, (min-width: 768px) 50vw, 100vw" />
           </div>
         </div>
         {" "}
         <div className="project_item webDesign brand photoGraphy development">
           <div className="project_item_thumb">
-            <img src="/assets/images/projects/lt2.jpeg" alt="project" />
+            <Photo src="/assets/images/projects/lt2.jpeg" alt="Photography project by Morio Studios" sizes="(min-width: 1200px) 33vw, (min-width: 768px) 50vw, 100vw" />
           </div>
         </div>
         {" "}
         <div className="project_item webDesign development photoGraphy">
           <div className="project_item_thumb">
-            <img src="/assets/images/projects/branding.jpg" alt="project" />
+            <Photo src="/assets/images/projects/branding.jpg" alt="Branding project by Morio Studios" sizes="(min-width: 1200px) 33vw, (min-width: 768px) 50vw, 100vw" />
           </div>
         </div>
         {" "}
         <div className="project_item_thumb">
-          <img src="/assets/images/projects/morio4.jpg" alt="project" />
+          <Photo src="/assets/images/projects/morio4.jpg" alt="Morio Studios creative project" sizes="(min-width: 1200px) 33vw, (min-width: 768px) 50vw, 100vw" />
         </div>
       </OwlCarousel>
     </section>
@@ -195,12 +197,12 @@ export function TeamSection() {
             <div className="team_Item" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="250">
               <div className="teamItemInner">
                 <div className="team_thumbnail bg-[#4c4c4e] flex items-center justify-center">
-                  <img src="/assets/images/team/Images-02.webp" alt="team" />
+                  <Photo src="/assets/images/team/Images-02.webp" alt="Sydney Ang'ila, Director of Film and Photography at Morio Studios" sizes="(min-width: 992px) 25vw, (min-width: 768px) 50vw, 100vw" />
                   {" "}
                   <div className="tm01Social">
-                    <a href="https://www.behance.net/videopicha" target="_blank">
+                    <a href="https://www.behance.net/videopicha" target="_blank" rel="noopener" aria-label="Behance portfolio">
                       {" "}
-                      <i className="fab fa-behance" />
+                      <Icon name="behance" className="fab fa-behance" />
                       {" "}
                     </a>
                   </div>
@@ -219,12 +221,12 @@ export function TeamSection() {
             <div className="team_Item" data-aos="fade-up" data-aos-duration="1400" data-aos-delay="300">
               <div className="teamItemInner">
                 <div className="team_thumbnail bg-[#4c4c4e]">
-                  <img src="/assets/images/team/feysal3.jpeg" alt="team" />
+                  <Photo src="/assets/images/team/feysal3.jpeg" alt="Feysal Anthony, Director of Creative and Strategy at Morio Studios" sizes="(min-width: 992px) 25vw, (min-width: 768px) 50vw, 100vw" />
                   {" "}
                   <div className="tm01Social">
-                    <a href="https://www.behance.net/feysless" target="_blank">
+                    <a href="https://www.behance.net/feysless" target="_blank" rel="noopener" aria-label="Behance portfolio">
                       {" "}
-                      <i className="fab fa-behance" />
+                      <Icon name="behance" className="fab fa-behance" />
                       {" "}
                     </a>
                   </div>
@@ -243,12 +245,12 @@ export function TeamSection() {
             <div className="team_Item">
               <div className="teamItemInner">
                 <div className="team_thumbnail bg-[#4c4c4e]">
-                  <img src="/assets/images/team/Images-01.webp" alt="team" />
+                  <Photo src="/assets/images/team/Images-01.webp" alt="Brian Macharia, Director of Art and UX at Morio Studios" sizes="(min-width: 992px) 25vw, (min-width: 768px) 50vw, 100vw" />
                   {" "}
                   <div className="tm01Social">
-                    <a href="https://www.behance.net/brayanmacharia" target="_blank">
+                    <a href="https://www.behance.net/brayanmacharia" target="_blank" rel="noopener" aria-label="Behance portfolio">
                       {" "}
-                      <i className="fab fa-behance" />
+                      <Icon name="behance" className="fab fa-behance" />
                       {" "}
                     </a>
                   </div>
@@ -267,12 +269,12 @@ export function TeamSection() {
             <div className="team_Item" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="250">
               <div className="teamItemInner">
                 <div className="team_thumbnail bg-[#4c4c4e] ">
-                  <img src="/assets/images/team/Vincent.webp" alt="team" />
+                  <Photo src="/assets/images/team/Vincent.webp" alt="Vincent Karani, Director of Content and Animation at Morio Studios" sizes="(min-width: 992px) 25vw, (min-width: 768px) 50vw, 100vw" />
                   {" "}
                   <div className="tm01Social">
-                    <a href="https://www.behance.net/vincentkarani1" target="_blank">
+                    <a href="https://www.behance.net/vincentkarani1" target="_blank" rel="noopener" aria-label="Behance portfolio">
                       {" "}
-                      <i className="fab fa-behance" />
+                      <Icon name="behance" className="fab fa-behance" />
                       {" "}
                     </a>
                   </div>

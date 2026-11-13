@@ -1,3 +1,4 @@
+import { Photo } from "../Photo";
 import { Link } from "react-router-dom";
 
 /** Footer used on home, services and about. */
@@ -11,7 +12,7 @@ export function SiteFooter() {
               <div className="footer_logo">
                 <Link className="dfCursor" to="/">
                   {" "}
-                  <img src="/assets/images/moriologo.jpeg" className="rounded-full" alt="Morio Studios Logo" />
+                  <Photo src="/assets/images/moriologo.jpeg" alt="Morio Studios" sizes="intrinsic" className="rounded-full" />
                   {" "}
                 </Link>
               </div>
@@ -89,7 +90,7 @@ export function TeamFooter() {
             <aside className="widget aboutBoozy">
               <div className="footer_logo">
                 <Link className="dfCursor" to="/">
-                  <img src="/assets/images/moriologo.jpeg" className="rounded-full" alt="Morio" />
+                  <Photo src="/assets/images/moriologo.jpeg" alt="Morio Studios" sizes="intrinsic" className="rounded-full" />
                 </Link>
               </div>
               {" "}

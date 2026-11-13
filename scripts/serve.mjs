@@ -6,7 +6,9 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-const dist = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "dist");
+const dist = process.env.DIST
+  ? path.resolve(process.env.DIST)
+  : path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "dist");
 const port = Number(process.env.PORT || 4175);
 const TYPES = {
   ".html": "text/html; charset=utf-8", ".js": "text/javascript", ".css": "text/css", ".svg": "image/svg+xml",

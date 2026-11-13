@@ -14,5 +14,5 @@ const app = (
 );
 
 // Production pages are prerendered (see scripts/prerender.mjs); dev is not.
-if (root.hasChildNodes()) hydrateRoot(root, app);
+if (root.firstElementChild) hydrateRoot(root, app);
 else createRoot(root).render(app);

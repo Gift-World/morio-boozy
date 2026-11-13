@@ -1,4 +1,5 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useState, type CSSProperties } from "react";
+import { Photo, bgVars } from "../Photo";
 
 /** Cycles an index every `interval` ms (the pages' inline slideshow scripts). */
 function useCycle(length: number, interval: number) {
@@ -10,15 +11,21 @@ function useCycle(length: number, interval: number) {
   return index;
 }
 
-/** Cross-fading background images behind the inner-page banners (5s). */
+/**
+ * Cross-fading background images behind the inner-page banners (5s).
+ * Only the visible slide and the next one get their image, so the rest
+ * download just before they're shown instead of all up front.
+ */
 export function BannerSlider({ images }: { images: string[] }) {
   const active = useCycle(images.length, 5000);
+  const [loaded, setLoaded] = useState(2);
+  useEffect(() => setLoaded((n) => Math.max(n, active + 2)), [active]);
   return (
     <div className="banner-slider">
       {images.map((src, i) => (
         <Fragment key={src + i}>
           {i > 0 && " "}
-          <div className={`slide${i === active ? " active" : ""}`} style={{ backgroundImage: `url('${src}')` }} />
+          <div className={`slide${i === active ? " active" : ""}`} style={i < loaded ? (bgVars(src) as CSSProperties) : undefined} />
         </Fragment>
       ))}
     </div>
@@ -33,7 +40,12 @@ export function SrvSlideshow({ images }: { images: string[] }) {
       {images.map((src, i) => (
         <Fragment key={src + i}>
           {i > 0 && " "}
-          <img src={src} alt="service-image" className={`srv-slide${i === active ? " active" : ""}`} />
+          <Photo
+            src={src}
+            alt="Morio Studios at work"
+            sizes="(min-width: 992px) 50vw, 100vw"
+            className={`srv-slide${i === active ? " active" : ""}`}
+          />
         </Fragment>
       ))}
     </div>

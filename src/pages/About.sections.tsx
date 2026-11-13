@@ -1,4 +1,5 @@
 // Sections of the About page, ported 1:1 from about.html.
+import { Photo } from "../components/Photo";
 import { BannerSlider } from "../components/widgets/Rotators";
 
 export function AboutBanner() {
@@ -75,7 +76,7 @@ export function TeamSection() {
           <div className="teamSplit_right">
             <div className="teamGlow" />
             {" "}
-            <img className="teamPhoto" src="/assets/images/team/FEY2.jpeg" alt="Feysal" />
+            <Photo src="/assets/images/team/FEY2.jpeg" alt="Feysal Anthony Nair, Creative Director" sizes="(min-width: 992px) 40vw, 100vw" className="teamPhoto" />
           </div>
         </div>
         {" "}
@@ -95,7 +96,7 @@ export function TeamSection() {
           <div className="teamSplit_right">
             <div className="teamGlow" />
             {" "}
-            <img className="teamPhoto" src="/assets/images/team/SYD2.jpeg" alt="Sydney" />
+            <Photo src="/assets/images/team/SYD2.jpeg" alt="Sydney Ang'ila, Film and Production Director" sizes="(min-width: 992px) 40vw, 100vw" className="teamPhoto" />
           </div>
         </div>
         {" "}
@@ -115,7 +116,7 @@ export function TeamSection() {
           <div className="teamSplit_right">
             <div className="teamGlow" />
             {" "}
-            <img className="teamPhoto" src="/assets/images/team/BRI-2.jpeg" alt="Brian" />
+            <Photo src="/assets/images/team/BRI-2.jpeg" alt="Brian Macharia, Art Director and Graphic Designer" sizes="(min-width: 992px) 40vw, 100vw" className="teamPhoto" />
           </div>
         </div>
         {" "}
@@ -135,7 +136,7 @@ export function TeamSection() {
           <div className="teamSplit_right">
             <div className="teamGlow" />
             {" "}
-            <img className="teamPhoto" src="/assets/images/team/VIN2.jpeg" alt="Team member" />
+            <Photo src="/assets/images/team/VIN2.jpeg" alt="Vincent Karani, Director of Content and Animation" sizes="(min-width: 992px) 40vw, 100vw" className="teamPhoto" />
           </div>
         </div>
       </div>

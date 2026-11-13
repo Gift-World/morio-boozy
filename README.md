@@ -44,6 +44,12 @@ scripts/               prerender.mjs (build step), serve.mjs (local Netlify-like
 
 ## Development Log
 
+### November 13, 2026 - Phase 1: Speed, technical SEO and accessibility (no visual change)
+
+- **Changes**: Image pipeline (`npm run images`) that writes responsive WebP variants and a manifest; a `Photo` component with `srcset`/`sizes`, intrinsic width/height and lazy loading. Self-hosted Antonio/Jost variable fonts with preload instead of Google Fonts. Font Awesome replaced by inline SVG icons. Unused plugin stylesheets removed and unused selectors purged at build time (CSS 608 KB → 193 KB). Home hero reserves its height before JavaScript runs and shows a poster frame. Unique titles/descriptions, canonical URLs, Open Graph/Twitter cards, an H1 on every page, real alt text, `robots.txt` and `sitemap.xml` generated at build, `noindex` on 404 and the placeholder team page. Long-lived cache headers in `netlify.toml`. The 1:1 copy is tagged `parity-baseline`.
+- **Rationale**: The site downloaded up to 18 MB per page (4 MB team photos shown at 288px) and blocked rendering on 600 KB of mostly unused CSS.
+- **Impact** (mid-range phone, 4G): home page 17.9 MB → 1.3 MB, first paint 14.4s → 4.9s, largest paint 19.8s → 4.9s, layout shift 1.0 → 0. Services 5 MB → 1.2 MB, first paint 17.1s → 3.9s. Screenshots against `parity-baseline` at 4 widths on every page stay within 0.6% (image re-encoding only), with identical page heights.
+
 ### November 13, 2026 - Migration to React + Vite + Tailwind + TypeScript (1:1 parity)
 
 - **Changes**: Rebuilt the static HTML/jQuery site as a React + TypeScript app on Vite with Tailwind CSS v4, on the `claude-revamp` branch. Page markup was converted mechanically from the original HTML so class names and structure are identical; the theme CSS is imported unchanged. jQuery and its plugins were replaced with React ports that render the same DOM: Owl Carousel (same widths, clones, dots, drag, autoplay timing), Slider Revolution hero (same responsive grid maths), preloader, sticky header, mobile menu, back-to-top, custom cursor, skill bars and banner slideshows. Routes match the live Netlify URLs, old `.html` URLs redirect, and each page is prerendered with its original `<head>`.

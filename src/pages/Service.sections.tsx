@@ -1,4 +1,5 @@
 // Sections of the Service page, ported 1:1 from service.html.
+import { Photo } from "../components/Photo";
 import { BannerSlider, SrvSlideshow } from "../components/widgets/Rotators";
 import { SkillBars } from "../components/widgets/SkillBars";
 import { OwlCarousel } from "../components/widgets/OwlCarousel";
@@ -14,7 +15,7 @@ export function AboutBanner() {
         <div className="row">
           <div className="col-lg-12 col-xl-8 offset-xl-2">
             <div className="pageBannerContent text-center">
-              <h2>services</h2>
+              <h1 className="pageTitle">services</h1>
               {" "}
               <div className="pageBannerPath" />
             </div>
@@ -164,7 +165,7 @@ export function SrvProjectSection() {
         <OwlCarousel className="projectCarousel owl-carousel" options={projectCarouselOptions}>
           <div className="project_item projectItemView webDesign brand development" data-firstline="" data-secondline="">
             <div className="project_item_thumb">
-              <img src="/assets/images/projects/ps-1.jpg" alt="project" />
+              <Photo src="/assets/images/projects/ps-1.jpg" alt="Morio Studios project 1" sizes="(min-width: 1200px) 33vw, (min-width: 768px) 50vw, 100vw" />
             </div>
             {" "}
             <a href="#" className="project_item_dtls">
@@ -182,7 +183,7 @@ export function SrvProjectSection() {
           {" "}
           <div className="project_item projectItemView webDesign brand photoGraphy development" data-firstline="" data-secondline="">
             <div className="project_item_thumb">
-              <img src="/assets/images/projects/ps-2.jpg" alt="project" />
+              <Photo src="/assets/images/projects/ps-2.jpg" alt="Morio Studios project 2" sizes="(min-width: 1200px) 33vw, (min-width: 768px) 50vw, 100vw" />
             </div>
             {" "}
             <a href="#" className="project_item_dtls">
@@ -200,7 +201,7 @@ export function SrvProjectSection() {
           {" "}
           <div className="project_item projectItemView webDesign development photoGraphy" data-firstline="" data-secondline="">
             <div className="project_item_thumb">
-              <img src="/assets/images/projects/ps-3.jpg" alt="project" />
+              <Photo src="/assets/images/projects/ps-3.jpg" alt="Morio Studios project 3" sizes="(min-width: 1200px) 33vw, (min-width: 768px) 50vw, 100vw" />
             </div>
             {" "}
             <a href="#" className="project_item_dtls">
@@ -218,7 +219,7 @@ export function SrvProjectSection() {
           {" "}
           <div className="project_item projectItemView brand photoGraphy development" data-firstline="" data-secondline="">
             <div className="project_item_thumb">
-              <img src="/assets/images/projects/ps-4.jpg" alt="project" />
+              <Photo src="/assets/images/projects/ps-4.jpg" alt="Morio Studios project 4" sizes="(min-width: 1200px) 33vw, (min-width: 768px) 50vw, 100vw" />
             </div>
             {" "}
             <a href="#" className="project_item_dtls">
@@ -236,7 +237,7 @@ export function SrvProjectSection() {
           {" "}
           <div className="project_item projectItemView brand photoGraphy development" data-firstline="" data-secondline="">
             <div className="project_item_thumb">
-              <img src="/assets/images/projects/ps-5.jpg" alt="project" />
+              <Photo src="/assets/images/projects/ps-5.jpg" alt="Morio Studios project 5" sizes="(min-width: 1200px) 33vw, (min-width: 768px) 50vw, 100vw" />
             </div>
             {" "}
             <a href="#" className="project_item_dtls">
@@ -254,7 +255,7 @@ export function SrvProjectSection() {
           {" "}
           <div className="project_item projectItemView brand webDesign development" data-firstline="" data-secondline="">
             <div className="project_item_thumb">
-              <img src="/assets/images/projects/ps-6.jpg" alt="project" />
+              <Photo src="/assets/images/projects/ps-6.jpg" alt="Morio Studios project 6" sizes="(min-width: 1200px) 33vw, (min-width: 768px) 50vw, 100vw" />
             </div>
             {" "}
             <a href="#" className="project_item_dtls">
@@ -272,7 +273,7 @@ export function SrvProjectSection() {
           {" "}
           <div className="project_item projectItemView brand photoGraphy webDesign" data-firstline="" data-secondline="">
             <div className="project_item_thumb">
-              <img src="/assets/images/projects/ps-7.jpg" alt="project" />
+              <Photo src="/assets/images/projects/ps-7.jpg" alt="Morio Studios project 7" sizes="(min-width: 1200px) 33vw, (min-width: 768px) 50vw, 100vw" />
             </div>
             {" "}
             <a href="#" className="project_item_dtls">

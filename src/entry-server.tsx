@@ -4,6 +4,7 @@ import { App, ROUTES } from "./App";
 import { routeHead } from "./seo/applyHead";
 
 export { ROUTES };
+export { SITE, indexable } from "./seo/heads";
 
 /** Render a route to static HTML for the prerender step. */
 export function render(url: string) {
