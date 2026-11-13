@@ -30,7 +30,7 @@ export function SiteHeader() {
 
   const solid = scrolled || open;
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${solid ? "bg-ink/80 backdrop-blur-md" : "bg-transparent"}`}>
+    <header className={`vt-header fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${solid ? "bg-ink/80 backdrop-blur-md" : "bg-transparent"}`}>
       <div className="container-site flex h-18 items-center justify-between gap-6 md:h-22">
         <Link to="/" className="relative z-10 block" aria-label="Morio Studios, home">
           <img src="/assets/brand/morio-logo-white.svg" alt="" width={1421} height={1263} className="h-12 w-auto md:h-14" />
@@ -54,9 +54,6 @@ export function SiteHeader() {
         </nav>
 
         <div className="relative z-10 flex items-center gap-3">
-          <Link to="/contact" className="btn-primary hidden min-h-0 px-5 py-2.5 text-sm sm:inline-flex">
-            Start a project
-          </Link>
           <button
             type="button"
             className="grid size-11 place-items-center rounded-full border border-bone/25 text-lg text-bone transition hover:border-bone lg:hidden"

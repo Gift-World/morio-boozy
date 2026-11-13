@@ -1,6 +1,8 @@
 import { useEffect, useState, type FormEvent } from "react";
 import { Link } from "react-router-dom";
+import { Photo } from "../components/Photo";
 import { serviceBySlug, services } from "../content/services";
+import { projects } from "../content/work";
 import { Icon } from "./icons";
 
 /** Shape returned by /api/brief (netlify/functions/brief.mts). */
@@ -247,6 +249,7 @@ function BriefCard({ brief, preview, onUse, onReset }: { brief: Brief; preview: 
             </ul>
           </>
         )}
+        <RelatedWork crafts={brief.crafts} />
         <div className="mt-8 flex flex-wrap gap-3">
           <button type="button" onClick={() => onUse(brief)} className="btn-primary">
             Send this brief to the Morios <Icon name="arrow" />
@@ -257,6 +260,34 @@ function BriefCard({ brief, preview, onUse, onReset }: { brief: Brief; preview: 
         </div>
       </div>
     </article>
+  );
+}
+
+/** Studio projects that share a craft with the brief, best matches first. */
+function RelatedWork({ crafts }: { crafts: string[] }) {
+  const related = projects
+    .map((p) => ({ p, score: p.crafts.filter((c) => crafts.includes(c)).length }))
+    .filter((r) => r.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 3)
+    .map((r) => r.p);
+  if (!related.length) return null;
+  return (
+    <>
+      <h4 className="eyebrow mt-8 mb-4">Related work</h4>
+      <ul className="grid grid-cols-3 gap-3">
+        {related.map((p) => (
+          <li key={p.slug}>
+            <Link to={`/work/${p.slug}`} className="group block">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-ink-3">
+                <Photo src={p.cover} alt={p.coverAlt} sizes="(min-width: 768px) 20vw, 30vw" className="absolute inset-0 size-full object-cover transition duration-700 group-hover:scale-105" />
+              </div>
+              <p className="mt-2 text-sm text-bone/90 group-hover:text-bone">{p.title}</p>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </>
   );
 }
 

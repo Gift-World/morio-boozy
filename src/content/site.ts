@@ -49,6 +49,31 @@ export const homeCopy = {
   introMore:
     "With each morio possessing a unique skill set that complimented the whole. We believe in smart, innovative solutions to problem solving and meeting the clients goals. We put human thinking and technological efficiency together to create workflows that solve any brief from concept to execution.",
   tagline: ["If the big idea is good,", "Execution is academic."],
+  /** The craft list exactly as the original home page showed it */
+  crafts: [
+    { label: "Creative direction and Art direction", slug: "creative-direction", icon: "/assets/images/icon/icon_creative.png" },
+    { label: "Graphic Design and Branding", slug: "branding", icon: "/assets/images/icon/icon_graphic.png" },
+    { label: "Films and Documentaries", slug: "film", icon: "/assets/images/icon/icon_film.png" },
+    { label: "Photography and Illustration", slug: "photography", icon: "/assets/images/icon/icon_photo.png" },
+    { label: "Animation and AI-mation", slug: "animation", icon: "/assets/images/icon/icon_anim.png" },
+  ],
+} as const;
+
+/** Labels from the original site, reused as section headings and links. */
+export const labels = {
+  ourCraft: "Our Craft",
+  moreCraft: "More Craft",
+  latestProjects: "Latest projects",
+  meetTheMorios: "Meet the Morios",
+  knowTheMorios: "Know the Morios",
+  experiencedTeam: "Our Experienced Team",
+  talkToAMorio: "Talk to a Morio",
+  contactUs: "Contact us",
+  aboutUs: "About us",
+  forInquiries: "For Inquiries",
+  officeHours: "Office Hours",
+  postAddress: "Post address",
+  portfolio: "Portfolio >>",
 } as const;
 
 /** About page copy (from the original "The Morios" page). */

@@ -54,9 +54,15 @@ scripts/         prerender.mjs (build), optimize-images.mjs, serve.mjs (local Ne
 
 Each brief costs roughly one to two US cents. Inputs are capped at 1,500 characters, there's a honeypot, and each visitor is limited to 6 briefs an hour per function instance.
 
-### 3D hero
+### Home hero video and 3D logo
 
-`src/site/three/HeroScene.tsx` extrudes the traced logo (`public/assets/brand/morio-logo.svg`) with plain three.js. It loads only after first paint on capable devices; everyone else sees the still renders `public/assets/images/hero-3d*.webp` (re-render them if the scene changes).
+The home hero is the original studio video, re-encoded to `public/assets/images/slider/hero-720.mp4` / `hero-1280.mp4` with poster frames. It attaches after the page loads and is skipped for Data Saver, 2G and reduced-motion visitors.
+
+`src/site/three/HeroScene.tsx` extrudes the traced logo (`public/assets/brand/morio-logo.svg`) with plain three.js for the lit "Small agency, big ideas" section further down the home page. It loads only when that section comes near the screen on capable devices; everyone else sees the still renders `public/assets/images/lit-3d*.webp` (re-render them if the scene changes).
+
+### Project pages
+
+Each project in `src/content/work.ts` gets a story page at `/work/<slug>` with a pinned, scroll-driven gallery and a shared-image page transition from the grid. Project names are placeholders, so these pages are `noindex` until confirmed (`src/seo/heads.ts`).
 
 ### Owner to-dos (search the code for `TODO(owner)`)
 
@@ -67,6 +73,12 @@ Each brief costs roughly one to two US cents. Inputs are capped at 1,500 charact
 - After deploying, enable form notifications in Netlify → Forms → `project-brief`.
 
 ## Development Log
+
+### November 13, 2026 - Original content and hero video restored, project stories, scroll moments
+
+- **Changes**: Home hero video restored, with the 3D logo moved to its own lit section. All page copy returned to the original wording (only broken hyphenation fixed); added copy removed. New footer built around "Talk to a Morio" with the four studio emails. Contact page uses the original "Contact Us" banner images and inquiry details. Added project story pages with page transitions and pinned galleries, a pinned craft story on Our Craft, founders who light up as you scroll on The Morios, and related work in Brief Builder results.
+- **Rationale**: Keep the studio's own words and video; change only the design and experience.
+- **Impact**: Every page is under 1 MB on first load on a phone (largest: Our Work 0.98 MB, home 0.89 MB including the video). Checked at 360, 390, 768, 1024, 1440 and 1920px with no console or hydration errors and no horizontal overflow.
 
 ### November 13, 2026 - World-class pass: logo palette, original content, 3D hero, AI Brief Builder
 

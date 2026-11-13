@@ -160,3 +160,33 @@
     transform: none;
   }
 }
+
+/* Page transitions (site/Layout.tsx wraps navigations in startViewTransition) */
+@keyframes vt-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes vt-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+::view-transition-old(root) {
+  animation: 240ms ease both vt-out;
+}
+::view-transition-new(root) {
+  animation: 520ms var(--ease-out-expo) both vt-in;
+}
+::view-transition-group(*) {
+  animation-duration: 650ms;
+  animation-timing-function: var(--ease-out-expo);
+}
+.vt-header {
+  view-transition-name: site-header;
+}
+::view-transition-old(site-header),
+::view-transition-new(site-header) {
+  animation: none;
+}

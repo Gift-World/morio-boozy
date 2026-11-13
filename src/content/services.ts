@@ -91,14 +91,14 @@ export const services: Service[] = [
   },
   {
     slug: "livestreaming",
-    title: "Livestreaming & broadcast",
+    title: "Livestreaming & Broadcast",
     short: "Livestreaming",
     seoTitle: "Livestreaming & Event Broadcast in Nairobi | Morio Studios",
     h1: "Livestreaming & broadcast in Nairobi",
     metaDescription:
       "Livestreaming for events, launches and stories in Nairobi. Morio Studios handles setup to direction for smooth, cinematic, reliable broadcasts.",
     summary: "Events, launches and stories, live, cinematic and reliable.",
-    body: "We deliver seamless livestreaming experiences that bring events, launches, and stories to audiences in real time. From setup to direction, we handle everything needed to produce smooth, high-quality broadcasts that feel professional and engaging. This is where Morio’s technical precision meets our love for storytelling — using modern tools to make live content feel cinematic, reliable, and impactful for today’s fast-moving digital world.",
+    body: "We deliver seamless livestreaming experiences that bring events, launches, and stories to audiences in real time. From setup to direction, we handle everything needed to produce smooth, high-quality broadcasts that feel professional and engaging. This is where Morio’s technical precision meets our love for storytelling — using modern tools to make live content feel cinematic, reliable, and impactful for today’s fast-moving digital world",
     includes: ["Event livestreams", "Product and brand launches", "Multi-camera direction", "Technical setup", "Live content for social platforms"],
     image: "/assets/images/service/m3.jpeg",
     imageAlt: "The Morio Studios team at work",
@@ -114,12 +114,8 @@ export const craftCopy = {
   intro:
     "Great work rarely happens in isolation. Morio Studio exists at the intersection of strategy, creativity, and craft — embedding ourselves in your world as a thinking partner, a creative collaborator, and a full execution team. We work with agencies, brands, and independent clients to bring ideas from concept to completion, with precision, care, and no unnecessary complexity. We believe the best outcomes come from co-creation, and we bring the strategic rigour and creative agility to make it count. Because small doesn't mean limited. It means focused.",
   obsession:
-    "Six disciplines. One shared obsession — turning a brief into something that moves people, changes behaviour and shifts mind sets.",
-  experience: "Our team have 20+ years delivering projects on a global stage.",
-  /** How a project moves through the studio (the old page's Idea / Design / Development) */
-  process: [
-    { step: "Idea", text: "We start with a point of view: the insight, the concept and the big idea worth protecting." },
-    { step: "Design", text: "We shape the visual and conceptual language, from moodboard to identity, frame and copy." },
-    { step: "Development", text: "We produce and deliver: shoot, edit, animate, build and launch, from concept to execution." },
-  ],
+    "Five disciplines. One shared obsession — turning a brief into something that moves people, changes behaviour and shifts mind sets.",
+  experience: "Our team have 20+ years delivering projects on a global stage. Because of that experience, the world's most exciting and progressive.",
+  /** The original page's three stages (shown as words, as on the old skill bars) */
+  process: ["Idea", "Design", "Development"],
 } as const;

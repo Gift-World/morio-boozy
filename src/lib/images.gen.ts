@@ -8,6 +8,151 @@ export interface ImageInfo {
 }
 
 export const images: Record<string, ImageInfo> = {
+  "/assets/images/icon/icon_anim.png": {
+    "width": 400,
+    "height": 400,
+    "alpha": true,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/icon_anim-160.bda15396.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/icon_anim-320.bda15396.webp"
+      ],
+      [
+        400,
+        "/assets/images/opt/icon_anim-400.bda15396.webp"
+      ]
+    ]
+  },
+  "/assets/images/icon/icon_creative.png": {
+    "width": 190,
+    "height": 200,
+    "alpha": true,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/icon_creative-160.32f1384a.webp"
+      ],
+      [
+        190,
+        "/assets/images/opt/icon_creative-190.32f1384a.webp"
+      ]
+    ]
+  },
+  "/assets/images/icon/icon_film.png": {
+    "width": 400,
+    "height": 400,
+    "alpha": true,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/icon_film-160.af457f1e.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/icon_film-320.af457f1e.webp"
+      ],
+      [
+        400,
+        "/assets/images/opt/icon_film-400.af457f1e.webp"
+      ]
+    ]
+  },
+  "/assets/images/icon/icon_graphic.png": {
+    "width": 160,
+    "height": 200,
+    "alpha": true,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/icon_graphic-160.2e016522.webp"
+      ]
+    ]
+  },
+  "/assets/images/icon/icon_photo.png": {
+    "width": 400,
+    "height": 400,
+    "alpha": true,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/icon_photo-160.3d8b7195.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/icon_photo-320.3d8b7195.webp"
+      ],
+      [
+        400,
+        "/assets/images/opt/icon_photo-400.3d8b7195.webp"
+      ]
+    ]
+  },
+  "/assets/images/lit-3d-mobile.webp": {
+    "width": 780,
+    "height": 1186,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/lit-3d-mobile-160.8d59eb33.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/lit-3d-mobile-320.8d59eb33.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/lit-3d-mobile-480.8d59eb33.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/lit-3d-mobile-640.8d59eb33.webp"
+      ],
+      [
+        780,
+        "/assets/images/opt/lit-3d-mobile-780.8d59eb33.webp"
+      ]
+    ]
+  },
+  "/assets/images/lit-3d.webp": {
+    "width": 1600,
+    "height": 829,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/lit-3d-160.53eb46d7.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/lit-3d-320.53eb46d7.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/lit-3d-480.53eb46d7.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/lit-3d-640.53eb46d7.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/lit-3d-960.53eb46d7.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/lit-3d-1280.53eb46d7.webp"
+      ],
+      [
+        1600,
+        "/assets/images/opt/lit-3d-1600.53eb46d7.webp"
+      ]
+    ]
+  },
   "/assets/images/moriologo.jpeg": {
     "width": 150,
     "height": 150,
@@ -26,27 +171,27 @@ export const images: Record<string, ImageInfo> = {
     "variants": [
       [
         160,
-        "/assets/images/opt/og-image-160.a0dcf195.webp"
+        "/assets/images/opt/og-image-160.0def0136.webp"
       ],
       [
         320,
-        "/assets/images/opt/og-image-320.a0dcf195.webp"
+        "/assets/images/opt/og-image-320.0def0136.webp"
       ],
       [
         480,
-        "/assets/images/opt/og-image-480.a0dcf195.webp"
+        "/assets/images/opt/og-image-480.0def0136.webp"
       ],
       [
         640,
-        "/assets/images/opt/og-image-640.a0dcf195.webp"
+        "/assets/images/opt/og-image-640.0def0136.webp"
       ],
       [
         960,
-        "/assets/images/opt/og-image-960.a0dcf195.webp"
+        "/assets/images/opt/og-image-960.0def0136.webp"
       ],
       [
         1200,
-        "/assets/images/opt/og-image-1200.a0dcf195.webp"
+        "/assets/images/opt/og-image-1200.0def0136.webp"
       ]
     ]
   },
@@ -202,6 +347,41 @@ export const images: Record<string, ImageInfo> = {
       ]
     ]
   },
+  "/assets/images/projects/ab2.jpeg": {
+    "width": 1600,
+    "height": 900,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/ab2-160.0d1091f7.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/ab2-320.0d1091f7.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/ab2-480.0d1091f7.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/ab2-640.0d1091f7.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/ab2-960.0d1091f7.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/ab2-1280.0d1091f7.webp"
+      ],
+      [
+        1600,
+        "/assets/images/opt/ab2-1600.0d1091f7.webp"
+      ]
+    ]
+  },
   "/assets/images/projects/ab3.jpeg": {
     "width": 1600,
     "height": 900,
@@ -237,6 +417,41 @@ export const images: Record<string, ImageInfo> = {
       ]
     ]
   },
+  "/assets/images/projects/ab6.jpeg": {
+    "width": 1600,
+    "height": 900,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/ab6-160.ab317363.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/ab6-320.ab317363.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/ab6-480.ab317363.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/ab6-640.ab317363.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/ab6-960.ab317363.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/ab6-1280.ab317363.webp"
+      ],
+      [
+        1600,
+        "/assets/images/opt/ab6-1600.ab317363.webp"
+      ]
+    ]
+  },
   "/assets/images/projects/ab7.jpeg": {
     "width": 1600,
     "height": 900,
@@ -269,6 +484,41 @@ export const images: Record<string, ImageInfo> = {
       [
         1600,
         "/assets/images/opt/ab7-1600.3df1998d.webp"
+      ]
+    ]
+  },
+  "/assets/images/projects/ab8.jpeg": {
+    "width": 1600,
+    "height": 900,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/ab8-160.acb37c78.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/ab8-320.acb37c78.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/ab8-480.acb37c78.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/ab8-640.acb37c78.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/ab8-960.acb37c78.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/ab8-1280.acb37c78.webp"
+      ],
+      [
+        1600,
+        "/assets/images/opt/ab8-1600.acb37c78.webp"
       ]
     ]
   },
@@ -572,6 +822,33 @@ export const images: Record<string, ImageInfo> = {
       [
         1600,
         "/assets/images/opt/m3-1600.a6196f7b.webp"
+      ]
+    ]
+  },
+  "/assets/images/slider/hero-poster-720.webp": {
+    "width": 720,
+    "height": 406,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/hero-poster-720-160.ba5cee48.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/hero-poster-720-320.ba5cee48.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/hero-poster-720-480.ba5cee48.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/hero-poster-720-640.ba5cee48.webp"
+      ],
+      [
+        720,
+        "/assets/images/opt/hero-poster-720-720.ba5cee48.webp"
       ]
     ]
   },

@@ -1,9 +1,10 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { services } from "./content/services";
+import { projects } from "./content/work";
 import { Layout } from "./site/Layout";
 import { HomePage } from "./site/pages/Home";
 import { ServiceDetailPage, ServicesPage } from "./site/pages/Services";
-import { WorkPage } from "./site/pages/Work";
+import { ProjectPage, WorkPage } from "./site/pages/Work";
 import { AboutPage } from "./site/pages/About";
 import { ContactPage } from "./site/pages/Contact";
 import { NotFoundPage } from "./site/pages/NotFound";
@@ -14,6 +15,7 @@ export const ROUTES = [
   "/services",
   ...services.map((s) => `/services/${s.slug}`),
   "/work",
+  ...projects.map((p) => `/work/${p.slug}`),
   "/about",
   "/contact",
   "/404",
@@ -38,6 +40,7 @@ export function App() {
         <Route path="services" element={<ServicesPage />} />
         <Route path="services/:slug" element={<ServiceDetailPage />} />
         <Route path="work" element={<WorkPage />} />
+        <Route path="work/:slug" element={<ProjectPage />} />
         <Route path="about" element={<AboutPage />} />
         <Route path="contact" element={<ContactPage />} />
         <Route path="404" element={<NotFoundPage />} />

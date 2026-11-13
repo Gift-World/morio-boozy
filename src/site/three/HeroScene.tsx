@@ -116,7 +116,7 @@ export default function HeroScene({ onReady }: { onReady: () => void }) {
       mobile = w < 768;
       if (logo) {
         const viewW = 2 * Math.tan((camera.fov * Math.PI) / 360) * camera.position.z * camera.aspect;
-        const s = Math.min(viewW * (mobile ? 0.84 : 0.4), 6.2) / LOGO_W;
+        const s = Math.min(viewW * (mobile ? 0.82 : 0.46), 6.6) / LOGO_W;
         logo.scale.setScalar(s);
       }
     };
@@ -155,7 +155,7 @@ export default function HeroScene({ onReady }: { onReady: () => void }) {
       if (logo) {
         logo.rotation.y += (px * 0.22 - logo.rotation.y) * k;
         logo.rotation.x += (-py * 0.12 - logo.rotation.x) * k;
-        logo.position.y = (mobile ? 1.15 : 0.85) + Math.sin(t * 0.8) * 0.06;
+        logo.position.y = (mobile ? 0.35 : 0.2) + Math.sin(t * 0.8) * 0.06;
       }
       renderer.render(scene, camera);
       if (firstFrame && logo) {

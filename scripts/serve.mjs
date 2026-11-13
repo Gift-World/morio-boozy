@@ -5,6 +5,7 @@ import http from "node:http";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import zlib from "node:zlib";
 
 const dist = process.env.DIST
   ? path.resolve(process.env.DIST)
@@ -30,7 +31,13 @@ http
     for (const c of candidates) {
       const f = path.join(dist, c);
       if (f.startsWith(dist) && fs.existsSync(f) && fs.statSync(f).isFile()) {
-        res.writeHead(200, { "Content-Type": TYPES[path.extname(f).toLowerCase()] || "application/octet-stream" });
+        const type = TYPES[path.extname(f).toLowerCase()] || "application/octet-stream";
+        // compress text like Netlify's CDN does, so local page weights are realistic
+        if (/text|javascript|json|xml|svg/.test(type) && /gzip/.test(req.headers["accept-encoding"] || "")) {
+          res.writeHead(200, { "Content-Type": type, "Content-Encoding": "gzip" });
+          return fs.createReadStream(f).pipe(zlib.createGzip()).pipe(res);
+        }
+        res.writeHead(200, { "Content-Type": type });
         return fs.createReadStream(f).pipe(res);
       }
     }

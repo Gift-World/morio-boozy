@@ -9,7 +9,7 @@ export { SITE, indexable } from "./seo/heads";
 /** Render a route to static HTML for the prerender step. */
 export function render(url: string) {
   const html = renderToString(
-    <StaticRouter location={url} future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+    <StaticRouter location={url} future={{ v7_relativeSplatPath: true }}>
       <App />
     </StaticRouter>,
   );

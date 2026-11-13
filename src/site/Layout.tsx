@@ -1,15 +1,45 @@
-import { useLayoutEffect, useRef } from "react";
-import { Outlet, useLocation } from "react-router-dom";
+import { useEffect, useLayoutEffect, useRef } from "react";
+import { flushSync } from "react-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { applyHead } from "../seo/applyHead";
 import { site } from "../content/site";
 import { SiteHeader } from "./SiteHeader";
 import { SiteFooter } from "./SiteFooter";
 import { Icon } from "./icons";
 
+type DocWithVT = Document & { startViewTransition?: (cb: () => void) => { finished: Promise<void> } };
+
+/**
+ * Smooth page transitions: internal link clicks are wrapped in the View
+ * Transitions API (cross-fade, plus shared-element morphs where two pages
+ * name the same element). Browsers without it, and reduced-motion users,
+ * navigate normally.
+ */
+function useViewTransitions() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const doc = document as DocWithVT;
+    if (!doc.startViewTransition || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const onClick = (e: MouseEvent) => {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      const a = (e.target as Element | null)?.closest?.("a");
+      if (!a || a.target || a.hasAttribute("download")) return;
+      const url = new URL(a.href, location.href);
+      if (url.origin !== location.origin || url.pathname.startsWith("/assets/") || url.pathname.startsWith("/api/")) return;
+      if (url.pathname === location.pathname && url.search === location.search) return; // same-page anchors
+      e.preventDefault();
+      doc.startViewTransition!(() => flushSync(() => navigate(url.pathname + url.search + url.hash)));
+    };
+    document.addEventListener("click", onClick, true);
+    return () => document.removeEventListener("click", onClick, true);
+  }, [navigate]);
+}
+
 /** Header, footer and per-route side effects (head tags, scroll position). */
 export function Layout() {
   const { pathname, hash } = useLocation();
   const first = useRef(true);
+  useViewTransitions();
 
   useLayoutEffect(() => {
     applyHead(pathname);
@@ -20,7 +50,6 @@ export function Layout() {
       return;
     }
     const target = hash ? document.getElementById(decodeURIComponent(hash.slice(1))) : null;
-    // jump, don't smooth-scroll, to the new page's start
     if (target) target.scrollIntoView({ behavior: "instant" });
     else window.scrollTo({ top: 0, behavior: "instant" });
   }, [pathname, hash]);
@@ -40,7 +69,7 @@ export function Layout() {
         target="_blank"
         rel="noopener"
         aria-label="Chat with Morio Studios on WhatsApp"
-        className="fixed right-5 bottom-5 z-40 grid size-14 place-items-center rounded-full bg-bone text-2xl text-morio shadow-[0_10px_40px_-12px_rgb(0_0_0/0.6)] transition hover:scale-105 md:right-8 md:bottom-8"
+        className="fixed right-5 bottom-5 z-40 grid size-13 place-items-center rounded-full bg-bone text-2xl text-morio shadow-[0_10px_40px_-12px_rgb(0_0_0/0.6)] transition hover:scale-105 md:right-8 md:bottom-8 md:size-14"
       >
         <Icon name="whatsapp" />
       </a>

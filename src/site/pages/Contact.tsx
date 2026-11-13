@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
+import { Link } from "react-router-dom";
+import { Photo } from "../../components/Photo";
 import { site } from "../../content/site";
 import { services } from "../../content/services";
 import { BriefBuilder, briefToText, serviceTitleFor, type Brief } from "../BriefBuilder";
@@ -7,7 +9,7 @@ import { Reveal } from "../Reveal";
 
 const FORM_NAME = "project-brief";
 type Status = "idle" | "sending" | "sent" | "error";
-const GREETINGS = ["Hola", "Iz How?", "Sasa", "Habari", "Niaje", "Hello"];
+const BANNER = ["/assets/images/projects/ab7.jpeg", "/assets/images/projects/ab8.jpeg", "/assets/images/projects/ab1.jpeg"];
 
 /** Live Nairobi time and whether the studio is in (Mon–Fri, 6 am – 8 pm EAT). */
 function useNairobiClock() {
@@ -28,20 +30,27 @@ function useNairobiClock() {
   return { time: `${parts.hour}:${parts.minute}`, open };
 }
 
-function Greeting() {
+/** The original contact banner's three images, cross-fading with a slow push-in. */
+function Banner() {
   const [i, setI] = useState(0);
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const id = window.setInterval(() => setI((n) => (n + 1) % GREETINGS.length), 2200);
+    const id = window.setInterval(() => setI((n) => (n + 1) % BANNER.length), 5000);
     return () => window.clearInterval(id);
   }, []);
   return (
-    <h1 className="display text-display-2xl text-bone">
-      <span className="sr-only">Hola, talk to a Morio</span>
-      <span aria-hidden="true" key={GREETINGS[i]} className="inline-block animate-rise">
-        {GREETINGS[i]}
-      </span>
-    </h1>
+    <div aria-hidden="true" className="absolute inset-0 -z-20">
+      {BANNER.map((src, n) => (
+        <Photo
+          key={src}
+          src={src}
+          alt=""
+          sizes="100vw"
+          priority={n === 0}
+          className={`absolute inset-0 size-full object-cover transition-[opacity,transform] duration-[1800ms,7000ms] ease-out ${n === i ? "scale-110 opacity-100" : "scale-100 opacity-0"}`}
+        />
+      ))}
+    </div>
   );
 }
 
@@ -146,18 +155,27 @@ export function ContactPage() {
 
   return (
     <>
-      <section className="grain relative overflow-hidden bg-morio-deep pt-32 pb-16 md:pt-44 md:pb-24">
-        <div aria-hidden="true" className="pointer-events-none absolute -top-40 right-0 size-[36rem] rounded-full bg-mist/10 blur-3xl" />
-        <div className="container-site relative">
-          <p className="eyebrow mb-5">Contact Us</p>
-          <Greeting />
-          <div className="mt-10 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-            <p className="max-w-xl text-xl text-bone/85">Tell us what you’re making, and a Morio will get back to you. Or let Brief Builder help you put it into words first.</p>
-            <div className="flex items-center gap-4 rounded-full border border-line px-5 py-3 text-bone/90" aria-live="polite">
+      <section className="relative isolate flex min-h-[72svh] flex-col justify-end overflow-hidden">
+        <Banner />
+        <div aria-hidden="true" className="absolute inset-0 -z-10 bg-morio/40 mix-blend-multiply" />
+        <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/40 to-ink/30" />
+        <div className="container-site pt-36 pb-14 md:pb-20">
+          <nav aria-label="Breadcrumb" className="eyebrow mb-6 flex gap-2">
+            <Link to="/" className="hover:text-bone">
+              Home
+            </Link>
+            <span aria-hidden="true">/</span>
+            <span className="text-bone/80">Contact</span>
+          </nav>
+          <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+            <h1 className="display text-display-2xl text-bone">
+              Contact <span className="text-outline">Us</span>
+            </h1>
+            <div className="flex w-fit items-center gap-4 rounded-full border border-bone/20 bg-ink/40 px-5 py-3 text-bone/90 backdrop-blur" aria-live="polite">
               <span className={`size-2.5 rounded-full ${clock?.open ? "bg-mist shadow-[0_0_12px_2px_rgb(212_224_218/0.6)]" : "bg-sage/50"}`} />
               <span>
                 Nairobi <span className="font-display tracking-wider">{clock?.time ?? "--:--"}</span>
-                <span className="text-sage"> · {clock ? (clock.open ? "Studio open" : "Studio closed, we’ll reply next working day") : "EAT"}</span>
+                <span className="text-sage"> · {clock ? (clock.open ? "Studio open" : "Studio closed") : "EAT"}</span>
               </span>
             </div>
           </div>
@@ -200,7 +218,7 @@ export function ContactPage() {
                   {site.phone.display}
                 </a>
               </li>
-              {[site.email, ...site.teamEmails].map((e) => (
+              {site.teamEmails.map((e) => (
                 <li key={e}>
                   <a className="link-underline break-all text-bone/85" href={`mailto:${e}`}>
                     {e}
@@ -212,7 +230,7 @@ export function ContactPage() {
           <div>
             <h2 className="eyebrow mb-4">Office Hours</h2>
             <p className="text-lg text-bone">
-              Monday – Friday
+              Monday - Friday
               <br />6 am to 8 pm EAT
             </p>
           </div>
