@@ -78,7 +78,7 @@ Each project in `src/content/work.ts` gets a story page at `/work/<slug>` with a
 
 - **Changes**: Home now shows Latest projects straight after the hero; the hero carries the headline and the intro's first sentence, with the rest of the original introduction (unchanged) right after the work. Our Work filters with a sentence ("We do [all kinds of work]"), with a second "for [everyone]" blank that appears once projects have an `industry`. Project cards read "Title for Client" once `client` is set. A "Start a brief" button in the header opens the Brief Builder from any page.
 - **Rationale**: Benchmark of Buck, Pentagram, ManvsMachine, Locomotive, Lusion, Malvah, Lebu Studio, Airbnb and Uber: the best studios lead with work and a single line, name their clients, and (like Uber and Airbnb) give one clear main action.
-- **Impact**: Morio's home page was already the fastest studio site measured (main content in about 2.4s on a 4G phone vs 4.5–12.5s for the others); these changes keep every page under 1 MB.
+- **Impact**: Morio's home page was already the fastest studio site measured (main content in about 2.4s on a 4G phone vs 4.5–12.5s for the others); every page except home stays under 1 MB. Home is now 1.09 MB on a phone because the project photos load earlier: about 0.49 MB of the site itself, plus the 0.43 MB hero video (which starts after the page has loaded) and 0.18 MB of Google Analytics.
 
 ### November 13, 2026 - Original content and hero video restored, project stories, scroll moments
 
