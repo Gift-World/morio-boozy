@@ -14,12 +14,41 @@ We specialize in five core disciplines designed to move people and shift mindset
 
 ## Technical Stack
 
-- **Core**: HTML5, Vanilla CSS, Bootstrap
-- **Interactivity & Animation**: GSAP (GreenSock), ScrollTrigger, AOS (Animate On Scroll), TweenMax
-- **UI Components**: Revolution Slider, Owl Carousel, Nice Select, Lightcase
+- **Core**: React 19, TypeScript, Vite 6, React Router
+- **Styling**: Tailwind CSS v4, plus the original theme stylesheets (Bootstrap + Boozy theme) imported unchanged
+- **Interactivity & Animation**: GSAP + ScrollTrigger, AOS (Animate On Scroll)
+- **Rendering**: every route is prerendered to static HTML at build time (per-page title/meta/analytics), then hydrated
 - **Assets**: Custom Boozy iconography, optimized imagery
 
+### Getting started
+
+```bash
+npm install
+npm run dev      # http://localhost:5175
+npm run build    # typecheck, build, prerender all routes into dist/
+npm run serve    # serve dist/ like Netlify (pretty URLs, real 404)
+```
+
+### Project layout
+
+```
+src/
+  pages/               one file per page; *.sections.tsx hold each section's markup
+  components/layout/   Header (per-page variants), footers, preloader, back-to-top, custom cursor, PageShell
+  components/widgets/  OwlCarousel, HeroSlider, banner/service slideshows, skill bars
+  styles/              tailwind.css + legacy/ (original theme CSS, load order preserved in styles/index.ts)
+  seo/                 per-route <head> tags copied from the old pages
+public/assets/         images, video, sitemap (same URLs as before)
+scripts/               prerender.mjs (build step), serve.mjs (local Netlify-like server)
+```
+
 ## Development Log
+
+### November 13, 2026 - Migration to React + Vite + Tailwind + TypeScript (1:1 parity)
+
+- **Changes**: Rebuilt the static HTML/jQuery site as a React + TypeScript app on Vite with Tailwind CSS v4, on the `claude-revamp` branch. Page markup was converted mechanically from the original HTML so class names and structure are identical; the theme CSS is imported unchanged. jQuery and its plugins were replaced with React ports that render the same DOM: Owl Carousel (same widths, clones, dots, drag, autoplay timing), Slider Revolution hero (same responsive grid maths), preloader, sticky header, mobile menu, back-to-top, custom cursor, skill bars and banner slideshows. Routes match the live Netlify URLs, old `.html` URLs redirect, and each page is prerendered with its original `<head>`.
+- **Rationale**: Move to a modern, component-based stack before the visual revamp, without changing what visitors see.
+- **Impact**: Verified against moriostudios.africa with automated screenshots at 1440/1024/768/390px on every page (pixel-identical) and scripted interaction checks (carousels, menu, scrolling, cursor, anchors). Quirks of the original were kept on purpose for parity (e.g. the preloader's 0–5.9s duration, template meta tags on team/404); they are good first candidates for the revamp.
 
 ### April 8, 2026 - Content Refinement and Navigation Alignment
 
