@@ -15,10 +15,11 @@ We specialize in five core disciplines designed to move people and shift mindset
 ## Technical Stack
 
 - **Core**: React 19, TypeScript, Vite 6, React Router
-- **Styling**: Tailwind CSS v4, plus the original theme stylesheets (Bootstrap + Boozy theme) imported unchanged
-- **Interactivity & Animation**: GSAP + ScrollTrigger, AOS (Animate On Scroll)
-- **Rendering**: every route is prerendered to static HTML at build time (per-page title/meta/analytics), then hydrated
-- **Assets**: Custom Boozy iconography, optimized imagery
+- **Styling**: Tailwind CSS v4 with Morio design tokens (`src/styles/app.css`): forest green, spotlight green, Antonio + Jost (self-hosted)
+- **Motion**: CSS transitions + IntersectionObserver reveals (respects reduced motion); no animation libraries
+- **Rendering**: every route is prerendered to static HTML at build time (per-page title, meta, structured data, analytics), then hydrated
+- **Images**: `npm run images` builds responsive WebP variants; `<Photo>` serves them with srcset and lazy loading
+- **Hosting**: Netlify (`netlify.toml`: redirects for old URLs, cache headers, Netlify Forms for the brief form)
 
 ### Getting started
 
@@ -33,16 +34,34 @@ npm run serve    # serve dist/ like Netlify (pretty URLs, real 404)
 
 ```
 src/
-  pages/               one file per page; *.sections.tsx hold each section's markup
-  components/layout/   Header (per-page variants), footers, preloader, back-to-top, custom cursor, PageShell
-  components/widgets/  OwlCarousel, HeroSlider, banner/service slideshows, skill bars
-  styles/              tailwind.css + legacy/ (original theme CSS, load order preserved in styles/index.ts)
-  seo/                 per-route <head> tags copied from the old pages
-public/assets/         images, video, sitemap (same URLs as before)
-scripts/               prerender.mjs (build step), serve.mjs (local Netlify-like server)
+  content/       EDIT COPY HERE: site.ts (contact details), services.ts, team.ts, work.ts
+  site/          Layout, SiteHeader, SiteFooter, shared sections, Reveal, icons
+  site/pages/    Home, Services (+ /services/:slug), Work, About, Contact, NotFound
+  seo/           heads.ts (titles, descriptions, OG), schema.ts (JSON-LD), applyHead.ts
+  components/    Photo (responsive images)
+  styles/        app.css (Tailwind + tokens), fonts.css
+public/assets/   images, video, og-image.jpg (same URLs as before; generated variants in images/opt)
+scripts/         prerender.mjs (build), optimize-images.mjs, serve.mjs (local Netlify-like server)
 ```
 
+### Owner to-dos (search the code for `TODO(owner)`)
+
+- Confirm the studio address (the old site listed Kenyatta Avenue, a Ngong Road postal address and a map pin at Adams Arcade).
+- Confirm +254 718 704 926 is on WhatsApp (used by the chat buttons).
+- Turn work items into case studies: add client, year and a short summary in `src/content/work.ts`.
+- Add real client logos and testimonials when you have permission to show them.
+- After deploying, enable form notifications in Netlify → Forms → `project-brief`.
+
 ## Development Log
+
+### November 13, 2026 - Phases 2–4: Local SEO, content and full redesign
+
+- **Changes**:
+  - *Local and service SEO*: `ProfessionalService` structured data (address, phone, hours, founders, service catalogue), `WebSite`, `Service` and breadcrumb schemas; six landing pages at `/services/<slug>` targeting "<craft> in Nairobi"; 1200×630 share image and favicons; sitemap now covers 11 pages.
+  - *Content and trust*: template placeholders removed (stock "client" logos, Chanel/Canon project tiles, skill bars, the placeholder team page). New Work page built only from the studio's own images; founders' bios cleaned up; a Netlify Forms brief form, WhatsApp buttons, and all copy moved into `src/content/`.
+  - *Design*: new Tailwind design system (forest green with the spotlight green from the founders' portraits, Antonio/Jost), new header with full-screen mobile menu, video hero, crafts list, bento work grid, Morio-slang marquee, team grid, CTA band and footer. Removed the legacy theme CSS, jQuery-era widgets, custom cursor, random preloader, AOS and GSAP. Old URLs (`/service`, `/team`, `*.html`) 301-redirect.
+- **Rationale**: Turn a lightly edited purchased template into a site that reads as Morio's own and ranks for the services the studio sells in Nairobi.
+- **Impact** (mid-range phone, 4G): pages weigh 0.6–1 MB (home was 17.9 MB at parity); first paint about 1.2–2.4s (home was 14.4s); no layout shift. CSS 608 KB → 39 KB, JS 445 KB → 278 KB, runtime dependencies down to React and React Router. Every page checked at 1440px and 390px with no console or hydration errors, no broken images and no horizontal overflow.
 
 ### November 13, 2026 - Phase 1: Speed, technical SEO and accessibility (no visual change)
 

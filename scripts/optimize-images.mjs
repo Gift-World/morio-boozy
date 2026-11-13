@@ -47,7 +47,8 @@ for (const ref of [...refs].sort()) {
   const width = meta.width;
   const height = meta.height;
   const alpha = meta.hasAlpha;
-  const base = ref.replace(/^\/assets\/images\//, "").replace(/\.[^.]+$/, "").replace(/[\/]/g, "_");
+  // short names: Windows checkouts in deep folders hit the 260-char path limit
+  const base = path.basename(ref).replace(/\.[^.]+$/, "").replace(/[^\w-]/g, "-").slice(0, 20);
   const widths = WIDTHS.filter((w) => w < width);
   widths.push(Math.min(width, 2400));
   const variants = [];

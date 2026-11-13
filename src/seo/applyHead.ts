@@ -18,12 +18,14 @@ export function applyHead(pathname: string) {
     managed.length === incoming.length &&
     incoming.every((el, i) => el.outerHTML.replace(/ data-route-head=""/, "") === managed[i].outerHTML.replace(/ data-route-head=""/, ""));
   if (same) return;
+  const isData = (el: Element) => el.tagName === "SCRIPT" && el.getAttribute("type") === "application/ld+json";
   managed.forEach((el) => {
-    // never re-run or remove scripts that already executed (analytics)
-    if (el.tagName !== "SCRIPT") el.remove();
+    // never re-run or remove scripts that already executed (analytics);
+    // structured data is just data, so it's swapped like meta tags
+    if (el.tagName !== "SCRIPT" || isData(el)) el.remove();
   });
   for (const el of incoming) {
-    if (el.tagName === "SCRIPT") {
+    if (el.tagName === "SCRIPT" && !isData(el)) {
       const key = el.getAttribute("src") ?? el.textContent;
       const exists = Array.from(document.head.querySelectorAll("script")).some((s) => (s.getAttribute("src") ?? s.textContent) === key);
       if (exists) continue;

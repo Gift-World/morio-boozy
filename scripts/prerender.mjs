@@ -16,8 +16,7 @@ for (const route of ROUTES) {
   const { html, title, head } = render(route);
   const page = template
     .replace("<!--app-head-->", `<title>${title.replace(/&/g, "&amp;").replace(/</g, "&lt;")}</title>\n${mark(head)}`)
-    .replace("<!--app-html-->", html)
-    .replace('<body id="magicCursor" class="page">', route === "/404" ? '<body id="magicCursor" class="page page-404">' : '<body id="magicCursor" class="page">');
+    .replace("<!--app-html-->", html);
   const out = route === "/" ? "index.html" : route === "/404" ? "404.html" : `${route.slice(1)}/index.html`;
   fs.mkdirSync(path.dirname(path.join(dist, out)), { recursive: true });
   fs.writeFileSync(path.join(dist, out), page);

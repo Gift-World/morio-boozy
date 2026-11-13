@@ -1,4 +1,0 @@
-@import "tailwindcss";
-
-/* Only scan the React sources for class candidates. */
-@source not "./legacy";

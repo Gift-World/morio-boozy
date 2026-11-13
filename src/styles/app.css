@@ -1,0 +1,116 @@
+@import "./fonts.css";
+@import "tailwindcss";
+
+/* Morio Studios design tokens */
+@theme {
+  --font-display: "Antonio", "Arial Narrow", sans-serif;
+  --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #0b0d0c;
+  --color-ink-2: #121614;
+  --color-ink-3: #1a201d;
+  --color-forest: #264437;
+  --color-forest-deep: #17302a;
+  --color-moss: #4b7a63;
+  --color-bone: #f2f0ea;
+  --color-mute: #a3aca7;
+  --color-line: rgb(255 255 255 / 0.12);
+  --color-spot: #39ff14;
+
+  --text-display-xl: clamp(3.5rem, 10.5vw, 11rem);
+  --text-display-xl--line-height: 0.88;
+  --text-display-lg: clamp(2.75rem, 6.5vw, 6.5rem);
+  --text-display-lg--line-height: 0.92;
+  --text-display-md: clamp(2.25rem, 4.4vw, 4.25rem);
+  --text-display-md--line-height: 0.95;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --animate-marquee: marquee 40s linear infinite;
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-ink font-sans text-bone antialiased;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+  ::selection {
+    background: var(--color-spot);
+    color: var(--color-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-spot);
+    outline-offset: 3px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-[90rem] px-5 sm:px-8 lg:px-12;
+  }
+  .eyebrow {
+    @apply font-display text-sm font-medium tracking-[0.18em] text-mute uppercase;
+  }
+  .display {
+    @apply font-display font-bold tracking-[-0.01em] uppercase;
+  }
+  .btn-spot,
+  .btn-ghost {
+    @apply inline-flex items-center gap-2.5 rounded-full px-6 py-3.5 font-display text-base font-medium tracking-[0.08em] uppercase transition duration-300;
+  }
+  .btn-spot {
+    @apply bg-spot text-ink hover:bg-bone;
+  }
+  .btn-ghost {
+    @apply border border-bone/30 text-bone hover:border-spot hover:text-spot;
+  }
+  .link-underline {
+    background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+    transition: background-size 0.4s var(--ease-out-expo);
+  }
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+
+  /*
+   * Reveal-on-scroll (site/Reveal.tsx). Only armed by JS on elements below
+   * the fold, so server-rendered content is never hidden.
+   */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.9s var(--ease-out-expo),
+      transform 0.9s var(--ease-out-expo);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .reveal.is-in {
+    opacity: 1;
+    transform: none;
+  }
+}
