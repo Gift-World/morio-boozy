@@ -14,8 +14,8 @@ We specialize in five core disciplines designed to move people and shift mindset
 
 ## Technical Stack
 
-- **Core**: React 19, TypeScript, Vite 6, React Router
-- **Styling**: Tailwind CSS v4 with Morio design tokens (`src/styles/app.css`): forest green, spotlight green, Antonio + Jost (self-hosted)
+- **Core**: React 19, TypeScript, Vite 6, React Router, three.js (hero), Anthropic SDK (Brief Builder)
+- **Styling**: Tailwind CSS v4 with Morio design tokens (`src/styles/app.css`): the logo green and white, sage and mist accents, Antonio + Jost (self-hosted)
 - **Motion**: CSS transitions + IntersectionObserver reveals (respects reduced motion); no animation libraries
 - **Rendering**: every route is prerendered to static HTML at build time (per-page title, meta, structured data, analytics), then hydrated
 - **Images**: `npm run images` builds responsive WebP variants; `<Photo>` serves them with srcset and lazy loading
@@ -44,6 +44,20 @@ public/assets/   images, video, og-image.jpg (same URLs as before; generated var
 scripts/         prerender.mjs (build), optimize-images.mjs, serve.mjs (local Netlify-like server)
 ```
 
+### Brief Builder (AI)
+
+`netlify/functions/brief.mts` serves `POST /api/brief`. It turns a visitor's rough idea (any language, Sheng welcome) into a structured brief with Claude (`claude-opus-5-5`, low effort, schema-validated output, server-side refusal fallback enabled). To switch it on:
+
+1. Create an API key at console.anthropic.com and set a monthly spend limit there.
+2. Netlify → Site configuration → Environment variables → add `ANTHROPIC_API_KEY`.
+3. Redeploy. Until then (and in local dev) the page runs in a clearly labelled preview mode.
+
+Each brief costs roughly one to two US cents. Inputs are capped at 1,500 characters, there's a honeypot, and each visitor is limited to 6 briefs an hour per function instance.
+
+### 3D hero
+
+`src/site/three/HeroScene.tsx` extrudes the traced logo (`public/assets/brand/morio-logo.svg`) with plain three.js. It loads only after first paint on capable devices; everyone else sees the still renders `public/assets/images/hero-3d*.webp` (re-render them if the scene changes).
+
 ### Owner to-dos (search the code for `TODO(owner)`)
 
 - Confirm the studio address (the old site listed Kenyatta Avenue, a Ngong Road postal address and a map pin at Adams Arcade).
@@ -53,6 +67,12 @@ scripts/         prerender.mjs (build), optimize-images.mjs, serve.mjs (local Ne
 - After deploying, enable form notifications in Netlify → Forms → `project-brief`.
 
 ## Development Log
+
+### November 13, 2026 - World-class pass: logo palette, original content, 3D hero, AI Brief Builder
+
+- **Changes**: Palette moved to the logo's deep green and white (no neon), with outlined display type from the original site. Original navigation names (Home, Our Craft, The Morios, Hola) and all original page copy restored. Every page got its own hero: a 3D extruded Morio logo lit by a pointer-following spotlight (home), an interactive craft index with cursor-following previews (Our Craft), outlined numbers with image wipes (service pages), a moving film strip (Our Work), a "lights on" beam that reveals the founders behind their spotlight silhouettes (The Morios), and rotating greetings with a live Nairobi clock and studio-open status (Hola). Added the AI Brief Builder, the "Speak Morio" phrasebook, a showreel section, a traced SVG logo, toned founder portraits and a new share image.
+- **Rationale**: Benchmarked against studio sites (Buck, Pentagram, ManvsMachine, Lusion) and product UX leaders (Uber, Airbnb): calm brand colour, big type, one strong interactive moment per page, effortless navigation, fast on any device.
+- **Impact**: On a mid-range phone over 4G every page first paints in about 2.1–2.9s with zero layout shift; the 3D scene (138 KB gzipped) loads only after first paint on capable devices. Checked at 390px and 1440px on every page with no console or hydration errors, no broken images and no horizontal overflow.
 
 ### November 13, 2026 - Phases 2–4: Local SEO, content and full redesign
 

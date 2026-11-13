@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, type ElementType, type ReactNode } from "react";
+import { useLayoutEffect, useRef, type ReactNode } from "react";
 
 /**
  * Fades and lifts its content in when it scrolls into view. Server-rendered
@@ -11,12 +11,12 @@ export function Reveal({
   className = "",
   children,
 }: {
-  as?: ElementType;
+  as?: "div" | "li" | "section" | "article";
   delay?: number;
   className?: string;
   children: ReactNode;
 }) {
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLElement | null>(null);
 
   useLayoutEffect(() => {
     const el = ref.current;
@@ -38,7 +38,7 @@ export function Reveal({
   }, [delay]);
 
   return (
-    <Tag ref={ref} className={className}>
+    <Tag ref={(el: HTMLElement | null) => void (ref.current = el)} className={className}>
       {children}
     </Tag>
   );

@@ -106,3 +106,20 @@ export const services: Service[] = [
 ];
 
 export const serviceBySlug = Object.fromEntries(services.map((s) => [s.slug, s]));
+
+/** "Our Craft" page copy, from the original services page. */
+export const craftCopy = {
+  eyebrow: "Our Craft",
+  title: ["Small Agency.", "Big Ideas."],
+  intro:
+    "Great work rarely happens in isolation. Morio Studio exists at the intersection of strategy, creativity, and craft — embedding ourselves in your world as a thinking partner, a creative collaborator, and a full execution team. We work with agencies, brands, and independent clients to bring ideas from concept to completion, with precision, care, and no unnecessary complexity. We believe the best outcomes come from co-creation, and we bring the strategic rigour and creative agility to make it count. Because small doesn't mean limited. It means focused.",
+  obsession:
+    "Six disciplines. One shared obsession — turning a brief into something that moves people, changes behaviour and shifts mind sets.",
+  experience: "Our team have 20+ years delivering projects on a global stage.",
+  /** How a project moves through the studio (the old page's Idea / Design / Development) */
+  process: [
+    { step: "Idea", text: "We start with a point of view: the insight, the concept and the big idea worth protecting." },
+    { step: "Design", text: "We shape the visual and conceptual language, from moodboard to identity, frame and copy." },
+    { step: "Development", text: "We produce and deliver: shoot, edit, animate, build and launch, from concept to execution." },
+  ],
+} as const;

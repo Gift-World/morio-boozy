@@ -1,33 +1,70 @@
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { site } from "../../content/site";
 import { services } from "../../content/services";
-import { team } from "../../content/team";
+import { BriefBuilder, briefToText, serviceTitleFor, type Brief } from "../BriefBuilder";
 import { Icon } from "../icons";
-import { PageHero } from "../sections";
+import { Reveal } from "../Reveal";
 
 const FORM_NAME = "project-brief";
 type Status = "idle" | "sending" | "sent" | "error";
+const GREETINGS = ["Hola", "Iz How?", "Sasa", "Habari", "Niaje", "Hello"];
+
+/** Live Nairobi time and whether the studio is in (Mon–Fri, 6 am – 8 pm EAT). */
+function useNairobiClock() {
+  const [now, setNow] = useState<Date | null>(null);
+  useEffect(() => {
+    setNow(new Date());
+    const id = window.setInterval(() => setNow(new Date()), 30_000);
+    return () => window.clearInterval(id);
+  }, []);
+  if (!now) return null;
+  const parts = Object.fromEntries(
+    new Intl.DateTimeFormat("en-GB", { timeZone: "Africa/Nairobi", weekday: "short", hour: "2-digit", minute: "2-digit", hour12: false })
+      .formatToParts(now)
+      .map((p) => [p.type, p.value]),
+  );
+  const hour = Number(parts.hour);
+  const open = !["Sat", "Sun"].includes(parts.weekday) && hour >= 6 && hour < 20;
+  return { time: `${parts.hour}:${parts.minute}`, open };
+}
+
+function Greeting() {
+  const [i, setI] = useState(0);
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const id = window.setInterval(() => setI((n) => (n + 1) % GREETINGS.length), 2200);
+    return () => window.clearInterval(id);
+  }, []);
+  return (
+    <h1 className="display text-display-2xl text-bone">
+      <span className="sr-only">Hola, talk to a Morio</span>
+      <span aria-hidden="true" key={GREETINGS[i]} className="inline-block animate-rise">
+        {GREETINGS[i]}
+      </span>
+    </h1>
+  );
+}
 
 /**
  * Brief form, handled by Netlify Forms (detected from the prerendered HTML at
  * deploy; submissions appear in the Netlify dashboard and can be emailed).
  */
-function BriefForm() {
+function BriefForm({ message, service }: { message: string; service: string }) {
   const [status, setStatus] = useState<Status>("idle");
 
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const form = e.currentTarget;
     setStatus("sending");
-    const data = new FormData(e.currentTarget);
     try {
       const res = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(data as unknown as Record<string, string>).toString(),
+        body: new URLSearchParams(new FormData(form) as unknown as Record<string, string>).toString(),
       });
       if (!res.ok) throw new Error(String(res.status));
       setStatus("sent");
-      e.currentTarget?.reset();
+      form.reset();
     } catch {
       setStatus("error");
     }
@@ -35,14 +72,14 @@ function BriefForm() {
 
   if (status === "sent") {
     return (
-      <div role="status" className="rounded-3xl border border-spot/40 bg-forest p-10">
-        <p className="display text-4xl text-bone">Noma sana! Brief received.</p>
+      <div role="status" className="rounded-3xl border border-mist/30 bg-morio p-10">
+        <p className="display text-4xl text-bone">Noma, sana! Brief received.</p>
         <p className="mt-4 text-lg text-bone/80">A Morio will be in touch soon.</p>
       </div>
     );
   }
 
-  const field = "w-full rounded-xl border border-line bg-ink-2 px-4 py-3.5 text-bone placeholder:text-mute/70 transition focus:border-spot focus:outline-none";
+  const field = "w-full rounded-xl border border-line bg-ink-2 px-4 py-3.5 text-bone placeholder:text-sage/70 transition focus:border-mist focus:outline-none";
   return (
     <form name={FORM_NAME} method="POST" data-netlify="true" netlify-honeypot="company-website" onSubmit={submit} className="grid gap-5 sm:grid-cols-2">
       <input type="hidden" name="form-name" value={FORM_NAME} />
@@ -65,9 +102,9 @@ function BriefForm() {
       </label>
       <label className="grid gap-2">
         <span className="eyebrow">What do you need?</span>
-        <select name="service" className={field} defaultValue="">
+        <select name="service" className={field} defaultValue={service}>
           <option value="" disabled>
-            Choose a service
+            Choose a craft
           </option>
           {services.map((s) => (
             <option key={s.slug}>{s.title}</option>
@@ -77,16 +114,16 @@ function BriefForm() {
       </label>
       <label className="grid gap-2 sm:col-span-2">
         <span className="eyebrow">Tell us about the project</span>
-        <textarea required name="message" rows={6} className={field} placeholder="The brief, timeline and budget range if you have one." />
+        <textarea required name="message" rows={message ? 10 : 6} defaultValue={message} className={field} placeholder="The brief, timeline and budget range if you have one." />
       </label>
       <div className="flex flex-wrap items-center gap-4 sm:col-span-2">
-        <button type="submit" disabled={status === "sending"} className="btn-spot disabled:opacity-60">
+        <button type="submit" disabled={status === "sending"} className="btn-primary disabled:opacity-60">
           {status === "sending" ? "Sending…" : "Send brief"} <Icon name="arrow" />
         </button>
         {status === "error" && (
           <p role="alert" className="text-bone/80">
             That didn’t go through. Email us at{" "}
-            <a className="text-spot underline" href={`mailto:${site.email}`}>
+            <a className="underline underline-offset-4" href={`mailto:${site.email}`}>
               {site.email}
             </a>{" "}
             instead.
@@ -98,69 +135,104 @@ function BriefForm() {
 }
 
 export function ContactPage() {
+  const clock = useNairobiClock();
+  const [prefill, setPrefill] = useState({ id: 0, message: "", service: "" });
+  const formRef = useRef<HTMLDivElement>(null);
+
+  const useBrief = (b: Brief) => {
+    setPrefill((p) => ({ id: p.id + 1, message: briefToText(b), service: serviceTitleFor(b) }));
+    requestAnimationFrame(() => formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }));
+  };
+
   return (
     <>
-      <PageHero eyebrow="Contact" title={<>Talk to a <span className="text-spot">Morio</span></>}>
-        <p>Tell us what you’re making, and a Morio will get back to you.</p>
-      </PageHero>
+      <section className="grain relative overflow-hidden bg-morio-deep pt-32 pb-16 md:pt-44 md:pb-24">
+        <div aria-hidden="true" className="pointer-events-none absolute -top-40 right-0 size-[36rem] rounded-full bg-mist/10 blur-3xl" />
+        <div className="container-site relative">
+          <p className="eyebrow mb-5">Contact Us</p>
+          <Greeting />
+          <div className="mt-10 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+            <p className="max-w-xl text-xl text-bone/85">Tell us what you’re making, and a Morio will get back to you. Or let Brief Builder help you put it into words first.</p>
+            <div className="flex items-center gap-4 rounded-full border border-line px-5 py-3 text-bone/90" aria-live="polite">
+              <span className={`size-2.5 rounded-full ${clock?.open ? "bg-mist shadow-[0_0_12px_2px_rgb(212_224_218/0.6)]" : "bg-sage/50"}`} />
+              <span>
+                Nairobi <span className="font-display tracking-wider">{clock?.time ?? "--:--"}</span>
+                <span className="text-sage"> · {clock ? (clock.open ? "Studio open" : "Studio closed, we’ll reply next working day") : "EAT"}</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI brief builder */}
+      <section id="brief-builder" className="scroll-mt-24 border-b border-line bg-ink-2 py-20 md:py-28">
+        <div className="container-site">
+          <Reveal className="mb-12 max-w-3xl">
+            <p className="eyebrow mb-4">Brief Builder · AI</p>
+            <h2 className="display text-display-md text-bone">Got a rough idea? Shape it into a brief.</h2>
+            <p className="mt-5 text-lg text-bone/80">
+              Write it the way you’d say it. Brief Builder drafts a clear creative brief, suggests the right Morio crafts and sparks three
+              directions. Edit it, then send it to us in one tap.
+            </p>
+          </Reveal>
+          <BriefBuilder onUse={useBrief} />
+        </div>
+      </section>
 
       <section className="container-site grid gap-16 py-20 md:grid-cols-12 md:py-28">
-        <div className="md:col-span-7">
+        <div ref={formRef} className="scroll-mt-28 md:col-span-7">
           <h2 className="display mb-10 text-display-md text-bone">Send us a brief</h2>
-          <BriefForm />
+          <BriefForm key={prefill.id} message={prefill.message} service={prefill.service} />
         </div>
 
         <aside className="space-y-10 md:col-span-4 md:col-start-9">
           <div>
-            <h2 className="eyebrow mb-4 text-spot">Quickest</h2>
-            <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener" className="btn-spot">
+            <h2 className="eyebrow mb-4">Quickest</h2>
+            <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener" className="btn-primary">
               <Icon name="whatsapp" /> Chat on WhatsApp
             </a>
           </div>
           <div>
-            <h2 className="eyebrow mb-4 text-spot">Call or email</h2>
+            <h2 className="eyebrow mb-4">For Inquiries</h2>
             <ul className="space-y-2 text-lg">
               <li>
                 <a className="link-underline text-bone" href={`tel:${site.phone.tel}`}>
                   {site.phone.display}
                 </a>
               </li>
-              <li>
-                <a className="link-underline text-bone" href={`mailto:${site.email}`}>
-                  {site.email}
-                </a>
-              </li>
-              {team.map((m) => {
-                const first = m.name.split(" ")[0].toLowerCase();
-                return (
-                  <li key={m.name}>
-                    <a className="link-underline text-bone/80" href={`mailto:${first}@moriostudios.africa`}>
-                      {first}@moriostudios.africa
-                    </a>
-                  </li>
-                );
-              })}
+              {[site.email, ...site.teamEmails].map((e) => (
+                <li key={e}>
+                  <a className="link-underline break-all text-bone/85" href={`mailto:${e}`}>
+                    {e}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
           <div>
-            <h2 className="eyebrow mb-4 text-spot">Office hours</h2>
-            <p className="text-lg text-bone">{site.hours.label}</p>
+            <h2 className="eyebrow mb-4">Office Hours</h2>
+            <p className="text-lg text-bone">
+              Monday – Friday
+              <br />6 am to 8 pm EAT
+            </p>
           </div>
           <div>
-            <h2 className="eyebrow mb-4 text-spot">Post</h2>
-            <p className="text-lg text-bone">{site.postal}</p>
+            <h2 className="eyebrow mb-4">Post address</h2>
+            <p className="text-lg text-bone">
+              Morio Studios
+              <br />
+              22707-00505
+              <br />
+              Ngong Road
+              <br />
+              Nairobi, Kenya
+            </p>
           </div>
         </aside>
       </section>
 
       <section aria-label="Map" className="h-[26rem] border-t border-line md:h-[32rem]">
-        <iframe
-          title="Morio Studios on Google Maps"
-          src={site.mapEmbed}
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          className="size-full grayscale invert-[0.9] contrast-[0.9]"
-        />
+        <iframe title="Morio Studios on Google Maps" src={site.mapEmbed} loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="size-full grayscale invert-[0.9] contrast-[0.9]" />
       </section>
     </>
   );

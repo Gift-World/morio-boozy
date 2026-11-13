@@ -19,45 +19,6 @@ export const images: Record<string, ImageInfo> = {
       ]
     ]
   },
-  "/assets/images/mr-logo2.png": {
-    "width": 2481,
-    "height": 2481,
-    "alpha": true,
-    "variants": [
-      [
-        160,
-        "/assets/images/opt/mr-logo2-160.e5bcade1.webp"
-      ],
-      [
-        320,
-        "/assets/images/opt/mr-logo2-320.e5bcade1.webp"
-      ],
-      [
-        480,
-        "/assets/images/opt/mr-logo2-480.e5bcade1.webp"
-      ],
-      [
-        640,
-        "/assets/images/opt/mr-logo2-640.e5bcade1.webp"
-      ],
-      [
-        960,
-        "/assets/images/opt/mr-logo2-960.e5bcade1.webp"
-      ],
-      [
-        1280,
-        "/assets/images/opt/mr-logo2-1280.e5bcade1.webp"
-      ],
-      [
-        1920,
-        "/assets/images/opt/mr-logo2-1920.e5bcade1.webp"
-      ],
-      [
-        2400,
-        "/assets/images/opt/mr-logo2-2400.e5bcade1.webp"
-      ]
-    ]
-  },
   "/assets/images/og-image.jpg": {
     "width": 1200,
     "height": 630,
@@ -544,41 +505,6 @@ export const images: Record<string, ImageInfo> = {
       ]
     ]
   },
-  "/assets/images/service/m1.jpeg": {
-    "width": 1600,
-    "height": 900,
-    "alpha": false,
-    "variants": [
-      [
-        160,
-        "/assets/images/opt/m1-160.97da9d01.webp"
-      ],
-      [
-        320,
-        "/assets/images/opt/m1-320.97da9d01.webp"
-      ],
-      [
-        480,
-        "/assets/images/opt/m1-480.97da9d01.webp"
-      ],
-      [
-        640,
-        "/assets/images/opt/m1-640.97da9d01.webp"
-      ],
-      [
-        960,
-        "/assets/images/opt/m1-960.97da9d01.webp"
-      ],
-      [
-        1280,
-        "/assets/images/opt/m1-1280.97da9d01.webp"
-      ],
-      [
-        1600,
-        "/assets/images/opt/m1-1600.97da9d01.webp"
-      ]
-    ]
-  },
   "/assets/images/service/m2.jpeg": {
     "width": 1600,
     "height": 900,
@@ -680,57 +606,57 @@ export const images: Record<string, ImageInfo> = {
       ]
     ]
   },
-  "/assets/images/team/BRI-2.jpeg": {
+  "/assets/images/team/BRI-2-tone.jpg": {
     "width": 776,
     "height": 814,
     "alpha": false,
     "variants": [
       [
         160,
-        "/assets/images/opt/BRI-2-160.10c2396e.webp"
+        "/assets/images/opt/BRI-2-tone-160.9625e14c.webp"
       ],
       [
         320,
-        "/assets/images/opt/BRI-2-320.10c2396e.webp"
+        "/assets/images/opt/BRI-2-tone-320.9625e14c.webp"
       ],
       [
         480,
-        "/assets/images/opt/BRI-2-480.10c2396e.webp"
+        "/assets/images/opt/BRI-2-tone-480.9625e14c.webp"
       ],
       [
         640,
-        "/assets/images/opt/BRI-2-640.10c2396e.webp"
+        "/assets/images/opt/BRI-2-tone-640.9625e14c.webp"
       ],
       [
         776,
-        "/assets/images/opt/BRI-2-776.10c2396e.webp"
+        "/assets/images/opt/BRI-2-tone-776.9625e14c.webp"
       ]
     ]
   },
-  "/assets/images/team/FEY2.jpeg": {
+  "/assets/images/team/FEY2-tone.jpg": {
     "width": 782,
     "height": 837,
     "alpha": false,
     "variants": [
       [
         160,
-        "/assets/images/opt/FEY2-160.be8a6bc4.webp"
+        "/assets/images/opt/FEY2-tone-160.fee66c73.webp"
       ],
       [
         320,
-        "/assets/images/opt/FEY2-320.be8a6bc4.webp"
+        "/assets/images/opt/FEY2-tone-320.fee66c73.webp"
       ],
       [
         480,
-        "/assets/images/opt/FEY2-480.be8a6bc4.webp"
+        "/assets/images/opt/FEY2-tone-480.fee66c73.webp"
       ],
       [
         640,
-        "/assets/images/opt/FEY2-640.be8a6bc4.webp"
+        "/assets/images/opt/FEY2-tone-640.fee66c73.webp"
       ],
       [
         782,
-        "/assets/images/opt/FEY2-782.be8a6bc4.webp"
+        "/assets/images/opt/FEY2-tone-782.fee66c73.webp"
       ]
     ]
   },
@@ -812,57 +738,57 @@ export const images: Record<string, ImageInfo> = {
       ]
     ]
   },
-  "/assets/images/team/SYD2.jpeg": {
+  "/assets/images/team/SYD2-tone.jpg": {
     "width": 857,
     "height": 1010,
     "alpha": false,
     "variants": [
       [
         160,
-        "/assets/images/opt/SYD2-160.4c367030.webp"
+        "/assets/images/opt/SYD2-tone-160.fb62aab9.webp"
       ],
       [
         320,
-        "/assets/images/opt/SYD2-320.4c367030.webp"
+        "/assets/images/opt/SYD2-tone-320.fb62aab9.webp"
       ],
       [
         480,
-        "/assets/images/opt/SYD2-480.4c367030.webp"
+        "/assets/images/opt/SYD2-tone-480.fb62aab9.webp"
       ],
       [
         640,
-        "/assets/images/opt/SYD2-640.4c367030.webp"
+        "/assets/images/opt/SYD2-tone-640.fb62aab9.webp"
       ],
       [
         857,
-        "/assets/images/opt/SYD2-857.4c367030.webp"
+        "/assets/images/opt/SYD2-tone-857.fb62aab9.webp"
       ]
     ]
   },
-  "/assets/images/team/VIN2.jpeg": {
+  "/assets/images/team/VIN2-tone.jpg": {
     "width": 759,
     "height": 814,
     "alpha": false,
     "variants": [
       [
         160,
-        "/assets/images/opt/VIN2-160.b4e5c389.webp"
+        "/assets/images/opt/VIN2-tone-160.1717aafd.webp"
       ],
       [
         320,
-        "/assets/images/opt/VIN2-320.b4e5c389.webp"
+        "/assets/images/opt/VIN2-tone-320.1717aafd.webp"
       ],
       [
         480,
-        "/assets/images/opt/VIN2-480.b4e5c389.webp"
+        "/assets/images/opt/VIN2-tone-480.1717aafd.webp"
       ],
       [
         640,
-        "/assets/images/opt/VIN2-640.b4e5c389.webp"
+        "/assets/images/opt/VIN2-tone-640.1717aafd.webp"
       ],
       [
         759,
-        "/assets/images/opt/VIN2-759.b4e5c389.webp"
+        "/assets/images/opt/VIN2-tone-759.1717aafd.webp"
       ]
     ]
   },

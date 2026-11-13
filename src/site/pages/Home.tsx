@@ -1,144 +1,137 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { Photo } from "../../components/Photo";
+import { homeCopy } from "../../content/site";
 import { work } from "../../content/work";
 import { Icon } from "../icons";
 import { Reveal } from "../Reveal";
-import { CtaBand, Morioisms, SectionHead, ServiceList, TeamGrid, WorkGrid } from "../sections";
+import { BriefTeaser, CtaBand, Morioisms, SectionHead, ServiceList, TeamGrid, WorkGrid } from "../sections";
+import { HeroStage } from "../three/HeroStage";
 
 const VIDEO = "/assets/images/slider/Black-And-White-Video.mp4";
 const POSTER = "/assets/images/slider/hero-poster.webp";
 
 /**
- * Background video. The poster paints immediately; the 3 MB video is only
- * attached after hydration, and skipped for Data Saver, 2G connections and
- * reduced-motion users.
+ * Showreel video. The poster paints immediately; the 3 MB video is attached
+ * only when the section nears the viewport, and skipped for Data Saver, 2G
+ * connections and reduced-motion users.
  */
-function HeroVideo() {
+function Showreel() {
   const ref = useRef<HTMLVideoElement>(null);
   useEffect(() => {
     const v = ref.current;
     if (!v) return;
     const conn = (navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }).connection;
-    const slow = conn?.saveData || /2g$/.test(conn?.effectiveType ?? "");
-    if (slow || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    v.muted = true;
-    v.src = VIDEO;
-    void v.play().catch(() => {});
+    if (conn?.saveData || /2g$/.test(conn?.effectiveType ?? "")) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const io = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) {
+          if (!v.src) {
+            v.muted = true;
+            v.src = VIDEO;
+          }
+          void v.play().catch(() => {});
+        } else if (v.src) v.pause();
+      },
+      { rootMargin: "200px" },
+    );
+    io.observe(v);
+    return () => io.disconnect();
   }, []);
   return (
-    <video
-      ref={ref}
-      className="absolute inset-0 -z-20 size-full object-cover"
-      muted
-      loop
-      playsInline
-      preload="none"
-      poster={POSTER}
-      aria-hidden="true"
-    />
+    <section aria-label="Showreel" className="relative isolate overflow-hidden">
+      <video ref={ref} className="h-[70svh] w-full object-cover md:h-[88svh]" muted loop playsInline preload="none" poster={POSTER} aria-hidden="true" />
+      <div aria-hidden="true" className="absolute inset-0 bg-morio/55 mix-blend-multiply" />
+      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-ink via-transparent to-ink" />
+      <div className="absolute inset-0 grid place-items-center px-5 text-center">
+        <Reveal>
+          <p className="eyebrow mb-5">Nairobi, in motion</p>
+          <p className="display text-display-xl text-bone">
+            Stories told well
+            <br />
+            <span className="text-outline">move people.</span>
+          </p>
+        </Reveal>
+      </div>
+    </section>
   );
 }
-
-const DISCIPLINES =["Creative direction", "Branding", "Film", "Photography", "Animation", "Livestreaming"];
 
 export function HomePage() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative isolate flex min-h-svh flex-col justify-end overflow-hidden bg-forest-deep">
-        <HeroVideo />
-        <div aria-hidden="true" className="absolute inset-0 -z-10 bg-forest/70 mix-blend-multiply" />
-        <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/30 to-ink/50" />
-
-        <div className="container-site pt-36 pb-14 md:pb-20">
-          <p className="eyebrow mb-6 text-spot">Creative studio · Nairobi, Kenya</p>
-          <h1 className="display text-display-xl text-bone">
-            Small agency,
-            <br />
-            <span className="text-spot">big ideas.</span>
-          </h1>
-          <div className="mt-10 flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
-            <p className="max-w-xl text-lg text-bone/85 md:text-xl">
-              Built on passion and love for creativity and storytelling. Morio Studios is the brainchild of four Kenyan
-              friends with a common goal: an agency that is nimble, versatile and smart.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Link to="/contact" className="btn-spot">
-                Start a project <Icon name="arrow" />
-              </Link>
-              <Link to="/work" className="btn-ghost">
-                See our work
-              </Link>
+      {/* Hero: the studio is lit */}
+      <section className="relative isolate flex min-h-svh flex-col justify-end overflow-hidden">
+        <HeroStage />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 -z-0 h-2/3 bg-gradient-to-t from-ink via-ink/70 to-transparent" />
+        <div className="container-site relative pt-[52svh] pb-12 md:pt-[46svh] md:pb-16">
+          <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
+            <div className="lg:col-span-7">
+              <p className="eyebrow mb-5">Creative studio · Nairobi, Kenya</p>
+              <h1 className="display text-display-xl text-bone">
+                Small Agency,
+                <br />
+                <span className="text-outline">Big Ideas.</span>
+              </h1>
+            </div>
+            <div className="space-y-6 lg:col-span-5">
+              <p className="text-lg text-bone/85">{homeCopy.intro}</p>
+              <div className="flex flex-wrap gap-3">
+                <Link to="/contact" className="btn-primary">
+                  Start a project <Icon name="arrow" />
+                </Link>
+                <Link to="/work" className="btn-ghost">
+                  Latest projects
+                </Link>
+              </div>
             </div>
           </div>
         </div>
-
-        <div className="border-t border-line">
-          <ul className="container-site flex flex-wrap gap-x-8 gap-y-2 py-5 font-display text-sm tracking-[0.16em] text-bone/70 uppercase">
-            {DISCIPLINES.map((d) => (
-              <li key={d}>{d}</li>
-            ))}
-          </ul>
-        </div>
       </section>
 
-      {/* Statement */}
+      {/* Intro + tagline */}
       <section className="container-site grid gap-12 py-24 md:grid-cols-12 md:py-36">
         <Reveal className="md:col-span-7">
-          <p className="eyebrow mb-6">Why Morio</p>
+          <p className="eyebrow mb-6">Our Craft</p>
           <h2 className="display text-display-lg text-bone">
-            If the big idea is good, <span className="text-spot">execution is academic.</span>
+            {homeCopy.tagline[0]}
+            <br />
+            <span className="text-outline">{homeCopy.tagline[1]}</span>
           </h2>
         </Reveal>
         <Reveal delay={120} className="space-y-6 text-lg text-bone/80 md:col-span-5 md:pt-14">
-          <p>
-            Great work rarely happens in isolation. We embed ourselves in your world as a thinking partner, a creative
-            collaborator and a full execution team, bringing ideas from concept to completion with precision, care and no
-            unnecessary complexity.
-          </p>
-          <p>
-            With each Morio bringing a unique skill set, we put human thinking and technological efficiency together to
-            create workflows that solve any brief. Small doesn’t mean limited. It means focused.
-          </p>
-          <Link to="/about" className="inline-flex items-center gap-2 font-display tracking-[0.14em] text-spot uppercase">
-            Meet the Morios <Icon name="arrow" />
+          <p>{homeCopy.introMore}</p>
+          <Link to="/services" className="inline-flex items-center gap-2 font-display tracking-[0.14em] text-bone uppercase hover:text-mist">
+            More Craft <Icon name="arrow" />
           </Link>
         </Reveal>
       </section>
 
-      {/* Services */}
+      {/* Crafts */}
       <section className="bg-ink-2 py-24 md:py-32">
         <div className="container-site">
-          <SectionHead eyebrow="Our craft" title="Six disciplines. One shared obsession." link={{ to: "/services", label: "All services" }} />
+          <SectionHead eyebrow="What we do" title="Six disciplines. One shared obsession." link={{ to: "/services", label: "More Craft" }} />
           <ServiceList />
         </div>
       </section>
 
-      {/* Work */}
+      <Showreel />
+
+      {/* Latest projects */}
       <section className="container-site py-24 md:py-32">
-        <SectionHead eyebrow="Selected work" title="Ideas, made real." link={{ to: "/work", label: "View all work" }} />
-        <WorkGrid items={work.slice(0, 7)} />
+        <SectionHead eyebrow="Our Work" title="Latest projects" link={{ to: "/work", label: "All projects" }} />
+        <WorkGrid items={work.slice(0, 8)} />
       </section>
 
-      <Morioisms />
+      <BriefTeaser />
 
       {/* Team */}
       <section className="container-site py-24 md:py-32">
-        <SectionHead eyebrow="The Morios" title="Four friends. One studio." link={{ to: "/about", label: "Our story" }} />
+        <SectionHead eyebrow="The Morios" title="Meet the Morios" link={{ to: "/about", label: "Know the Morios" }} />
         <TeamGrid />
       </section>
 
-      {/* Studio photo */}
-      <section className="container-site pb-24 md:pb-32">
-        <Reveal className="relative aspect-[16/7] overflow-hidden rounded-3xl">
-          <Photo src="/assets/images/service/m1.jpeg" alt="The Morio Studios team working together around a table" sizes="100vw" className="absolute inset-0 size-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-ink/80 to-transparent" />
-          <p className="display absolute bottom-6 left-6 max-w-md text-3xl text-bone md:bottom-10 md:left-10 md:text-5xl">
-            Thinking partner. Creative collaborator. Execution team.
-          </p>
-        </Reveal>
-      </section>
+      <Morioisms />
 
       <CtaBand />
     </>

@@ -27,7 +27,7 @@ export function Layout() {
 
   return (
     <>
-      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:rounded-full focus:bg-spot focus:px-5 focus:py-3 focus:text-ink">
+      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:rounded-full focus:bg-bone focus:px-5 focus:py-3 focus:text-morio">
         Skip to content
       </a>
       <SiteHeader />
@@ -40,7 +40,7 @@ export function Layout() {
         target="_blank"
         rel="noopener"
         aria-label="Chat with Morio Studios on WhatsApp"
-        className="fixed right-5 bottom-5 z-40 grid size-14 place-items-center rounded-full bg-spot text-2xl text-ink shadow-[0_10px_40px_-10px_rgb(57_255_20/0.6)] transition hover:scale-105 md:right-8 md:bottom-8"
+        className="fixed right-5 bottom-5 z-40 grid size-14 place-items-center rounded-full bg-bone text-2xl text-morio shadow-[0_10px_40px_-12px_rgb(0_0_0/0.6)] transition hover:scale-105 md:right-8 md:bottom-8"
       >
         <Icon name="whatsapp" />
       </a>

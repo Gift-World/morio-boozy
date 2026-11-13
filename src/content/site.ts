@@ -18,20 +18,45 @@ export const site = {
   mapEmbed:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7908569907054!2d36.777850373500655!3d-1.3003299356385623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1b264fa4327b%3A0x4a4fd87e6260dbe!2sAdams%20Arcade!5e0!3m2!1sen!2ske!4v1776766655424!5m2!1sen!2ske",
   socials: [{ label: "Instagram", href: "https://www.instagram.com/moriostudios/" }],
+  /** Studio emails, one per Morio (shown under "Talk to a Morio"). */
+  teamEmails: ["feysal@moriostudios.africa", "sydney@moriostudios.africa", "brian@moriostudios.africa", "vincent@moriostudios.africa"],
 } as const;
 
+/** Main navigation: the studio's own names from the original site. */
 export const nav = [
-  { label: "Work", to: "/work" },
-  { label: "Services", to: "/services" },
-  { label: "About", to: "/about" },
-  { label: "Contact", to: "/contact" },
+  { label: "Home", to: "/" },
+  { label: "Our Craft", to: "/services" },
+  { label: "Our Work", to: "/work" },
+  { label: "The Morios", to: "/about" },
+  { label: "Hola", to: "/contact" },
 ] as const;
 
-/** Morio slang from the old testimonial slider: the studio's voice. */
+export const mantra = "small agency, big ideas";
+
+/** Morio slang from the original testimonial slider: the studio's voice. */
 export const morioisms = [
-  { phrase: "Iz How?", meaning: "A standard Morio greeting." },
-  { phrase: "Weh, Checki!", meaning: "A Morio making a point." },
-  { phrase: "Ume Choma!", meaning: "A Morio telling you that you messed up." },
-  { phrase: "Noma Sana!", meaning: "A Morio telling you something is good." },
-  { phrase: "Hiyo Haiwez Make!", meaning: "A Morio telling you something doesn’t work." },
+  { phrase: "Iz How?", meaning: "A standard morio greeting." },
+  { phrase: "Weh, Checki!", meaning: "A morio making a point." },
+  { phrase: "Ume, Choma!", meaning: "A morio telling you that you messed up." },
+  { phrase: "Noma, Sana!", meaning: "A morio telling you something is good." },
+  { phrase: "Hiyo, Haiwez make!", meaning: "A morio telling you something doesn’t work." },
 ] as const;
+
+/** Home page copy (from the original hero and craft section). */
+export const homeCopy = {
+  intro:
+    "Built on passion and love for creativity and storytelling. Morio Studio’s is the brain child of 4 Kenyan friends who had a common goal, to craft an agency that would be nimble, versatile and smart.",
+  introMore:
+    "With each morio possessing a unique skill set that complimented the whole. We believe in smart, innovative solutions to problem solving and meeting the clients goals. We put human thinking and technological efficiency together to create workflows that solve any brief from concept to execution.",
+  tagline: ["If the big idea is good,", "Execution is academic."],
+} as const;
+
+/** About page copy (from the original "The Morios" page). */
+export const aboutCopy = {
+  definition: "is Kiswahili slang for a friend — someone you can count on.",
+  collective:
+    "is a collective of four brilliant creative minds bringing unique flavour to the creative soup. Founded in 2024, a light-bulb moment sparked a studio blending talents across ideation, concept development, creative direction, graphic design, animation, photography, and film.",
+  delivery:
+    "We deliver end-to-end creative output, from concept to final production — bringing brand and human stories to life through a fusion of talent, skill, and experience. With new-age thinking, our workflows integrate AI creative tools to accelerate conceptualization and visualization, giving us the edge to deliver high-quality creativity in record time.",
+  closer: "Where vision meets innovation, Morio creates.",
+} as const;
