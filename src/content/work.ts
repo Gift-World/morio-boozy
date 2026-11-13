@@ -18,6 +18,8 @@ export interface Project {
   coverAlt: string;
   images: { src: string; alt: string }[];
   client?: string;
+  /** Client sector (e.g. "Food & drink"); fills the second blank of the /work sentence filter */
+  industry?: string;
   year?: string;
   brief?: string;
   idea?: string;
@@ -107,4 +109,7 @@ export const projectBySlug = Object.fromEntries(projects.map((p) => [p.slug, p])
 export const homeProjects = ["maize-flour", "riders", "morio-can", "roommates"].map((s) => projectBySlug[s]);
 
 /** Projects related to a craft (service slug). */
+/** "Riders for Client" once a client is known, otherwise just the title. */
+export const projectLabel = (p: Project) => (p.client ? `${p.title} for ${p.client}` : p.title);
+
 export const projectsForCraft = (slug: string) => projects.filter((p) => p.crafts.includes(slug));

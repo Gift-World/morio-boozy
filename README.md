@@ -74,6 +74,12 @@ Each project in `src/content/work.ts` gets a story page at `/work/<slug>` with a
 
 ## Development Log
 
+### November 13, 2026 - Benchmark-led changes: work first, one-line hero, sentence filter, Start a brief
+
+- **Changes**: Home now shows Latest projects straight after the hero; the hero carries the headline and the intro's first sentence, with the rest of the original introduction (unchanged) right after the work. Our Work filters with a sentence ("We do [all kinds of work]"), with a second "for [everyone]" blank that appears once projects have an `industry`. Project cards read "Title for Client" once `client` is set. A "Start a brief" button in the header opens the Brief Builder from any page.
+- **Rationale**: Benchmark of Buck, Pentagram, ManvsMachine, Locomotive, Lusion, Malvah, Lebu Studio, Airbnb and Uber: the best studios lead with work and a single line, name their clients, and (like Uber and Airbnb) give one clear main action.
+- **Impact**: Morio's home page was already the fastest studio site measured (main content in about 2.4s on a 4G phone vs 4.5–12.5s for the others); these changes keep every page under 1 MB.
+
 ### November 13, 2026 - Original content and hero video restored, project stories, scroll moments
 
 - **Changes**: Home hero video restored, with the 3D logo moved to its own lit section. All page copy returned to the original wording (only broken hyphenation fixed); added copy removed. New footer built around "Talk to a Morio" with the four studio emails. Contact page uses the original "Contact Us" banner images and inquiry details. Added project story pages with page transitions and pinned galleries, a pinned craft story on Our Craft, founders who light up as you scroll on The Morios, and related work in Brief Builder results.

@@ -6,6 +6,11 @@ import { Icon } from "../icons";
 import { Reveal } from "../Reveal";
 import { BriefTeaser, HomeCraftList, Morioisms, ProjectGrid, SectionHead, StudioLit, TeamGrid } from "../sections";
 
+// The hero carries the intro's first sentence; the rest follows the work, unchanged.
+const cut = homeCopy.intro.indexOf(". ") + 1;
+const introLead = homeCopy.intro.slice(0, cut);
+const introRest = homeCopy.intro.slice(cut).trim();
+
 const VIDEO = { desktop: "/assets/images/slider/hero-1280.mp4", mobile: "/assets/images/slider/hero-720.mp4" };
 
 /**
@@ -76,12 +81,9 @@ export function HomePage() {
             <br />
             <span className="text-outline">Big Ideas.</span>
           </h1>
-          <div className="mt-10 grid gap-8 md:grid-cols-12 md:items-end">
-            <div className="space-y-4 text-bone/85 md:col-span-7 lg:col-span-6">
-              <p className="text-lg md:text-xl">{homeCopy.intro}</p>
-              <p className="hidden md:block">{homeCopy.introMore}</p>
-            </div>
-            <div className="flex flex-wrap gap-3 md:col-span-5 md:justify-end lg:col-span-6">
+          <div className="mt-8 flex flex-col gap-8 md:mt-10 md:flex-row md:items-end md:justify-between">
+            <p className="max-w-md text-lg text-bone/90 md:text-xl">{introLead}</p>
+            <div className="flex flex-wrap gap-3">
               <Link to="/services" className="btn-primary">
                 {labels.ourCraft} <Icon name="arrow" />
               </Link>
@@ -90,6 +92,24 @@ export function HomePage() {
               </Link>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Latest projects: the work comes first */}
+      <section className="container-site pt-16 pb-20 md:pt-24 md:pb-28">
+        <SectionHead title={labels.latestProjects} link={{ to: "/work", label: "Our Work" }} />
+        <ProjectGrid items={homeProjects} shapes={false} cols={2} />
+      </section>
+
+      {/* Who we are: the original introduction, word for word */}
+      <section className="border-y border-line bg-ink-2">
+        <div className="container-site grid gap-8 py-20 md:grid-cols-12 md:py-28">
+          <Reveal className="md:col-span-8">
+            <p className="text-2xl leading-snug text-bone/90 md:text-[2.1rem] md:leading-[1.35]">{introRest}</p>
+          </Reveal>
+          <Reveal delay={120} className="md:col-span-7 md:col-start-6">
+            <p className="text-lg text-bone/75">{homeCopy.introMore}</p>
+          </Reveal>
         </div>
       </section>
 
@@ -111,12 +131,6 @@ export function HomePage() {
           </Reveal>
         </div>
         <HomeCraftList />
-      </section>
-
-      {/* Latest projects */}
-      <section className="container-site pb-24 md:pb-36">
-        <SectionHead title={labels.latestProjects} link={{ to: "/work", label: "Our Work" }} />
-        <ProjectGrid items={homeProjects} shapes={false} cols={2} />
       </section>
 
       <StudioLit />

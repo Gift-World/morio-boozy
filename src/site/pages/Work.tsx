@@ -8,13 +8,29 @@ import { Icon } from "../icons";
 import { Reveal } from "../Reveal";
 import { BriefTeaser, ProjectGrid } from "../sections";
 
-const FILTERS: ("All" | Discipline)[] = [
-  "All",
-  "Branding",
-  "Packaging",
-  "Art direction",
-  "Photography",
-];
+const DISCIPLINES: Discipline[] = ["Branding", "Packaging", "Art direction", "Photography"];
+const ANY_WORK = "all kinds of work";
+const ANYONE = "everyone";
+
+/**
+ * One blank in the filter sentence: reads as a word in the headline, but is a
+ * native <select> underneath (keyboard, screen reader and phone pickers work).
+ */
+function Blank({ label, value, options, onChange }: { label: string; value: string; options: string[]; onChange: (v: string) => void }) {
+  return (
+    <span className="relative inline-flex items-baseline gap-2 border-b-2 border-mist/60 text-mist transition hover:border-bone hover:text-bone focus-within:border-bone focus-within:text-bone">
+      <span aria-hidden="true">{value}</span>
+      <Icon name="arrow" className="rotate-90 self-center text-[0.45em]" />
+      <select aria-label={label} value={value} onChange={(e) => onChange(e.target.value)} className="absolute inset-0 cursor-pointer appearance-none opacity-0">
+        {options.map((o) => (
+          <option key={o} value={o} className="bg-ink text-base text-bone">
+            {o}
+          </option>
+        ))}
+      </select>
+    </span>
+  );
+}
 
 /** Two rows of the studio's images drifting in opposite directions. */
 function FilmStrip() {
@@ -51,11 +67,14 @@ function FilmStrip() {
 }
 
 export function WorkPage() {
-  const [filter, setFilter] = useState<(typeof FILTERS)[number]>("All");
-  const items =
-    filter === "All"
-      ? projects
-      : projects.filter((p) => p.discipline === filter);
+  const [discipline, setDiscipline] = useState(ANY_WORK);
+  const [industry, setIndustry] = useState(ANYONE);
+  // the second blank appears once projects have a client sector filled in
+  const industries = [...new Set(projects.map((p) => p.industry).filter((x): x is string => !!x))];
+  const items = projects.filter(
+    (p) => (discipline === ANY_WORK || p.discipline === discipline) && (industry === ANYONE || p.industry === industry),
+  );
+  const filtered = discipline !== ANY_WORK || industry !== ANYONE;
   return (
     <>
       <section className="relative overflow-hidden bg-morio-deep pt-32 pb-14 md:pt-44 md:pb-20">
@@ -69,24 +88,34 @@ export function WorkPage() {
       </section>
 
       <section className="container-site py-16 md:py-24">
-        <div
-          role="group"
-          aria-label="Filter projects"
-          className="-mx-5 mb-10 flex gap-2 overflow-x-auto px-5 pb-2 sm:mx-0 sm:flex-wrap sm:px-0"
-        >
-          {FILTERS.map((f) => (
-            <button
-              key={f}
-              type="button"
-              aria-pressed={filter === f}
-              onClick={() => setFilter(f)}
-              className={`shrink-0 rounded-full border px-5 py-2.5 font-display text-sm tracking-[0.12em] uppercase transition ${filter === f ? "border-bone bg-bone text-morio" : "border-line text-bone hover:border-bone"}`}
-            >
-              {f}
-            </button>
-          ))}
+        <div className="mb-12 flex flex-col gap-4 md:mb-16 md:flex-row md:items-end md:justify-between">
+          <p className="display text-[clamp(2.2rem,6vw,4.75rem)] leading-[1.05] text-bone">
+            We do <Blank label="Type of work" value={discipline} options={[ANY_WORK, ...DISCIPLINES]} onChange={setDiscipline} />
+            {industries.length > 0 && (
+              <>
+                {" "}
+                for <Blank label="Who it's for" value={industry} options={[ANYONE, ...industries]} onChange={setIndustry} />
+              </>
+            )}
+            .
+          </p>
+          <p aria-live="polite" className="shrink-0 font-display tracking-[0.14em] text-sage uppercase">
+            {String(items.length).padStart(2, "0")} {items.length === 1 ? "project" : "projects"}
+            {filtered && (
+              <button
+                type="button"
+                onClick={() => {
+                  setDiscipline(ANY_WORK);
+                  setIndustry(ANYONE);
+                }}
+                className="ml-4 text-bone underline underline-offset-4 hover:text-mist"
+              >
+                Show all
+              </button>
+            )}
+          </p>
         </div>
-        <ProjectGrid items={items} shapes={filter === "All"} />
+        <ProjectGrid items={items} shapes={!filtered} />
       </section>
     </>
   );

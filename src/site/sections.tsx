@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Photo } from "../components/Photo";
 import { homeCopy, labels, mantra, morioisms } from "../content/site";
 import { homeTeam } from "../content/team";
-import type { Project } from "../content/work";
+import { projectLabel, type Project } from "../content/work";
 import { Icon } from "./icons";
 import { Reveal } from "./Reveal";
 import { LitStage } from "./three/HeroStage";
@@ -64,7 +64,7 @@ export function ProjectGrid({ items, shapes = true, cols = 3 }: { items: Project
             <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 md:p-6">
               <span>
                 <span className="eyebrow block text-mist">{p.discipline}</span>
-                <span className="display mt-1 block text-2xl text-bone md:text-3xl">{p.title}</span>
+                <span className="display mt-1 block text-2xl text-bone md:text-3xl">{projectLabel(p)}</span>
               </span>
               <span className="grid size-11 shrink-0 translate-y-2 place-items-center rounded-full bg-bone text-morio opacity-0 transition duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                 <Icon name="arrow" />

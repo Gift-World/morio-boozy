@@ -54,6 +54,19 @@ export function SiteHeader() {
         </nav>
 
         <div className="relative z-10 flex items-center gap-3">
+          <Link
+            to="/contact#brief-builder"
+            onClick={(e) => {
+              // already on Hola: just glide to the Brief Builder
+              if (pathname !== "/contact") return;
+              e.preventDefault();
+              setOpen(false);
+              document.getElementById("brief-builder")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="inline-flex h-11 items-center gap-2 rounded-full bg-bone px-4 font-display text-sm font-medium tracking-[0.12em] text-morio uppercase transition hover:bg-mist sm:px-5"
+          >
+            Start a brief <Icon name="arrow" className="hidden sm:inline" />
+          </Link>
           <button
             type="button"
             className="grid size-11 place-items-center rounded-full border border-bone/25 text-lg text-bone transition hover:border-bone lg:hidden"
