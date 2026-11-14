@@ -221,3 +221,33 @@
 ::view-transition-new(site-header) {
   animation: none;
 }
+
+/* Headings rise into view (site/motion.tsx). `motion` is set before first
+   paint by index.html; `motion-done` is a safety net that shows everything. */
+.motion:not(.motion-done) main :is(h1, h2).display:not([data-rise]) {
+  opacity: 0;
+  transform: translateY(0.5em);
+  clip-path: inset(0 0 100% 0);
+}
+.motion main :is(h1, h2).display[data-rise] {
+  animation: heading-rise 1.1s var(--ease-out-expo) both;
+}
+@keyframes heading-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.5em);
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    clip-path: inset(-0.2em 0 -0.3em 0);
+  }
+}
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}

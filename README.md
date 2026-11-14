@@ -74,6 +74,12 @@ Each project in `src/content/work.ts` gets a story page at `/work/<slug>` with a
 
 ## Development Log
 
+### November 14, 2026 - Motion polish
+
+- **Changes**: Smooth, weighted scrolling on desktop (Lenis, loaded on demand; phones keep native scrolling). Headings rise into place the first time they are seen. A round "View" / "Play" label follows the pointer over projects and films. The home hero video widens into its frame as you scroll. All of it lives in `src/site/motion.tsx` and is switched off for visitors who ask for reduced motion.
+- **Rationale**: The consistent motion language that award-level studio sites share.
+- **Impact**: 6 KB extra (gzipped), loaded only on desktop. Page weights unchanged (home 1.06 MB, Our Work 0.72 MB).
+
 ### November 14, 2026 - Calmer type, slim menu, light/dark toggle
 
 - **Changes**: Headings moved from condensed all-caps to sentence-case Jost on a smaller scale; two-part headings use a quiet second tone instead of outlined letters. The floating menu is slimmer. A sun/moon button in the menu switches between the light and dark looks; the choice is remembered (`localStorage: morio-theme`) and applied before first paint by a small script in `index.html`. Antonio is no longer loaded.

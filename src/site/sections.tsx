@@ -52,7 +52,7 @@ export function ProjectGrid({ items, shapes = true, cols = 3 }: { items: Project
     <ul className={`grid grid-flow-dense auto-rows-[18rem] grid-cols-1 gap-4 sm:grid-cols-2 sm:auto-rows-[18rem] lg:gap-5 ${cols === 3 ? "lg:grid-cols-3 lg:auto-rows-[21rem]" : "sm:auto-rows-[22rem] lg:auto-rows-[30rem]"}`}>
       {items.map((p, i) => (
         <Reveal as="li" key={p.slug} delay={(i % 3) * 80} className={`${shapes && p.span ? SPAN[p.span] : ""}`}>
-          <Link to={`/work/${p.slug}`} className="theme-dark group relative block size-full overflow-hidden rounded-2xl bg-ink-3 md:rounded-3xl">
+          <Link to={`/work/${p.slug}`} data-cursor="View" className="theme-dark group relative block size-full overflow-hidden rounded-2xl bg-ink-3 md:rounded-3xl">
             <Photo
               src={p.cover}
               alt={p.coverAlt}

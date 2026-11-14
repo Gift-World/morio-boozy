@@ -5,6 +5,7 @@ import { homeProjects } from "../../content/work";
 import { Icon } from "../icons";
 import { Reveal } from "../Reveal";
 import { BriefTeaser, HomeCraftList, Morioisms, SectionHead, StudioLit, TeamGrid } from "../sections";
+import { useGrowOnScroll } from "../motion";
 import { FilmReel, ProjectWall } from "../showcase";
 
 // The hero carries the intro's first sentence; the rest follows the work, unchanged.
@@ -86,6 +87,7 @@ function MantraPill() {
 }
 
 export function HomePage() {
+  const frame = useGrowOnScroll<HTMLDivElement>();
   return (
     <>
       {/* Hero: headline first, then the original video in its own frame */}
@@ -107,7 +109,11 @@ export function HomePage() {
             </Link>
           </div>
         </div>
-        <div className="theme-dark relative mt-12 aspect-[4/5] overflow-hidden rounded-3xl bg-ink-3 sm:aspect-video md:mt-16 md:rounded-[2.5rem]">
+        <div
+          ref={frame}
+          style={{ transform: "scale(calc(0.9 + 0.1 * var(--grow, 1)))" }}
+          className="theme-dark relative mt-12 aspect-[4/5] origin-top overflow-hidden rounded-3xl bg-ink-3 will-change-transform sm:aspect-video md:mt-16 md:rounded-[2.5rem]"
+        >
           <HeroVideo />
           <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
           <p className="absolute inset-x-0 bottom-0 flex items-center gap-3 p-5 text-sm font-medium text-bone md:p-8 md:text-base">

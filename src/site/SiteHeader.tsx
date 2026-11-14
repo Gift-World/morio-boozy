@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { nav, site } from "../content/site";
 import { Icon } from "./icons";
+import { scrollToTarget } from "./motion";
 
 /**
  * Floating pill navigation: one light capsule that sits above every page
@@ -97,7 +98,8 @@ export function SiteHeader() {
               if (pathname !== "/contact") return;
               e.preventDefault();
               setOpen(false);
-              document.getElementById("brief-builder")?.scrollIntoView({ behavior: "smooth" });
+              const el = document.getElementById("brief-builder");
+              if (el) scrollToTarget(el, true);
             }}
             className="inline-flex h-9 items-center gap-2 rounded-full bg-bone px-4 text-sm font-medium text-ink transition hover:bg-mist"
           >

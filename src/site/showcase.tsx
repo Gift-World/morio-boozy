@@ -16,7 +16,7 @@ export function ProjectWall({ items, priority = 0 }: { items: Project[]; priorit
       {items.map((p, i) => (
         <li key={p.slug} className="break-inside-avoid">
           <Reveal delay={(i % 3) * 70}>
-            <Link to={`/work/${p.slug}`} className="group block">
+            <Link to={`/work/${p.slug}`} data-cursor="View" className="group block">
               <span className="relative block overflow-hidden rounded-2xl bg-ink-3 md:rounded-3xl">
                 <Photo
                   src={p.cover}
@@ -26,7 +26,7 @@ export function ProjectWall({ items, priority = 0 }: { items: Project[]; priorit
                   className="h-auto w-full transition duration-[1.2s] ease-[var(--ease-out-expo)] group-hover:scale-[1.04]"
                   style={{ viewTransitionName: `project-${p.slug}` }}
                 />
-                <span className="theme-dark absolute right-3 bottom-3 grid size-10 translate-y-2 place-items-center rounded-full bg-bone text-ink opacity-0 transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 md:size-12">
+                <span className="theme-dark absolute right-3 bottom-3 grid size-10 translate-y-2 place-items-center rounded-full bg-bone text-ink opacity-0 transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 md:size-12 [@media(hover:hover)_and_(pointer:fine)]:hidden">
                   <Icon name="arrow" className="-rotate-45" />
                 </span>
               </span>
@@ -57,7 +57,7 @@ function FilmLightbox({ film, onClose }: { film: Film; onClose: () => void }) {
   }, [onClose]);
 
   return (
-    <div role="dialog" aria-modal="true" aria-label={film.title} className="theme-dark fixed inset-0 z-[70] flex flex-col bg-ink/95 p-4 backdrop-blur-md sm:p-8" onClick={onClose}>
+    <div role="dialog" aria-modal="true" aria-label={film.title} data-lenis-prevent className="theme-dark fixed inset-0 z-[70] flex flex-col bg-ink/95 p-4 backdrop-blur-md sm:p-8" onClick={onClose}>
       <div className="flex items-center justify-between gap-4 pb-4">
         <p className="display text-xl text-bone md:text-2xl">{film.title}</p>
         <button ref={closeRef} type="button" onClick={onClose} aria-label="Close film" className="grid size-12 shrink-0 place-items-center rounded-full border border-line text-xl text-bone transition hover:border-bone">
@@ -83,7 +83,7 @@ export function FilmReel() {
   const [featured, ...rest] = films;
 
   const card = (f: Film, big: boolean) => (
-    <button type="button" onClick={() => setPlaying(f)} className="group block w-full text-left" aria-label={`Play film: ${f.title}`}>
+    <button type="button" onClick={() => setPlaying(f)} data-cursor="Play" className="group block w-full text-left" aria-label={`Play film: ${f.title}`}>
       <span className={`theme-dark relative block overflow-hidden bg-ink-3 ${big ? "aspect-[4/3] rounded-3xl sm:aspect-video md:rounded-[2rem]" : "aspect-video rounded-2xl"}`}>
         <Photo src={f.poster} alt="" sizes={big ? "100vw" : "(min-width: 1024px) 33vw, 80vw"} className="absolute inset-0 size-full object-cover transition duration-[1.2s] ease-[var(--ease-out-expo)] group-hover:scale-[1.04]" />
         <span className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/5 to-transparent" />

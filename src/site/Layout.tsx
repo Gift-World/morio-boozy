@@ -6,6 +6,7 @@ import { site } from "../content/site";
 import { SiteHeader } from "./SiteHeader";
 import { SiteFooter } from "./SiteFooter";
 import { Icon } from "./icons";
+import { CursorLabel, scrollToTarget, useHeadingReveals, useSmoothScroll } from "./motion";
 
 type DocWithVT = Document & { startViewTransition?: (cb: () => void) => { finished: Promise<void> } };
 
@@ -40,6 +41,8 @@ export function Layout() {
   const { pathname, hash } = useLocation();
   const first = useRef(true);
   useViewTransitions();
+  useSmoothScroll();
+  useHeadingReveals(pathname);
 
   useLayoutEffect(() => {
     applyHead(pathname);
@@ -50,8 +53,7 @@ export function Layout() {
       return;
     }
     const target = hash ? document.getElementById(decodeURIComponent(hash.slice(1))) : null;
-    if (target) target.scrollIntoView({ behavior: "instant" });
-    else window.scrollTo({ top: 0, behavior: "instant" });
+    scrollToTarget(target ?? 0);
   }, [pathname, hash]);
 
   return (
@@ -64,6 +66,7 @@ export function Layout() {
         <Outlet />
       </main>
       <SiteFooter />
+      <CursorLabel />
       <a
         href={`https://wa.me/${site.whatsapp}`}
         target="_blank"
