@@ -57,7 +57,7 @@ export function SiteHeader() {
   return (
     <header className="vt-header pointer-events-none fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-3.5">
       <div
-        className={`pointer-events-auto relative z-10 mx-auto flex h-12 max-w-4xl items-center justify-between gap-3 rounded-full border border-line bg-ink/80 pr-1.5 pl-4 backdrop-blur-xl transition-shadow duration-500 md:h-[3.25rem] md:pl-5 ${
+        className={`pointer-events-auto relative z-10 mx-auto flex h-12 max-w-4xl items-center justify-between gap-3 rounded-full border border-line bg-ink/95 pr-1.5 pl-4 shadow-[0_6px_24px_-14px_rgb(0_0_0/0.35)] backdrop-blur-xl transition-shadow duration-500 md:h-[3.25rem] md:pl-5 ${
           scrolled && !open ? "shadow-[0_12px_40px_-18px_rgb(18_48_44/0.45)]" : ""
         }`}
       >

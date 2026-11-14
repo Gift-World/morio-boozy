@@ -53,19 +53,19 @@ function LightsOn() {
     };
   }, []);
 
-  const mask = "radial-gradient(circle at var(--lx, 50%) var(--ly, 45%), black 0, black 9%, transparent 22%)";
+  const mask = "radial-gradient(circle at var(--lx, 50%) var(--ly, 45%), black 0, black 16%, transparent 34%)";
   return (
     <div ref={stage} className="relative touch-pan-y select-none">
-      <div className="grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-3">
+      <div className="grid grid-cols-2 gap-2 md:gap-3">
         {team.map((m) => (
-          <div key={m.name} className="relative aspect-[3/4] overflow-hidden rounded-xl bg-ink-3 md:rounded-2xl">
-            <Photo src={m.spotlight} alt={`${m.name}, ${m.role}`} sizes="(min-width: 768px) 25vw, 50vw" priority className="absolute inset-0 size-full object-cover" />
+          <div key={m.name} className="relative aspect-[4/5] overflow-hidden rounded-xl bg-ink-3 md:rounded-2xl">
+            <Photo src={m.spotlight} alt={`${m.name}, ${m.role}`} sizes="(min-width: 768px) 22vw, 45vw" priority className="absolute inset-0 size-full object-cover" />
           </div>
         ))}
       </div>
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-3" style={{ WebkitMaskImage: mask, maskImage: mask }}>
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 grid grid-cols-2 gap-2 md:gap-3" style={{ WebkitMaskImage: mask, maskImage: mask }}>
         {team.map((m) => (
-          <div key={m.name} className="relative aspect-[3/4] overflow-hidden rounded-xl md:rounded-2xl">
+          <div key={m.name} className="relative aspect-[4/5] overflow-hidden rounded-xl md:rounded-2xl">
             <Photo src={m.portrait} alt="" sizes="(min-width: 768px) 25vw, 50vw" className="absolute inset-0 size-full object-cover grayscale" />
           </div>
         ))}
@@ -75,27 +75,28 @@ function LightsOn() {
 }
 
 /** One founder; the light switches on as their portrait reaches the middle of the screen. */
-function Founder({ m, flip }: { m: Morio; flip: boolean }) {
+function Founder({ m, index }: { m: Morio; index: number }) {
   const ref = useRef<HTMLElement>(null);
   const [lit, setLit] = useState(false);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const io = new IntersectionObserver(([e]) => setLit(e.isIntersecting), { rootMargin: "-35% 0px -35% 0px" });
+    const io = new IntersectionObserver(([e]) => setLit(e.isIntersecting), { rootMargin: "-30% 0px -30% 0px" });
     io.observe(el);
     return () => io.disconnect();
   }, []);
   return (
-    <article ref={ref} className="grid items-center gap-10 md:grid-cols-12">
-      <div className={`relative aspect-[4/5] overflow-hidden rounded-3xl bg-ink-3 md:col-span-5 ${flip ? "md:order-2 md:col-start-8" : ""}`}>
-        <Photo src={m.spotlight} alt="" sizes="(min-width: 768px) 40vw, 100vw" className={`absolute inset-0 size-full object-cover transition duration-[1200ms] ${lit ? "opacity-0" : "opacity-100"}`} />
-        <Photo src={m.portrait} alt={`${m.name}, ${m.role}`} sizes="(min-width: 768px) 40vw, 100vw" className={`absolute inset-0 size-full object-cover grayscale transition duration-[1200ms] ${lit ? "scale-100 opacity-100" : "scale-105 opacity-0"}`} />
+    <article ref={ref} onMouseEnter={() => setLit(true)} className="grid gap-5 rounded-3xl bg-ink-2 p-4 sm:grid-cols-5 sm:gap-7 sm:p-5 md:rounded-[2rem]">
+      <div className="theme-dark relative aspect-[5/4] overflow-hidden rounded-2xl bg-ink-3 sm:col-span-2 sm:aspect-[4/5]">
+        <Photo src={m.spotlight} alt="" sizes="(min-width: 1024px) 20vw, (min-width: 640px) 40vw, 100vw" className={`absolute inset-0 size-full object-cover object-top transition duration-[1200ms] ${lit ? "opacity-0" : "opacity-100"}`} />
+        <Photo src={m.portrait} alt={`${m.name}, ${m.role}`} sizes="(min-width: 1024px) 20vw, (min-width: 640px) 40vw, 100vw" className={`absolute inset-0 size-full object-cover object-top grayscale transition duration-[1200ms] ${lit ? "scale-100 opacity-100" : "scale-105 opacity-0"}`} />
+        <span className="absolute top-3 left-3 rounded-full bg-black/35 px-2.5 py-1 text-xs font-medium text-bone backdrop-blur">{String(index + 1).padStart(2, "0")}</span>
       </div>
-      <div className={`md:col-span-6 ${flip ? "md:order-1 md:col-start-1" : "md:col-start-7"}`}>
-        <p className="eyebrow mb-4">{m.role}</p>
-        <h3 className="display text-display-md text-bone">{m.name}</h3>
-        <p className="mt-6 text-lg text-bone/80">{m.bio}</p>
-        <a href={m.portfolio} target="_blank" rel="noopener" className="btn-ghost mt-8">
+      <div className="flex flex-col px-1 pb-2 sm:col-span-3 sm:py-3 sm:pr-3">
+        <p className="eyebrow mb-3">{m.role}</p>
+        <h3 className="display text-2xl text-bone md:text-[1.7rem]">{m.name}</h3>
+        <p className="mt-4 text-[0.95rem] text-bone/80">{m.bio}</p>
+        <a href={m.portfolio} target="_blank" rel="noopener" className="btn-ghost mt-6 self-start sm:mt-auto">
           <Icon name="behance" /> {labels.portfolio}
         </a>
       </div>
@@ -106,40 +107,44 @@ function Founder({ m, flip }: { m: Morio; flip: boolean }) {
 export function AboutPage() {
   return (
     <>
-      <section className="relative mx-3 mt-3 overflow-hidden rounded-3xl bg-morio-deep pt-32 pb-16 sm:mx-5 sm:mt-5 md:rounded-[2.5rem] md:pt-40 md:pb-24">
-        <div className="container-site">
-          <div className="mb-10 flex flex-col gap-6 md:mb-14 md:flex-row md:items-end md:justify-between">
+      {/* Hero: who the Morios are, beside the "lights on" stage */}
+      <section className="container-site pt-28 md:pt-36">
+        <div className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-14">
+          <div className="lg:col-span-6">
+            <p className="eyebrow mb-4">{labels.aboutUs}</p>
             <h1 className="display text-display-2xl text-bone">
               The <span className="text-outline">Morios</span>
             </h1>
-            <p className="max-w-xs text-lg text-bone/85">
+            <p className="mt-6 max-w-md text-lg text-bone/85 md:text-xl">
               <strong className="font-medium text-bone">Morio</strong> {aboutCopy.definition}
             </p>
+            <div className="mt-8 max-w-xl space-y-4 border-t border-line pt-8 text-bone/80">
+              <p>
+                <strong className="font-medium text-bone">Morio Studios</strong> {aboutCopy.collective}
+              </p>
+              <p>{aboutCopy.delivery}</p>
+            </div>
           </div>
-          <LightsOn />
+          <div className="theme-dark rounded-3xl bg-morio-deep p-3 md:rounded-[2rem] md:p-4 lg:col-span-5 lg:col-start-8">
+            <LightsOn />
+          </div>
         </div>
       </section>
 
-      <section className="container-site grid gap-12 py-20 md:grid-cols-12 md:py-28">
-        <Reveal className="md:col-span-5">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
-            <Photo src="/assets/images/service/m2.jpeg" alt="The Morios at work" sizes="(min-width: 768px) 40vw, 100vw" className="absolute inset-0 size-full object-cover" />
-          </div>
-        </Reveal>
-        <Reveal delay={120} className="space-y-6 text-lg text-bone/85 md:col-span-7 md:text-xl">
-          <p>
-            <strong className="font-medium text-bone">Morio Studios</strong> {aboutCopy.collective}
-          </p>
-          <p>{aboutCopy.delivery}</p>
-          <p className="display pt-4 text-3xl text-bone md:text-4xl">{aboutCopy.closer}</p>
+      {/* The studio at work, with the original closing line */}
+      <section className="container-site py-16 md:py-24">
+        <Reveal className="theme-dark relative isolate flex min-h-[22rem] items-end overflow-hidden rounded-3xl md:min-h-[30rem] md:rounded-[2.5rem]">
+          <Photo src="/assets/images/service/m2.jpeg" alt="The Morios at work" sizes="100vw" className="absolute inset-0 -z-20 size-full object-cover" />
+          <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
+          <p className="display max-w-3xl p-6 text-2xl text-bone md:p-12 md:text-4xl">{aboutCopy.closer}</p>
         </Reveal>
       </section>
 
-      <section className="container-site py-20 md:py-28">
-        <h2 className="display mb-14 text-display-md text-bone md:mb-20">{labels.experiencedTeam}</h2>
-        <div className="space-y-20 md:space-y-28">
+      <section className="container-site pb-16 md:pb-24">
+        <h2 className="display mb-8 text-display-md text-bone md:mb-12">{labels.experiencedTeam}</h2>
+        <div className="grid gap-4 lg:grid-cols-2 lg:gap-5">
           {team.map((m, i) => (
-            <Founder key={m.name} m={m} flip={i % 2 === 1} />
+            <Founder key={m.name} m={m} index={i} />
           ))}
         </div>
       </section>
