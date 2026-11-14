@@ -92,7 +92,7 @@ export function HomePage() {
       <section className="container-site pt-32 md:pt-40">
         <div className="mx-auto max-w-5xl text-center">
           <MantraPill />
-          <h1 className="display text-display-xl text-bone">
+          <h1 className="display text-display-2xl text-bone">
             Small Agency,
             <br />
             <span className="text-outline">Big Ideas.</span>
@@ -126,7 +126,7 @@ export function HomePage() {
       <section className="bg-ink-2">
         <div className="container-site grid gap-8 py-20 md:grid-cols-12 md:py-28">
           <Reveal className="md:col-span-8">
-            <p className="text-2xl leading-snug font-medium text-bone md:text-[2.3rem] md:leading-[1.3]">{introRest}</p>
+            <p className="display text-2xl leading-snug text-bone md:text-[2rem] md:leading-[1.3]">{introRest}</p>
           </Reveal>
           <Reveal delay={120} className="md:col-span-7 md:col-start-6">
             <p className="text-lg text-bone/75">{homeCopy.introMore}</p>

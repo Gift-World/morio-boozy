@@ -38,11 +38,11 @@ function CraftIndex() {
       <ol className="border-t border-line">
         {services.map((s, i) => (
           <li key={s.slug} className="border-b border-line">
-            <Link to={`/services/${s.slug}`} onMouseEnter={() => setActive(i)} onFocus={() => setActive(i)} className="group flex items-center gap-4 py-4 md:gap-8 md:py-5">
+            <Link to={`/services/${s.slug}`} onMouseEnter={() => setActive(i)} onFocus={() => setActive(i)} className="group flex items-center gap-4 py-3.5 md:gap-8 md:py-4">
               <span className="w-8 shrink-0 font-display text-sm text-sage md:w-12 md:text-base">{String(i + 1).padStart(2, "0")}</span>
               <Photo src={s.image} alt="" sizes="96px" className="size-14 shrink-0 rounded-lg object-cover md:hidden" />
               <span
-                className={`display animate-rise text-[2rem] leading-none transition duration-500 sm:text-5xl lg:text-[5.2rem] ${active === null || active === i ? "text-bone" : "text-bone/25"} ${active === i ? "md:translate-x-4" : ""}`}
+                className={`display animate-rise text-2xl leading-tight transition duration-500 sm:text-4xl lg:text-5xl ${active === null || active === i ? "text-bone" : "text-bone/25"} ${active === i ? "md:translate-x-4" : ""}`}
                 style={{ animationDelay: `${200 + i * 70}ms` }}
               >
                 {s.title}
@@ -114,7 +114,7 @@ function CraftStory() {
               {i + 1}. {s.title}
             </h3>
             <p className="mt-6 text-lg text-bone/80">{s.body}</p>
-            <Link to={`/services/${s.slug}`} className="mt-8 inline-flex items-center gap-2 font-display tracking-[0.14em] text-bone uppercase hover:text-mist">
+            <Link to={`/services/${s.slug}`} className="mt-8 inline-flex items-center gap-2 font-medium text-bone hover:text-mist">
               {s.title} <Icon name="arrow" />
             </Link>
           </article>
@@ -175,7 +175,7 @@ export function ServicesPage() {
 
       <section className="container-site py-20 md:py-32">
         <Reveal>
-          <p className="max-w-5xl text-2xl leading-snug text-bone/90 md:text-[2.1rem] md:leading-[1.35]">{craftCopy.intro}</p>
+          <p className="max-w-5xl text-xl leading-snug text-bone/90 md:text-[1.7rem] md:leading-[1.4]">{craftCopy.intro}</p>
         </Reveal>
       </section>
 
@@ -226,7 +226,7 @@ export function ServiceDetailPage() {
               <span aria-hidden="true">/</span>
               <span className="text-bone/80">{s.title}</span>
             </nav>
-            <p aria-hidden="true" className="display text-outline animate-rise text-[clamp(6rem,18vw,15rem)] leading-[0.8] text-sage/60">
+            <p aria-hidden="true" className="display text-outline animate-rise text-[clamp(4rem,10vw,8rem)] leading-[0.9] text-sage/50">
               {String(index + 1).padStart(2, "0")}
             </p>
             <h1 className="display mt-6 text-display-lg text-bone">{s.title}</h1>
@@ -241,7 +241,7 @@ export function ServiceDetailPage() {
 
       <section className="container-site py-20 md:py-28">
         <Reveal>
-          <p className="max-w-4xl text-2xl leading-snug text-bone/90 md:text-[2rem] md:leading-[1.35]">{s.body}</p>
+          <p className="max-w-4xl text-xl leading-snug text-bone/90 md:text-[1.7rem] md:leading-[1.4]">{s.body}</p>
         </Reveal>
         <Reveal delay={100} className="mt-10 flex flex-wrap gap-3">
           <Link to="/contact" className="btn-primary">

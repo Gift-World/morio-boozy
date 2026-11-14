@@ -14,13 +14,13 @@ export function SiteFooter() {
       {/* Talk to a Morio */}
       <div className="container-site border-b border-line pt-24 pb-16 md:pt-32 md:pb-24">
         <p className="eyebrow mb-6">Hola</p>
-        <h2 className="display text-display-xl">{labels.talkToAMorio}</h2>
+        <h2 className="display text-display-xl text-bone">{labels.talkToAMorio}</h2>
         <ul className="mt-12 grid gap-x-10 gap-y-6 sm:grid-cols-2 md:mt-16">
           {team.map((m) => (
             <li key={m.email}>
               <a href={`mailto:${m.email}`} className="group block border-b border-line pb-5">
                 <span className="block text-sm text-sage">{m.shortName}</span>
-                <span className="mt-1 flex items-center justify-between gap-4 font-display text-xl tracking-wide text-bone [overflow-wrap:anywhere] sm:text-2xl lg:text-3xl">
+                <span className="mt-1 flex items-center justify-between gap-4 text-lg font-medium text-bone [overflow-wrap:anywhere] sm:text-xl lg:text-2xl">
                   {m.email}
                   <Icon name="arrow" className="shrink-0 -rotate-45 text-base text-sage transition group-hover:rotate-0 group-hover:text-bone" />
                 </span>
@@ -42,9 +42,9 @@ export function SiteFooter() {
       <div className="container-site grid gap-12 py-16 sm:grid-cols-2 md:py-20 lg:grid-cols-12">
         <div className="sm:col-span-2 lg:col-span-5">
           <Link to="/" aria-label="Morio Studios, home" className="inline-block">
-            <img src="/assets/brand/morio-logo-white.svg" alt="" width={1421} height={1263} loading="lazy" className="h-20 w-auto md:h-24" />
+            <img src="/assets/brand/morio-logo-white.svg" alt="" width={1421} height={1263} loading="lazy" className="h-16 w-auto md:h-20" />
           </Link>
-          <p className="mt-5 font-display text-lg tracking-[0.12em] text-sage">“{mantra}”</p>
+          <p className="mt-5 text-sage">“{mantra}”</p>
         </div>
         <nav aria-label="Footer" className="lg:col-span-3">
           <h2 className="eyebrow mb-5">The Morios</h2>

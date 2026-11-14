@@ -1,5 +1,5 @@
 import { faBehance, faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import { faArrowRight, faArrowUpRightFromSquare, faBars, faXmark, faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faArrowUpRightFromSquare, faBars, faXmark, faPhone, faEnvelope, faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import type { IconDefinition } from "@fortawesome/free-brands-svg-icons";
 
 const ICONS = {
@@ -9,6 +9,8 @@ const ICONS = {
   close: faXmark,
   phone: faPhone,
   mail: faEnvelope,
+  moon: faMoon,
+  sun: faSun,
   whatsapp: faWhatsapp,
   instagram: faInstagram,
   behance: faBehance,

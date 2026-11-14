@@ -6,7 +6,7 @@
  * supporting tones. Colour is kept calm so the work carries the colour.
  */
 @theme {
-  --font-display: "Antonio", "Arial Narrow", sans-serif;
+  --font-display: "Jost", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
 
   /*
@@ -27,14 +27,15 @@
   --color-mist: #2a655c;
   --color-line: rgb(18 48 44 / 0.14);
 
-  --text-display-2xl: clamp(3.75rem, 13vw, 14rem);
-  --text-display-2xl--line-height: 0.84;
-  --text-display-xl: clamp(3.25rem, 9.5vw, 10rem);
-  --text-display-xl--line-height: 0.88;
-  --text-display-lg: clamp(2.6rem, 6vw, 6rem);
-  --text-display-lg--line-height: 0.92;
-  --text-display-md: clamp(2.1rem, 4.2vw, 4rem);
-  --text-display-md--line-height: 0.96;
+  /* A calm, modern scale: headings are sentence-case and never shout. */
+  --text-display-2xl: clamp(2.7rem, 7vw, 6.25rem);
+  --text-display-2xl--line-height: 1;
+  --text-display-xl: clamp(2.35rem, 5.2vw, 4.5rem);
+  --text-display-xl--line-height: 1.02;
+  --text-display-lg: clamp(1.9rem, 3.6vw, 3.1rem);
+  --text-display-lg--line-height: 1.06;
+  --text-display-md: clamp(1.65rem, 2.8vw, 2.5rem);
+  --text-display-md--line-height: 1.12;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
@@ -78,8 +79,8 @@
   }
   body {
     @apply bg-ink font-sans text-bone antialiased;
-    font-size: 1.0625rem;
-    line-height: 1.65;
+    font-size: 1rem;
+    line-height: 1.6;
   }
   ::selection {
     background: var(--color-morio);
@@ -102,6 +103,7 @@
 
 /* Dark scope: green/dark areas get light type and dark surfaces again. */
 @layer base {
+:root[data-theme="dark"],
 .theme-dark,
 .bg-morio,
 .bg-morio-deep {
@@ -117,29 +119,31 @@
 }
 
 @layer components {
+  /* swap artwork with the page theme (header logo) */
+  .only-dark,
+  :root[data-theme="dark"] .only-light {
+    display: none;
+  }
+  :root[data-theme="dark"] .only-dark {
+    display: block;
+  }
   .container-site {
     @apply mx-auto w-full max-w-[90rem] px-5 sm:px-8 lg:px-12;
   }
   .eyebrow {
-    @apply font-display text-sm font-medium tracking-[0.2em] text-sage uppercase;
+    @apply text-[0.78rem] font-medium tracking-[0.16em] text-sage uppercase;
   }
   .display {
-    @apply font-display font-bold tracking-[-0.01em] uppercase;
+    @apply font-display font-medium tracking-[-0.035em];
+    text-wrap: balance;
   }
-  /* stroked "outline" type, from the original site's signature headings */
+  /* the quiet half of two-part headings ("Small Agency, / Big Ideas.") */
   .text-outline {
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 1.5px currentColor;
-  }
-  @supports not (-webkit-text-stroke: 1px black) {
-    .text-outline {
-      -webkit-text-fill-color: currentColor;
-      opacity: 0.6;
-    }
+    color: var(--color-sage);
   }
   .btn-primary,
   .btn-ghost {
-    @apply inline-flex min-h-12 items-center justify-center gap-2.5 rounded-full px-6 py-3 font-display text-base font-medium tracking-[0.1em] uppercase transition duration-300;
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-5 py-2.5 text-[0.95rem] font-medium transition duration-300;
   }
   .btn-primary {
     @apply bg-bone text-ink hover:bg-mist;
@@ -158,6 +162,7 @@
   .craft-icon {
     filter: brightness(0) saturate(100%) invert(17%) sepia(21%) saturate(1140%) hue-rotate(125deg) brightness(94%) contrast(92%);
   }
+  :root[data-theme="dark"] .craft-icon,
   .theme-dark .craft-icon,
   .bg-morio-deep .craft-icon {
     filter: none;

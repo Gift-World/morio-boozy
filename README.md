@@ -74,6 +74,12 @@ Each project in `src/content/work.ts` gets a story page at `/work/<slug>` with a
 
 ## Development Log
 
+### November 14, 2026 - Calmer type, slim menu, light/dark toggle
+
+- **Changes**: Headings moved from condensed all-caps to sentence-case Jost on a smaller scale; two-part headings use a quiet second tone instead of outlined letters. The floating menu is slimmer. A sun/moon button in the menu switches between the light and dark looks; the choice is remembered (`localStorage: morio-theme`) and applied before first paint by a small script in `index.html`. Antonio is no longer loaded.
+- **Rationale**: Feedback that text and the menu were too big; a cleaner, more modern feel using only the brand green and white.
+- **Impact**: Checked at 320, 360, 390, 414, 430, 768, 1024, 1440 and 1920px in light, and 360 and 1440px in dark: no errors, nothing off-screen.
+
 ### November 14, 2026 - Light, clean redesign with real client work and films
 
 - **Changes**: The site moved to a light theme (warm white page, logo-green type) with rounded sections, a floating pill menu and a masonry wall of work, inspired by cchora.com. Seven real projects were added from the supplied mockups and Drive folders (Jubilee Holdings annual report, TC3 Africa brand identity, Kounkuey @20 photography, Ukulima True, International Year of Millets, Twanga Kolera, Afya Nyumbani). A Films and Documentaries section plays seven films in a lightbox (one from Vimeo, six from the shared Drive folder). The Our Work filter now has both blanks ("We do ... for ...").

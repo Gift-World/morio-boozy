@@ -90,7 +90,7 @@ export function WorkPage() {
 
       <section className="container-site py-16 md:py-24">
         <div className="mb-12 flex flex-col gap-4 md:mb-16 md:flex-row md:items-end md:justify-between">
-          <p className="display text-[clamp(2.2rem,6vw,4.75rem)] leading-[1.05] text-bone">
+          <p className="display text-[clamp(1.7rem,4vw,3rem)] leading-[1.15] text-bone">
             We do <Blank label="Type of work" value={discipline} options={[ANY_WORK, ...DISCIPLINES]} onChange={setDiscipline} />
             {industries.length > 0 && (
               <>
@@ -100,7 +100,7 @@ export function WorkPage() {
             )}
             .
           </p>
-          <p aria-live="polite" className="shrink-0 font-display tracking-[0.14em] text-sage uppercase">
+          <p aria-live="polite" className="shrink-0 font-medium text-sage">
             {String(items.length).padStart(2, "0")} {items.length === 1 ? "project" : "projects"}
             {filtered && (
               <button

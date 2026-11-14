@@ -31,10 +31,10 @@ export function HomeCraftList() {
     <ul className="border-t border-line">
       {homeCopy.crafts.map((c, i) => (
         <Reveal as="li" key={c.slug} delay={i * 50} className="border-b border-line">
-          <Link to={`/services/${c.slug}`} className="group flex items-center gap-5 py-6 md:gap-8 md:py-8">
-            <Photo src={c.icon} alt="" sizes="intrinsic" className="craft-icon size-10 shrink-0 object-contain opacity-70 transition group-hover:opacity-100 md:size-12" />
-            <span className="display text-[1.9rem] leading-none text-bone transition duration-500 group-hover:translate-x-2 sm:text-4xl md:text-6xl">{c.label}</span>
-            <span className="ml-auto grid size-11 shrink-0 place-items-center rounded-full border border-line text-bone transition duration-300 group-hover:rotate-45 group-hover:border-bone group-hover:bg-bone group-hover:text-ink md:size-14">
+          <Link to={`/services/${c.slug}`} className="group flex items-center gap-4 py-5 md:gap-8 md:py-6">
+            <Photo src={c.icon} alt="" sizes="intrinsic" className="craft-icon size-8 shrink-0 object-contain opacity-70 transition group-hover:opacity-100 md:size-10" />
+            <span className="display text-xl leading-tight text-bone transition duration-500 group-hover:translate-x-2 sm:text-2xl md:text-4xl">{c.label}</span>
+            <span className="ml-auto grid size-10 shrink-0 place-items-center rounded-full border border-line text-bone transition duration-300 group-hover:rotate-45 group-hover:border-bone group-hover:bg-bone group-hover:text-ink md:size-12">
               <Icon name="arrow" className="rotate-90" />
             </span>
           </Link>
@@ -64,7 +64,7 @@ export function ProjectGrid({ items, shapes = true, cols = 3 }: { items: Project
             <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 md:p-6">
               <span>
                 <span className="eyebrow block text-mist">{p.discipline}</span>
-                <span className="display mt-1 block text-2xl text-bone md:text-3xl">{projectLabel(p)}</span>
+                <span className="display mt-1 block text-xl text-bone md:text-2xl">{projectLabel(p)}</span>
               </span>
               <span className="grid size-11 shrink-0 translate-y-2 place-items-center rounded-full bg-bone text-ink opacity-0 transition duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                 <Icon name="arrow" />
@@ -113,7 +113,7 @@ export function TeamGrid() {
                   <Photo src={m.spotlight} alt="" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" className={`absolute inset-0 size-full object-cover transition duration-700 ${on ? "opacity-0" : "opacity-100"}`} />
                   <Photo src={m.portrait} alt={`${m.shortName}, ${m.title}`} sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" className={`absolute inset-0 size-full object-cover grayscale transition duration-700 ${on ? "scale-100 opacity-100" : "scale-105 opacity-0"}`} />
                 </span>
-                <span className="display mt-5 block text-2xl text-bone">{m.shortName}</span>
+                <span className="display mt-4 block text-xl text-bone">{m.shortName}</span>
                 <span className="block text-sage">{m.title}</span>
               </Link>
             </Reveal>
@@ -154,7 +154,7 @@ export function Morioisms() {
       }}
     >
       <div className="container-site relative text-center">
-        <span aria-hidden="true" className="display block text-8xl leading-none text-sage/40 md:text-9xl">
+        <span aria-hidden="true" className="display block text-6xl leading-none text-sage/40 md:text-7xl">
           “
         </span>
         <div className="relative mx-auto grid max-w-5xl" aria-live="polite">
@@ -189,7 +189,7 @@ export function StudioLit() {
     <section aria-label={mantra} className="theme-dark relative isolate mx-3 h-[72svh] min-h-[28rem] overflow-hidden rounded-3xl bg-ink sm:mx-5 md:h-[86svh] md:rounded-[2.5rem]">
       <LitStage />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink to-transparent pt-40 pb-12 text-center">
-        <p className="font-display text-xl tracking-[0.2em] text-sage uppercase md:text-2xl">“{mantra}”</p>
+        <p className="text-base text-sage md:text-lg">“{mantra}”</p>
       </div>
     </section>
   );
@@ -202,7 +202,7 @@ export function BriefTeaser() {
       <div className="relative flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
         <div>
           <p className="eyebrow mb-3 text-mist">Brief Builder · AI</p>
-          <p className="display max-w-2xl text-3xl text-bone md:text-5xl">Turn your idea into a brief for the Morios.</p>
+          <p className="display max-w-2xl text-2xl text-bone md:text-4xl">Turn your idea into a brief for the Morios.</p>
         </div>
         <Link to="/contact#brief-builder" className="btn-primary shrink-0 self-start md:self-auto">
           Brief Builder <Icon name="arrow" />
