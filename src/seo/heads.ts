@@ -2,7 +2,7 @@
 // and kept in sync on client-side navigation (seo/applyHead.ts).
 import { site } from "../content/site";
 import { services } from "../content/services";
-import { projects } from "../content/work";
+import { projectLabel, projects } from "../content/work";
 import { breadcrumbSchema, businessSchema, jsonLd, serviceSchema, websiteSchema } from "./schema";
 
 export const SITE = site.url;
@@ -57,15 +57,15 @@ export const pages: Record<string, PageSeo> = {
     description: "Selected brand identities, packaging, art direction and photography by Morio Studios, a creative agency in Nairobi, Kenya.",
     extra: jsonLd(crumbs(["Work", "/work"])),
   },
-  // Project names are placeholders until the studio confirms them, so these
-  // pages stay out of search results for now (flip noindex once confirmed).
+  // Client projects are indexed; studio pieces with placeholder names (no
+  // `industry` yet) stay out of search results until they are confirmed.
   ...Object.fromEntries(
     projects.map((p) => [
       `/work/${p.slug}`,
       {
-        title: `${p.title} – ${p.discipline} | Morio Studios`,
-        description: `${p.title}: ${p.discipline.toLowerCase()} by Morio Studios, a creative agency in Nairobi, Kenya.`,
-        noindex: true,
+        title: `${projectLabel(p)} – ${p.discipline} | Morio Studios`,
+        description: `${projectLabel(p)}: ${p.discipline.toLowerCase()} by Morio Studios, a creative agency in Nairobi, Kenya.`,
+        noindex: !p.industry,
         extra: jsonLd(crumbs(["Work", "/work"], [p.title, `/work/${p.slug}`])),
       },
     ]),

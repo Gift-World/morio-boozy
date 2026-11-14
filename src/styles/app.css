@@ -9,21 +9,23 @@
   --font-display: "Antonio", "Arial Narrow", sans-serif;
   --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
 
-  /* logo green (#183C38) and its family */
+  /*
+   * Light theme by default: warm white page, logo-green type. The names are
+   * roles, not colours: `ink` = surface, `bone` = foreground. Dark areas
+   * (.theme-dark, green sections, the footer) swap the same roles back, see
+   * the "dark scope" rule below.
+   */
   --color-morio: #183c38;
   --color-morio-2: #21504a;
   --color-morio-deep: #0f2724;
-  /* near-black with a green undertone */
-  --color-ink: #0a1210;
-  --color-ink-2: #0f1a17;
-  --color-ink-3: #16241f;
-  /* logo white, warmed slightly */
-  --color-bone: #f4f1ea;
+  --color-ink: #fbf9f4;
+  --color-ink-2: #f3efe6;
+  --color-ink-3: #e9e4d8;
+  --color-bone: #12302c;
   --color-paper: #ebe7dc;
-  /* secondary text and accents */
-  --color-sage: #9fb6ad;
-  --color-mist: #d4e0da;
-  --color-line: rgb(244 241 234 / 0.12);
+  --color-sage: #5c756d;
+  --color-mist: #2a655c;
+  --color-line: rgb(18 48 44 / 0.14);
 
   --text-display-2xl: clamp(3.75rem, 13vw, 14rem);
   --text-display-2xl--line-height: 0.84;
@@ -80,8 +82,8 @@
     line-height: 1.65;
   }
   ::selection {
-    background: var(--color-bone);
-    color: var(--color-morio);
+    background: var(--color-morio);
+    color: #f4f1ea;
   }
   :focus-visible {
     outline: 2px solid var(--color-mist);
@@ -96,6 +98,22 @@
       transition-duration: 0.01ms !important;
     }
   }
+}
+
+/* Dark scope: green/dark areas get light type and dark surfaces again. */
+@layer base {
+.theme-dark,
+.bg-morio,
+.bg-morio-deep {
+  --color-ink: #0a1210;
+  --color-ink-2: #0f1a17;
+  --color-ink-3: #16241f;
+  --color-bone: #f4f1ea;
+  --color-sage: #9fb6ad;
+  --color-mist: #d4e0da;
+  --color-line: rgb(244 241 234 / 0.14);
+  color: var(--color-bone);
+}
 }
 
 @layer components {
@@ -124,7 +142,7 @@
     @apply inline-flex min-h-12 items-center justify-center gap-2.5 rounded-full px-6 py-3 font-display text-base font-medium tracking-[0.1em] uppercase transition duration-300;
   }
   .btn-primary {
-    @apply bg-bone text-morio hover:bg-mist;
+    @apply bg-bone text-ink hover:bg-mist;
   }
   .btn-ghost {
     @apply border border-bone/30 text-bone hover:border-bone hover:bg-bone/5;
@@ -135,6 +153,14 @@
   }
   .link-underline:hover {
     background-size: 100% 1px;
+  }
+  /* the original craft icons are white line art: render them in logo green on light surfaces */
+  .craft-icon {
+    filter: brightness(0) saturate(100%) invert(17%) sepia(21%) saturate(1140%) hue-rotate(125deg) brightness(94%) contrast(92%);
+  }
+  .theme-dark .craft-icon,
+  .bg-morio-deep .craft-icon {
+    filter: none;
   }
   /* soft film grain over dark sections */
   .grain::after {

@@ -32,9 +32,9 @@ export function HomeCraftList() {
       {homeCopy.crafts.map((c, i) => (
         <Reveal as="li" key={c.slug} delay={i * 50} className="border-b border-line">
           <Link to={`/services/${c.slug}`} className="group flex items-center gap-5 py-6 md:gap-8 md:py-8">
-            <Photo src={c.icon} alt="" sizes="intrinsic" className="size-10 shrink-0 object-contain opacity-80 transition group-hover:opacity-100 md:size-12" />
+            <Photo src={c.icon} alt="" sizes="intrinsic" className="craft-icon size-10 shrink-0 object-contain opacity-70 transition group-hover:opacity-100 md:size-12" />
             <span className="display text-[1.9rem] leading-none text-bone transition duration-500 group-hover:translate-x-2 sm:text-4xl md:text-6xl">{c.label}</span>
-            <span className="ml-auto grid size-11 shrink-0 place-items-center rounded-full border border-line text-bone transition duration-300 group-hover:rotate-45 group-hover:border-bone group-hover:bg-bone group-hover:text-morio md:size-14">
+            <span className="ml-auto grid size-11 shrink-0 place-items-center rounded-full border border-line text-bone transition duration-300 group-hover:rotate-45 group-hover:border-bone group-hover:bg-bone group-hover:text-ink md:size-14">
               <Icon name="arrow" className="rotate-90" />
             </span>
           </Link>
@@ -52,7 +52,7 @@ export function ProjectGrid({ items, shapes = true, cols = 3 }: { items: Project
     <ul className={`grid grid-flow-dense auto-rows-[18rem] grid-cols-1 gap-4 sm:grid-cols-2 sm:auto-rows-[18rem] lg:gap-5 ${cols === 3 ? "lg:grid-cols-3 lg:auto-rows-[21rem]" : "sm:auto-rows-[22rem] lg:auto-rows-[30rem]"}`}>
       {items.map((p, i) => (
         <Reveal as="li" key={p.slug} delay={(i % 3) * 80} className={`${shapes && p.span ? SPAN[p.span] : ""}`}>
-          <Link to={`/work/${p.slug}`} className="group relative block size-full overflow-hidden rounded-2xl bg-ink-3">
+          <Link to={`/work/${p.slug}`} className="theme-dark group relative block size-full overflow-hidden rounded-2xl bg-ink-3 md:rounded-3xl">
             <Photo
               src={p.cover}
               alt={p.coverAlt}
@@ -66,7 +66,7 @@ export function ProjectGrid({ items, shapes = true, cols = 3 }: { items: Project
                 <span className="eyebrow block text-mist">{p.discipline}</span>
                 <span className="display mt-1 block text-2xl text-bone md:text-3xl">{projectLabel(p)}</span>
               </span>
-              <span className="grid size-11 shrink-0 translate-y-2 place-items-center rounded-full bg-bone text-morio opacity-0 transition duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+              <span className="grid size-11 shrink-0 translate-y-2 place-items-center rounded-full bg-bone text-ink opacity-0 transition duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                 <Icon name="arrow" />
               </span>
             </span>
@@ -142,7 +142,7 @@ export function Morioisms() {
     <section
       aria-roledescription="carousel"
       aria-label="Morio slang"
-      className="grain relative overflow-hidden bg-morio-deep py-24 md:py-36"
+      className="grain relative mx-3 overflow-hidden rounded-3xl bg-morio-deep py-24 sm:mx-5 md:rounded-[2.5rem] md:py-36"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onTouchStart={(e) => (touch.current = e.touches[0].clientX)}
@@ -186,7 +186,7 @@ export function Morioisms() {
 /** "The studio is lit": the 3D logo, with the studio's mantra. */
 export function StudioLit() {
   return (
-    <section aria-label={mantra} className="relative isolate h-[78svh] min-h-[30rem] overflow-hidden md:h-[92svh]">
+    <section aria-label={mantra} className="theme-dark relative isolate mx-3 h-[72svh] min-h-[28rem] overflow-hidden rounded-3xl bg-ink sm:mx-5 md:h-[86svh] md:rounded-[2.5rem]">
       <LitStage />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink to-transparent pt-40 pb-12 text-center">
         <p className="font-display text-xl tracking-[0.2em] text-sage uppercase md:text-2xl">“{mantra}”</p>
@@ -198,7 +198,7 @@ export function StudioLit() {
 /** Small entry point to the AI brief builder on the Hola page. */
 export function BriefTeaser() {
   return (
-    <Reveal className="relative overflow-hidden rounded-3xl border border-line bg-gradient-to-br from-morio to-morio-deep p-8 md:p-12">
+    <Reveal className="theme-dark relative overflow-hidden rounded-3xl bg-gradient-to-br from-morio to-morio-deep p-8 md:rounded-[2.5rem] md:p-14">
       <div className="relative flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
         <div>
           <p className="eyebrow mb-3 text-mist">Brief Builder · AI</p>

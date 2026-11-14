@@ -74,6 +74,12 @@ Each project in `src/content/work.ts` gets a story page at `/work/<slug>` with a
 
 ## Development Log
 
+### November 14, 2026 - Light, clean redesign with real client work and films
+
+- **Changes**: The site moved to a light theme (warm white page, logo-green type) with rounded sections, a floating pill menu and a masonry wall of work, inspired by cchora.com. Seven real projects were added from the supplied mockups and Drive folders (Jubilee Holdings annual report, TC3 Africa brand identity, Kounkuey @20 photography, Ukulima True, International Year of Millets, Twanga Kolera, Afya Nyumbani). A Films and Documentaries section plays seven films in a lightbox (one from Vimeo, six from the shared Drive folder). The Our Work filter now has both blanks ("We do ... for ...").
+- **Rationale**: Lead with real, named client work on a calm background so the work carries the colour.
+- **Impact**: Client project pages are now indexed (18 URLs in the sitemap). Pages stay light: Our Work 0.70 MB, home 1.07 MB including the hero video. Films depend on the Drive folder staying shared ("anyone with the link"); move them to Vimeo or YouTube for a more reliable player. Colour tokens are now roles (`ink` = surface, `bone` = foreground); `.theme-dark` and green sections flip them.
+
 ### November 13, 2026 - Benchmark-led changes: work first, one-line hero, sentence filter, Start a brief
 
 - **Changes**: Home now shows Latest projects straight after the hero; the hero carries the headline and the intro's first sentence, with the rest of the original introduction (unchanged) right after the work. Our Work filters with a sentence ("We do [all kinds of work]"), with a second "for [everyone]" blank that appears once projects have an `industry`. Project cards read "Title for Client" once `client` is set. A "Start a brief" button in the header opens the Brief Builder from any page.

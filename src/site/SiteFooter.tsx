@@ -10,7 +10,7 @@ import { Icon } from "./icons";
  */
 export function SiteFooter() {
   return (
-    <footer className="relative overflow-hidden bg-morio-deep text-bone">
+    <footer className="relative mx-3 mb-3 overflow-hidden rounded-3xl bg-morio-deep text-bone sm:mx-5 sm:mb-5 md:rounded-[2.5rem]">
       {/* Talk to a Morio */}
       <div className="container-site border-b border-line pt-24 pb-16 md:pt-32 md:pb-24">
         <p className="eyebrow mb-6">Hola</p>

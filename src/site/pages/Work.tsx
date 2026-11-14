@@ -6,9 +6,10 @@ import { serviceBySlug } from "../../content/services";
 import { projectBySlug, projects, type Discipline } from "../../content/work";
 import { Icon } from "../icons";
 import { Reveal } from "../Reveal";
-import { BriefTeaser, ProjectGrid } from "../sections";
+import { BriefTeaser } from "../sections";
+import { FilmReel, ProjectWall } from "../showcase";
 
-const DISCIPLINES: Discipline[] = ["Branding", "Packaging", "Art direction", "Photography"];
+const DISCIPLINES: Discipline[] = ["Branding", "Publication design", "Campaign design", "Photography", "Packaging", "Art direction"];
 const ANY_WORK = "all kinds of work";
 const ANYONE = "everyone";
 
@@ -77,7 +78,7 @@ export function WorkPage() {
   const filtered = discipline !== ANY_WORK || industry !== ANYONE;
   return (
     <>
-      <section className="relative overflow-hidden bg-morio-deep pt-32 pb-14 md:pt-44 md:pb-20">
+      <section className="relative mx-3 mt-3 overflow-hidden rounded-3xl bg-morio-deep pt-32 pb-14 sm:mx-5 sm:mt-5 md:rounded-[2.5rem] md:pt-44 md:pb-20">
         <div className="container-site relative z-10 mb-12 md:mb-16">
           <p className="eyebrow mb-5">Our Work</p>
           <h1 className="display text-display-xl text-bone">
@@ -115,7 +116,16 @@ export function WorkPage() {
             )}
           </p>
         </div>
-        <ProjectGrid items={items} shapes={!filtered} />
+        <ProjectWall items={items} priority={2} />
+      </section>
+
+      <section className="container-site pb-20 md:pb-28">
+        <h2 className="display mb-10 text-display-md text-bone md:mb-14">Films and Documentaries</h2>
+        <FilmReel />
+      </section>
+
+      <section className="container-site pb-20 md:pb-28">
+        <BriefTeaser />
       </section>
     </>
   );
@@ -168,7 +178,7 @@ function PinnedGallery({ images }: { images: { src: string; alt: string }[] }) {
     >
       <div className="sticky top-0 flex h-svh items-center">
         <div className="container-site w-full">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-3xl sm:aspect-[16/10]">
+          <div className="relative h-[74svh] overflow-hidden rounded-3xl bg-ink-2 md:rounded-[2.5rem]">
             {images.map(
               (im, i) =>
                 // only the frames around the current one are mounted, so the gallery loads as you scroll
@@ -178,11 +188,11 @@ function PinnedGallery({ images }: { images: { src: string; alt: string }[] }) {
                     src={im.src}
                     alt={im.alt}
                     sizes="100vw"
-                    className={`absolute inset-0 size-full object-cover transition duration-[900ms] ease-[var(--ease-out-expo)] ${i === active ? "scale-100 opacity-100" : i < active ? "scale-95 opacity-0" : "scale-110 opacity-0"}`}
+                    className={`absolute inset-0 size-full object-contain p-3 transition duration-[900ms] ease-[var(--ease-out-expo)] md:p-8 ${i === active ? "scale-100 opacity-100" : i < active ? "scale-95 opacity-0" : "scale-110 opacity-0"}`}
                   />
                 ),
             )}
-            <div className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-gradient-to-t from-ink/70 to-transparent p-5 md:p-7">
+            <div className="absolute inset-x-4 bottom-4 flex items-center justify-between rounded-full border border-line bg-ink/85 px-5 py-2.5 backdrop-blur md:inset-x-auto md:right-6 md:bottom-6 md:gap-6">
               <p className="font-display text-lg tracking-wider text-bone">
                 {String(active + 1).padStart(2, "0")}{" "}
                 <span className="text-sage">
@@ -193,7 +203,7 @@ function PinnedGallery({ images }: { images: { src: string; alt: string }[] }) {
                 {images.map((im, i) => (
                   <span
                     key={im.src}
-                    className={`h-1 rounded-full transition-all duration-500 ${i === active ? "w-8 bg-bone" : "w-3 bg-bone/30"}`}
+                    className={`h-1 rounded-full transition-all duration-500 ${i === active ? "w-8 bg-bone" : "w-3 bg-bone/25"}`}
                   />
                 ))}
               </div>
@@ -219,7 +229,7 @@ export function ProjectPage() {
 
   return (
     <>
-      <section className="relative isolate flex min-h-[88svh] flex-col justify-end overflow-hidden">
+      <section className="theme-dark relative isolate mx-3 mt-3 flex min-h-[88svh] flex-col justify-end overflow-hidden rounded-3xl sm:mx-5 sm:mt-5 md:rounded-[2.5rem]">
         <Photo
           src={p.cover}
           alt={p.coverAlt}
@@ -289,7 +299,7 @@ export function ProjectPage() {
 
       <Link
         to={`/work/${next.slug}`}
-        className="group relative block overflow-hidden border-t border-line"
+        className="theme-dark group relative mx-3 block overflow-hidden rounded-3xl bg-ink sm:mx-5 md:rounded-[2.5rem]"
       >
         <div className="relative h-[46svh] min-h-72 overflow-hidden">
           <Photo
@@ -306,7 +316,7 @@ export function ProjectPage() {
                 {next.title}
               </p>
             </div>
-            <span className="grid size-16 shrink-0 place-items-center rounded-full bg-bone text-2xl text-morio transition group-hover:-rotate-45 md:size-20">
+            <span className="grid size-16 shrink-0 place-items-center rounded-full bg-bone text-2xl text-ink transition group-hover:-rotate-45 md:size-20">
               <Icon name="arrow" />
             </span>
           </div>

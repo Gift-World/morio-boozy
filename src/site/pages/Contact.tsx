@@ -155,7 +155,7 @@ export function ContactPage() {
 
   return (
     <>
-      <section className="relative isolate flex min-h-[72svh] flex-col justify-end overflow-hidden">
+      <section className="theme-dark relative isolate mx-3 mt-3 flex min-h-[72svh] flex-col justify-end overflow-hidden rounded-3xl sm:mx-5 sm:mt-5 md:rounded-[2.5rem]">
         <Banner />
         <div aria-hidden="true" className="absolute inset-0 -z-10 bg-morio/40 mix-blend-multiply" />
         <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/40 to-ink/30" />
@@ -249,8 +249,8 @@ export function ContactPage() {
         </aside>
       </section>
 
-      <section aria-label="Map" className="h-[26rem] border-t border-line md:h-[32rem]">
-        <iframe title="Morio Studios on Google Maps" src={site.mapEmbed} loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="size-full grayscale invert-[0.9] contrast-[0.9]" />
+      <section aria-label="Map" className="mx-3 mb-3 h-[26rem] overflow-hidden rounded-3xl sm:mx-5 sm:mb-5 md:h-[32rem] md:rounded-[2.5rem]">
+        <iframe title="Morio Studios on Google Maps" src={site.mapEmbed} loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="size-full grayscale" />
       </section>
     </>
   );

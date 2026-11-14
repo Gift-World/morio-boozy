@@ -106,7 +106,7 @@ function Founder({ m, flip }: { m: Morio; flip: boolean }) {
 export function AboutPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-ink pt-32 pb-16 md:pt-40 md:pb-24">
+      <section className="relative mx-3 mt-3 overflow-hidden rounded-3xl bg-morio-deep pt-32 pb-16 sm:mx-5 sm:mt-5 md:rounded-[2.5rem] md:pt-40 md:pb-24">
         <div className="container-site">
           <div className="mb-10 flex flex-col gap-6 md:mb-14 md:flex-row md:items-end md:justify-between">
             <h1 className="display text-display-2xl text-bone">

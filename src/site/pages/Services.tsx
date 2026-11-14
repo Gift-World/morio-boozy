@@ -156,7 +156,7 @@ function SkillBars() {
 export function ServicesPage() {
   return (
     <>
-      <section className="grain relative overflow-hidden bg-morio-deep pt-32 pb-16 md:pt-44 md:pb-24">
+      <section className="grain relative mx-3 mt-3 overflow-hidden rounded-3xl bg-morio-deep pt-32 pb-16 sm:mx-5 sm:mt-5 md:rounded-[2.5rem] md:pt-44 md:pb-24">
         <div className="container-site relative">
           <div className="mb-14 flex flex-col gap-6 md:mb-20 md:flex-row md:items-end md:justify-between">
             <div>
@@ -216,7 +216,7 @@ export function ServiceDetailPage() {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-morio-deep pt-28 md:pt-36">
+      <section className="relative mx-3 mt-3 overflow-hidden rounded-3xl bg-morio-deep pt-28 sm:mx-5 sm:mt-5 md:rounded-[2.5rem] md:pt-36">
         <div className="container-site grid gap-10 pb-14 lg:grid-cols-12 lg:items-end lg:pb-20">
           <div className="lg:col-span-6">
             <nav aria-label="Breadcrumb" className="eyebrow mb-8 flex gap-2">
@@ -266,7 +266,7 @@ export function ServiceDetailPage() {
             <p className="eyebrow mb-3">{String(((index + 1) % services.length) + 1).padStart(2, "0")}</p>
             <p className="display text-display-md text-bone transition group-hover:translate-x-2">{next.title}</p>
           </div>
-          <span className="grid size-16 shrink-0 place-items-center rounded-full border border-line text-2xl text-bone transition group-hover:-rotate-45 group-hover:bg-bone group-hover:text-morio md:size-20">
+          <span className="grid size-16 shrink-0 place-items-center rounded-full border border-line text-2xl text-bone transition group-hover:-rotate-45 group-hover:bg-bone group-hover:text-ink md:size-20">
             <Icon name="arrow" />
           </span>
         </div>
