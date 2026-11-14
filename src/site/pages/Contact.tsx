@@ -5,6 +5,7 @@ import { site } from "../../content/site";
 import { services } from "../../content/services";
 import { BriefBuilder, briefToText, serviceTitleFor, type Brief } from "../BriefBuilder";
 import { Icon } from "../icons";
+import { scrollToTarget } from "../motion";
 import { Reveal } from "../Reveal";
 
 const FORM_NAME = "project-brief";
@@ -39,7 +40,7 @@ function Banner() {
     return () => window.clearInterval(id);
   }, []);
   return (
-    <div aria-hidden="true" className="absolute inset-0 -z-20">
+    <div aria-hidden="true" className="absolute inset-0">
       {BANNER.map((src, n) => (
         <Photo
           key={src}
@@ -150,93 +151,74 @@ export function ContactPage() {
 
   const useBrief = (b: Brief) => {
     setPrefill((p) => ({ id: p.id + 1, message: briefToText(b), service: serviceTitleFor(b) }));
-    requestAnimationFrame(() => formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }));
+    requestAnimationFrame(() => formRef.current && scrollToTarget(formRef.current, true));
   };
 
   return (
     <>
-      <section className="theme-dark relative isolate mx-3 mt-3 flex min-h-[72svh] flex-col justify-end overflow-hidden rounded-3xl sm:mx-5 sm:mt-5 md:rounded-[2.5rem]">
-        <Banner />
-        <div aria-hidden="true" className="absolute inset-0 -z-10 bg-morio/40 mix-blend-multiply" />
-        <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/40 to-ink/30" />
-        <div className="container-site pt-36 pb-14 md:pb-20">
-          <nav aria-label="Breadcrumb" className="eyebrow mb-6 flex gap-2">
-            <Link to="/" className="hover:text-bone">
-              Home
-            </Link>
-            <span aria-hidden="true">/</span>
-            <span className="text-bone/80">Contact</span>
-          </nav>
-          <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-            <h1 className="display text-display-2xl text-bone">
-              Contact <span className="text-outline">Us</span>
-            </h1>
-            <div className="flex w-fit items-center gap-4 rounded-full border border-bone/20 bg-ink/40 px-5 py-3 text-bone/90 backdrop-blur" aria-live="polite">
-              <span className={`size-2.5 rounded-full ${clock?.open ? "bg-mist shadow-[0_0_12px_2px_rgb(212_224_218/0.6)]" : "bg-sage/50"}`} />
+      {/* Hero: the title beside the original banner images, then every way to reach the studio */}
+      <section className="container-site pt-28 md:pt-36">
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-stretch lg:gap-6">
+          <div className="flex flex-col justify-between gap-8 lg:col-span-5">
+            <div>
+              <nav aria-label="Breadcrumb" className="eyebrow mb-5 flex gap-2">
+                <Link to="/" className="hover:text-bone">
+                  Home
+                </Link>
+                <span aria-hidden="true">/</span>
+                <span className="text-bone/80">Contact</span>
+              </nav>
+              <h1 className="display text-display-2xl text-bone">
+                Contact <span className="text-outline">Us</span>
+              </h1>
+            </div>
+            <div className="flex w-fit items-center gap-3 rounded-full border border-line px-4 py-2.5 text-sm text-bone/90" aria-live="polite">
+              <span className={`size-2.5 rounded-full ${clock?.open ? "bg-emerald-500 shadow-[0_0_10px_2px_rgb(16_185_129/0.45)]" : "bg-sage/50"}`} />
               <span>
-                Nairobi <span className="font-display tracking-wider">{clock?.time ?? "--:--"}</span>
+                Nairobi <span className="font-medium tabular-nums">{clock?.time ?? "--:--"}</span>
                 <span className="text-sage"> · {clock ? (clock.open ? "Studio open" : "Studio closed") : "EAT"}</span>
               </span>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* AI brief builder */}
-      <section id="brief-builder" className="scroll-mt-24 border-b border-line bg-ink-2 py-20 md:py-28">
-        <div className="container-site">
-          <Reveal className="mb-12 max-w-3xl">
-            <p className="eyebrow mb-4">Brief Builder · AI</p>
-            <h2 className="display text-display-md text-bone">Got a rough idea? Shape it into a brief.</h2>
-            <p className="mt-5 text-lg text-bone/80">
-              Write it the way you’d say it. Brief Builder drafts a clear creative brief, suggests the right Morio crafts and sparks three
-              directions. Edit it, then send it to us in one tap.
-            </p>
-          </Reveal>
-          <BriefBuilder onUse={useBrief} />
-        </div>
-      </section>
-
-      <section className="container-site grid gap-16 py-20 md:grid-cols-12 md:py-28">
-        <div ref={formRef} className="scroll-mt-28 md:col-span-7">
-          <h2 className="display mb-10 text-display-md text-bone">Send us a brief</h2>
-          <BriefForm key={prefill.id} message={prefill.message} service={prefill.service} />
+          <div className="theme-dark relative isolate min-h-64 overflow-hidden rounded-3xl bg-ink-3 md:min-h-80 md:rounded-[2.5rem] lg:col-span-7">
+            <Banner />
+          </div>
         </div>
 
-        <aside className="space-y-10 md:col-span-4 md:col-start-9">
-          <div>
-            <h2 className="eyebrow mb-4">Quickest</h2>
-            <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener" className="btn-primary">
+        <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:mt-6 lg:grid-cols-4 lg:gap-6">
+          <div className="theme-dark flex flex-col justify-between gap-6 rounded-3xl bg-morio p-6">
+            <h2 className="eyebrow">Quickest</h2>
+            <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener" className="btn-primary self-start">
               <Icon name="whatsapp" /> Chat on WhatsApp
             </a>
           </div>
-          <div>
+          <div className="rounded-3xl bg-ink-2 p-6">
             <h2 className="eyebrow mb-4">For Inquiries</h2>
-            <ul className="space-y-2 text-lg">
+            <ul className="space-y-1.5">
               <li>
-                <a className="link-underline text-bone" href={`tel:${site.phone.tel}`}>
+                <a className="link-underline font-medium text-bone" href={`tel:${site.phone.tel}`}>
                   {site.phone.display}
                 </a>
               </li>
               {site.teamEmails.map((e) => (
                 <li key={e}>
-                  <a className="link-underline break-all text-bone/85" href={`mailto:${e}`}>
+                  <a className="link-underline text-[0.95rem] break-all text-bone/85" href={`mailto:${e}`}>
                     {e}
                   </a>
                 </li>
               ))}
             </ul>
           </div>
-          <div>
+          <div className="rounded-3xl bg-ink-2 p-6">
             <h2 className="eyebrow mb-4">Office Hours</h2>
             <p className="text-lg text-bone">
               Monday - Friday
               <br />6 am to 8 pm EAT
             </p>
           </div>
-          <div>
+          <div className="rounded-3xl bg-ink-2 p-6">
             <h2 className="eyebrow mb-4">Post address</h2>
-            <p className="text-lg text-bone">
+            <p className="text-bone">
               Morio Studios
               <br />
               22707-00505
@@ -246,11 +228,33 @@ export function ContactPage() {
               Nairobi, Kenya
             </p>
           </div>
-        </aside>
+        </div>
       </section>
 
-      <section aria-label="Map" className="mx-3 mb-3 h-[26rem] overflow-hidden rounded-3xl sm:mx-5 sm:mb-5 md:h-[32rem] md:rounded-[2.5rem]">
-        <iframe title="Morio Studios on Google Maps" src={site.mapEmbed} loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="size-full grayscale" />
+      {/* AI brief builder */}
+      <section id="brief-builder" className="mx-3 mt-16 scroll-mt-24 rounded-3xl bg-ink-2 py-14 sm:mx-5 md:mt-24 md:rounded-[2.5rem] md:py-20">
+        <div className="container-site">
+          <Reveal className="mb-10 max-w-3xl">
+            <p className="eyebrow mb-4">Brief Builder · AI</p>
+            <h2 className="display text-display-md text-bone">Got a rough idea? Shape it into a brief.</h2>
+            <p className="mt-4 text-bone/80 md:text-lg">
+              Write it the way you’d say it. Brief Builder drafts a clear creative brief, suggests the right Morio crafts and sparks three
+              directions. Edit it, then send it to us in one tap.
+            </p>
+          </Reveal>
+          <BriefBuilder onUse={useBrief} />
+        </div>
+      </section>
+
+      {/* The form beside the map */}
+      <section className="container-site grid gap-6 py-16 md:py-24 lg:grid-cols-12">
+        <div ref={formRef} className="scroll-mt-28 lg:col-span-7 lg:pr-8">
+          <h2 className="display mb-8 text-display-md text-bone">Send us a brief</h2>
+          <BriefForm key={prefill.id} message={prefill.message} service={prefill.service} />
+        </div>
+        <div aria-label="Map" role="region" className="h-80 overflow-hidden rounded-3xl bg-ink-3 md:rounded-[2.5rem] lg:col-span-5 lg:h-auto lg:min-h-[32rem]">
+          <iframe title="Morio Studios on Google Maps" src={site.mapEmbed} loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="size-full grayscale" />
+        </div>
       </section>
     </>
   );

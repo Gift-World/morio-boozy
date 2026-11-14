@@ -74,6 +74,12 @@ Each project in `src/content/work.ts` gets a story page at `/work/<slug>` with a
 
 ## Development Log
 
+### November 14, 2026 - Page layouts: Our Craft, The Morios, Hola, craft pages
+
+- **Changes**: Our Craft opens with an expanding strip of the six crafts; The Morios pairs the studio text with a compact "lights on" stage and shows the founders as cards; Hola leads with the title, the original banner images and four contact cards, with the form beside the map; each craft page has its text beside its image, a switcher between the six crafts, related work, and (on Films) the film player. The menu bar is solid over dark sections.
+- **Rationale**: These pages had only been re-coloured; their layouts now match the home and work pages.
+- **Impact**: No wording changed. Checked at nine widths (320 to 1920px) in light and at two in dark.
+
 ### November 14, 2026 - Motion polish
 
 - **Changes**: Smooth, weighted scrolling on desktop (Lenis, loaded on demand; phones keep native scrolling). Headings rise into place the first time they are seen. A round "View" / "Play" label follows the pointer over projects and films. The home hero video widens into its frame as you scroll. All of it lives in `src/site/motion.tsx` and is switched off for visitors who ask for reduced motion.
