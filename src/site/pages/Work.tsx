@@ -9,7 +9,7 @@ import { Reveal } from "../Reveal";
 import { BriefTeaser } from "../sections";
 import { FilmReel, ProjectWall } from "../showcase";
 
-const DISCIPLINES: Discipline[] = ["Branding", "Publication design", "Campaign design", "Photography", "Packaging", "Art direction"];
+const DISCIPLINES: Discipline[] = ["Branding", "Publication design", "Photography", "Packaging", "Art direction"];
 const ANY_WORK = "all kinds of work";
 const ANYONE = "everyone";
 
@@ -192,6 +192,13 @@ function PinnedGallery({ images }: { images: { src: string; alt: string }[] }) {
                   />
                 ),
             )}
+            <p
+              aria-hidden={active === images.length - 1}
+              className={`absolute top-4 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full border border-line bg-ink/85 px-4 py-2 text-sm font-medium whitespace-nowrap text-bone backdrop-blur transition-opacity duration-500 md:top-6 ${active === images.length - 1 ? "opacity-0" : "opacity-100"}`}
+            >
+              Scroll down to view more
+              <Icon name="arrow" className="rotate-90 animate-bounce text-xs" />
+            </p>
             <div className="absolute inset-x-4 bottom-4 flex items-center justify-between rounded-full border border-line bg-ink/85 px-5 py-2.5 backdrop-blur md:inset-x-auto md:right-6 md:bottom-6 md:gap-6">
               <p className="font-display text-lg tracking-wider text-bone">
                 {String(active + 1).padStart(2, "0")}{" "}

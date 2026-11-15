@@ -1,13 +1,13 @@
 // Projects shown on the home page, /work and each /work/<slug> story page,
 // plus the studio's films. Images are the studio's own.
 //
-// The first seven projects are real client work (names and clients are taken
+// The first six projects are real client work (names and clients are taken
 // from the artwork itself). TODO(owner): confirm each one's wording, add
 // `year` and the story fields (brief / idea / outcome); story pages render
 // those sections automatically when they're filled in. The last six are
 // studio pieces whose names are still descriptive placeholders.
 
-export type Discipline = "Branding" | "Publication design" | "Campaign design" | "Photography" | "Packaging" | "Art direction";
+export type Discipline = "Branding" | "Publication design" | "Photography" | "Packaging" | "Art direction";
 
 export interface Project {
   slug: string;
@@ -75,6 +75,69 @@ export const projects: Project[] = [
     span: "tall",
   },
   {
+    slug: "transforming-lives-magazine",
+    title: "Transforming Lives Magazine 2024/2025",
+    client: "Safaricom Foundation & M-PESA Foundation",
+    industry: "Non-profit",
+    discipline: "Publication design",
+    crafts: ["branding", "creative-direction"],
+    cover: "/assets/images/work/saf-1.jpg",
+    coverAlt: "Front and back covers of the Transforming Lives Magazine 2024/2025, a lake at sunset",
+    images: [
+      { src: "/assets/images/work/saf-1.jpg", alt: "Front and back covers of the Transforming Lives Magazine 2024/2025, a lake at sunset" },
+      { src: "/assets/images/work/saf-2.jpg", alt: "Cover beside the foreword and table of contents" },
+      { src: "/assets/images/work/saf-3.jpg", alt: "Open magazine at an angle: Kakamega Forest, Beyond the Fence" },
+      { src: "/assets/images/work/saf-4.jpg", alt: "Spread: Kakamega Forest, how a community came together to protect nature" },
+      { src: "/assets/images/work/saf-5.jpg", alt: "Spread: Hands That Build, a technical college and its students" },
+      { src: "/assets/images/work/saf-6.jpg", alt: "Spread: From Shadow to Light, the story of Teresia and a son’s love in Nakuru" },
+      { src: "/assets/images/work/saf-7.jpg", alt: "Spread: To Second Chances, with a portrait of a smiling young woman" },
+      { src: "/assets/images/work/saf-8.jpg", alt: "Spread: Nothing Goes to Waste, youth and recycling in Kayole" },
+      { src: "/assets/images/work/saf-9.jpg", alt: "Spread with forest photography and a pull quote" },
+    ],
+  },
+  {
+    slug: "kca-alumni-connect",
+    title: "KCA Alumni Connect Magazine 2025",
+    client: "KCA University",
+    industry: "Education",
+    discipline: "Publication design",
+    crafts: ["branding", "creative-direction"],
+    cover: "/assets/images/work/kca-1.jpg",
+    coverAlt: "Two copies of the KCA Alumni Connect magazine 2025: Rooted in Legacy, Rising with Purpose",
+    images: [
+      { src: "/assets/images/work/kca-1.jpg", alt: "Two copies of the KCA Alumni Connect magazine 2025: Rooted in Legacy, Rising with Purpose" },
+      { src: "/assets/images/work/kca-2.jpg", alt: "Cover beside the Welcome Home editor’s message and contents" },
+      { src: "/assets/images/work/kca-3.jpg", alt: "Spread: messages from the Vice-Chancellor and the Director of Alumni Relations" },
+      { src: "/assets/images/work/kca-4.jpg", alt: "Spread: message from the Chairperson and Meet the Board" },
+      { src: "/assets/images/work/kca-5.jpg", alt: "Spread: Behind the Scenes, the Alumni Secretariat, with a world map infographic" },
+      { src: "/assets/images/work/kca-6.jpg", alt: "Spread: Mentorship Matchmaking and Alumni in Action" },
+      { src: "/assets/images/work/kca-7.jpg", alt: "Spread: pictorials and alumni benefits" },
+      { src: "/assets/images/work/kca-8.jpg", alt: "Open magazine at an angle beside its cover" },
+      { src: "/assets/images/work/kca-9.jpg", alt: "Front and back covers of the KCA Alumni Connect magazine" },
+    ],
+  },
+  {
+    slug: "acb-season-6-magazine",
+    title: "ACB Season 6 Magazine",
+    client: "Africa's Campus Battle",
+    industry: "Entertainment",
+    discipline: "Publication design",
+    crafts: ["branding", "creative-direction"],
+    cover: "/assets/images/work/acb-1.jpg",
+    coverAlt: "Front and back covers of the ACB Season 6 magazine",
+    images: [
+      { src: "/assets/images/work/acb-1.jpg", alt: "Front and back covers of the ACB Season 6 magazine" },
+      { src: "/assets/images/work/acb-2.jpg", alt: "Open magazine at an angle showing the contents page" },
+      { src: "/assets/images/work/acb-3.jpg", alt: "Spread: mission, vision and core values, and Meet the Team" },
+      { src: "/assets/images/work/acb-4.jpg", alt: "Spread: A Platform for Change and The Jury and Host" },
+      { src: "/assets/images/work/acb-5.jpg", alt: "Spread: Spotlight on the Winner, Jackline Malavanu" },
+      { src: "/assets/images/work/acb-6.jpg", alt: "Spread: ACB Champion, the journey and the future" },
+      { src: "/assets/images/work/acb-7.jpg", alt: "Spread: highlight on the title sponsor and Health Matters" },
+      { src: "/assets/images/work/acb-8.jpg", alt: "Spread: partner features and the AASU-ACB partnership" },
+      { src: "/assets/images/work/acb-9.jpg", alt: "Two copies of the ACB Season 6 magazine on a dark background" },
+    ],
+  },
+  {
     slug: "kounkuey-at-20",
     title: "Kounkuey @20",
     client: "Kounkuey Design Initiative",
@@ -98,70 +161,6 @@ export const projects: Project[] = [
       { src: "/assets/images/work/k20-514.jpg", alt: "Guest waving from the dinner table" },
     ],
     span: "wide",
-  },
-  {
-    slug: "ukulima-true",
-    title: "Ukulima True",
-    client: "CABI",
-    industry: "Agriculture",
-    discipline: "Campaign design",
-    crafts: ["branding", "creative-direction", "photography"],
-    cover: "/assets/images/work/ukulima-1.jpg",
-    coverAlt: "Ukulima True poster: a farmer in protective gear spraying crops, Kagua Vifaa Vyako",
-    images: [
-      { src: "/assets/images/work/ukulima-1.jpg", alt: "Ukulima True poster: a farmer in protective gear spraying crops, Kagua Vifaa Vyako" },
-      { src: "/assets/images/work/ukulima-2.jpg", alt: "Ukulima True poster: a farmer checking her crops, Kaa Chonjo" },
-      { src: "/assets/images/work/ukulima-3.jpg", alt: "Ukulima True poster: Chagua Muda Bora" },
-      { src: "/assets/images/work/ukulima-4.jpg", alt: "Report cover: social and behavioural study on pesticides risk reduction" },
-      { src: "/assets/images/work/ukulima-5.jpg", alt: "Final project report cover for the pesticides risk reduction campaign" },
-      { src: "/assets/images/work/ukulima-6.jpg", alt: "Progress report cover with a smiling farmer" },
-    ],
-  },
-  {
-    slug: "year-of-millets",
-    title: "International Year of Millets",
-    client: "CIMMYT",
-    industry: "Agriculture",
-    discipline: "Campaign design",
-    crafts: ["branding", "photography"],
-    cover: "/assets/images/work/millets-4.jpg",
-    coverAlt: "Millets poster: a smiling farmer pouring grain through her hands",
-    images: [
-      { src: "/assets/images/work/millets-4.jpg", alt: "Millets poster: a smiling farmer pouring grain through her hands" },
-      { src: "/assets/images/work/millets-1.jpg", alt: "Millets poster: farmers in a sorghum field" },
-      { src: "/assets/images/work/millets-2.jpg", alt: "Millets poster: farmers threshing their harvest" },
-      { src: "/assets/images/work/millets-3.jpg", alt: "Millets poster: a farmer in her field" },
-    ],
-    span: "tall",
-  },
-  {
-    slug: "twanga-kolera",
-    title: "Twanga Kolera",
-    client: "Ministry of Health",
-    industry: "Public health",
-    discipline: "Campaign design",
-    crafts: ["branding", "creative-direction", "film"],
-    cover: "/assets/images/work/kolera-1.jpg",
-    coverAlt: "Twanga Kolera poster: Mama, a woman washing vegetables",
-    images: [
-      { src: "/assets/images/work/kolera-1.jpg", alt: "Twanga Kolera poster: Mama, a woman washing vegetables" },
-      { src: "/assets/images/work/kolera-2.jpg", alt: "Twanga Kolera poster: Mwalimu, a teacher with pupils at a water point" },
-      { src: "/assets/images/work/kolera-3.jpg", alt: "Twanga Kolera poster: a woman washing her hands" },
-    ],
-  },
-  {
-    slug: "afya-nyumbani",
-    title: "Afya Nyumbani",
-    industry: "Public health",
-    discipline: "Campaign design",
-    crafts: ["branding", "creative-direction"],
-    cover: "/assets/images/work/afya-2.jpg",
-    coverAlt: "Afya Nyumbani poster: a community health worker holding a child",
-    images: [
-      { src: "/assets/images/work/afya-2.jpg", alt: "Afya Nyumbani poster: a community health worker holding a child" },
-      { src: "/assets/images/work/afya-1.jpg", alt: "Afya Nyumbani poster: a health worker visiting a family" },
-      { src: "/assets/images/work/afya-3.jpg", alt: "Afya Nyumbani poster: a health worker with a kit" },
-    ],
   },
   {
     slug: "orange-and-green-cafe",
@@ -239,12 +238,11 @@ export const projectBySlug = Object.fromEntries(projects.map((p) => [p.slug, p])
 export const homeProjects = [
   "jubilee-annual-report",
   "tc3-africa",
+  "transforming-lives-magazine",
   "kounkuey-at-20",
-  "ukulima-true",
-  "year-of-millets",
-  "twanga-kolera",
+  "kca-alumni-connect",
+  "acb-season-6-magazine",
   "riders",
-  "afya-nyumbani",
   "maize-flour",
   "morio-can",
 ].map((s) => projectBySlug[s]);

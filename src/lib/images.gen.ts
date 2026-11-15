@@ -1139,120 +1139,354 @@ export const images: Record<string, ImageInfo> = {
       ]
     ]
   },
-  "/assets/images/work/afya-1.jpg": {
+  "/assets/images/work/acb-1.jpg": {
     "width": 2000,
-    "height": 2000,
+    "height": 1333,
     "alpha": false,
     "variants": [
       [
         160,
-        "/assets/images/opt/afya-1-160.9a8784d8.webp"
+        "/assets/images/opt/acb-1-160.07eb1cb3.webp"
       ],
       [
         320,
-        "/assets/images/opt/afya-1-320.9a8784d8.webp"
+        "/assets/images/opt/acb-1-320.07eb1cb3.webp"
       ],
       [
         480,
-        "/assets/images/opt/afya-1-480.9a8784d8.webp"
+        "/assets/images/opt/acb-1-480.07eb1cb3.webp"
       ],
       [
         640,
-        "/assets/images/opt/afya-1-640.9a8784d8.webp"
+        "/assets/images/opt/acb-1-640.07eb1cb3.webp"
       ],
       [
         960,
-        "/assets/images/opt/afya-1-960.9a8784d8.webp"
+        "/assets/images/opt/acb-1-960.07eb1cb3.webp"
       ],
       [
         1280,
-        "/assets/images/opt/afya-1-1280.9a8784d8.webp"
+        "/assets/images/opt/acb-1-1280.07eb1cb3.webp"
       ],
       [
         1920,
-        "/assets/images/opt/afya-1-1920.9a8784d8.webp"
+        "/assets/images/opt/acb-1-1920.07eb1cb3.webp"
       ],
       [
         2000,
-        "/assets/images/opt/afya-1-2000.9a8784d8.webp"
+        "/assets/images/opt/acb-1-2000.07eb1cb3.webp"
       ]
     ]
   },
-  "/assets/images/work/afya-2.jpg": {
+  "/assets/images/work/acb-2.jpg": {
     "width": 2000,
-    "height": 2000,
+    "height": 1333,
     "alpha": false,
     "variants": [
       [
         160,
-        "/assets/images/opt/afya-2-160.dca4a975.webp"
+        "/assets/images/opt/acb-2-160.d44caa64.webp"
       ],
       [
         320,
-        "/assets/images/opt/afya-2-320.dca4a975.webp"
+        "/assets/images/opt/acb-2-320.d44caa64.webp"
       ],
       [
         480,
-        "/assets/images/opt/afya-2-480.dca4a975.webp"
+        "/assets/images/opt/acb-2-480.d44caa64.webp"
       ],
       [
         640,
-        "/assets/images/opt/afya-2-640.dca4a975.webp"
+        "/assets/images/opt/acb-2-640.d44caa64.webp"
       ],
       [
         960,
-        "/assets/images/opt/afya-2-960.dca4a975.webp"
+        "/assets/images/opt/acb-2-960.d44caa64.webp"
       ],
       [
         1280,
-        "/assets/images/opt/afya-2-1280.dca4a975.webp"
+        "/assets/images/opt/acb-2-1280.d44caa64.webp"
       ],
       [
         1920,
-        "/assets/images/opt/afya-2-1920.dca4a975.webp"
+        "/assets/images/opt/acb-2-1920.d44caa64.webp"
       ],
       [
         2000,
-        "/assets/images/opt/afya-2-2000.dca4a975.webp"
+        "/assets/images/opt/acb-2-2000.d44caa64.webp"
       ]
     ]
   },
-  "/assets/images/work/afya-3.jpg": {
+  "/assets/images/work/acb-3.jpg": {
     "width": 2000,
-    "height": 2000,
+    "height": 1333,
     "alpha": false,
     "variants": [
       [
         160,
-        "/assets/images/opt/afya-3-160.0ad644d5.webp"
+        "/assets/images/opt/acb-3-160.a85de9c5.webp"
       ],
       [
         320,
-        "/assets/images/opt/afya-3-320.0ad644d5.webp"
+        "/assets/images/opt/acb-3-320.a85de9c5.webp"
       ],
       [
         480,
-        "/assets/images/opt/afya-3-480.0ad644d5.webp"
+        "/assets/images/opt/acb-3-480.a85de9c5.webp"
       ],
       [
         640,
-        "/assets/images/opt/afya-3-640.0ad644d5.webp"
+        "/assets/images/opt/acb-3-640.a85de9c5.webp"
       ],
       [
         960,
-        "/assets/images/opt/afya-3-960.0ad644d5.webp"
+        "/assets/images/opt/acb-3-960.a85de9c5.webp"
       ],
       [
         1280,
-        "/assets/images/opt/afya-3-1280.0ad644d5.webp"
+        "/assets/images/opt/acb-3-1280.a85de9c5.webp"
       ],
       [
         1920,
-        "/assets/images/opt/afya-3-1920.0ad644d5.webp"
+        "/assets/images/opt/acb-3-1920.a85de9c5.webp"
       ],
       [
         2000,
-        "/assets/images/opt/afya-3-2000.0ad644d5.webp"
+        "/assets/images/opt/acb-3-2000.a85de9c5.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/acb-4.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/acb-4-160.ccbbc9bf.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/acb-4-320.ccbbc9bf.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/acb-4-480.ccbbc9bf.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/acb-4-640.ccbbc9bf.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/acb-4-960.ccbbc9bf.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/acb-4-1280.ccbbc9bf.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/acb-4-1920.ccbbc9bf.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/acb-4-2000.ccbbc9bf.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/acb-5.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/acb-5-160.0d16a932.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/acb-5-320.0d16a932.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/acb-5-480.0d16a932.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/acb-5-640.0d16a932.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/acb-5-960.0d16a932.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/acb-5-1280.0d16a932.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/acb-5-1920.0d16a932.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/acb-5-2000.0d16a932.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/acb-6.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/acb-6-160.ab630934.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/acb-6-320.ab630934.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/acb-6-480.ab630934.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/acb-6-640.ab630934.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/acb-6-960.ab630934.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/acb-6-1280.ab630934.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/acb-6-1920.ab630934.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/acb-6-2000.ab630934.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/acb-7.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/acb-7-160.38db26a2.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/acb-7-320.38db26a2.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/acb-7-480.38db26a2.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/acb-7-640.38db26a2.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/acb-7-960.38db26a2.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/acb-7-1280.38db26a2.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/acb-7-1920.38db26a2.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/acb-7-2000.38db26a2.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/acb-8.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/acb-8-160.1df852c2.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/acb-8-320.1df852c2.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/acb-8-480.1df852c2.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/acb-8-640.1df852c2.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/acb-8-960.1df852c2.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/acb-8-1280.1df852c2.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/acb-8-1920.1df852c2.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/acb-8-2000.1df852c2.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/acb-9.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/acb-9-160.f3e436c9.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/acb-9-320.f3e436c9.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/acb-9-480.f3e436c9.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/acb-9-640.f3e436c9.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/acb-9-960.f3e436c9.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/acb-9-1280.f3e436c9.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/acb-9-1920.f3e436c9.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/acb-9-2000.f3e436c9.webp"
       ]
     ]
   },
@@ -2214,248 +2448,705 @@ export const images: Record<string, ImageInfo> = {
       ]
     ]
   },
-  "/assets/images/work/kolera-1.jpg": {
-    "width": 1414,
-    "height": 2000,
+  "/assets/images/work/kca-1.jpg": {
+    "width": 2000,
+    "height": 1333,
     "alpha": false,
     "variants": [
       [
         160,
-        "/assets/images/opt/kolera-1-160.68613748.webp"
+        "/assets/images/opt/kca-1-160.bbbb453a.webp"
       ],
       [
         320,
-        "/assets/images/opt/kolera-1-320.68613748.webp"
+        "/assets/images/opt/kca-1-320.bbbb453a.webp"
       ],
       [
         480,
-        "/assets/images/opt/kolera-1-480.68613748.webp"
+        "/assets/images/opt/kca-1-480.bbbb453a.webp"
       ],
       [
         640,
-        "/assets/images/opt/kolera-1-640.68613748.webp"
+        "/assets/images/opt/kca-1-640.bbbb453a.webp"
       ],
       [
         960,
-        "/assets/images/opt/kolera-1-960.68613748.webp"
+        "/assets/images/opt/kca-1-960.bbbb453a.webp"
       ],
       [
         1280,
-        "/assets/images/opt/kolera-1-1280.68613748.webp"
+        "/assets/images/opt/kca-1-1280.bbbb453a.webp"
       ],
       [
-        1414,
-        "/assets/images/opt/kolera-1-1414.68613748.webp"
+        1920,
+        "/assets/images/opt/kca-1-1920.bbbb453a.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/kca-1-2000.bbbb453a.webp"
       ]
     ]
   },
-  "/assets/images/work/kolera-2.jpg": {
-    "width": 1414,
-    "height": 2000,
+  "/assets/images/work/kca-2.jpg": {
+    "width": 2000,
+    "height": 1333,
     "alpha": false,
     "variants": [
       [
         160,
-        "/assets/images/opt/kolera-2-160.63ae315b.webp"
+        "/assets/images/opt/kca-2-160.5908f5dd.webp"
       ],
       [
         320,
-        "/assets/images/opt/kolera-2-320.63ae315b.webp"
+        "/assets/images/opt/kca-2-320.5908f5dd.webp"
       ],
       [
         480,
-        "/assets/images/opt/kolera-2-480.63ae315b.webp"
+        "/assets/images/opt/kca-2-480.5908f5dd.webp"
       ],
       [
         640,
-        "/assets/images/opt/kolera-2-640.63ae315b.webp"
+        "/assets/images/opt/kca-2-640.5908f5dd.webp"
       ],
       [
         960,
-        "/assets/images/opt/kolera-2-960.63ae315b.webp"
+        "/assets/images/opt/kca-2-960.5908f5dd.webp"
       ],
       [
         1280,
-        "/assets/images/opt/kolera-2-1280.63ae315b.webp"
+        "/assets/images/opt/kca-2-1280.5908f5dd.webp"
       ],
       [
-        1414,
-        "/assets/images/opt/kolera-2-1414.63ae315b.webp"
+        1920,
+        "/assets/images/opt/kca-2-1920.5908f5dd.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/kca-2-2000.5908f5dd.webp"
       ]
     ]
   },
-  "/assets/images/work/kolera-3.jpg": {
-    "width": 1414,
-    "height": 2000,
+  "/assets/images/work/kca-3.jpg": {
+    "width": 2000,
+    "height": 1333,
     "alpha": false,
     "variants": [
       [
         160,
-        "/assets/images/opt/kolera-3-160.120de5f0.webp"
+        "/assets/images/opt/kca-3-160.2bffa347.webp"
       ],
       [
         320,
-        "/assets/images/opt/kolera-3-320.120de5f0.webp"
+        "/assets/images/opt/kca-3-320.2bffa347.webp"
       ],
       [
         480,
-        "/assets/images/opt/kolera-3-480.120de5f0.webp"
+        "/assets/images/opt/kca-3-480.2bffa347.webp"
       ],
       [
         640,
-        "/assets/images/opt/kolera-3-640.120de5f0.webp"
+        "/assets/images/opt/kca-3-640.2bffa347.webp"
       ],
       [
         960,
-        "/assets/images/opt/kolera-3-960.120de5f0.webp"
+        "/assets/images/opt/kca-3-960.2bffa347.webp"
       ],
       [
         1280,
-        "/assets/images/opt/kolera-3-1280.120de5f0.webp"
+        "/assets/images/opt/kca-3-1280.2bffa347.webp"
       ],
       [
-        1414,
-        "/assets/images/opt/kolera-3-1414.120de5f0.webp"
+        1920,
+        "/assets/images/opt/kca-3-1920.2bffa347.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/kca-3-2000.2bffa347.webp"
       ]
     ]
   },
-  "/assets/images/work/millets-1.jpg": {
-    "width": 1414,
-    "height": 2000,
+  "/assets/images/work/kca-4.jpg": {
+    "width": 2000,
+    "height": 1333,
     "alpha": false,
     "variants": [
       [
         160,
-        "/assets/images/opt/millets-1-160.02140339.webp"
+        "/assets/images/opt/kca-4-160.acdeb022.webp"
       ],
       [
         320,
-        "/assets/images/opt/millets-1-320.02140339.webp"
+        "/assets/images/opt/kca-4-320.acdeb022.webp"
       ],
       [
         480,
-        "/assets/images/opt/millets-1-480.02140339.webp"
+        "/assets/images/opt/kca-4-480.acdeb022.webp"
       ],
       [
         640,
-        "/assets/images/opt/millets-1-640.02140339.webp"
+        "/assets/images/opt/kca-4-640.acdeb022.webp"
       ],
       [
         960,
-        "/assets/images/opt/millets-1-960.02140339.webp"
+        "/assets/images/opt/kca-4-960.acdeb022.webp"
       ],
       [
         1280,
-        "/assets/images/opt/millets-1-1280.02140339.webp"
+        "/assets/images/opt/kca-4-1280.acdeb022.webp"
       ],
       [
-        1414,
-        "/assets/images/opt/millets-1-1414.02140339.webp"
+        1920,
+        "/assets/images/opt/kca-4-1920.acdeb022.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/kca-4-2000.acdeb022.webp"
       ]
     ]
   },
-  "/assets/images/work/millets-2.jpg": {
-    "width": 1414,
-    "height": 2000,
+  "/assets/images/work/kca-5.jpg": {
+    "width": 2000,
+    "height": 1333,
     "alpha": false,
     "variants": [
       [
         160,
-        "/assets/images/opt/millets-2-160.885c4388.webp"
+        "/assets/images/opt/kca-5-160.96ff9ff1.webp"
       ],
       [
         320,
-        "/assets/images/opt/millets-2-320.885c4388.webp"
+        "/assets/images/opt/kca-5-320.96ff9ff1.webp"
       ],
       [
         480,
-        "/assets/images/opt/millets-2-480.885c4388.webp"
+        "/assets/images/opt/kca-5-480.96ff9ff1.webp"
       ],
       [
         640,
-        "/assets/images/opt/millets-2-640.885c4388.webp"
+        "/assets/images/opt/kca-5-640.96ff9ff1.webp"
       ],
       [
         960,
-        "/assets/images/opt/millets-2-960.885c4388.webp"
+        "/assets/images/opt/kca-5-960.96ff9ff1.webp"
       ],
       [
         1280,
-        "/assets/images/opt/millets-2-1280.885c4388.webp"
+        "/assets/images/opt/kca-5-1280.96ff9ff1.webp"
       ],
       [
-        1414,
-        "/assets/images/opt/millets-2-1414.885c4388.webp"
+        1920,
+        "/assets/images/opt/kca-5-1920.96ff9ff1.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/kca-5-2000.96ff9ff1.webp"
       ]
     ]
   },
-  "/assets/images/work/millets-3.jpg": {
-    "width": 1414,
-    "height": 2000,
+  "/assets/images/work/kca-6.jpg": {
+    "width": 2000,
+    "height": 1333,
     "alpha": false,
     "variants": [
       [
         160,
-        "/assets/images/opt/millets-3-160.126e3501.webp"
+        "/assets/images/opt/kca-6-160.d8dda35a.webp"
       ],
       [
         320,
-        "/assets/images/opt/millets-3-320.126e3501.webp"
+        "/assets/images/opt/kca-6-320.d8dda35a.webp"
       ],
       [
         480,
-        "/assets/images/opt/millets-3-480.126e3501.webp"
+        "/assets/images/opt/kca-6-480.d8dda35a.webp"
       ],
       [
         640,
-        "/assets/images/opt/millets-3-640.126e3501.webp"
+        "/assets/images/opt/kca-6-640.d8dda35a.webp"
       ],
       [
         960,
-        "/assets/images/opt/millets-3-960.126e3501.webp"
+        "/assets/images/opt/kca-6-960.d8dda35a.webp"
       ],
       [
         1280,
-        "/assets/images/opt/millets-3-1280.126e3501.webp"
+        "/assets/images/opt/kca-6-1280.d8dda35a.webp"
       ],
       [
-        1414,
-        "/assets/images/opt/millets-3-1414.126e3501.webp"
+        1920,
+        "/assets/images/opt/kca-6-1920.d8dda35a.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/kca-6-2000.d8dda35a.webp"
       ]
     ]
   },
-  "/assets/images/work/millets-4.jpg": {
-    "width": 1414,
-    "height": 2000,
+  "/assets/images/work/kca-7.jpg": {
+    "width": 2000,
+    "height": 1333,
     "alpha": false,
     "variants": [
       [
         160,
-        "/assets/images/opt/millets-4-160.8f2524fe.webp"
+        "/assets/images/opt/kca-7-160.52aa7986.webp"
       ],
       [
         320,
-        "/assets/images/opt/millets-4-320.8f2524fe.webp"
+        "/assets/images/opt/kca-7-320.52aa7986.webp"
       ],
       [
         480,
-        "/assets/images/opt/millets-4-480.8f2524fe.webp"
+        "/assets/images/opt/kca-7-480.52aa7986.webp"
       ],
       [
         640,
-        "/assets/images/opt/millets-4-640.8f2524fe.webp"
+        "/assets/images/opt/kca-7-640.52aa7986.webp"
       ],
       [
         960,
-        "/assets/images/opt/millets-4-960.8f2524fe.webp"
+        "/assets/images/opt/kca-7-960.52aa7986.webp"
       ],
       [
         1280,
-        "/assets/images/opt/millets-4-1280.8f2524fe.webp"
+        "/assets/images/opt/kca-7-1280.52aa7986.webp"
       ],
       [
-        1414,
-        "/assets/images/opt/millets-4-1414.8f2524fe.webp"
+        1920,
+        "/assets/images/opt/kca-7-1920.52aa7986.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/kca-7-2000.52aa7986.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/kca-8.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/kca-8-160.090b5b3f.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/kca-8-320.090b5b3f.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/kca-8-480.090b5b3f.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/kca-8-640.090b5b3f.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/kca-8-960.090b5b3f.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/kca-8-1280.090b5b3f.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/kca-8-1920.090b5b3f.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/kca-8-2000.090b5b3f.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/kca-9.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/kca-9-160.8d26135f.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/kca-9-320.8d26135f.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/kca-9-480.8d26135f.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/kca-9-640.8d26135f.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/kca-9-960.8d26135f.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/kca-9-1280.8d26135f.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/kca-9-1920.8d26135f.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/kca-9-2000.8d26135f.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/saf-1.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/saf-1-160.e4c24a73.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/saf-1-320.e4c24a73.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/saf-1-480.e4c24a73.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/saf-1-640.e4c24a73.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/saf-1-960.e4c24a73.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/saf-1-1280.e4c24a73.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/saf-1-1920.e4c24a73.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/saf-1-2000.e4c24a73.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/saf-2.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/saf-2-160.fa1c458c.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/saf-2-320.fa1c458c.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/saf-2-480.fa1c458c.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/saf-2-640.fa1c458c.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/saf-2-960.fa1c458c.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/saf-2-1280.fa1c458c.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/saf-2-1920.fa1c458c.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/saf-2-2000.fa1c458c.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/saf-3.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/saf-3-160.9a9c013f.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/saf-3-320.9a9c013f.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/saf-3-480.9a9c013f.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/saf-3-640.9a9c013f.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/saf-3-960.9a9c013f.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/saf-3-1280.9a9c013f.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/saf-3-1920.9a9c013f.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/saf-3-2000.9a9c013f.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/saf-4.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/saf-4-160.08f27e7f.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/saf-4-320.08f27e7f.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/saf-4-480.08f27e7f.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/saf-4-640.08f27e7f.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/saf-4-960.08f27e7f.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/saf-4-1280.08f27e7f.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/saf-4-1920.08f27e7f.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/saf-4-2000.08f27e7f.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/saf-5.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/saf-5-160.f819160a.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/saf-5-320.f819160a.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/saf-5-480.f819160a.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/saf-5-640.f819160a.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/saf-5-960.f819160a.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/saf-5-1280.f819160a.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/saf-5-1920.f819160a.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/saf-5-2000.f819160a.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/saf-6.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/saf-6-160.c24c8c8c.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/saf-6-320.c24c8c8c.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/saf-6-480.c24c8c8c.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/saf-6-640.c24c8c8c.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/saf-6-960.c24c8c8c.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/saf-6-1280.c24c8c8c.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/saf-6-1920.c24c8c8c.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/saf-6-2000.c24c8c8c.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/saf-7.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/saf-7-160.006de801.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/saf-7-320.006de801.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/saf-7-480.006de801.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/saf-7-640.006de801.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/saf-7-960.006de801.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/saf-7-1280.006de801.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/saf-7-1920.006de801.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/saf-7-2000.006de801.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/saf-8.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/saf-8-160.74b8854a.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/saf-8-320.74b8854a.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/saf-8-480.74b8854a.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/saf-8-640.74b8854a.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/saf-8-960.74b8854a.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/saf-8-1280.74b8854a.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/saf-8-1920.74b8854a.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/saf-8-2000.74b8854a.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/saf-9.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/saf-9-160.7c0e4921.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/saf-9-320.7c0e4921.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/saf-9-480.7c0e4921.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/saf-9-640.7c0e4921.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/saf-9-960.7c0e4921.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/saf-9-1280.7c0e4921.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/saf-9-1920.7c0e4921.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/saf-9-2000.7c0e4921.webp"
       ]
     ]
   },
@@ -2881,228 +3572,6 @@ export const images: Record<string, ImageInfo> = {
       [
         2000,
         "/assets/images/opt/tc3-9-2000.59afacbc.webp"
-      ]
-    ]
-  },
-  "/assets/images/work/ukulima-1.jpg": {
-    "width": 2000,
-    "height": 2000,
-    "alpha": false,
-    "variants": [
-      [
-        160,
-        "/assets/images/opt/ukulima-1-160.9e41b533.webp"
-      ],
-      [
-        320,
-        "/assets/images/opt/ukulima-1-320.9e41b533.webp"
-      ],
-      [
-        480,
-        "/assets/images/opt/ukulima-1-480.9e41b533.webp"
-      ],
-      [
-        640,
-        "/assets/images/opt/ukulima-1-640.9e41b533.webp"
-      ],
-      [
-        960,
-        "/assets/images/opt/ukulima-1-960.9e41b533.webp"
-      ],
-      [
-        1280,
-        "/assets/images/opt/ukulima-1-1280.9e41b533.webp"
-      ],
-      [
-        1920,
-        "/assets/images/opt/ukulima-1-1920.9e41b533.webp"
-      ],
-      [
-        2000,
-        "/assets/images/opt/ukulima-1-2000.9e41b533.webp"
-      ]
-    ]
-  },
-  "/assets/images/work/ukulima-2.jpg": {
-    "width": 2000,
-    "height": 2000,
-    "alpha": false,
-    "variants": [
-      [
-        160,
-        "/assets/images/opt/ukulima-2-160.e434f7f5.webp"
-      ],
-      [
-        320,
-        "/assets/images/opt/ukulima-2-320.e434f7f5.webp"
-      ],
-      [
-        480,
-        "/assets/images/opt/ukulima-2-480.e434f7f5.webp"
-      ],
-      [
-        640,
-        "/assets/images/opt/ukulima-2-640.e434f7f5.webp"
-      ],
-      [
-        960,
-        "/assets/images/opt/ukulima-2-960.e434f7f5.webp"
-      ],
-      [
-        1280,
-        "/assets/images/opt/ukulima-2-1280.e434f7f5.webp"
-      ],
-      [
-        1920,
-        "/assets/images/opt/ukulima-2-1920.e434f7f5.webp"
-      ],
-      [
-        2000,
-        "/assets/images/opt/ukulima-2-2000.e434f7f5.webp"
-      ]
-    ]
-  },
-  "/assets/images/work/ukulima-3.jpg": {
-    "width": 2000,
-    "height": 2000,
-    "alpha": false,
-    "variants": [
-      [
-        160,
-        "/assets/images/opt/ukulima-3-160.d91ed507.webp"
-      ],
-      [
-        320,
-        "/assets/images/opt/ukulima-3-320.d91ed507.webp"
-      ],
-      [
-        480,
-        "/assets/images/opt/ukulima-3-480.d91ed507.webp"
-      ],
-      [
-        640,
-        "/assets/images/opt/ukulima-3-640.d91ed507.webp"
-      ],
-      [
-        960,
-        "/assets/images/opt/ukulima-3-960.d91ed507.webp"
-      ],
-      [
-        1280,
-        "/assets/images/opt/ukulima-3-1280.d91ed507.webp"
-      ],
-      [
-        1920,
-        "/assets/images/opt/ukulima-3-1920.d91ed507.webp"
-      ],
-      [
-        2000,
-        "/assets/images/opt/ukulima-3-2000.d91ed507.webp"
-      ]
-    ]
-  },
-  "/assets/images/work/ukulima-4.jpg": {
-    "width": 1414,
-    "height": 2000,
-    "alpha": false,
-    "variants": [
-      [
-        160,
-        "/assets/images/opt/ukulima-4-160.27a0c2d5.webp"
-      ],
-      [
-        320,
-        "/assets/images/opt/ukulima-4-320.27a0c2d5.webp"
-      ],
-      [
-        480,
-        "/assets/images/opt/ukulima-4-480.27a0c2d5.webp"
-      ],
-      [
-        640,
-        "/assets/images/opt/ukulima-4-640.27a0c2d5.webp"
-      ],
-      [
-        960,
-        "/assets/images/opt/ukulima-4-960.27a0c2d5.webp"
-      ],
-      [
-        1280,
-        "/assets/images/opt/ukulima-4-1280.27a0c2d5.webp"
-      ],
-      [
-        1414,
-        "/assets/images/opt/ukulima-4-1414.27a0c2d5.webp"
-      ]
-    ]
-  },
-  "/assets/images/work/ukulima-5.jpg": {
-    "width": 1414,
-    "height": 2000,
-    "alpha": false,
-    "variants": [
-      [
-        160,
-        "/assets/images/opt/ukulima-5-160.e6daefe3.webp"
-      ],
-      [
-        320,
-        "/assets/images/opt/ukulima-5-320.e6daefe3.webp"
-      ],
-      [
-        480,
-        "/assets/images/opt/ukulima-5-480.e6daefe3.webp"
-      ],
-      [
-        640,
-        "/assets/images/opt/ukulima-5-640.e6daefe3.webp"
-      ],
-      [
-        960,
-        "/assets/images/opt/ukulima-5-960.e6daefe3.webp"
-      ],
-      [
-        1280,
-        "/assets/images/opt/ukulima-5-1280.e6daefe3.webp"
-      ],
-      [
-        1414,
-        "/assets/images/opt/ukulima-5-1414.e6daefe3.webp"
-      ]
-    ]
-  },
-  "/assets/images/work/ukulima-6.jpg": {
-    "width": 1414,
-    "height": 2000,
-    "alpha": false,
-    "variants": [
-      [
-        160,
-        "/assets/images/opt/ukulima-6-160.12e5c653.webp"
-      ],
-      [
-        320,
-        "/assets/images/opt/ukulima-6-320.12e5c653.webp"
-      ],
-      [
-        480,
-        "/assets/images/opt/ukulima-6-480.12e5c653.webp"
-      ],
-      [
-        640,
-        "/assets/images/opt/ukulima-6-640.12e5c653.webp"
-      ],
-      [
-        960,
-        "/assets/images/opt/ukulima-6-960.12e5c653.webp"
-      ],
-      [
-        1280,
-        "/assets/images/opt/ukulima-6-1280.12e5c653.webp"
-      ],
-      [
-        1414,
-        "/assets/images/opt/ukulima-6-1414.12e5c653.webp"
       ]
     ]
   }
