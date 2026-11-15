@@ -65,7 +65,7 @@ export const pages: Record<string, PageSeo> = {
       {
         title: `${projectLabel(p)} – ${p.discipline} | Morio Studios`,
         description: `${projectLabel(p)}: ${p.discipline.toLowerCase()} by Morio Studios, a creative agency in Nairobi, Kenya.`,
-        noindex: !p.industry,
+        noindex: !(p.industry || p.confirmed),
         extra: jsonLd(crumbs(["Work", "/work"], [p.title, `/work/${p.slug}`])),
       },
     ]),

@@ -25,6 +25,8 @@ export interface Project {
   brief?: string;
   idea?: string;
   outcome?: string;
+  /** Name confirmed by the studio (studio pieces without a client are otherwise kept out of search) */
+  confirmed?: boolean;
   /** Page images for the 3D flip-through (front cover first, back cover last, even count) */
   book?: string[];
   /** grid shape on /work */
@@ -170,8 +172,8 @@ export const projects: Project[] = [
     span: "wide",
   },
   {
-    // TODO(owner): placeholder name and no location given; confirm both.
     slug: "low-tide",
+    confirmed: true,
     title: "Low Tide",
     discipline: "Photography",
     crafts: ["photography", "film"],
