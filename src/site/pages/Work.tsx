@@ -100,8 +100,7 @@ export function WorkPage() {
             )}
             .
           </p>
-          <p aria-live="polite" className="shrink-0 font-medium text-sage">
-            {String(items.length).padStart(2, "0")} {items.length === 1 ? "project" : "projects"}
+          <p className="shrink-0 font-medium text-sage">
             {filtered && (
               <button
                 type="button"
@@ -109,7 +108,7 @@ export function WorkPage() {
                   setDiscipline(ANY_WORK);
                   setIndustry(ANYONE);
                 }}
-                className="ml-4 text-bone underline underline-offset-4 hover:text-mist"
+                className="text-bone underline underline-offset-4 hover:text-mist"
               >
                 Show all
               </button>
