@@ -25,13 +25,19 @@ export interface Project {
   brief?: string;
   idea?: string;
   outcome?: string;
+  /** Page images for the 3D flip-through (front cover first, back cover last, even count) */
+  book?: string[];
   /** grid shape on /work */
   span?: "wide" | "tall";
 }
 
+/** Twelve exported pages per publication, in public/assets/books/<name>/01.webp … 12.webp */
+const bookPages = (name: string) => Array.from({ length: 12 }, (_, i) => `/assets/books/${name}/${String(i + 1).padStart(2, "0")}.webp`);
+
 export const projects: Project[] = [
   {
     slug: "jubilee-annual-report",
+    book: bookPages("jubilee"),
     title: "2025 Integrated Annual Report",
     client: "Jubilee Holdings",
     industry: "Insurance & finance",
@@ -118,6 +124,7 @@ export const projects: Project[] = [
   },
   {
     slug: "acb-season-6-magazine",
+    book: bookPages("acb"),
     title: "ACB Season 6 Magazine",
     client: "Africa's Campus Battle",
     industry: "Entertainment",
@@ -267,10 +274,6 @@ const drive = (id: string) => `https://drive.google.com/file/d/${id}/preview`;
 // TODO(owner): titles come from the file names; add client/role credits if wanted.
 export const films: Film[] = [
   { slug: "xceed", title: "Xceed Set Up: Behind the Scenes", poster: "/assets/images/work/film-xceed.jpg", embed: "https://player.vimeo.com/video/1131237701?autoplay=1&title=0&byline=0" },
-  { slug: "aisa-tanzania", title: "AISA Tanzania: CIMMYT Project", poster: "/assets/images/work/film-aisa.jpg", embed: drive("1Qg93YUdgGdToUILfSY8Jykd-FxvstDMq") },
-  { slug: "twanga-kolera-tvc", title: "Twanga Kolera TVC", poster: "/assets/images/work/film-kolera.jpg", embed: drive("1eNzD_joGPlusMjErngc4Ewm6exKR3L-D") },
   { slug: "water", title: "Water", poster: "/assets/images/work/film-water.jpg", embed: drive("1gAgMBsgC1zLZP-zgP1nZjhRR_yaoBLFS") },
-  { slug: "ukulima-true-film", title: "Ukulima True", poster: "/assets/images/work/film-ukulima.jpg", embed: drive("1_ktKu_djHEG32EQDIkVXNOQXivciq3sZ") },
-  { slug: "fgm-champions", title: "Ending Female Genital Mutilation: FGM Champions", poster: "/assets/images/work/film-fgm.jpg", embed: drive("1jAaeN0M37LwdPq2i89AkcqmFQgbLifkd") },
   { slug: "yellow-wings", title: "Yellow Wings Charter", poster: "/assets/images/work/film-wings.jpg", embed: drive("1ElpU_XuXyZxmignQB9kkPHRpdPL7svcf") },
 ];

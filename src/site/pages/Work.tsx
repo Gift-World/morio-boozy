@@ -3,11 +3,12 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import { Photo } from "../../components/Photo";
 import { labels } from "../../content/site";
 import { serviceBySlug } from "../../content/services";
-import { projectBySlug, projects, type Discipline } from "../../content/work";
+import { projectBySlug, projectLabel, projects, type Discipline } from "../../content/work";
 import { Icon } from "../icons";
 import { Reveal } from "../Reveal";
 import { BriefTeaser } from "../sections";
 import { FilmReel, ProjectWall } from "../showcase";
+import { Flipbook } from "../three/Flipbook";
 
 const DISCIPLINES: Discipline[] = ["Branding", "Publication design", "Photography", "Packaging", "Art direction"];
 const ANY_WORK = "all kinds of work";
@@ -35,7 +36,8 @@ function Blank({ label, value, options, onChange }: { label: string; value: stri
 
 /** Two rows of the studio's images drifting in opposite directions. */
 function FilmStrip() {
-  const all = [...new Set(projects.flatMap((p) => p.images.map((im) => im.src)))].slice(0, 10);
+  // a mix of everything: the cover and one inside image from each project
+  const all = [...new Set([...projects.map((p) => p.cover), ...projects.map((p) => p.images[Math.min(2, p.images.length - 1)].src)])];
   const rows = [
     all.filter((_, i) => i % 2 === 0),
     all.filter((_, i) => i % 2 === 1),
@@ -199,7 +201,7 @@ function PinnedGallery({ images }: { images: { src: string; alt: string }[] }) {
               <Icon name="arrow" className="rotate-90 animate-bounce text-xs" />
             </p>
             <div className="absolute inset-x-4 bottom-4 flex items-center justify-between rounded-full border border-line bg-ink/85 px-5 py-2.5 backdrop-blur md:inset-x-auto md:right-6 md:bottom-6 md:gap-6">
-              <p className="font-display text-lg tracking-wider text-bone">
+              <p className="text-base font-medium text-bone tabular-nums">
                 {String(active + 1).padStart(2, "0")}{" "}
                 <span className="text-sage">
                   / {String(images.length).padStart(2, "0")}
@@ -296,6 +298,12 @@ export function ProjectPage() {
               <p className="text-lg text-bone/85">{s.text}</p>
             </Reveal>
           ))}
+        </section>
+      )}
+
+      {p.book && (
+        <section className={`container-site ${story.length ? "pb-16 md:pb-24" : "pt-16 md:pt-24"}`}>
+          <Flipbook pages={p.book} title={projectLabel(p)} />
         </section>
       )}
 

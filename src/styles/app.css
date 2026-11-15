@@ -6,7 +6,7 @@
  * supporting tones. Colour is kept calm so the work carries the colour.
  */
 @theme {
-  --font-display: "Jost", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
   --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
 
   /*
@@ -133,13 +133,15 @@
   .eyebrow {
     @apply text-[0.78rem] font-medium tracking-[0.16em] text-sage uppercase;
   }
+  /* Headings: a soft, characterful serif that echoes the hand-drawn logo. */
   .display {
-    @apply font-display font-medium tracking-[-0.035em];
+    @apply font-display font-normal tracking-[-0.03em];
     text-wrap: balance;
   }
   /* the quiet half of two-part headings ("Small Agency, / Big Ideas.") */
   .text-outline {
-    color: var(--color-sage);
+    color: var(--color-mist);
+    font-style: italic;
   }
   .btn-primary,
   .btn-ghost {

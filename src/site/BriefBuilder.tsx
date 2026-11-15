@@ -233,7 +233,7 @@ function BriefCard({ brief, preview, onUse, onReset }: { brief: Brief; preview: 
         <ol className="grid gap-3 md:grid-cols-3">
           {brief.directions.slice(0, 3).map((d, i) => (
             <li key={d.name} className="rounded-2xl bg-ink/60 p-5">
-              <p className="font-display text-sm text-sage">0{i + 1}</p>
+              <p className="text-sm font-medium text-sage">0{i + 1}</p>
               <p className="display mt-2 text-2xl text-bone">{d.name}</p>
               <p className="mt-2 text-sm text-bone/80">{d.idea}</p>
             </li>

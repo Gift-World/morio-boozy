@@ -112,10 +112,12 @@ export const craftCopy = {
   eyebrow: "Our Craft",
   title: ["Small Agency.", "Big Ideas."],
   intro:
-    "Great work rarely happens in isolation. Morio Studio exists at the intersection of strategy, creativity, and craft — embedding ourselves in your world as a thinking partner, a creative collaborator, and a full execution team. We work with agencies, brands, and independent clients to bring ideas from concept to completion, with precision, care, and no unnecessary complexity. We believe the best outcomes come from co-creation, and we bring the strategic rigour and creative agility to make it count. Because small doesn't mean limited. It means focused.",
+    "Great work rarely happens in isolation. Morio Studios exists at the intersection of strategy, creativity, and craft — embedding ourselves in your world as a thinking partner, a creative collaborator, and a full execution team. We work with agencies, brands, and independent clients to bring ideas from concept to completion, with precision, care, and no unnecessary complexity. We believe the best outcomes come from co-creation, and we bring the strategic rigour and creative agility to make it count. Because small doesn't mean limited. It means focused.",
   obsession:
     "Five disciplines. One shared obsession — turning a brief into something that moves people, changes behaviour and shifts mind sets.",
-  experience: "Our team have 20+ years delivering projects on a global stage. Because of that experience, the world's most exciting and progressive.",
+  // TODO(owner): the original second sentence was unfinished ("Because of that
+  // experience, the world's most exciting and progressive."); add its ending to restore it.
+  experience: "Our team have 20+ years delivering projects on a global stage.",
   /** The original page's three stages (shown as words, as on the old skill bars) */
   process: ["Idea", "Design", "Development"],
 } as const;

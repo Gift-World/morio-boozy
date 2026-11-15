@@ -108,32 +108,17 @@ function CraftStory() {
   );
 }
 
-/** The original page's Idea / Design / Development bars, animated in when seen. */
-function SkillBars() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [on, setOn] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const io = new IntersectionObserver(([e]) => e.isIntersecting && (setOn(true), io.disconnect()), { threshold: 0.4 });
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
-  const values = [60, 80, 60];
+/** The original page's three stages, Idea / Design / Development, as plain steps. */
+function Process() {
   return (
-    <div ref={ref} className="space-y-8">
+    <ol className="grid gap-3 sm:grid-cols-3">
       {craftCopy.process.map((step, i) => (
-        <div key={step}>
-          <div className="mb-3 flex items-baseline justify-between">
-            <span className="display text-3xl text-bone">{step}</span>
-            <span className="font-display text-xl text-sage">{values[i]}%</span>
-          </div>
-          <div className="h-1.5 overflow-hidden rounded-full bg-bone/10">
-            <div className="h-full rounded-full bg-mist transition-[width] duration-[1600ms] ease-[var(--ease-out-expo)]" style={{ width: on ? `${values[i]}%` : "0%", transitionDelay: `${i * 150}ms` }} />
-          </div>
-        </div>
+        <Reveal as="li" key={step} delay={i * 120} className="flex items-center gap-4 rounded-2xl bg-ink p-5 md:flex-col md:items-start md:gap-10 md:p-6">
+          <span className="grid size-10 shrink-0 place-items-center rounded-full border border-line text-sm font-medium text-sage tabular-nums">{String(i + 1).padStart(2, "0")}</span>
+          <span className="display text-2xl text-bone md:text-3xl">{step}</span>
+        </Reveal>
       ))}
-    </div>
+    </ol>
   );
 }
 
@@ -169,12 +154,12 @@ export function ServicesPage() {
       </section>
 
       <section className="mx-3 rounded-3xl bg-ink-2 py-16 sm:mx-5 md:rounded-[2.5rem] md:py-24">
-        <div className="container-site grid gap-12 md:grid-cols-12 md:items-center">
-          <Reveal className="md:col-span-7">
-            <h2 className="display text-display-md text-bone">{craftCopy.experience}</h2>
+        <div className="container-site">
+          <Reveal>
+            <h2 className="display max-w-4xl text-display-lg text-bone">{craftCopy.experience}</h2>
           </Reveal>
-          <div className="md:col-span-4 md:col-start-9">
-            <SkillBars />
+          <div className="mt-10 md:mt-14">
+            <Process />
           </div>
         </div>
       </section>

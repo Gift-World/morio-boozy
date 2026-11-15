@@ -74,6 +74,12 @@ Each project in `src/content/work.ts` gets a story page at `/work/<slug>` with a
 
 ## Development Log
 
+### November 15, 2026 - 3D flip-through magazine, serif headings, tidy-ups
+
+- **Changes**: A 3D magazine (`src/site/three/BookScene.ts`, `Flipbook.tsx`) on the Jubilee annual report and ACB Season 6 project pages, built from pages exported from the real PDFs (`public/assets/books/`); click, drag, buttons or arrow keys turn the pages, with a flat viewer for reduced-motion visitors. Headings now use Fraunces (serif, with an italic second line). The Idea / Design / Development percentage bars became three plain steps. Spelling and grammar fixes in the intro copy. The four CBCC campaign films were removed. The Our Work slider mixes images from every project.
+- **Rationale**: Publications are the studio's strongest client work, so they get the site's most memorable interaction.
+- **Impact**: The 3D book and its page images load only when it nears the screen (Jubilee project page about 1.1 MB in total). To add a book to another project, export 12 page images and set `book: bookPages("<name>")` in `src/content/work.ts`.
+
 ### November 14, 2026 - Page layouts: Our Craft, The Morios, Hola, craft pages
 
 - **Changes**: Our Craft opens with an expanding strip of the six crafts; The Morios pairs the studio text with a compact "lights on" stage and shows the founders as cards; Hola leads with the title, the original banner images and four contact cards, with the form beside the map; each craft page has its text beside its image, a switcher between the six crafts, related work, and (on Films) the film player. The menu bar is solid over dark sections.

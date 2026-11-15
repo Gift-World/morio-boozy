@@ -45,9 +45,9 @@ export const morioisms = [
 /** Home page copy (from the original hero and craft section). */
 export const homeCopy = {
   intro:
-    "Built on passion and love for creativity and storytelling. Morio Studio’s is the brain child of 4 Kenyan friends who had a common goal, to craft an agency that would be nimble, versatile and smart.",
+    "Built on passion and love for creativity and storytelling. Morio Studios is the brainchild of 4 Kenyan friends who had a common goal, to craft an agency that would be nimble, versatile and smart.",
   introMore:
-    "With each morio possessing a unique skill set that complimented the whole. We believe in smart, innovative solutions to problem solving and meeting the clients goals. We put human thinking and technological efficiency together to create workflows that solve any brief from concept to execution.",
+    "With each morio possessing a unique skill set that complemented the whole. We believe in smart, innovative solutions to problem solving and meeting the client’s goals. We put human thinking and technological efficiency together to create workflows that solve any brief from concept to execution.",
   tagline: ["If the big idea is good,", "Execution is academic."],
   /** The craft list exactly as the original home page showed it */
   crafts: [
