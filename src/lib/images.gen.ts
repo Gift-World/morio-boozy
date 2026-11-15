@@ -1490,6 +1490,470 @@ export const images: Record<string, ImageInfo> = {
       ]
     ]
   },
+  "/assets/images/work/coast-1.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/coast-1-160.54bb7b37.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/coast-1-320.54bb7b37.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/coast-1-480.54bb7b37.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/coast-1-640.54bb7b37.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/coast-1-960.54bb7b37.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/coast-1-1280.54bb7b37.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/coast-1-1920.54bb7b37.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/coast-1-2000.54bb7b37.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/coast-10.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/coast-10-160.c46b89a5.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/coast-10-320.c46b89a5.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/coast-10-480.c46b89a5.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/coast-10-640.c46b89a5.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/coast-10-960.c46b89a5.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/coast-10-1280.c46b89a5.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/coast-10-1920.c46b89a5.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/coast-10-2000.c46b89a5.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/coast-11.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/coast-11-160.c0991fdf.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/coast-11-320.c0991fdf.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/coast-11-480.c0991fdf.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/coast-11-640.c0991fdf.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/coast-11-960.c0991fdf.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/coast-11-1280.c0991fdf.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/coast-11-1920.c0991fdf.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/coast-11-2000.c0991fdf.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/coast-12.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/coast-12-160.2e177708.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/coast-12-320.2e177708.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/coast-12-480.2e177708.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/coast-12-640.2e177708.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/coast-12-960.2e177708.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/coast-12-1280.2e177708.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/coast-12-1920.2e177708.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/coast-12-2000.2e177708.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/coast-2.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/coast-2-160.a3cb1ab7.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/coast-2-320.a3cb1ab7.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/coast-2-480.a3cb1ab7.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/coast-2-640.a3cb1ab7.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/coast-2-960.a3cb1ab7.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/coast-2-1280.a3cb1ab7.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/coast-2-1920.a3cb1ab7.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/coast-2-2000.a3cb1ab7.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/coast-3.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/coast-3-160.cb627062.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/coast-3-320.cb627062.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/coast-3-480.cb627062.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/coast-3-640.cb627062.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/coast-3-960.cb627062.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/coast-3-1280.cb627062.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/coast-3-1920.cb627062.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/coast-3-2000.cb627062.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/coast-4.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/coast-4-160.193dc8ec.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/coast-4-320.193dc8ec.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/coast-4-480.193dc8ec.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/coast-4-640.193dc8ec.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/coast-4-960.193dc8ec.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/coast-4-1280.193dc8ec.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/coast-4-1920.193dc8ec.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/coast-4-2000.193dc8ec.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/coast-5.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/coast-5-160.0d63c1f7.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/coast-5-320.0d63c1f7.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/coast-5-480.0d63c1f7.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/coast-5-640.0d63c1f7.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/coast-5-960.0d63c1f7.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/coast-5-1280.0d63c1f7.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/coast-5-1920.0d63c1f7.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/coast-5-2000.0d63c1f7.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/coast-6.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/coast-6-160.6ae244b1.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/coast-6-320.6ae244b1.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/coast-6-480.6ae244b1.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/coast-6-640.6ae244b1.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/coast-6-960.6ae244b1.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/coast-6-1280.6ae244b1.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/coast-6-1920.6ae244b1.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/coast-6-2000.6ae244b1.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/coast-7.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/coast-7-160.2ccbf7ed.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/coast-7-320.2ccbf7ed.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/coast-7-480.2ccbf7ed.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/coast-7-640.2ccbf7ed.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/coast-7-960.2ccbf7ed.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/coast-7-1280.2ccbf7ed.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/coast-7-1920.2ccbf7ed.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/coast-7-2000.2ccbf7ed.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/coast-8.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/coast-8-160.7e9267cb.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/coast-8-320.7e9267cb.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/coast-8-480.7e9267cb.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/coast-8-640.7e9267cb.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/coast-8-960.7e9267cb.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/coast-8-1280.7e9267cb.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/coast-8-1920.7e9267cb.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/coast-8-2000.7e9267cb.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/coast-9.jpg": {
+    "width": 1333,
+    "height": 2000,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/coast-9-160.5d604b14.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/coast-9-320.5d604b14.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/coast-9-480.5d604b14.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/coast-9-640.5d604b14.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/coast-9-960.5d604b14.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/coast-9-1280.5d604b14.webp"
+      ],
+      [
+        1333,
+        "/assets/images/opt/coast-9-1333.5d604b14.webp"
+      ]
+    ]
+  },
   "/assets/images/work/film-water.jpg": {
     "width": 1280,
     "height": 720,
