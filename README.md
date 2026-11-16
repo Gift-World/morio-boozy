@@ -74,6 +74,12 @@ Each project in `src/content/work.ts` gets a story page at `/work/<slug>` with a
 
 ## Development Log
 
+### November 16, 2026 - New reports and identity, picture board, new hero film
+
+- **Changes**: Three projects added (Safaricom Foundation and M-PESA Foundation annual reports 2024/2025, Strategic Business & Leadership Awards 2025 identity). Project pages now show pictures as a board (rows of three, three, two) with a full-screen viewer, replacing the pinned scroll gallery. The home hero video is a 20-second cut of the Yellow Wings Charter film. "15K: The Odyssey of Unemployment" added to the films.
+- **Rationale**: Requested layout (as on Behance) so every picture is visible at once.
+- **Impact**: Home is about 1.15 MB on a phone including the 0.5 MB hero video (1.1 MB video on desktop), which loads after the page.
+
 ### November 15, 2026 - 3D flip-through magazine, serif headings, tidy-ups
 
 - **Changes**: A 3D magazine (`src/site/three/BookScene.ts`, `Flipbook.tsx`) on the Jubilee annual report and ACB Season 6 project pages, built from pages exported from the real PDFs (`public/assets/books/`); click, drag, buttons or arrow keys turn the pages, with a flat viewer for reduced-motion visitors. Headings now use Fraunces (serif, with an italic second line). The Idea / Design / Development percentage bars became three plain steps. Spelling and grammar fixes in the intro copy. The four CBCC campaign films were removed. The Our Work slider mixes images from every project.

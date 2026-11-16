@@ -132,93 +132,102 @@ export function WorkPage() {
   );
 }
 
-/**
- * Pinned gallery: each image takes the stage in turn as you scroll (the
- * stage stays fixed while the section scrolls past). One image = a single
- * large frame.
- */
-function PinnedGallery({ images }: { images: { src: string; alt: string }[] }) {
-  const wrap = useRef<HTMLDivElement>(null);
-  const [active, setActive] = useState(0);
-
+/** Full-screen viewer for the gallery: arrows, swipe, Escape. */
+function Viewer({ images, index, onChange, onClose }: { images: { src: string; alt: string }[]; index: number; onChange: (i: number) => void; onClose: () => void }) {
+  const touch = useRef<number | null>(null);
+  const n = images.length;
   useEffect(() => {
-    if (images.length < 2) return;
-    const onScroll = () => {
-      const el = wrap.current;
-      if (!el) return;
-      const r = el.getBoundingClientRect();
-      const total = r.height - window.innerHeight;
-      const p = Math.min(Math.max(-r.top / Math.max(total, 1), 0), 0.9999);
-      setActive(Math.floor(p * images.length));
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowRight") onChange((index + 1) % n);
+      if (e.key === "ArrowLeft") onChange((index - 1 + n) % n);
     };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [images.length]);
-
-  if (images.length < 2) {
-    return (
-      <div className="container-site">
-        <div className="relative aspect-[16/10] overflow-hidden rounded-3xl">
-          <Photo
-            src={images[0].src}
-            alt={images[0].alt}
-            sizes="100vw"
-            className="absolute inset-0 size-full object-cover"
-          />
-        </div>
-      </div>
-    );
-  }
-
+    document.addEventListener("keydown", onKey);
+    document.documentElement.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.documentElement.style.overflow = "";
+    };
+  }, [index, n, onChange, onClose]);
+  const im = images[index];
+  const btn = "grid size-12 shrink-0 place-items-center rounded-full border border-line text-bone transition hover:border-bone";
   return (
     <div
-      ref={wrap}
-      style={{ height: `${images.length * 90}svh` }}
-      className="relative"
+      role="dialog"
+      aria-modal="true"
+      aria-label={im.alt}
+      data-lenis-prevent
+      className="theme-dark fixed inset-0 z-[70] flex flex-col bg-ink/95 p-4 backdrop-blur-md sm:p-6"
+      onClick={onClose}
+      onTouchStart={(e) => (touch.current = e.touches[0].clientX)}
+      onTouchEnd={(e) => {
+        if (touch.current === null) return;
+        const dx = e.changedTouches[0].clientX - touch.current;
+        touch.current = null;
+        if (Math.abs(dx) > 40) onChange((index + (dx < 0 ? 1 : -1) + n) % n);
+      }}
     >
-      <div className="sticky top-0 flex h-svh items-center">
-        <div className="container-site w-full">
-          <div className="relative h-[74svh] overflow-hidden rounded-3xl bg-ink-2 md:rounded-[2.5rem]">
-            {images.map(
-              (im, i) =>
-                // only the frames around the current one are mounted, so the gallery loads as you scroll
-                Math.abs(i - active) <= 1 && (
-                  <Photo
-                    key={im.src}
-                    src={im.src}
-                    alt={im.alt}
-                    sizes="100vw"
-                    className={`absolute inset-0 size-full object-contain p-3 transition duration-[900ms] ease-[var(--ease-out-expo)] md:p-8 ${i === active ? "scale-100 opacity-100" : i < active ? "scale-95 opacity-0" : "scale-110 opacity-0"}`}
-                  />
-                ),
-            )}
-            <p
-              aria-hidden={active === images.length - 1}
-              className={`absolute top-4 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full border border-line bg-ink/85 px-4 py-2 text-sm font-medium whitespace-nowrap text-bone backdrop-blur transition-opacity duration-500 md:top-6 ${active === images.length - 1 ? "opacity-0" : "opacity-100"}`}
-            >
-              Scroll down to view more
-              <Icon name="arrow" className="rotate-90 animate-bounce text-xs" />
-            </p>
-            <div className="absolute inset-x-4 bottom-4 flex items-center justify-between rounded-full border border-line bg-ink/85 px-5 py-2.5 backdrop-blur md:inset-x-auto md:right-6 md:bottom-6 md:gap-6">
-              <p className="text-base font-medium text-bone tabular-nums">
-                {String(active + 1).padStart(2, "0")}{" "}
-                <span className="text-sage">
-                  / {String(images.length).padStart(2, "0")}
-                </span>
-              </p>
-              <div className="flex gap-1.5">
-                {images.map((im, i) => (
-                  <span
-                    key={im.src}
-                    className={`h-1 rounded-full transition-all duration-500 ${i === active ? "w-8 bg-bone" : "w-3 bg-bone/25"}`}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="flex items-center justify-between gap-4 pb-3">
+        <p className="text-sm font-medium text-bone tabular-nums">
+          {String(index + 1).padStart(2, "0")} <span className="text-sage">/ {String(n).padStart(2, "0")}</span>
+        </p>
+        <button type="button" autoFocus onClick={onClose} aria-label="Close" className={btn}>
+          <Icon name="close" />
+        </button>
       </div>
+      <div className="flex min-h-0 flex-1 items-center gap-3" onClick={(e) => e.stopPropagation()}>
+        <button type="button" onClick={() => onChange((index - 1 + n) % n)} aria-label="Previous picture" className={`${btn} hidden sm:grid`}>
+          <Icon name="arrow" className="rotate-180" />
+        </button>
+        <div className="relative h-full min-w-0 flex-1" onClick={onClose}>
+          <Photo key={im.src} src={im.src} alt={im.alt} sizes="100vw" className="absolute inset-0 size-full animate-rise object-contain" />
+        </div>
+        <button type="button" onClick={() => onChange((index + 1) % n)} aria-label="Next picture" className={`${btn} hidden sm:grid`}>
+          <Icon name="arrow" />
+        </button>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * The project's pictures laid out as a board: rows of three, three, then two
+ * larger ones, repeating (single column on phones). Any picture opens the
+ * full-screen viewer.
+ */
+function GalleryBoard({ images }: { images: { src: string; alt: string }[] }) {
+  const [open, setOpen] = useState<number | null>(null);
+  // row sizes: 3, 3, 2, 3, 3, 2 … with the last row stretched to fill
+  const rows: number[] = [];
+  for (let left = images.length, k = 0; left > 0; k++) {
+    const want = k % 3 === 2 ? 2 : 3;
+    const take = left - want === 1 ? want + 1 : Math.min(want, left);
+    rows.push(take);
+    left -= take;
+  }
+  const spans: string[] = [];
+  rows.forEach((count) => {
+    const cls = count === 1 ? "lg:col-span-12" : count === 2 ? "lg:col-span-6" : count === 4 ? "lg:col-span-3" : "lg:col-span-4";
+    for (let i = 0; i < count; i++) spans.push(cls);
+  });
+  return (
+    <div className="container-site">
+      <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:gap-4 lg:grid-cols-12">
+        {images.map((im, i) => (
+          <Reveal as="li" key={im.src} delay={(i % 3) * 70} className={`${spans[i]} ${images.length % 2 === 1 && i === images.length - 1 ? "sm:max-lg:col-span-2" : ""}`}>
+            <button type="button" onClick={() => setOpen(i)} data-cursor="View" aria-label={`Open picture ${i + 1}: ${im.alt}`} className="group relative block aspect-[3/2] w-full overflow-hidden rounded-2xl bg-ink-3 md:rounded-3xl">
+              <Photo
+                src={im.src}
+                alt={im.alt}
+                sizes={spans[i] === "lg:col-span-4" ? "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" : spans[i] === "lg:col-span-3" ? "(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" : "(min-width: 1024px) 50vw, 100vw"}
+                priority={i < 2}
+                className="absolute inset-0 size-full object-cover transition duration-[1.2s] ease-[var(--ease-out-expo)] group-hover:scale-[1.04]"
+              />
+            </button>
+          </Reveal>
+        ))}
+      </ul>
+      {open !== null && <Viewer images={images} index={open} onChange={setOpen} onClose={() => setOpen(null)} />}
     </div>
   );
 }
@@ -308,7 +317,7 @@ export function ProjectPage() {
       )}
 
       <section className={story.length ? "pb-20 md:pb-28" : "py-20 md:py-28"}>
-        <PinnedGallery images={p.images} />
+        <GalleryBoard images={p.images} />
       </section>
 
       <Link

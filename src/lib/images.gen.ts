@@ -827,59 +827,59 @@ export const images: Record<string, ImageInfo> = {
   },
   "/assets/images/slider/hero-poster-720.webp": {
     "width": 720,
-    "height": 406,
+    "height": 544,
     "alpha": false,
     "variants": [
       [
         160,
-        "/assets/images/opt/hero-poster-720-160.ba5cee48.webp"
+        "/assets/images/opt/hero-poster-720-160.aac332bf.webp"
       ],
       [
         320,
-        "/assets/images/opt/hero-poster-720-320.ba5cee48.webp"
+        "/assets/images/opt/hero-poster-720-320.aac332bf.webp"
       ],
       [
         480,
-        "/assets/images/opt/hero-poster-720-480.ba5cee48.webp"
+        "/assets/images/opt/hero-poster-720-480.aac332bf.webp"
       ],
       [
         640,
-        "/assets/images/opt/hero-poster-720-640.ba5cee48.webp"
+        "/assets/images/opt/hero-poster-720-640.aac332bf.webp"
       ],
       [
         720,
-        "/assets/images/opt/hero-poster-720-720.ba5cee48.webp"
+        "/assets/images/opt/hero-poster-720-720.aac332bf.webp"
       ]
     ]
   },
   "/assets/images/slider/hero-poster.webp": {
     "width": 1280,
-    "height": 720,
+    "height": 544,
     "alpha": false,
     "variants": [
       [
         160,
-        "/assets/images/opt/hero-poster-160.bf8192a4.webp"
+        "/assets/images/opt/hero-poster-160.256c44d1.webp"
       ],
       [
         320,
-        "/assets/images/opt/hero-poster-320.bf8192a4.webp"
+        "/assets/images/opt/hero-poster-320.256c44d1.webp"
       ],
       [
         480,
-        "/assets/images/opt/hero-poster-480.bf8192a4.webp"
+        "/assets/images/opt/hero-poster-480.256c44d1.webp"
       ],
       [
         640,
-        "/assets/images/opt/hero-poster-640.bf8192a4.webp"
+        "/assets/images/opt/hero-poster-640.256c44d1.webp"
       ],
       [
         960,
-        "/assets/images/opt/hero-poster-960.bf8192a4.webp"
+        "/assets/images/opt/hero-poster-960.256c44d1.webp"
       ],
       [
         1280,
-        "/assets/images/opt/hero-poster-1280.bf8192a4.webp"
+        "/assets/images/opt/hero-poster-1280.256c44d1.webp"
       ]
     ]
   },
@@ -1951,6 +1951,37 @@ export const images: Record<string, ImageInfo> = {
       [
         1333,
         "/assets/images/opt/coast-9-1333.5d604b14.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/film-odyssey.jpg": {
+    "width": 1280,
+    "height": 878,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/film-odyssey-160.027495b7.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/film-odyssey-320.027495b7.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/film-odyssey-480.027495b7.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/film-odyssey-640.027495b7.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/film-odyssey-960.027495b7.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/film-odyssey-1280.027495b7.webp"
       ]
     ]
   },
@@ -3139,6 +3170,474 @@ export const images: Record<string, ImageInfo> = {
       ]
     ]
   },
+  "/assets/images/work/mpesa-1.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/mpesa-1-160.90668d7f.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/mpesa-1-320.90668d7f.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/mpesa-1-480.90668d7f.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/mpesa-1-640.90668d7f.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/mpesa-1-960.90668d7f.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/mpesa-1-1280.90668d7f.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/mpesa-1-1920.90668d7f.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/mpesa-1-2000.90668d7f.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/mpesa-10.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/mpesa-10-160.6009f5ff.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/mpesa-10-320.6009f5ff.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/mpesa-10-480.6009f5ff.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/mpesa-10-640.6009f5ff.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/mpesa-10-960.6009f5ff.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/mpesa-10-1280.6009f5ff.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/mpesa-10-1920.6009f5ff.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/mpesa-10-2000.6009f5ff.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/mpesa-11.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/mpesa-11-160.7743fdaf.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/mpesa-11-320.7743fdaf.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/mpesa-11-480.7743fdaf.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/mpesa-11-640.7743fdaf.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/mpesa-11-960.7743fdaf.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/mpesa-11-1280.7743fdaf.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/mpesa-11-1920.7743fdaf.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/mpesa-11-2000.7743fdaf.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/mpesa-12.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/mpesa-12-160.f8957cec.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/mpesa-12-320.f8957cec.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/mpesa-12-480.f8957cec.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/mpesa-12-640.f8957cec.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/mpesa-12-960.f8957cec.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/mpesa-12-1280.f8957cec.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/mpesa-12-1920.f8957cec.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/mpesa-12-2000.f8957cec.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/mpesa-2.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/mpesa-2-160.04167aa5.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/mpesa-2-320.04167aa5.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/mpesa-2-480.04167aa5.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/mpesa-2-640.04167aa5.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/mpesa-2-960.04167aa5.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/mpesa-2-1280.04167aa5.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/mpesa-2-1920.04167aa5.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/mpesa-2-2000.04167aa5.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/mpesa-3.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/mpesa-3-160.31bf8aed.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/mpesa-3-320.31bf8aed.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/mpesa-3-480.31bf8aed.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/mpesa-3-640.31bf8aed.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/mpesa-3-960.31bf8aed.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/mpesa-3-1280.31bf8aed.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/mpesa-3-1920.31bf8aed.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/mpesa-3-2000.31bf8aed.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/mpesa-4.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/mpesa-4-160.9da5edab.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/mpesa-4-320.9da5edab.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/mpesa-4-480.9da5edab.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/mpesa-4-640.9da5edab.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/mpesa-4-960.9da5edab.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/mpesa-4-1280.9da5edab.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/mpesa-4-1920.9da5edab.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/mpesa-4-2000.9da5edab.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/mpesa-5.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/mpesa-5-160.8e5f2350.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/mpesa-5-320.8e5f2350.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/mpesa-5-480.8e5f2350.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/mpesa-5-640.8e5f2350.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/mpesa-5-960.8e5f2350.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/mpesa-5-1280.8e5f2350.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/mpesa-5-1920.8e5f2350.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/mpesa-5-2000.8e5f2350.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/mpesa-6.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/mpesa-6-160.c20dc4a3.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/mpesa-6-320.c20dc4a3.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/mpesa-6-480.c20dc4a3.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/mpesa-6-640.c20dc4a3.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/mpesa-6-960.c20dc4a3.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/mpesa-6-1280.c20dc4a3.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/mpesa-6-1920.c20dc4a3.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/mpesa-6-2000.c20dc4a3.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/mpesa-7.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/mpesa-7-160.2d7f78a7.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/mpesa-7-320.2d7f78a7.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/mpesa-7-480.2d7f78a7.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/mpesa-7-640.2d7f78a7.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/mpesa-7-960.2d7f78a7.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/mpesa-7-1280.2d7f78a7.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/mpesa-7-1920.2d7f78a7.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/mpesa-7-2000.2d7f78a7.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/mpesa-8.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/mpesa-8-160.c1a59656.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/mpesa-8-320.c1a59656.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/mpesa-8-480.c1a59656.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/mpesa-8-640.c1a59656.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/mpesa-8-960.c1a59656.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/mpesa-8-1280.c1a59656.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/mpesa-8-1920.c1a59656.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/mpesa-8-2000.c1a59656.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/mpesa-9.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/mpesa-9-160.38b769a0.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/mpesa-9-320.38b769a0.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/mpesa-9-480.38b769a0.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/mpesa-9-640.38b769a0.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/mpesa-9-960.38b769a0.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/mpesa-9-1280.38b769a0.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/mpesa-9-1920.38b769a0.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/mpesa-9-2000.38b769a0.webp"
+      ]
+    ]
+  },
   "/assets/images/work/saf-1.jpg": {
     "width": 2000,
     "height": 1333,
@@ -3487,6 +3986,930 @@ export const images: Record<string, ImageInfo> = {
       [
         2000,
         "/assets/images/opt/saf-9-2000.7c0e4921.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/safrep-1.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/safrep-1-160.2df62e8c.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/safrep-1-320.2df62e8c.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/safrep-1-480.2df62e8c.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/safrep-1-640.2df62e8c.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/safrep-1-960.2df62e8c.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/safrep-1-1280.2df62e8c.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/safrep-1-1920.2df62e8c.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/safrep-1-2000.2df62e8c.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/safrep-10.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/safrep-10-160.7923b2b4.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/safrep-10-320.7923b2b4.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/safrep-10-480.7923b2b4.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/safrep-10-640.7923b2b4.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/safrep-10-960.7923b2b4.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/safrep-10-1280.7923b2b4.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/safrep-10-1920.7923b2b4.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/safrep-10-2000.7923b2b4.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/safrep-11.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/safrep-11-160.7eb6acb5.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/safrep-11-320.7eb6acb5.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/safrep-11-480.7eb6acb5.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/safrep-11-640.7eb6acb5.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/safrep-11-960.7eb6acb5.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/safrep-11-1280.7eb6acb5.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/safrep-11-1920.7eb6acb5.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/safrep-11-2000.7eb6acb5.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/safrep-12.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/safrep-12-160.b5dda2eb.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/safrep-12-320.b5dda2eb.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/safrep-12-480.b5dda2eb.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/safrep-12-640.b5dda2eb.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/safrep-12-960.b5dda2eb.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/safrep-12-1280.b5dda2eb.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/safrep-12-1920.b5dda2eb.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/safrep-12-2000.b5dda2eb.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/safrep-13.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/safrep-13-160.3b1495ab.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/safrep-13-320.3b1495ab.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/safrep-13-480.3b1495ab.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/safrep-13-640.3b1495ab.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/safrep-13-960.3b1495ab.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/safrep-13-1280.3b1495ab.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/safrep-13-1920.3b1495ab.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/safrep-13-2000.3b1495ab.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/safrep-14.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/safrep-14-160.e230d8cf.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/safrep-14-320.e230d8cf.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/safrep-14-480.e230d8cf.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/safrep-14-640.e230d8cf.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/safrep-14-960.e230d8cf.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/safrep-14-1280.e230d8cf.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/safrep-14-1920.e230d8cf.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/safrep-14-2000.e230d8cf.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/safrep-2.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/safrep-2-160.4db43d17.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/safrep-2-320.4db43d17.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/safrep-2-480.4db43d17.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/safrep-2-640.4db43d17.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/safrep-2-960.4db43d17.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/safrep-2-1280.4db43d17.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/safrep-2-1920.4db43d17.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/safrep-2-2000.4db43d17.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/safrep-3.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/safrep-3-160.918dce98.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/safrep-3-320.918dce98.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/safrep-3-480.918dce98.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/safrep-3-640.918dce98.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/safrep-3-960.918dce98.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/safrep-3-1280.918dce98.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/safrep-3-1920.918dce98.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/safrep-3-2000.918dce98.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/safrep-4.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/safrep-4-160.97cf4066.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/safrep-4-320.97cf4066.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/safrep-4-480.97cf4066.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/safrep-4-640.97cf4066.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/safrep-4-960.97cf4066.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/safrep-4-1280.97cf4066.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/safrep-4-1920.97cf4066.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/safrep-4-2000.97cf4066.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/safrep-5.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/safrep-5-160.e7f654ce.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/safrep-5-320.e7f654ce.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/safrep-5-480.e7f654ce.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/safrep-5-640.e7f654ce.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/safrep-5-960.e7f654ce.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/safrep-5-1280.e7f654ce.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/safrep-5-1920.e7f654ce.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/safrep-5-2000.e7f654ce.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/safrep-6.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/safrep-6-160.658c8096.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/safrep-6-320.658c8096.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/safrep-6-480.658c8096.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/safrep-6-640.658c8096.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/safrep-6-960.658c8096.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/safrep-6-1280.658c8096.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/safrep-6-1920.658c8096.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/safrep-6-2000.658c8096.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/safrep-7.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/safrep-7-160.1194010d.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/safrep-7-320.1194010d.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/safrep-7-480.1194010d.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/safrep-7-640.1194010d.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/safrep-7-960.1194010d.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/safrep-7-1280.1194010d.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/safrep-7-1920.1194010d.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/safrep-7-2000.1194010d.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/safrep-8.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/safrep-8-160.c39aa578.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/safrep-8-320.c39aa578.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/safrep-8-480.c39aa578.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/safrep-8-640.c39aa578.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/safrep-8-960.c39aa578.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/safrep-8-1280.c39aa578.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/safrep-8-1920.c39aa578.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/safrep-8-2000.c39aa578.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/safrep-9.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/safrep-9-160.64258ed4.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/safrep-9-320.64258ed4.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/safrep-9-480.64258ed4.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/safrep-9-640.64258ed4.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/safrep-9-960.64258ed4.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/safrep-9-1280.64258ed4.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/safrep-9-1920.64258ed4.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/safrep-9-2000.64258ed4.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/sbla-1.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/sbla-1-160.de971c42.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/sbla-1-320.de971c42.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/sbla-1-480.de971c42.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/sbla-1-640.de971c42.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/sbla-1-960.de971c42.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/sbla-1-1280.de971c42.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/sbla-1-1920.de971c42.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/sbla-1-2000.de971c42.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/sbla-10.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/sbla-10-160.94af7a70.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/sbla-10-320.94af7a70.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/sbla-10-480.94af7a70.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/sbla-10-640.94af7a70.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/sbla-10-960.94af7a70.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/sbla-10-1280.94af7a70.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/sbla-10-1920.94af7a70.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/sbla-10-2000.94af7a70.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/sbla-2.jpg": {
+    "width": 1920,
+    "height": 1080,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/sbla-2-160.bb0c555e.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/sbla-2-320.bb0c555e.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/sbla-2-480.bb0c555e.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/sbla-2-640.bb0c555e.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/sbla-2-960.bb0c555e.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/sbla-2-1280.bb0c555e.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/sbla-2-1920.bb0c555e.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/sbla-3.jpg": {
+    "width": 2000,
+    "height": 1500,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/sbla-3-160.ebb9bc7f.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/sbla-3-320.ebb9bc7f.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/sbla-3-480.ebb9bc7f.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/sbla-3-640.ebb9bc7f.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/sbla-3-960.ebb9bc7f.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/sbla-3-1280.ebb9bc7f.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/sbla-3-1920.ebb9bc7f.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/sbla-3-2000.ebb9bc7f.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/sbla-4.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/sbla-4-160.995dc178.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/sbla-4-320.995dc178.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/sbla-4-480.995dc178.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/sbla-4-640.995dc178.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/sbla-4-960.995dc178.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/sbla-4-1280.995dc178.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/sbla-4-1920.995dc178.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/sbla-4-2000.995dc178.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/sbla-5.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/sbla-5-160.b9b3e2b6.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/sbla-5-320.b9b3e2b6.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/sbla-5-480.b9b3e2b6.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/sbla-5-640.b9b3e2b6.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/sbla-5-960.b9b3e2b6.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/sbla-5-1280.b9b3e2b6.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/sbla-5-1920.b9b3e2b6.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/sbla-5-2000.b9b3e2b6.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/sbla-6.jpg": {
+    "width": 1500,
+    "height": 1125,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/sbla-6-160.fd4a88ee.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/sbla-6-320.fd4a88ee.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/sbla-6-480.fd4a88ee.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/sbla-6-640.fd4a88ee.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/sbla-6-960.fd4a88ee.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/sbla-6-1280.fd4a88ee.webp"
+      ],
+      [
+        1500,
+        "/assets/images/opt/sbla-6-1500.fd4a88ee.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/sbla-7.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/sbla-7-160.02a4eec2.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/sbla-7-320.02a4eec2.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/sbla-7-480.02a4eec2.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/sbla-7-640.02a4eec2.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/sbla-7-960.02a4eec2.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/sbla-7-1280.02a4eec2.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/sbla-7-1920.02a4eec2.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/sbla-7-2000.02a4eec2.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/sbla-8.jpg": {
+    "width": 1920,
+    "height": 1080,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/sbla-8-160.f322a7ad.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/sbla-8-320.f322a7ad.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/sbla-8-480.f322a7ad.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/sbla-8-640.f322a7ad.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/sbla-8-960.f322a7ad.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/sbla-8-1280.f322a7ad.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/sbla-8-1920.f322a7ad.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/sbla-9.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/sbla-9-160.d78d75c7.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/sbla-9-320.d78d75c7.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/sbla-9-480.d78d75c7.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/sbla-9-640.d78d75c7.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/sbla-9-960.d78d75c7.webp"
+      ],
+      [
+        1280,
+        "/assets/images/opt/sbla-9-1280.d78d75c7.webp"
+      ],
+      [
+        1920,
+        "/assets/images/opt/sbla-9-1920.d78d75c7.webp"
+      ],
+      [
+        2000,
+        "/assets/images/opt/sbla-9-2000.d78d75c7.webp"
       ]
     ]
   },
