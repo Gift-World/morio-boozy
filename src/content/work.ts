@@ -384,14 +384,13 @@ export const films: Film[] = [
 
 /**
  * AI video production: the studio's "Kito and Friends" animated series.
- * Two full episodes (played with sound in the viewer) and two short silent
+ * One full episode (played with sound in the viewer) and two short silent
  * loops that play in place. Files live in public/assets/video/kito/.
  * TODO(owner): confirm the episode names/order.
  */
 export const aiSeries = "Kito and Friends";
 export const aiEpisodes: Film[] = [
   { slug: "kito-episode-1", title: "Kito and Friends: Episode 1", poster: "/assets/images/work/kito-1.jpg", video: "/assets/video/kito/episode-1.mp4", length: "6:53" },
-  { slug: "kito-episode-2", title: "Kito and Friends: Episode 2", poster: "/assets/images/work/kito-2.jpg", video: "/assets/video/kito/episode-2.mp4", length: "4:34" },
 ];
 export const aiLoops = [
   { src: "/assets/video/kito/loop-1.mp4", poster: "/assets/images/work/kito-loop-1.jpg", alt: "An elephant in a red cap gently greeting a beetle under a baobab tree" },

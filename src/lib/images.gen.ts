@@ -3201,37 +3201,6 @@ export const images: Record<string, ImageInfo> = {
       ]
     ]
   },
-  "/assets/images/work/kito-2.jpg": {
-    "width": 1024,
-    "height": 576,
-    "alpha": false,
-    "variants": [
-      [
-        160,
-        "/assets/images/opt/kito-2-160.739fb52d.webp"
-      ],
-      [
-        320,
-        "/assets/images/opt/kito-2-320.739fb52d.webp"
-      ],
-      [
-        480,
-        "/assets/images/opt/kito-2-480.739fb52d.webp"
-      ],
-      [
-        640,
-        "/assets/images/opt/kito-2-640.739fb52d.webp"
-      ],
-      [
-        960,
-        "/assets/images/opt/kito-2-960.739fb52d.webp"
-      ],
-      [
-        1024,
-        "/assets/images/opt/kito-2-1024.739fb52d.webp"
-      ]
-    ]
-  },
   "/assets/images/work/kito-loop-1.jpg": {
     "width": 1024,
     "height": 576,

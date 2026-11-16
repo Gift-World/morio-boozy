@@ -149,12 +149,12 @@ function Loop({ src, poster, alt, className = "" }: { src: string; poster: strin
 
 /**
  * AI video production: a screening wall for the studio's AI-animated series.
- * The first episode leads, two living loops sit beside it, the second episode
- * follows; episodes open in the viewer with sound.
+ * The episode leads with two living loops beside it; it opens in the viewer
+ * with sound.
  */
 export function AiReel() {
   const [playing, setPlaying] = useState<Film | null>(null);
-  const [first, second] = aiEpisodes;
+  const [first] = aiEpisodes;
 
   const episode = (f: Film, big: boolean) => (
     <button type="button" onClick={() => setPlaying(f)} data-cursor="Play" aria-label={`Play ${f.title}`} className="group absolute inset-0 block overflow-hidden rounded-3xl bg-ink-3 text-left md:rounded-[2rem]">
@@ -191,9 +191,6 @@ export function AiReel() {
             </Reveal>
           ))}
         </div>
-        <Reveal delay={150} className="relative aspect-video min-w-0 sm:aspect-[21/9] lg:col-span-12 lg:aspect-[32/9]">
-          {episode(second, false)}
-        </Reveal>
       </div>
       {playing && <FilmLightbox film={playing} onClose={() => setPlaying(null)} />}
     </div>
