@@ -364,8 +364,12 @@ export interface Film {
   slug: string;
   title: string;
   poster: string;
-  /** player URL used in the lightbox iframe */
-  embed: string;
+  /** player URL used in the lightbox iframe (Vimeo / Drive) */
+  embed?: string;
+  /** or a video file hosted with the site, played with the browser's own player */
+  video?: string;
+  /** running time, shown on the card */
+  length?: string;
 }
 
 const drive = (id: string) => `https://drive.google.com/file/d/${id}/preview`;
@@ -376,4 +380,20 @@ export const films: Film[] = [
   { slug: "odyssey", title: "15K: The Odyssey of Unemployment", poster: "/assets/images/work/film-odyssey.jpg", embed: drive("1cJKDHzDiH3lkX4IWbMJUs7W1bz-tByML") },
   { slug: "water", title: "Water", poster: "/assets/images/work/film-water.jpg", embed: drive("1gAgMBsgC1zLZP-zgP1nZjhRR_yaoBLFS") },
   { slug: "yellow-wings", title: "Yellow Wings Charter", poster: "/assets/images/work/film-wings.jpg", embed: drive("1ElpU_XuXyZxmignQB9kkPHRpdPL7svcf") },
+];
+
+/**
+ * AI video production: the studio's "Kito and Friends" animated series.
+ * Two full episodes (played with sound in the viewer) and two short silent
+ * loops that play in place. Files live in public/assets/video/kito/.
+ * TODO(owner): confirm the episode names/order.
+ */
+export const aiSeries = "Kito and Friends";
+export const aiEpisodes: Film[] = [
+  { slug: "kito-episode-1", title: "Kito and Friends: Episode 1", poster: "/assets/images/work/kito-1.jpg", video: "/assets/video/kito/episode-1.mp4", length: "6:53" },
+  { slug: "kito-episode-2", title: "Kito and Friends: Episode 2", poster: "/assets/images/work/kito-2.jpg", video: "/assets/video/kito/episode-2.mp4", length: "4:34" },
+];
+export const aiLoops = [
+  { src: "/assets/video/kito/loop-1.mp4", poster: "/assets/images/work/kito-loop-1.jpg", alt: "An elephant in a red cap gently greeting a beetle under a baobab tree" },
+  { src: "/assets/video/kito/loop-2.mp4", poster: "/assets/images/work/kito-loop-2.jpg", alt: "Kito and her animal friends walking through the savannah" },
 ];

@@ -3170,6 +3170,130 @@ export const images: Record<string, ImageInfo> = {
       ]
     ]
   },
+  "/assets/images/work/kito-1.jpg": {
+    "width": 1024,
+    "height": 576,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/kito-1-160.1a96da24.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/kito-1-320.1a96da24.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/kito-1-480.1a96da24.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/kito-1-640.1a96da24.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/kito-1-960.1a96da24.webp"
+      ],
+      [
+        1024,
+        "/assets/images/opt/kito-1-1024.1a96da24.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/kito-2.jpg": {
+    "width": 1024,
+    "height": 576,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/kito-2-160.739fb52d.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/kito-2-320.739fb52d.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/kito-2-480.739fb52d.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/kito-2-640.739fb52d.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/kito-2-960.739fb52d.webp"
+      ],
+      [
+        1024,
+        "/assets/images/opt/kito-2-1024.739fb52d.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/kito-loop-1.jpg": {
+    "width": 1024,
+    "height": 576,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/kito-loop-1-160.45d31716.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/kito-loop-1-320.45d31716.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/kito-loop-1-480.45d31716.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/kito-loop-1-640.45d31716.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/kito-loop-1-960.45d31716.webp"
+      ],
+      [
+        1024,
+        "/assets/images/opt/kito-loop-1-1024.45d31716.webp"
+      ]
+    ]
+  },
+  "/assets/images/work/kito-loop-2.jpg": {
+    "width": 1024,
+    "height": 576,
+    "alpha": false,
+    "variants": [
+      [
+        160,
+        "/assets/images/opt/kito-loop-2-160.c3515eff.webp"
+      ],
+      [
+        320,
+        "/assets/images/opt/kito-loop-2-320.c3515eff.webp"
+      ],
+      [
+        480,
+        "/assets/images/opt/kito-loop-2-480.c3515eff.webp"
+      ],
+      [
+        640,
+        "/assets/images/opt/kito-loop-2-640.c3515eff.webp"
+      ],
+      [
+        960,
+        "/assets/images/opt/kito-loop-2-960.c3515eff.webp"
+      ],
+      [
+        1024,
+        "/assets/images/opt/kito-loop-2-1024.c3515eff.webp"
+      ]
+    ]
+  },
   "/assets/images/work/mpesa-1.jpg": {
     "width": 2000,
     "height": 1333,

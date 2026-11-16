@@ -6,7 +6,7 @@ import { Icon } from "../icons";
 import { Reveal } from "../Reveal";
 import { BriefTeaser, HomeCraftList, Morioisms, SectionHead, StudioLit, TeamGrid } from "../sections";
 import { useGrowOnScroll } from "../motion";
-import { FilmReel, ProjectWall } from "../showcase";
+import { AiReel, FilmReel, ProjectWall } from "../showcase";
 
 // The hero carries the intro's first sentence; the rest follows the work, unchanged.
 const cut = homeCopy.intro.indexOf(". ") + 1;
@@ -144,6 +144,13 @@ export function HomePage() {
       <section className="container-site py-20 md:py-28">
         <SectionHead title="Films and Documentaries" link={{ to: "/services/film", label: labels.ourCraft }} />
         <FilmReel />
+      </section>
+
+      {/* AI video production */}
+      <section className="mx-3 mb-20 rounded-3xl bg-ink-2 py-16 sm:mx-5 md:mb-28 md:rounded-[2.5rem] md:py-24">
+        <div className="container-site">
+          <AiReel />
+        </div>
       </section>
 
       {/* Our Craft */}

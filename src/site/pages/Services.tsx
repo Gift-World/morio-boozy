@@ -7,7 +7,7 @@ import { projects, projectsForCraft } from "../../content/work";
 import { Icon } from "../icons";
 import { Reveal } from "../Reveal";
 import { BriefTeaser, SectionHead } from "../sections";
-import { FilmReel, ProjectWall } from "../showcase";
+import { AiReel, FilmReel, ProjectWall } from "../showcase";
 
 /**
  * The six crafts as a strip of image panels. On desktop the panel under the
@@ -231,6 +231,12 @@ export function ServiceDetailPage() {
           ))}
         </nav>
       </section>
+
+      {s.slug === "animation" && (
+        <section className="container-site pt-16 md:pt-24">
+          <AiReel />
+        </section>
+      )}
 
       {s.slug === "film" && (
         <section className="container-site pt-16 md:pt-24">

@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Photo } from "../components/Photo";
-import { films, projectLabel, type Film, type Project } from "../content/work";
+import { aboutCopy } from "../content/site";
+import { aiEpisodes, aiLoops, aiSeries, films, projectLabel, type Film, type Project } from "../content/work";
 import { Icon } from "./icons";
 import { Reveal } from "./Reveal";
 
@@ -65,13 +66,17 @@ function FilmLightbox({ film, onClose }: { film: Film; onClose: () => void }) {
         </button>
       </div>
       <div className="flex min-h-0 flex-1 items-center justify-center" onClick={(e) => e.stopPropagation()}>
-        <iframe
-          src={film.embed}
-          title={film.title}
-          allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
-          allowFullScreen
-          className="aspect-video max-h-full w-full max-w-6xl rounded-2xl bg-black"
-        />
+        {film.video ? (
+          <video src={film.video} poster={film.poster} controls autoPlay playsInline className="aspect-video max-h-full w-full max-w-6xl rounded-2xl bg-black" />
+        ) : (
+          <iframe
+            src={film.embed}
+            title={film.title}
+            allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
+            allowFullScreen
+            className="aspect-video max-h-full w-full max-w-6xl rounded-2xl bg-black"
+          />
+        )}
       </div>
     </div>
   );
@@ -110,5 +115,87 @@ export function FilmReel() {
       </ul>
       {playing && <FilmLightbox film={playing} onClose={() => setPlaying(null)} />}
     </>
+  );
+}
+
+/** A short silent clip that plays only while it is on screen (and never for reduced-motion visitors). */
+function Loop({ src, poster, alt, className = "" }: { src: string; poster: string; alt: string; className?: string }) {
+  const ref = useRef<HTMLVideoElement>(null);
+  const [on, setOn] = useState(false);
+  useEffect(() => {
+    const v = ref.current;
+    if (!v || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const conn = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
+    if (conn?.saveData) return;
+    const io = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) {
+          if (!v.src) v.src = src;
+          void v.play().catch(() => {});
+        } else v.pause();
+      },
+      { rootMargin: "10% 0px" },
+    );
+    io.observe(v);
+    return () => io.disconnect();
+  }, [src]);
+  return (
+    <div className={`theme-dark relative overflow-hidden bg-ink-3 ${className}`}>
+      <Photo src={poster} alt={alt} sizes="(min-width: 1024px) 33vw, 50vw" className="absolute inset-0 size-full object-cover" />
+      <video ref={ref} muted loop playsInline preload="none" aria-hidden="true" onPlaying={() => setOn(true)} className={`absolute inset-0 size-full object-cover transition-opacity duration-700 ${on ? "opacity-100" : "opacity-0"}`} />
+    </div>
+  );
+}
+
+/**
+ * AI video production: a screening wall for the studio's AI-animated series.
+ * The first episode leads, two living loops sit beside it, the second episode
+ * follows; episodes open in the viewer with sound.
+ */
+export function AiReel() {
+  const [playing, setPlaying] = useState<Film | null>(null);
+  const [first, second] = aiEpisodes;
+
+  const episode = (f: Film, big: boolean) => (
+    <button type="button" onClick={() => setPlaying(f)} data-cursor="Play" aria-label={`Play ${f.title}`} className="group absolute inset-0 block overflow-hidden rounded-3xl bg-ink-3 text-left md:rounded-[2rem]">
+      <Photo src={f.poster} alt="" sizes={big ? "(min-width: 1024px) 66vw, 100vw" : "(min-width: 1024px) 33vw, 100vw"} className="absolute inset-0 size-full object-cover transition duration-[1.2s] ease-[var(--ease-out-expo)] group-hover:scale-[1.04]" />
+      <span className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent" />
+      <span className="absolute top-4 left-4 rounded-full bg-black/40 px-3 py-1 text-xs font-medium text-white backdrop-blur">{f.length}</span>
+      <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 md:p-7">
+        <span className={`display text-white ${big ? "text-2xl md:text-4xl" : "text-xl md:text-2xl"}`}>{f.title}</span>
+        <span className={`grid shrink-0 place-items-center rounded-full bg-white text-morio transition duration-500 group-hover:scale-110 ${big ? "size-14 md:size-20" : "size-12"}`}>
+          <svg viewBox="0 0 24 24" aria-hidden="true" className={big ? "size-5 md:size-7" : "size-4"} fill="currentColor">
+            <path d="M8 5.5v13l11-6.5z" />
+          </svg>
+        </span>
+      </span>
+    </button>
+  );
+
+  return (
+    <div>
+      <Reveal className="mb-10 grid gap-5 md:mb-14 md:grid-cols-12 md:items-end">
+        <div className="md:col-span-6">
+          <p className="eyebrow mb-4">{aiSeries}</p>
+          <h2 className="display text-display-md text-bone">AI video production</h2>
+        </div>
+        <p className="text-bone/75 md:col-span-5 md:col-start-8">{aboutCopy.delivery.slice(aboutCopy.delivery.indexOf("With new-age"))}</p>
+      </Reveal>
+
+      <div className="grid grid-cols-1 gap-3 md:gap-4 lg:grid-cols-12">
+        <Reveal className="relative aspect-video min-w-0 lg:col-span-8 lg:row-span-2 lg:aspect-auto">{episode(first, true)}</Reveal>
+        <div className="grid min-w-0 grid-cols-2 gap-3 md:gap-4 lg:col-span-4 lg:row-span-2 lg:grid-cols-1">
+          {aiLoops.map((l, i) => (
+            <Reveal key={l.src} delay={100 + i * 100} className="min-w-0">
+              <Loop {...l} className="aspect-video rounded-2xl md:rounded-3xl" />
+            </Reveal>
+          ))}
+        </div>
+        <Reveal delay={150} className="relative aspect-video min-w-0 sm:aspect-[21/9] lg:col-span-12 lg:aspect-[32/9]">
+          {episode(second, false)}
+        </Reveal>
+      </div>
+      {playing && <FilmLightbox film={playing} onClose={() => setPlaying(null)} />}
+    </div>
   );
 }

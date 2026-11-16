@@ -7,7 +7,7 @@ import { projectBySlug, projectLabel, projects, type Discipline } from "../../co
 import { Icon } from "../icons";
 import { Reveal } from "../Reveal";
 import { BriefTeaser } from "../sections";
-import { FilmReel, ProjectWall } from "../showcase";
+import { AiReel, FilmReel, ProjectWall } from "../showcase";
 import { Flipbook } from "../three/Flipbook";
 
 const DISCIPLINES: Discipline[] = ["Branding", "Publication design", "Photography", "Packaging", "Art direction"];
@@ -123,6 +123,12 @@ export function WorkPage() {
       <section className="container-site pb-20 md:pb-28">
         <h2 className="display mb-10 text-display-md text-bone md:mb-14">Films and Documentaries</h2>
         <FilmReel />
+      </section>
+
+      <section className="mx-3 mb-20 rounded-3xl bg-ink-2 py-16 sm:mx-5 md:mb-28 md:rounded-[2.5rem] md:py-24">
+        <div className="container-site">
+          <AiReel />
+        </div>
       </section>
 
       <section className="container-site pb-20 md:pb-28">

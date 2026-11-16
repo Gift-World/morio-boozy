@@ -74,6 +74,12 @@ Each project in `src/content/work.ts` gets a story page at `/work/<slug>` with a
 
 ## Development Log
 
+### November 16, 2026 - AI video production section (Kito and Friends)
+
+- **Changes**: A new "AI video production" section on the home page, Our Work and the Animation & AI-mation craft page: two full episodes of the studio's Kito and Friends series (played with sound in the viewer) and two short silent loops that play while on screen. Files are in `public/assets/video/kito/`; content is `aiEpisodes` / `aiLoops` in `src/content/work.ts`.
+- **Rationale**: Show the studio's AI animation work with moving pictures rather than describing it.
+- **Impact**: The loops are 0.14 and 0.29 MB and load only when scrolled to; the episodes (20 and 14 MB) are fetched only when someone presses play.
+
 ### November 16, 2026 - New reports and identity, picture board, new hero film
 
 - **Changes**: Three projects added (Safaricom Foundation and M-PESA Foundation annual reports 2024/2025, Strategic Business & Leadership Awards 2025 identity). Project pages now show pictures as a board (rows of three, three, two) with a full-screen viewer, replacing the pinned scroll gallery. The home hero video is a 20-second cut of the Yellow Wings Charter film. "15K: The Odyssey of Unemployment" added to the films.
