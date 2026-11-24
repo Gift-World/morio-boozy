@@ -142,7 +142,7 @@ export function Morioisms() {
     <section
       aria-roledescription="carousel"
       aria-label="Morio slang"
-      className="grain relative mx-3 overflow-hidden rounded-3xl bg-morio-deep py-24 sm:mx-5 md:rounded-[2.5rem] md:py-36"
+      className="grain relative mx-3 touch-pan-y overflow-hidden overscroll-x-contain rounded-3xl bg-morio-deep py-24 sm:mx-5 md:rounded-[2.5rem] md:py-36"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onTouchStart={(e) => (touch.current = e.touches[0].clientX)}

@@ -148,11 +148,15 @@ function Viewer({ images, index, onChange, onClose }: { images: { src: string; a
       if (e.key === "ArrowRight") onChange((index + 1) % n);
       if (e.key === "ArrowLeft") onChange((index - 1 + n) % n);
     };
+    const root = document.documentElement;
     document.addEventListener("keydown", onKey);
-    document.documentElement.style.overflow = "hidden";
+    root.style.overflow = "hidden";
+    // sideways swipes change the picture; stop the browser treating them as "go back"
+    root.style.overscrollBehaviorX = "none";
     return () => {
       document.removeEventListener("keydown", onKey);
-      document.documentElement.style.overflow = "";
+      root.style.overflow = "";
+      root.style.overscrollBehaviorX = "";
     };
   }, [index, n, onChange, onClose]);
   const im = images[index];
@@ -163,7 +167,7 @@ function Viewer({ images, index, onChange, onClose }: { images: { src: string; a
       aria-modal="true"
       aria-label={im.alt}
       data-lenis-prevent
-      className="theme-dark fixed inset-0 z-[70] flex flex-col bg-ink/95 p-4 backdrop-blur-md sm:p-6"
+      className="theme-dark fixed inset-0 z-[70] flex touch-pan-y touch-pinch-zoom flex-col overscroll-contain bg-ink/95 p-4 backdrop-blur-md sm:p-6"
       onClick={onClose}
       onTouchStart={(e) => (touch.current = e.touches[0].clientX)}
       onTouchEnd={(e) => {
