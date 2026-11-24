@@ -1,6 +1,9 @@
 import { heads } from "./heads";
 
-export const routeHead = (pathname: string) => heads[pathname] ?? heads["/404"];
+/** Netlify serves pages at "/about/"; the route table is keyed "/about". */
+const routeKey = (pathname: string) => (pathname.length > 1 ? pathname.replace(/\/+$/, "") : pathname);
+
+export const routeHead = (pathname: string) => heads[routeKey(pathname)] ?? heads["/404"];
 
 /**
  * Swap the managed <head> tags when navigating client-side so each route keeps

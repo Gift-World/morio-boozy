@@ -38,7 +38,7 @@ export function businessSchema() {
       name: "Creative services",
       itemListElement: services.map((s) => ({
         "@type": "Offer",
-        itemOffered: { "@type": "Service", name: s.title, url: `${site.url}/services/${s.slug}` },
+        itemOffered: { "@type": "Service", name: s.title, url: `${site.url}/services/${s.slug}/` },
       })),
     },
     founder: team.map((m) => ({ "@type": "Person", name: m.name, jobTitle: m.role, sameAs: [m.portfolio] })),
@@ -64,7 +64,7 @@ export function serviceSchema(s: Service) {
     name: s.title,
     serviceType: s.title,
     description: s.metaDescription,
-    url: `${site.url}/services/${s.slug}`,
+    url: `${site.url}/services/${s.slug}/`,
     provider: { "@id": ORG_ID },
     areaServed: { "@type": "City", name: "Nairobi" },
   };
@@ -78,7 +78,7 @@ export function breadcrumbSchema(items: { name: string; path: string }[]) {
       "@type": "ListItem",
       position: i + 1,
       name: it.name,
-      item: `${site.url}${it.path}`,
+      item: `${site.url}${it.path === "/" ? "/" : `${it.path}/`}`,
     })),
   };
 }
