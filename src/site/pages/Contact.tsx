@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { Photo } from "../../components/Photo";
-import { site } from "../../content/site";
+import { enquiryMailto, site } from "../../content/site";
 import { services } from "../../content/services";
 import { Icon } from "../icons";
 import { scrollToTarget } from "../motion";
@@ -133,8 +133,8 @@ function BriefForm({ message, service }: { message: string; service: string }) {
         {status === "error" && (
           <p role="alert" className="text-bone/80">
             That didn’t go through. Email us at{" "}
-            <a className="underline underline-offset-4" href={`mailto:${site.email}`}>
-              {site.email}
+            <a className="underline underline-offset-4" href={enquiryMailto()}>
+              {site.enquiries.to}
             </a>{" "}
             instead.
           </p>

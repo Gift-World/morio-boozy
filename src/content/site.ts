@@ -7,7 +7,7 @@ export const site = {
   url: "https://moriostudios.africa",
   founded: "2024",
   phone: { display: "+254 718 704 926", tel: "+254718704926" },
-  // TODO(owner): confirm this number is on WhatsApp (used for the chat button).
+  /** WhatsApp for enquiries: 0718 704 926 in international form (no + or leading 0). */
   whatsapp: "254718704926",
   email: "moriostudios@gmail.com",
   hours: { label: "Monday – Friday, 6 am to 8 pm EAT", schema: "Mo-Fr 06:00-20:00" },
@@ -18,6 +18,8 @@ export const site = {
   mapEmbed:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7908569907054!2d36.777850373500655!3d-1.3003299356385623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1b264fa4327b%3A0x4a4fd87e6260dbe!2sAdams%20Arcade!5e0!3m2!1sen!2ske!4v1776766655424!5m2!1sen!2ske",
   socials: [{ label: "Instagram", href: "https://www.instagram.com/moriostudios/" }],
+  /** Where project enquiries go ("Start a project" email and the contact form's fallback). */
+  enquiries: { to: "sydney@moriostudios.africa", cc: ["feysal@moriostudios.africa", "brian@moriostudios.africa"] },
   /** Studio emails, one per Morio (shown under "Talk to a Morio"). */
   teamEmails: ["feysal@moriostudios.africa", "sydney@moriostudios.africa", "brian@moriostudios.africa", "vincent@moriostudios.africa"],
 } as const;
@@ -85,3 +87,10 @@ export const aboutCopy = {
     "We deliver end-to-end creative output, from concept to final production — bringing brand and human stories to life through a fusion of talent, skill, and experience. With new-age thinking, our workflows integrate AI creative tools to accelerate conceptualization and visualization, giving us the edge to deliver high-quality creativity in record time.",
   closer: "Where vision meets innovation, Morio creates.",
 } as const;
+
+/** A mailto: link for a project enquiry: to Sydney, copying Feysal and Brian. */
+export function enquiryMailto(subject = "Project enquiry", body = "") {
+  const q = [`cc=${site.enquiries.cc.join(",")}`, `subject=${encodeURIComponent(subject)}`];
+  if (body) q.push(`body=${encodeURIComponent(body)}`);
+  return `mailto:${site.enquiries.to}?${q.join("&")}`;
+}

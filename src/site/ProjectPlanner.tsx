@@ -1,5 +1,5 @@
 import { useEffect, useId, useMemo, useState } from "react";
-import { site } from "../content/site";
+import { enquiryMailto, site } from "../content/site";
 import { serviceBySlug, services } from "../content/services";
 import { Icon } from "./icons";
 
@@ -45,7 +45,7 @@ export function ProjectPlanner({ onUseForm }: { onUseForm: (message: string, ser
   const ready = name.trim().length > 1 && (crafts.length > 0 || about.trim().length > 5);
   const whatsapp = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(message)}`;
   const subject = `Project enquiry${name.trim() ? ` from ${name.trim()}` : ""}`;
-  const email = `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+  const email = enquiryMailto(subject, message);
 
   const toggle = (slug: string) => setCrafts((cs) => (cs.includes(slug) ? cs.filter((c) => c !== slug) : [...cs, slug]));
   const chip = (on: boolean) =>

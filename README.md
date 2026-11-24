@@ -19,7 +19,7 @@ We specialize in five core disciplines designed to move people and shift mindset
 - **Motion**: CSS transitions + IntersectionObserver reveals (respects reduced motion); no animation libraries
 - **Rendering**: every route is prerendered to static HTML at build time (per-page title, meta, structured data, analytics), then hydrated
 - **Images**: `npm run images` builds responsive WebP variants; `<Photo>` serves them with srcset and lazy loading
-- **Hosting**: Netlify (`netlify.toml`: redirects for old URLs, cache headers, Netlify Forms for the brief form)
+- **Hosting**: Netlify project `morio-draft-1` (`netlify.toml`: redirects for old URLs, cache headers). The contact form uses Netlify Forms; form detection is on and new submissions email Sydney, Feysal and Brian (Netlify → Forms → Form submission notifications).
 
 ### Getting started
 
@@ -46,7 +46,7 @@ scripts/         prerender.mjs (build), optimize-images.mjs, serve.mjs (local Ne
 
 ### Start a project
 
-`src/site/ProjectPlanner.tsx` on the Hola page (`/contact#start-a-project`). Visitors pick crafts, add a line or two, a timeline and their name, and see the message being written. They send it on WhatsApp (`wa.me` with the text filled in), by email (`mailto:`) or into the Netlify form. Nothing is sent from the site, so it needs no server, no keys and no running costs. Craft pages link to it with that craft picked (`/contact?craft=film#start-a-project`).
+`src/site/ProjectPlanner.tsx` on the Hola page (`/contact#start-a-project`). Visitors pick crafts, add a line or two, a timeline and their name, and see the message being written. They send it on WhatsApp (`wa.me` with the text filled in), by email (`mailto:`) or into the Netlify form. Nothing is sent from the site, so it needs no server, no keys and no running costs. Emails go to sydney@moriostudios.africa with feysal@ and brian@ copied (`site.enquiries` in `src/content/site.ts`); WhatsApp goes to 0718 704 926. Craft pages link to it with that craft picked (`/contact?craft=film#start-a-project`).
 
 ### Home hero video and 3D logo
 
