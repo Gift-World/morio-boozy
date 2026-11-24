@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { Photo } from "../../components/Photo";
 import { site } from "../../content/site";
 import { services } from "../../content/services";
-import { BriefBuilder, briefToText, serviceTitleFor, type Brief } from "../BriefBuilder";
 import { Icon } from "../icons";
 import { scrollToTarget } from "../motion";
+import { ProjectPlanner } from "../ProjectPlanner";
 import { Reveal } from "../Reveal";
 
 const FORM_NAME = "project-brief";
@@ -149,8 +149,8 @@ export function ContactPage() {
   const [prefill, setPrefill] = useState({ id: 0, message: "", service: "" });
   const formRef = useRef<HTMLDivElement>(null);
 
-  const useBrief = (b: Brief) => {
-    setPrefill((p) => ({ id: p.id + 1, message: briefToText(b), service: serviceTitleFor(b) }));
+  const useForm = (message: string, service: string) => {
+    setPrefill((p) => ({ id: p.id + 1, message, service }));
     requestAnimationFrame(() => formRef.current && scrollToTarget(formRef.current, true));
   };
 
@@ -231,18 +231,15 @@ export function ContactPage() {
         </div>
       </section>
 
-      {/* AI brief builder */}
-      <section id="brief-builder" className="mx-3 mt-16 scroll-mt-24 rounded-3xl bg-ink-2 py-14 sm:mx-5 md:mt-24 md:rounded-[2.5rem] md:py-20">
+      {/* Start a project: compose a message and send it on WhatsApp or by email */}
+      <section id="start-a-project" className="mx-3 mt-16 scroll-mt-24 rounded-3xl bg-ink-2 py-14 sm:mx-5 md:mt-24 md:rounded-[2.5rem] md:py-20">
         <div className="container-site">
           <Reveal className="mb-10 max-w-3xl">
-            <p className="eyebrow mb-4">Brief Builder · AI</p>
-            <h2 className="display text-display-md text-bone">Got a rough idea? Shape it into a brief.</h2>
-            <p className="mt-4 text-bone/80 md:text-lg">
-              Write it the way you’d say it. Brief Builder drafts a clear creative brief, suggests the right Morio crafts and sparks three
-              directions. Edit it, then send it to us in one tap.
-            </p>
+            <p className="eyebrow mb-4">Start a project</p>
+            <h2 className="display text-display-md text-bone">Tell us what you’re making.</h2>
+            <p className="mt-4 text-bone/80 md:text-lg">Pick what you need, add a line or two, and send it straight to the studio on WhatsApp or by email.</p>
           </Reveal>
-          <BriefBuilder onUse={useBrief} />
+          <ProjectPlanner onUseForm={useForm} />
         </div>
       </section>
 

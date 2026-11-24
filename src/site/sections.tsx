@@ -195,17 +195,17 @@ export function StudioLit() {
   );
 }
 
-/** Small entry point to the AI brief builder on the Hola page. */
+/** Small entry point to "Start a project" on the Hola page. */
 export function BriefTeaser() {
   return (
     <Reveal className="theme-dark relative overflow-hidden rounded-3xl bg-gradient-to-br from-morio to-morio-deep p-8 md:rounded-[2.5rem] md:p-14">
       <div className="relative flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
         <div>
-          <p className="eyebrow mb-3 text-mist">Brief Builder · AI</p>
-          <p className="display max-w-2xl text-2xl text-bone md:text-4xl">Turn your idea into a brief for the Morios.</p>
+          <p className="eyebrow mb-3 text-mist">Start a project</p>
+          <p className="display max-w-2xl text-2xl text-bone md:text-4xl">Got a project in mind? Tell us in a minute.</p>
         </div>
-        <Link to="/contact#brief-builder" className="btn-primary shrink-0 self-start md:self-auto">
-          Brief Builder <Icon name="arrow" />
+        <Link to="/contact#start-a-project" className="btn-primary shrink-0 self-start md:self-auto">
+          Start a project <Icon name="arrow" />
         </Link>
       </div>
     </Reveal>

@@ -14,7 +14,7 @@ We specialize in five core disciplines designed to move people and shift mindset
 
 ## Technical Stack
 
-- **Core**: React 19, TypeScript, Vite 6, React Router, three.js (hero), Anthropic SDK (Brief Builder)
+- **Core**: React 19, TypeScript, Vite 6, React Router, three.js (3D logo and flip-through magazines)
 - **Styling**: Tailwind CSS v4 with Morio design tokens (`src/styles/app.css`): the logo green and white, sage and mist accents, Antonio + Jost (self-hosted)
 - **Motion**: CSS transitions + IntersectionObserver reveals (respects reduced motion); no animation libraries
 - **Rendering**: every route is prerendered to static HTML at build time (per-page title, meta, structured data, analytics), then hydrated
@@ -44,15 +44,9 @@ public/assets/   images, video, og-image.jpg (same URLs as before; generated var
 scripts/         prerender.mjs (build), optimize-images.mjs, serve.mjs (local Netlify-like server)
 ```
 
-### Brief Builder (AI)
+### Start a project
 
-`netlify/functions/brief.mts` serves `POST /api/brief`. It turns a visitor's rough idea (any language, Sheng welcome) into a structured brief with Claude (`claude-opus-5-5`, low effort, schema-validated output, server-side refusal fallback enabled). To switch it on:
-
-1. Create an API key at console.anthropic.com and set a monthly spend limit there.
-2. Netlify → Site configuration → Environment variables → add `ANTHROPIC_API_KEY`.
-3. Redeploy. Until then (and in local dev) the page runs in a clearly labelled preview mode.
-
-Each brief costs roughly one to two US cents. Inputs are capped at 1,500 characters, there's a honeypot, and each visitor is limited to 6 briefs an hour per function instance.
+`src/site/ProjectPlanner.tsx` on the Hola page (`/contact#start-a-project`). Visitors pick crafts, add a line or two, a timeline and their name, and see the message being written. They send it on WhatsApp (`wa.me` with the text filled in), by email (`mailto:`) or into the Netlify form. Nothing is sent from the site, so it needs no server, no keys and no running costs. Craft pages link to it with that craft picked (`/contact?craft=film#start-a-project`).
 
 ### Home hero video and 3D logo
 
@@ -73,6 +67,12 @@ Each project in `src/content/work.ts` gets a story page at `/work/<slug>` with a
 - After deploying, enable form notifications in Netlify → Forms → `project-brief`.
 
 ## Development Log
+
+### November 24, 2026 - "Start a project" replaces the AI Brief Builder
+
+- **Changes**: The AI Brief Builder (and its Netlify Function and Anthropic SDK dependency) is removed. In its place, "Start a project" lets visitors pick crafts, add details, a timeline and their name, see the message forming as a WhatsApp chat bubble, and send it on WhatsApp, by email or into the contact form. The header button, the end-of-page panel and the craft pages all lead to it.
+- **Rationale**: The AI version needed a paid API key; this works on any host for free and reaches the studio on WhatsApp, where enquiries are answered fastest.
+- **Impact**: No running costs, no server code. The contact form still uses Netlify Forms.
 
 ### November 16, 2026 - AI video production section (Kito and Friends)
 

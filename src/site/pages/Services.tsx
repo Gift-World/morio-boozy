@@ -205,8 +205,8 @@ export function ServiceDetailPage() {
               <Link to="/contact" className="btn-primary">
                 Hola <Icon name="arrow" />
               </Link>
-              <Link to="/contact#brief-builder" className="btn-ghost">
-                Brief Builder
+              <Link to={`/contact?craft=${s.slug}#start-a-project`} className="btn-ghost">
+                Start a project
               </Link>
             </div>
           </div>

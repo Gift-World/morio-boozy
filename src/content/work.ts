@@ -13,7 +13,7 @@ export interface Project {
   slug: string;
   title: string;
   discipline: Discipline;
-  /** Crafts this project relates to (service slugs), for Brief Builder and service pages */
+  /** Crafts this project relates to (service slugs), for related work on the service pages */
   crafts: string[];
   cover: string;
   coverAlt: string;

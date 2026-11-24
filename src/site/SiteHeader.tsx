@@ -7,7 +7,7 @@ import { scrollToTarget } from "./motion";
 /**
  * Floating pill navigation: one light capsule that sits above every page
  * (light or dark sections alike), with the logo, the five original links and
- * the "Start a brief" action.
+ * the "Start a project" action.
  */
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -92,18 +92,18 @@ export function SiteHeader() {
             <Icon name={dark ? "sun" : "moon"} />
           </button>
           <Link
-            to="/contact#brief-builder"
+            to="/contact#start-a-project"
             onClick={(e) => {
-              // already on Hola: just glide to the Brief Builder
+              // already on Hola: just glide to "Start a project"
               if (pathname !== "/contact") return;
               e.preventDefault();
               setOpen(false);
-              const el = document.getElementById("brief-builder");
+              const el = document.getElementById("start-a-project");
               if (el) scrollToTarget(el, true);
             }}
             className="inline-flex h-9 items-center gap-2 rounded-full bg-bone px-4 text-sm font-medium text-ink transition hover:bg-mist"
           >
-            Start a brief <Icon name="arrow" className="hidden sm:inline" />
+            Start a project <Icon name="arrow" className="hidden sm:inline" />
           </Link>
           <button
             type="button"
