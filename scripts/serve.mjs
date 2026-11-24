@@ -1,0 +1,47 @@
+// Serve dist/ the way Netlify does: pretty URLs (/about -> about/index.html),
+// the .html redirects from netlify.toml, and 404.html with a 404 status.
+// Usage: npm run serve  (after npm run build)
+import http from "node:http";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import zlib from "node:zlib";
+
+const dist = process.env.DIST
+  ? path.resolve(process.env.DIST)
+  : path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "dist");
+const port = Number(process.env.PORT || 4175);
+const TYPES = {
+  ".html": "text/html; charset=utf-8", ".js": "text/javascript", ".css": "text/css", ".svg": "image/svg+xml",
+  ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp", ".gif": "image/gif",
+  ".mp4": "video/mp4", ".woff": "font/woff", ".woff2": "font/woff2", ".ttf": "font/ttf", ".eot": "application/vnd.ms-fontobject",
+  ".xml": "application/xml", ".php": "text/plain", ".json": "application/json",
+};
+const REDIRECTS = { "/index.html": "/", "/service": "/services", "/service.html": "/services", "/about.html": "/about", "/team": "/about", "/team.html": "/about", "/contact.html": "/contact" };
+
+http
+  .createServer((req, res) => {
+    const url = new URL(req.url, "http://x");
+    const p = decodeURIComponent(url.pathname);
+    if (REDIRECTS[p]) {
+      res.writeHead(301, { Location: REDIRECTS[p] });
+      return res.end();
+    }
+    const candidates = [p, path.join(p, "index.html"), p + ".html"];
+    for (const c of candidates) {
+      const f = path.join(dist, c);
+      if (f.startsWith(dist) && fs.existsSync(f) && fs.statSync(f).isFile()) {
+        const type = TYPES[path.extname(f).toLowerCase()] || "application/octet-stream";
+        // compress text like Netlify's CDN does, so local page weights are realistic
+        if (/text|javascript|json|xml|svg/.test(type) && /gzip/.test(req.headers["accept-encoding"] || "")) {
+          res.writeHead(200, { "Content-Type": type, "Content-Encoding": "gzip" });
+          return fs.createReadStream(f).pipe(zlib.createGzip()).pipe(res);
+        }
+        res.writeHead(200, { "Content-Type": type });
+        return fs.createReadStream(f).pipe(res);
+      }
+    }
+    res.writeHead(404, { "Content-Type": TYPES[".html"] });
+    fs.createReadStream(path.join(dist, "404.html")).pipe(res);
+  })
+  .listen(port, () => console.log(`serving dist on http://localhost:${port}`));

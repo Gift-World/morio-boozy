@@ -14,12 +14,146 @@ We specialize in five core disciplines designed to move people and shift mindset
 
 ## Technical Stack
 
-- **Core**: HTML5, Vanilla CSS, Bootstrap
-- **Interactivity & Animation**: GSAP (GreenSock), ScrollTrigger, AOS (Animate On Scroll), TweenMax
-- **UI Components**: Revolution Slider, Owl Carousel, Nice Select, Lightcase
-- **Assets**: Custom Boozy iconography, optimized imagery
+- **Core**: React 19, TypeScript, Vite 6, React Router, three.js (3D logo and flip-through magazines)
+- **Styling**: Tailwind CSS v4 with Morio design tokens (`src/styles/app.css`): the logo green and white, sage and mist accents, Antonio + Jost (self-hosted)
+- **Motion**: CSS transitions + IntersectionObserver reveals (respects reduced motion); no animation libraries
+- **Rendering**: every route is prerendered to static HTML at build time (per-page title, meta, structured data, analytics), then hydrated
+- **Images**: `npm run images` builds responsive WebP variants; `<Photo>` serves them with srcset and lazy loading
+- **Hosting**: Netlify project `morio-draft-1` (`netlify.toml`: redirects for old URLs, cache headers). The contact form uses Netlify Forms; form detection is on and new submissions email Sydney, Feysal and Brian (Netlify → Forms → Form submission notifications).
+
+### Getting started
+
+```bash
+npm install
+npm run dev      # http://localhost:5175
+npm run build    # typecheck, build, prerender all routes into dist/
+npm run serve    # serve dist/ like Netlify (pretty URLs, real 404)
+```
+
+### Project layout
+
+```
+src/
+  content/       EDIT COPY HERE: site.ts (contact details), services.ts, team.ts, work.ts
+  site/          Layout, SiteHeader, SiteFooter, shared sections, Reveal, icons
+  site/pages/    Home, Services (+ /services/:slug), Work, About, Contact, NotFound
+  seo/           heads.ts (titles, descriptions, OG), schema.ts (JSON-LD), applyHead.ts
+  components/    Photo (responsive images)
+  styles/        app.css (Tailwind + tokens), fonts.css
+public/assets/   images, video, og-image.jpg (same URLs as before; generated variants in images/opt)
+scripts/         prerender.mjs (build), optimize-images.mjs, serve.mjs (local Netlify-like server)
+```
+
+### Start a project
+
+`src/site/ProjectPlanner.tsx` on the Hola page (`/contact#start-a-project`). Visitors pick crafts, add a line or two, a timeline and their name, and see the message being written. They send it on WhatsApp (`wa.me` with the text filled in), by email (`mailto:`) or into the Netlify form. Nothing is sent from the site, so it needs no server, no keys and no running costs. Emails go to sydney@moriostudios.africa with feysal@ and brian@ copied (`site.enquiries` in `src/content/site.ts`); WhatsApp goes to 0718 704 926. Craft pages link to it with that craft picked (`/contact?craft=film#start-a-project`).
+
+### Home hero video and 3D logo
+
+The home hero is the original studio video, re-encoded to `public/assets/images/slider/hero-720.mp4` / `hero-1280.mp4` with poster frames. It attaches after the page loads and is skipped for Data Saver, 2G and reduced-motion visitors.
+
+`src/site/three/HeroScene.tsx` extrudes the traced logo (`public/assets/brand/morio-logo.svg`) with plain three.js for the lit "Small agency, big ideas" section further down the home page. It loads only when that section comes near the screen on capable devices; everyone else sees the still renders `public/assets/images/lit-3d*.webp` (re-render them if the scene changes).
+
+### Project pages
+
+Each project in `src/content/work.ts` gets a story page at `/work/<slug>` with a pinned, scroll-driven gallery and a shared-image page transition from the grid. Project names are placeholders, so these pages are `noindex` until confirmed (`src/seo/heads.ts`).
+
+### Owner to-dos (search the code for `TODO(owner)`)
+
+- Confirm the studio address (the old site listed Kenyatta Avenue, a Ngong Road postal address and a map pin at Adams Arcade).
+- Confirm +254 718 704 926 is on WhatsApp (used by the chat buttons).
+- Turn work items into case studies: add client, year and a short summary in `src/content/work.ts`.
+- Add real client logos and testimonials when you have permission to show them.
+- After deploying, enable form notifications in Netlify → Forms → `project-brief`.
 
 ## Development Log
+
+### November 24, 2026 - "Start a project" replaces the AI Brief Builder
+
+- **Changes**: The AI Brief Builder (and its Netlify Function and Anthropic SDK dependency) is removed. In its place, "Start a project" lets visitors pick crafts, add details, a timeline and their name, see the message forming as a WhatsApp chat bubble, and send it on WhatsApp, by email or into the contact form. The header button, the end-of-page panel and the craft pages all lead to it.
+- **Rationale**: The AI version needed a paid API key; this works on any host for free and reaches the studio on WhatsApp, where enquiries are answered fastest.
+- **Impact**: No running costs, no server code. The contact form still uses Netlify Forms.
+
+### November 16, 2026 - AI video production section (Kito and Friends)
+
+- **Changes**: A new "AI video production" section on the home page, Our Work and the Animation & AI-mation craft page: two full episodes of the studio's Kito and Friends series (played with sound in the viewer) and two short silent loops that play while on screen. Files are in `public/assets/video/kito/`; content is `aiEpisodes` / `aiLoops` in `src/content/work.ts`.
+- **Rationale**: Show the studio's AI animation work with moving pictures rather than describing it.
+- **Impact**: The loops are 0.14 and 0.29 MB and load only when scrolled to; the episodes (20 and 14 MB) are fetched only when someone presses play.
+
+### November 16, 2026 - New reports and identity, picture board, new hero film
+
+- **Changes**: Three projects added (Safaricom Foundation and M-PESA Foundation annual reports 2024/2025, Strategic Business & Leadership Awards 2025 identity). Project pages now show pictures as a board (rows of three, three, two) with a full-screen viewer, replacing the pinned scroll gallery. The home hero video is a 20-second cut of the Yellow Wings Charter film. "15K: The Odyssey of Unemployment" added to the films.
+- **Rationale**: Requested layout (as on Behance) so every picture is visible at once.
+- **Impact**: Home is about 1.15 MB on a phone including the 0.5 MB hero video (1.1 MB video on desktop), which loads after the page.
+
+### November 15, 2026 - 3D flip-through magazine, serif headings, tidy-ups
+
+- **Changes**: A 3D magazine (`src/site/three/BookScene.ts`, `Flipbook.tsx`) on the Jubilee annual report and ACB Season 6 project pages, built from pages exported from the real PDFs (`public/assets/books/`); click, drag, buttons or arrow keys turn the pages, with a flat viewer for reduced-motion visitors. Headings now use Fraunces (serif, with an italic second line). The Idea / Design / Development percentage bars became three plain steps. Spelling and grammar fixes in the intro copy. The four CBCC campaign films were removed. The Our Work slider mixes images from every project.
+- **Rationale**: Publications are the studio's strongest client work, so they get the site's most memorable interaction.
+- **Impact**: The 3D book and its page images load only when it nears the screen (Jubilee project page about 1.1 MB in total). To add a book to another project, export 12 page images and set `book: bookPages("<name>")` in `src/content/work.ts`.
+
+### November 14, 2026 - Page layouts: Our Craft, The Morios, Hola, craft pages
+
+- **Changes**: Our Craft opens with an expanding strip of the six crafts; The Morios pairs the studio text with a compact "lights on" stage and shows the founders as cards; Hola leads with the title, the original banner images and four contact cards, with the form beside the map; each craft page has its text beside its image, a switcher between the six crafts, related work, and (on Films) the film player. The menu bar is solid over dark sections.
+- **Rationale**: These pages had only been re-coloured; their layouts now match the home and work pages.
+- **Impact**: No wording changed. Checked at nine widths (320 to 1920px) in light and at two in dark.
+
+### November 14, 2026 - Motion polish
+
+- **Changes**: Smooth, weighted scrolling on desktop (Lenis, loaded on demand; phones keep native scrolling). Headings rise into place the first time they are seen. A round "View" / "Play" label follows the pointer over projects and films. The home hero video widens into its frame as you scroll. All of it lives in `src/site/motion.tsx` and is switched off for visitors who ask for reduced motion.
+- **Rationale**: The consistent motion language that award-level studio sites share.
+- **Impact**: 6 KB extra (gzipped), loaded only on desktop. Page weights unchanged (home 1.06 MB, Our Work 0.72 MB).
+
+### November 14, 2026 - Calmer type, slim menu, light/dark toggle
+
+- **Changes**: Headings moved from condensed all-caps to sentence-case Jost on a smaller scale; two-part headings use a quiet second tone instead of outlined letters. The floating menu is slimmer. A sun/moon button in the menu switches between the light and dark looks; the choice is remembered (`localStorage: morio-theme`) and applied before first paint by a small script in `index.html`. Antonio is no longer loaded.
+- **Rationale**: Feedback that text and the menu were too big; a cleaner, more modern feel using only the brand green and white.
+- **Impact**: Checked at 320, 360, 390, 414, 430, 768, 1024, 1440 and 1920px in light, and 360 and 1440px in dark: no errors, nothing off-screen.
+
+### November 14, 2026 - Light, clean redesign with real client work and films
+
+- **Changes**: The site moved to a light theme (warm white page, logo-green type) with rounded sections, a floating pill menu and a masonry wall of work, inspired by cchora.com. Seven real projects were added from the supplied mockups and Drive folders (Jubilee Holdings annual report, TC3 Africa brand identity, Kounkuey @20 photography, Ukulima True, International Year of Millets, Twanga Kolera, Afya Nyumbani). A Films and Documentaries section plays seven films in a lightbox (one from Vimeo, six from the shared Drive folder). The Our Work filter now has both blanks ("We do ... for ...").
+- **Rationale**: Lead with real, named client work on a calm background so the work carries the colour.
+- **Impact**: Client project pages are now indexed (18 URLs in the sitemap). Pages stay light: Our Work 0.70 MB, home 1.07 MB including the hero video. Films depend on the Drive folder staying shared ("anyone with the link"); move them to Vimeo or YouTube for a more reliable player. Colour tokens are now roles (`ink` = surface, `bone` = foreground); `.theme-dark` and green sections flip them.
+
+### November 13, 2026 - Benchmark-led changes: work first, one-line hero, sentence filter, Start a brief
+
+- **Changes**: Home now shows Latest projects straight after the hero; the hero carries the headline and the intro's first sentence, with the rest of the original introduction (unchanged) right after the work. Our Work filters with a sentence ("We do [all kinds of work]"), with a second "for [everyone]" blank that appears once projects have an `industry`. Project cards read "Title for Client" once `client` is set. A "Start a brief" button in the header opens the Brief Builder from any page.
+- **Rationale**: Benchmark of Buck, Pentagram, ManvsMachine, Locomotive, Lusion, Malvah, Lebu Studio, Airbnb and Uber: the best studios lead with work and a single line, name their clients, and (like Uber and Airbnb) give one clear main action.
+- **Impact**: Morio's home page was already the fastest studio site measured (main content in about 2.4s on a 4G phone vs 4.5–12.5s for the others); every page except home stays under 1 MB. Home is now 1.09 MB on a phone because the project photos load earlier: about 0.49 MB of the site itself, plus the 0.43 MB hero video (which starts after the page has loaded) and 0.18 MB of Google Analytics.
+
+### November 13, 2026 - Original content and hero video restored, project stories, scroll moments
+
+- **Changes**: Home hero video restored, with the 3D logo moved to its own lit section. All page copy returned to the original wording (only broken hyphenation fixed); added copy removed. New footer built around "Talk to a Morio" with the four studio emails. Contact page uses the original "Contact Us" banner images and inquiry details. Added project story pages with page transitions and pinned galleries, a pinned craft story on Our Craft, founders who light up as you scroll on The Morios, and related work in Brief Builder results.
+- **Rationale**: Keep the studio's own words and video; change only the design and experience.
+- **Impact**: Every page is under 1 MB on first load on a phone (largest: Our Work 0.98 MB, home 0.89 MB including the video). Checked at 360, 390, 768, 1024, 1440 and 1920px with no console or hydration errors and no horizontal overflow.
+
+### November 13, 2026 - World-class pass: logo palette, original content, 3D hero, AI Brief Builder
+
+- **Changes**: Palette moved to the logo's deep green and white (no neon), with outlined display type from the original site. Original navigation names (Home, Our Craft, The Morios, Hola) and all original page copy restored. Every page got its own hero: a 3D extruded Morio logo lit by a pointer-following spotlight (home), an interactive craft index with cursor-following previews (Our Craft), outlined numbers with image wipes (service pages), a moving film strip (Our Work), a "lights on" beam that reveals the founders behind their spotlight silhouettes (The Morios), and rotating greetings with a live Nairobi clock and studio-open status (Hola). Added the AI Brief Builder, the "Speak Morio" phrasebook, a showreel section, a traced SVG logo, toned founder portraits and a new share image.
+- **Rationale**: Benchmarked against studio sites (Buck, Pentagram, ManvsMachine, Lusion) and product UX leaders (Uber, Airbnb): calm brand colour, big type, one strong interactive moment per page, effortless navigation, fast on any device.
+- **Impact**: On a mid-range phone over 4G every page first paints in about 2.1–2.9s with zero layout shift; the 3D scene (138 KB gzipped) loads only after first paint on capable devices. Checked at 390px and 1440px on every page with no console or hydration errors, no broken images and no horizontal overflow.
+
+### November 13, 2026 - Phases 2–4: Local SEO, content and full redesign
+
+- **Changes**:
+  - *Local and service SEO*: `ProfessionalService` structured data (address, phone, hours, founders, service catalogue), `WebSite`, `Service` and breadcrumb schemas; six landing pages at `/services/<slug>` targeting "<craft> in Nairobi"; 1200×630 share image and favicons; sitemap now covers 11 pages.
+  - *Content and trust*: template placeholders removed (stock "client" logos, Chanel/Canon project tiles, skill bars, the placeholder team page). New Work page built only from the studio's own images; founders' bios cleaned up; a Netlify Forms brief form, WhatsApp buttons, and all copy moved into `src/content/`.
+  - *Design*: new Tailwind design system (forest green with the spotlight green from the founders' portraits, Antonio/Jost), new header with full-screen mobile menu, video hero, crafts list, bento work grid, Morio-slang marquee, team grid, CTA band and footer. Removed the legacy theme CSS, jQuery-era widgets, custom cursor, random preloader, AOS and GSAP. Old URLs (`/service`, `/team`, `*.html`) 301-redirect.
+- **Rationale**: Turn a lightly edited purchased template into a site that reads as Morio's own and ranks for the services the studio sells in Nairobi.
+- **Impact** (mid-range phone, 4G): pages weigh 0.6–1 MB (home was 17.9 MB at parity); first paint about 1.2–2.4s (home was 14.4s); no layout shift. CSS 608 KB → 39 KB, JS 445 KB → 278 KB, runtime dependencies down to React and React Router. Every page checked at 1440px and 390px with no console or hydration errors, no broken images and no horizontal overflow.
+
+### November 13, 2026 - Phase 1: Speed, technical SEO and accessibility (no visual change)
+
+- **Changes**: Image pipeline (`npm run images`) that writes responsive WebP variants and a manifest; a `Photo` component with `srcset`/`sizes`, intrinsic width/height and lazy loading. Self-hosted Antonio/Jost variable fonts with preload instead of Google Fonts. Font Awesome replaced by inline SVG icons. Unused plugin stylesheets removed and unused selectors purged at build time (CSS 608 KB → 193 KB). Home hero reserves its height before JavaScript runs and shows a poster frame. Unique titles/descriptions, canonical URLs, Open Graph/Twitter cards, an H1 on every page, real alt text, `robots.txt` and `sitemap.xml` generated at build, `noindex` on 404 and the placeholder team page. Long-lived cache headers in `netlify.toml`. The 1:1 copy is tagged `parity-baseline`.
+- **Rationale**: The site downloaded up to 18 MB per page (4 MB team photos shown at 288px) and blocked rendering on 600 KB of mostly unused CSS.
+- **Impact** (mid-range phone, 4G): home page 17.9 MB → 1.3 MB, first paint 14.4s → 4.9s, largest paint 19.8s → 4.9s, layout shift 1.0 → 0. Services 5 MB → 1.2 MB, first paint 17.1s → 3.9s. Screenshots against `parity-baseline` at 4 widths on every page stay within 0.6% (image re-encoding only), with identical page heights.
+
+### November 13, 2026 - Migration to React + Vite + Tailwind + TypeScript (1:1 parity)
+
+- **Changes**: Rebuilt the static HTML/jQuery site as a React + TypeScript app on Vite with Tailwind CSS v4, on the `claude-revamp` branch. Page markup was converted mechanically from the original HTML so class names and structure are identical; the theme CSS is imported unchanged. jQuery and its plugins were replaced with React ports that render the same DOM: Owl Carousel (same widths, clones, dots, drag, autoplay timing), Slider Revolution hero (same responsive grid maths), preloader, sticky header, mobile menu, back-to-top, custom cursor, skill bars and banner slideshows. Routes match the live Netlify URLs, old `.html` URLs redirect, and each page is prerendered with its original `<head>`.
+- **Rationale**: Move to a modern, component-based stack before the visual revamp, without changing what visitors see.
+- **Impact**: Verified against moriostudios.africa with automated screenshots at 1440/1024/768/390px on every page (pixel-identical) and scripted interaction checks (carousels, menu, scrolling, cursor, anchors). Quirks of the original were kept on purpose for parity (e.g. the preloader's 0–5.9s duration, template meta tags on team/404); they are good first candidates for the revamp.
 
 ### April 8, 2026 - Content Refinement and Navigation Alignment
 
