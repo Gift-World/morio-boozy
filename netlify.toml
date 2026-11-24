@@ -13,33 +13,33 @@
 
 [[redirects]]
   from = "/service"
-  to = "/services"
+  to = "/services/"
   status = 301
 
 [[redirects]]
   from = "/service.html"
-  to = "/services"
+  to = "/services/"
   status = 301
 
 [[redirects]]
   from = "/about.html"
-  to = "/about"
+  to = "/about/"
   status = 301
 
 # The old team page was template content; the team now lives on /about.
 [[redirects]]
   from = "/team"
-  to = "/about"
+  to = "/about/"
   status = 301
 
 [[redirects]]
   from = "/team.html"
-  to = "/about"
+  to = "/about/"
   status = 301
 
 [[redirects]]
   from = "/contact.html"
-  to = "/contact"
+  to = "/contact/"
   status = 301
 
 # Hashed build output and generated image variants never change: cache for a year.

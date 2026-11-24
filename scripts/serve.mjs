@@ -17,7 +17,7 @@ const TYPES = {
   ".mp4": "video/mp4", ".woff": "font/woff", ".woff2": "font/woff2", ".ttf": "font/ttf", ".eot": "application/vnd.ms-fontobject",
   ".xml": "application/xml", ".php": "text/plain", ".json": "application/json",
 };
-const REDIRECTS = { "/index.html": "/", "/service": "/services", "/service.html": "/services", "/about.html": "/about", "/team": "/about", "/team.html": "/about", "/contact.html": "/contact" };
+const REDIRECTS = { "/index.html": "/", "/service": "/services/", "/service.html": "/services/", "/about.html": "/about/", "/team": "/about/", "/team.html": "/about/", "/contact.html": "/contact/" };
 
 http
   .createServer((req, res) => {
@@ -25,6 +25,11 @@ http
     const p = decodeURIComponent(url.pathname);
     if (REDIRECTS[p]) {
       res.writeHead(301, { Location: REDIRECTS[p] });
+      return res.end();
+    }
+    // like Netlify: a folder page without its trailing slash redirects to it ("/about" -> "/about/")
+    if (p !== "/" && !p.endsWith("/") && fs.existsSync(path.join(dist, p, "index.html"))) {
+      res.writeHead(301, { Location: p + "/" + url.search });
       return res.end();
     }
     const candidates = [p, path.join(p, "index.html"), p + ".html"];

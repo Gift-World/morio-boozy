@@ -92,7 +92,8 @@ export const pages: Record<string, PageSeo> = {
 const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
 
 function build(path: string, p: PageSeo): RouteHead {
-  const url = path === "/" ? `${SITE}/` : `${SITE}${path}`;
+  // the address Netlify serves the page at: "/about/" (pages are about/index.html)
+  const url = path === "/" ? `${SITE}/` : `${SITE}${path}/`;
   const tags = [
     `<meta name="description" content="${esc(p.description)}">`,
     `<meta name="author" content="Morio Studios">`,
