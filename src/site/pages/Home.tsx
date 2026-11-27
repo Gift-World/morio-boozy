@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { Photo } from "../../components/Photo";
 import { homeCopy, labels, mantra } from "../../content/site";
 import { homeProjects } from "../../content/work";
 import { Icon } from "../icons";
@@ -13,58 +14,90 @@ const cut = homeCopy.intro.indexOf(". ") + 1;
 const introLead = homeCopy.intro.slice(0, cut);
 const introRest = homeCopy.intro.slice(cut).trim();
 
-const VIDEO = { desktop: "/assets/images/slider/hero-1280.mp4", mobile: "/assets/images/slider/hero-720.mp4" };
+/** The hero film: "Xceed Set Up: Behind the Scenes", played from Vimeo in background mode. */
+const HERO_FILM = { vimeo: "1131237701", poster: "/assets/images/work/film-xceed.jpg" };
+const VIMEO = "https://player.vimeo.com";
 
 /**
- * The original hero video. The poster frame paints immediately; the
- * (re-encoded, 0.4–1 MB) video is attached once the page has loaded, and
- * skipped for Data Saver, 2G and reduced-motion users.
+ * Home page hero film. The film's still frame paints immediately; once the
+ * page has loaded, the Vimeo player is added in background mode (muted, looping,
+ * no controls) and fades in only after it reports that it is actually playing.
+ * If it never plays (blocked, offline, Vimeo down), the still frame simply stays.
+ * Skipped for Data Saver, 2G and reduced-motion visitors.
  */
 function HeroVideo() {
-  const ref = useRef<HTMLVideoElement>(null);
+  const frame = useRef<HTMLIFrameElement>(null);
+  const [src, setSrc] = useState<string | null>(null);
   const [playing, setPlaying] = useState(false);
 
+  // attach the player after the page has loaded
   useEffect(() => {
-    const v = ref.current;
-    if (!v) return;
     const conn = (navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }).connection;
     if (conn?.saveData || /2g$/.test(conn?.effectiveType ?? "")) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const start = () => {
-      v.muted = true;
-      v.src = window.matchMedia("(max-width: 767px)").matches ? VIDEO.mobile : VIDEO.desktop;
-      void v.play().catch(() => {});
-    };
+    const start = () => setSrc(`${VIMEO}/video/${HERO_FILM.vimeo}?background=1&dnt=1`);
     if (document.readyState === "complete") start();
     else window.addEventListener("load", start, { once: true });
-    // pause when scrolled away
+    return () => window.removeEventListener("load", start);
+  }, []);
+
+  // talk to the player: show it once it plays, pause it when scrolled away
+  useEffect(() => {
+    const el = frame.current;
+    if (!src || !el) return;
+    // only talk to the player once it has said it is ready (before that the frame may not be Vimeo yet)
+    let ready = false;
+    let onScreen = true;
+    const send = (method: string, value?: string) => {
+      if (ready) el.contentWindow?.postMessage(JSON.stringify(value ? { method, value } : { method }), VIMEO);
+    };
+    const onMessage = (e: MessageEvent) => {
+      if (e.origin !== VIMEO || e.source !== el.contentWindow) return;
+      let msg: { event?: string; data?: { seconds?: number } };
+      try {
+        msg = typeof e.data === "string" ? JSON.parse(e.data) : e.data;
+      } catch {
+        return;
+      }
+      if (msg.event === "ready") {
+        ready = true;
+        ["play", "timeupdate", "playProgress"].forEach((ev) => send("addEventListener", ev));
+        if (!onScreen) send("pause");
+      }
+      else if (msg.event === "play" || (msg.data?.seconds ?? 0) > 0) setPlaying(true);
+    };
+    window.addEventListener("message", onMessage);
+    // give up quietly if it hasn't started within 15 seconds
+    const timer = window.setTimeout(() => setPlaying((p) => (p ? p : (setSrc(null), false))), 15000);
     const io = new IntersectionObserver(([e]) => {
-      if (!v.src) return;
-      if (e.isIntersecting) void v.play().catch(() => {});
-      else v.pause();
+      onScreen = e.isIntersecting;
+      send(onScreen ? "play" : "pause");
     });
-    io.observe(v);
+    io.observe(el);
     return () => {
-      window.removeEventListener("load", start);
+      window.removeEventListener("message", onMessage);
+      window.clearTimeout(timer);
       io.disconnect();
     };
-  }, []);
+  }, [src]);
 
   return (
     <>
-      <picture>
-        <source media="(max-width: 767px)" srcSet="/assets/images/slider/hero-poster-720.webp" />
-        <img src="/assets/images/slider/hero-poster.webp" alt="" fetchPriority="high" decoding="async" className="absolute inset-0 size-full object-cover" />
-      </picture>
-      <video
-        ref={ref}
-        muted
-        loop
-        playsInline
-        preload="none"
-        onPlaying={() => setPlaying(true)}
-        className={`absolute inset-0 size-full object-cover transition-opacity duration-1000 ${playing ? "opacity-100" : "opacity-0"}`}
-      />
+      <Photo src={HERO_FILM.poster} alt="" sizes="(min-width: 1440px) 1344px, 100vw" priority className="absolute inset-0 size-full object-cover" />
+      {src && (
+        <div aria-hidden="true" className={`pointer-events-none absolute inset-0 overflow-hidden transition-opacity duration-1000 [container-type:size] ${playing ? "opacity-100" : "opacity-0"}`}>
+          {/* cover the frame like object-fit: cover (the film is 16:9) */}
+          <iframe
+            ref={frame}
+            src={src}
+            title="Xceed Set Up: Behind the Scenes"
+            tabIndex={-1}
+            allow="autoplay; fullscreen; picture-in-picture"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-0"
+            style={{ width: "max(100cqw, calc(100cqh * 16 / 9))", height: "max(100cqh, calc(100cqw * 9 / 16))" }}
+          />
+        </div>
+      )}
     </>
   );
 }

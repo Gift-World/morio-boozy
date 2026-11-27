@@ -50,7 +50,7 @@ scripts/         prerender.mjs (build), optimize-images.mjs, serve.mjs (local Ne
 
 ### Home hero video and 3D logo
 
-The home hero is the original studio video, re-encoded to `public/assets/images/slider/hero-720.mp4` / `hero-1280.mp4` with poster frames. It attaches after the page loads and is skipped for Data Saver, 2G and reduced-motion visitors.
+The home hero plays "Xceed Set Up: Behind the Scenes" from Vimeo (video `1131237701`) in background mode: muted, looping, no controls. The film's still frame (`public/assets/images/work/film-xceed.jpg`) paints first; the player is added after the page loads and fades in only once it reports that it is playing (Vimeo postMessage API), so if Vimeo is blocked or down the still frame simply stays. It pauses when scrolled away and is skipped for Data Saver, 2G and reduced-motion visitors. To change the film, edit `HERO_FILM` in `src/site/pages/Home.tsx`.
 
 `src/site/three/HeroScene.tsx` extrudes the traced logo (`public/assets/brand/morio-logo.svg`) with plain three.js for the lit "Small agency, big ideas" section further down the home page. It loads only when that section comes near the screen on capable devices; everyone else sees the still renders `public/assets/images/lit-3d*.webp` (re-render them if the scene changes).
 
